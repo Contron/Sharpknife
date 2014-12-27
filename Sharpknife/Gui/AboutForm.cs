@@ -57,7 +57,7 @@ namespace Sharpknife.Gui
 			}
 		}
 
-		#region Event Handler
+		#region Event Handlers
 
 		private void OKHandler(object sender, EventArgs eventArgs)
 		{
