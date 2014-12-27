@@ -1,5 +1,4 @@
-﻿using Sharpknife.Persistence;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,7 +24,6 @@ namespace Sharpknife.Utilities
 		{
 			//context
 			var header = ("Open " + title);
-			var manager = new LocalObjectManager<T>();
 
 			//browse
 			var dialog = new OpenFileDialog()
@@ -44,7 +42,7 @@ namespace Sharpknife.Utilities
 			try
 			{
 				//load
-				var element = manager.Load(dialog.FileName);
+				var element = Serialization.Load<T>(dialog.FileName);
 
 				return new Tuple<bool, T>(true, element);
 			}
@@ -70,7 +68,6 @@ namespace Sharpknife.Utilities
 		{
 			//context
 			var header = ("Save " + title);
-			var manager = new LocalObjectManager<T>();
 
 			//browse
 			var dialog = new SaveFileDialog()
@@ -89,7 +86,7 @@ namespace Sharpknife.Utilities
 			try
 			{
 				//save
-				manager.Save(dialog.FileName, element);
+				Serialization.Save<T>(dialog.FileName, element);
 
 				return new Tuple<bool, T>(true, element);
 			}

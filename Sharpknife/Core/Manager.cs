@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
@@ -27,7 +28,7 @@ namespace Sharpknife.Core
 			this.File = Path.Combine(this.Directory, file + ".xml");
 			this.Element = element;
 
-			this.serializer = new XmlSerializer(typeof(T));
+			this.binaryFormatter = new BinaryFormatter();
 		}
 
 		/// <summary>
@@ -62,7 +63,7 @@ namespace Sharpknife.Core
 			using (FileStream fileStream = System.IO.File.Open(this.File, FileMode.Open))
 			{
 				//deserialize
-				this.Element = (T) this.serializer.Deserialize(fileStream);
+				this.Element = (T) this.binaryFormatter.Deserialize(fileStream);
 			}
 		}
 
@@ -80,7 +81,7 @@ namespace Sharpknife.Core
 			using (FileStream fileStream = System.IO.File.Open(this.File, FileMode.Create))
 			{
 				//serialize
-				this.serializer.Serialize(fileStream, this.Element);
+				this.binaryFormatter.Serialize(fileStream, this.Element);
 			}
 		}
 
@@ -111,6 +112,6 @@ namespace Sharpknife.Core
 			set;
 		}
 
-		private XmlSerializer serializer;
+		private BinaryFormatter binaryFormatter;
 	}
 }
