@@ -35,7 +35,7 @@ namespace Sharpknife.Gui
 			var versionInfo = FileVersionInfo.GetVersionInfo(Assembly.GetEntryAssembly().Location);
 
 			//labels
-			this.nameLabel.Text = Assemblies.GetAssemblyAttribute<AssemblyTitleAttribute>(assembly => assembly.Title);
+			this.nameLabel.Text = versionInfo.ProductName;
 			this.versionLabel.Text = string.Format("Version {0}", versionInfo.FileVersion);
 			this.copyrightLabel.Text = versionInfo.LegalCopyright;
 		}
