@@ -31,6 +31,8 @@
 			this.statusLabel = new System.Windows.Forms.Label();
 			this.progressBar = new System.Windows.Forms.ProgressBar();
 			this.cancelButton = new System.Windows.Forms.Button();
+			this.headerPanel = new System.Windows.Forms.Panel();
+			this.headerPanel.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// statusLabel
@@ -48,7 +50,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.progressBar.Location = new System.Drawing.Point(10, 30);
 			this.progressBar.Name = "progressBar";
-			this.progressBar.Size = new System.Drawing.Size(310, 23);
+			this.progressBar.Size = new System.Drawing.Size(310, 20);
 			this.progressBar.TabIndex = 1;
 			// 
 			// cancelButton
@@ -57,19 +59,31 @@
 			this.cancelButton.Location = new System.Drawing.Point(250, 70);
 			this.cancelButton.Name = "cancelButton";
 			this.cancelButton.Size = new System.Drawing.Size(70, 23);
-			this.cancelButton.TabIndex = 2;
+			this.cancelButton.TabIndex = 1;
 			this.cancelButton.Text = "Cancel";
 			this.cancelButton.UseVisualStyleBackColor = true;
 			this.cancelButton.Click += new System.EventHandler(this.CancelHandler);
+			// 
+			// headerPanel
+			// 
+			this.headerPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.headerPanel.BackColor = System.Drawing.SystemColors.Window;
+			this.headerPanel.Controls.Add(this.statusLabel);
+			this.headerPanel.Controls.Add(this.progressBar);
+			this.headerPanel.Location = new System.Drawing.Point(0, 0);
+			this.headerPanel.Name = "headerPanel";
+			this.headerPanel.Size = new System.Drawing.Size(340, 60);
+			this.headerPanel.TabIndex = 0;
 			// 
 			// ProgressForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
 			this.ClientSize = new System.Drawing.Size(334, 101);
 			this.ControlBox = false;
+			this.Controls.Add(this.headerPanel);
 			this.Controls.Add(this.cancelButton);
-			this.Controls.Add(this.progressBar);
-			this.Controls.Add(this.statusLabel);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
@@ -77,8 +91,9 @@
 			this.ShowIcon = false;
 			this.ShowInTaskbar = false;
 			this.Text = "Progress";
+			this.headerPanel.ResumeLayout(false);
+			this.headerPanel.PerformLayout();
 			this.ResumeLayout(false);
-			this.PerformLayout();
 
 		}
 
@@ -87,5 +102,6 @@
 		private System.Windows.Forms.Label statusLabel;
 		private System.Windows.Forms.ProgressBar progressBar;
 		private System.Windows.Forms.Button cancelButton;
+		private System.Windows.Forms.Panel headerPanel;
 	}
 }

@@ -33,7 +33,9 @@
 			this.copyrightLabel = new System.Windows.Forms.Label();
 			this.okButton = new System.Windows.Forms.Button();
 			this.iconPictureBox = new System.Windows.Forms.PictureBox();
+			this.headerPanel = new System.Windows.Forms.Panel();
 			((System.ComponentModel.ISupportInitialize)(this.iconPictureBox)).BeginInit();
+			this.headerPanel.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// nameLabel
@@ -50,7 +52,7 @@
 			// 
 			this.versionLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.versionLabel.Location = new System.Drawing.Point(100, 40);
+			this.versionLabel.Location = new System.Drawing.Point(100, 50);
 			this.versionLabel.Name = "versionLabel";
 			this.versionLabel.Size = new System.Drawing.Size(220, 20);
 			this.versionLabel.TabIndex = 1;
@@ -60,7 +62,7 @@
 			// 
 			this.copyrightLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.copyrightLabel.Location = new System.Drawing.Point(100, 60);
+			this.copyrightLabel.Location = new System.Drawing.Point(100, 70);
 			this.copyrightLabel.Name = "copyrightLabel";
 			this.copyrightLabel.Size = new System.Drawing.Size(220, 20);
 			this.copyrightLabel.TabIndex = 2;
@@ -69,10 +71,10 @@
 			// okButton
 			// 
 			this.okButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.okButton.Location = new System.Drawing.Point(250, 90);
+			this.okButton.Location = new System.Drawing.Point(250, 110);
 			this.okButton.Name = "okButton";
 			this.okButton.Size = new System.Drawing.Size(70, 23);
-			this.okButton.TabIndex = 3;
+			this.okButton.TabIndex = 1;
 			this.okButton.Text = "OK";
 			this.okButton.UseVisualStyleBackColor = true;
 			this.okButton.Click += new System.EventHandler(this.OKHandler);
@@ -82,21 +84,33 @@
 			this.iconPictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.iconPictureBox.Location = new System.Drawing.Point(10, 10);
 			this.iconPictureBox.Name = "iconPictureBox";
-			this.iconPictureBox.Size = new System.Drawing.Size(80, 100);
+			this.iconPictureBox.Size = new System.Drawing.Size(80, 80);
 			this.iconPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
 			this.iconPictureBox.TabIndex = 4;
 			this.iconPictureBox.TabStop = false;
+			// 
+			// headerPanel
+			// 
+			this.headerPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.headerPanel.BackColor = System.Drawing.SystemColors.Window;
+			this.headerPanel.Controls.Add(this.iconPictureBox);
+			this.headerPanel.Controls.Add(this.nameLabel);
+			this.headerPanel.Controls.Add(this.copyrightLabel);
+			this.headerPanel.Controls.Add(this.versionLabel);
+			this.headerPanel.Location = new System.Drawing.Point(0, 0);
+			this.headerPanel.Name = "headerPanel";
+			this.headerPanel.Size = new System.Drawing.Size(340, 100);
+			this.headerPanel.TabIndex = 0;
 			// 
 			// AboutForm
 			// 
 			this.AcceptButton = this.okButton;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-			this.ClientSize = new System.Drawing.Size(334, 121);
-			this.Controls.Add(this.iconPictureBox);
+			this.ClientSize = new System.Drawing.Size(334, 141);
+			this.Controls.Add(this.headerPanel);
 			this.Controls.Add(this.okButton);
-			this.Controls.Add(this.copyrightLabel);
-			this.Controls.Add(this.versionLabel);
-			this.Controls.Add(this.nameLabel);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
@@ -106,6 +120,7 @@
 			this.Text = "About";
 			this.Load += new System.EventHandler(this.LoadHandler);
 			((System.ComponentModel.ISupportInitialize)(this.iconPictureBox)).EndInit();
+			this.headerPanel.ResumeLayout(false);
 			this.ResumeLayout(false);
 
 		}
@@ -117,5 +132,6 @@
 		private System.Windows.Forms.Label copyrightLabel;
 		private System.Windows.Forms.Button okButton;
 		private System.Windows.Forms.PictureBox iconPictureBox;
+		private System.Windows.Forms.Panel headerPanel;
 	}
 }

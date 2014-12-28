@@ -53,6 +53,12 @@
     <Compile Include="Gui\AboutForm.Designer.cs">
       <DependentUpon>AboutForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Gui\Bases\BaseDialogForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\Bases\BaseDialogForm.Designer.cs">
+      <DependentUpon>BaseDialogForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Gui\Bases\BaseEntryForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,6 +76,18 @@
     </Compile>
     <Compile Include="Gui\Bases\BaseSettingsForm.Designer.cs">
       <DependentUpon>BaseSettingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\Dialogs\ConfirmForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\Dialogs\ConfirmForm.Designer.cs">
+      <DependentUpon>ConfirmForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\Dialogs\MessageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\Dialogs\MessageForm.Designer.cs">
+      <DependentUpon>MessageForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Gui\ProgressForm.cs">
       <SubType>Form</SubType>
@@ -91,6 +109,9 @@
     <EmbeddedResource Include="Gui\AboutForm.resx">
       <DependentUpon>AboutForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Gui\Bases\BaseDialogForm.resx">
+      <DependentUpon>BaseDialogForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Gui\Bases\BaseEntryForm.resx">
       <DependentUpon>BaseEntryForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -100,10 +121,17 @@
     <EmbeddedResource Include="Gui\Bases\BaseSettingsForm.resx">
       <DependentUpon>BaseSettingsForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Gui\Dialogs\ConfirmForm.resx">
+      <DependentUpon>ConfirmForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\Dialogs\MessageForm.resx">
+      <DependentUpon>MessageForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Gui\ProgressForm.resx">
       <DependentUpon>ProgressForm.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
