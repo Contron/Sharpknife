@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sharpknife.Gui.Dialogs;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,7 +21,7 @@ namespace Sharpknife.Utilities
 		/// <param name="title">the title</param>
 		/// <param name="filter">the filter</param>
 		/// <returns>the tuple of results</returns>
-		public static Tuple<bool, T> ShowOpenDialog<T>(Form parent, string title, string filter)
+		public static Tuple<bool, T, Exception> ShowOpenDialog<T>(Form parent, string title, string filter)
 		{
 			//context
 			var header = ("Open " + title);
@@ -36,7 +37,7 @@ namespace Sharpknife.Utilities
 
 			if (result != DialogResult.OK)
 			{
-				return new Tuple<bool, T>(false, default(T));
+				return new Tuple<bool, T, Exception>(false, default(T), null);
 			}
 
 			try
@@ -44,14 +45,14 @@ namespace Sharpknife.Utilities
 				//load
 				var element = Serialization.Load<T>(dialog.FileName);
 
-				return new Tuple<bool, T>(true, element);
+				return new Tuple<bool, T, Exception>(true, element, null);
 			}
-			catch
+			catch (Exception exception)
 			{
 				//error
-				MessageBox.Show(string.Format("The {0} could not be opened successfully.", title.ToLower()), header, MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageForm.Show(null, header, string.Format("The {0} could not be opened successfully.", title.ToLower()));
 
-				return new Tuple<bool, T>(false, default(T));
+				return new Tuple<bool, T, Exception>(false, default(T), exception);
 			}
 		}
 
@@ -64,7 +65,7 @@ namespace Sharpknife.Utilities
 		/// <param name="filter">the filter</param>
 		/// <param name="element">the element</param>
 		/// <returns>the tuple of results</returns>
-		public static Tuple<bool, T> ShowSaveDialog<T>(Form parent, string title, string filter, T element)
+		public static Tuple<bool, T, Exception> ShowSaveDialog<T>(Form parent, string title, string filter, T element)
 		{
 			//context
 			var header = ("Save " + title);
@@ -80,7 +81,7 @@ namespace Sharpknife.Utilities
 
 			if (result != DialogResult.OK)
 			{
-				return new Tuple<bool, T>(false, default(T));
+				return new Tuple<bool, T, Exception>(false, default(T), null);
 			}
 
 			try
@@ -88,14 +89,14 @@ namespace Sharpknife.Utilities
 				//save
 				Serialization.Save<T>(dialog.FileName, element);
 
-				return new Tuple<bool, T>(true, element);
+				return new Tuple<bool, T, Exception>(true, element, null);
 			}
-			catch
+			catch (Exception exception)
 			{
 				//error
-				MessageBox.Show(string.Format("The {0} could not be saved successfully.", title.ToLower()), header, MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageForm.Show(null, header, string.Format("The {0} could not be saved successfully.", title.ToLower()));
 
-				return new Tuple<bool, T>(false, default(T));
+				return new Tuple<bool, T, Exception>(false, default(T), exception);
 			}
 		}
 	}
