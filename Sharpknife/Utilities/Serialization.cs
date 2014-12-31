@@ -21,6 +21,11 @@ namespace Sharpknife.Utilities
 		/// <returns>the result</returns>
 		public static T Load<T>(string file)
 		{
+			if (file == null)
+			{
+				throw new ArgumentNullException("file");
+			}
+
 			//serializer
 			var serializer = new XmlSerializer(typeof(T));
 			
@@ -38,6 +43,16 @@ namespace Sharpknife.Utilities
 		/// <param name="element">the element</param>
 		public static void Save<T>(string file, T element)
 		{
+			if (file == null)
+			{
+				throw new ArgumentNullException("file");
+			}
+
+			if (element == null)
+			{
+				throw new ArgumentNullException("element");
+			}
+
 			//serializer
 			var serializer = new XmlSerializer(typeof(T));
 

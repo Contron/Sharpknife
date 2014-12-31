@@ -67,6 +67,11 @@ namespace Sharpknife.Utilities
 		/// <returns>the tuple of results</returns>
 		public static Tuple<bool, T, Exception> ShowSaveDialog<T>(Form parent, string title, string filter, T element)
 		{
+			if (element == null)
+			{
+				throw new ArgumentNullException("element");
+			}
+
 			//context
 			var header = ("Save " + title);
 

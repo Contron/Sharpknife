@@ -20,6 +20,11 @@ namespace Sharpknife.Utilities
 		/// <returns>the result</returns>
 		public static string GetAssemblyAttribute<T>(Func<T, string> value) where T : Attribute
 		{
+			if (value == null)
+			{
+				throw new ArgumentNullException("value");
+			}
+
 			//get
 			var attribute = (T) Attribute.GetCustomAttribute(Assembly.GetEntryAssembly(), typeof(T));
 			var result = value.Invoke(attribute);
