@@ -31,5 +31,19 @@ namespace Sharpknife.Utilities
 
 			return result;
 		}
+
+		/// <summary>
+		/// Returns a list of all the types that inherit from the specified type.
+		/// </summary>
+		/// <param name="type">the type</param>
+		/// <returns>all of the types that inherit it</returns>
+		public static List<Type> GetSubTypesOf(Type type)
+		{
+			//find
+			var types = Assembly.GetAssembly(type).GetTypes().Where(currentType => currentType.IsSubclassOf(type));
+			var result = types.ToList();
+
+			return result;
+		}
 	}
 }
