@@ -25,17 +25,7 @@ namespace Sharpknife.Gui.Dialogs
 		{
 			//show
 			var confirmForm = new ConfirmForm(title, message);
-			var dialogResult = DialogResult.None;
-			var action = new Action(() => dialogResult = confirmForm.ShowDialog(owner));
-
-			if (confirmForm.InvokeRequired)
-			{
-				confirmForm.Invoke(action);
-			}
-			else
-			{
-				action.Invoke();
-			}
+			var dialogResult = confirmForm.ShowDialog(owner);
 
 			return dialogResult;
 		}

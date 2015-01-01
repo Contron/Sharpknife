@@ -24,16 +24,7 @@ namespace Sharpknife.Gui.Dialogs
 		{
 			//show
 			var messageForm = new MessageForm(title, message);
-			var action = new Action(() => messageForm.ShowDialog(owner));
-
-			if (messageForm.InvokeRequired)
-			{
-				messageForm.Invoke(action);
-			}
-			else
-			{
-				action.Invoke();
-			}
+			messageForm.ShowDialog(owner);
 		}
 
 		/// <summary>
