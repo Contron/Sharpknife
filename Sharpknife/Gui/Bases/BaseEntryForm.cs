@@ -16,7 +16,7 @@ namespace Sharpknife.Gui.Bases
 		/// <summary>
 		/// Creates a new entry form.
 		/// </summary>
-		public BaseEntryForm()
+		public BaseEntryForm() : base()
 		{
 			this.InitializeComponent();
 		}

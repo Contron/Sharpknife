@@ -16,7 +16,7 @@ namespace Sharpknife.Gui.Bases
 		/// <summary>
 		/// Creates a new base settings form.
 		/// </summary>
-		public BaseSettingsForm()
+		public BaseSettingsForm() : base()
 		{
 			this.InitializeComponent();
 		}

@@ -18,7 +18,7 @@ namespace Sharpknife.Gui.Bases
 		/// <summary>
 		/// Creates a new base form.
 		/// </summary>
-		public BaseForm()
+		public BaseForm() : base()
 		{
 			this.InitializeComponent();
 			this.StyleForm();

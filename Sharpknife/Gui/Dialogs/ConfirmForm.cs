@@ -35,7 +35,7 @@ namespace Sharpknife.Gui.Dialogs
 		/// </summary>
 		/// <param name="title">the title</param>
 		/// <param name="message">the message</param>
-		public ConfirmForm(string title, string message)
+		public ConfirmForm(string title, string message) : base()
 		{
 			this.InitializeComponent();
 			this.InitialisePrompt(title, message);

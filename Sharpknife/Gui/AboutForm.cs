@@ -20,7 +20,7 @@ namespace Sharpknife.Gui
 		/// <summary>
 		/// Creates a new about form.
 		/// </summary>
-		public AboutForm()
+		public AboutForm() : base()
 		{
 			this.InitializeComponent();
 			this.PopulateInformation();

@@ -17,7 +17,7 @@ namespace Sharpknife.Gui.Bases
 		/// <summary>
 		/// Creates a new base dialog form.
 		/// </summary>
-		public BaseDialogForm()
+		public BaseDialogForm() : base()
 		{
 			this.InitializeComponent();
 		}

@@ -24,8 +24,18 @@ namespace Sharpknife.Core
 		/// <param name="element">the element</param>
 		public Manager(string directory, string file, T element)
 		{
+			if (directory == null)
+			{
+				throw new ArgumentNullException("directory");
+			}
+
+			if (file == null)
+			{
+				throw new ArgumentNullException("file");
+			}
+
 			this.Directory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), directory);
-			this.File = Path.Combine(this.Directory, file + ".xml");
+			this.File = Path.Combine(this.Directory, file + ".dat");
 			this.Element = element;
 
 			this.binaryFormatter = new BinaryFormatter();

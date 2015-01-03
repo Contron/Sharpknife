@@ -32,7 +32,7 @@ namespace Sharpknife.Gui.Dialogs
 		/// </summary>
 		/// <param name="title">the title</param>
 		/// <param name="message">the message</param>
-		public MessageForm(string title, string message)
+		public MessageForm(string title, string message) : base()
 		{
 			this.InitializeComponent();
 			this.InitialiseMessage(title, message);

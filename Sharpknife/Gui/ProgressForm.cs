@@ -1,4 +1,5 @@
 ﻿using Sharpknife.Gui.Bases;
+using Sharpknife.Utilities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,7 +19,7 @@ namespace Sharpknife.Gui
 		/// Creates a new progress form.
 		/// </summary>
 		/// <param name="backgroundWorker">the background worker</param>
-		public ProgressForm(BackgroundWorker backgroundWorker)
+		public ProgressForm(BackgroundWorker backgroundWorker) : base()
 		{
 			this.backgroundWorker = backgroundWorker;
 			this.backgroundWorker.ProgressChanged += new ProgressChangedEventHandler(this.ProgressChanged);
@@ -54,6 +55,24 @@ namespace Sharpknife.Gui
 			this.cancelButton.Enabled = false;
 		}
 
+		/// <summary>
+		/// Completes the progress.
+		/// </summary>
+		private void CompleteProgress()
+		{
+			if (!this.Focused)
+			{
+				if (this.Owner != null)
+				{
+					//flash
+					Win32.FlashWindow(this.Owner);
+				}
+			}
+
+			//close
+			this.Close();
+		}
+
 		#region Utility Methods
 
 		/// <summary>
@@ -77,7 +96,7 @@ namespace Sharpknife.Gui
 
 		private void RunWorkCompleted(object sender, RunWorkerCompletedEventArgs eventArgs)
 		{
-			this.Close();
+			this.CompleteProgress();
 		}
 
 		private void CancelHandler(object sender, EventArgs eventArgs)
