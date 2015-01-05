@@ -43,7 +43,6 @@
 			this.statusLabel.Size = new System.Drawing.Size(39, 15);
 			this.statusLabel.TabIndex = 0;
 			this.statusLabel.Text = "Status";
-			this.statusLabel.UseWaitCursor = true;
 			// 
 			// progressBar
 			// 
@@ -53,7 +52,6 @@
 			this.progressBar.Name = "progressBar";
 			this.progressBar.Size = new System.Drawing.Size(310, 20);
 			this.progressBar.TabIndex = 1;
-			this.progressBar.UseWaitCursor = true;
 			// 
 			// cancelButton
 			// 
@@ -79,7 +77,6 @@
 			this.headerPanel.Name = "headerPanel";
 			this.headerPanel.Size = new System.Drawing.Size(340, 60);
 			this.headerPanel.TabIndex = 0;
-			this.headerPanel.UseWaitCursor = true;
 			// 
 			// ProgressForm
 			// 
