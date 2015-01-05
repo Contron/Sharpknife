@@ -185,6 +185,16 @@ namespace Sharpknife.Utilities
 		}
 
 		/// <summary>
+		/// Prompts the user to press any key to continue.
+		/// </summary>
+		public static void AnyKeyPrompt()
+		{
+			//wait
+			Debug.WriteLine(ConsoleColor.Yellow, "Press any key to continue.");
+			Console.ReadKey();
+		}
+
+		/// <summary>
 		/// Writes the specified message line with the specified colour and formatting options to the console.
 		/// </summary>
 		/// <param name="consoleColor">the console colour</param>

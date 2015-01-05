@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\TypeCollectionEditor.cs" />
+    <Compile Include="Core\CommandLine.cs" />
     <Compile Include="Core\Manager.cs" />
     <Compile Include="Gui\AboutForm.cs">
       <SubType>Form</SubType>
