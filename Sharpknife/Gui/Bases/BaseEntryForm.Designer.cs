@@ -30,7 +30,6 @@
 		{
 			this.okButton = new System.Windows.Forms.Button();
 			this.cancelButton = new System.Windows.Forms.Button();
-			this.applyButton = new System.Windows.Forms.Button();
 			this.buttonPanel = new System.Windows.Forms.Panel();
 			this.buttonPanel.SuspendLayout();
 			this.SuspendLayout();
@@ -39,7 +38,7 @@
 			// 
 			this.okButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.okButton.DialogResult = System.Windows.Forms.DialogResult.OK;
-			this.okButton.Location = new System.Drawing.Point(90, 10);
+			this.okButton.Location = new System.Drawing.Point(170, 10);
 			this.okButton.Name = "okButton";
 			this.okButton.Size = new System.Drawing.Size(70, 23);
 			this.okButton.TabIndex = 0;
@@ -51,7 +50,7 @@
 			// 
 			this.cancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.cancelButton.Location = new System.Drawing.Point(170, 10);
+			this.cancelButton.Location = new System.Drawing.Point(250, 10);
 			this.cancelButton.Name = "cancelButton";
 			this.cancelButton.Size = new System.Drawing.Size(70, 23);
 			this.cancelButton.TabIndex = 1;
@@ -59,23 +58,11 @@
 			this.cancelButton.UseVisualStyleBackColor = true;
 			this.cancelButton.Click += new System.EventHandler(this.CancelHandler);
 			// 
-			// applyButton
-			// 
-			this.applyButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.applyButton.Location = new System.Drawing.Point(250, 10);
-			this.applyButton.Name = "applyButton";
-			this.applyButton.Size = new System.Drawing.Size(70, 23);
-			this.applyButton.TabIndex = 2;
-			this.applyButton.Text = "Apply";
-			this.applyButton.UseVisualStyleBackColor = true;
-			this.applyButton.Click += new System.EventHandler(this.ApplyHandler);
-			// 
 			// buttonPanel
 			// 
 			this.buttonPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.buttonPanel.BackColor = System.Drawing.SystemColors.Window;
-			this.buttonPanel.Controls.Add(this.applyButton);
 			this.buttonPanel.Controls.Add(this.okButton);
 			this.buttonPanel.Controls.Add(this.cancelButton);
 			this.buttonPanel.Location = new System.Drawing.Point(0, 220);
@@ -106,7 +93,6 @@
 
 		private System.Windows.Forms.Button okButton;
 		private System.Windows.Forms.Button cancelButton;
-		private System.Windows.Forms.Button applyButton;
 		private System.Windows.Forms.Panel buttonPanel;
 	}
 }

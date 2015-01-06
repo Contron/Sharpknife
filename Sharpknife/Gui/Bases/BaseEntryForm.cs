@@ -58,11 +58,6 @@ namespace Sharpknife.Gui.Bases
 			this.Close();
 		}
 
-		private void ApplyHandler(object sender, EventArgs eventArgs)
-		{
-			this.ConfirmContents();
-		}
-
 		#endregion
 	}
 }
