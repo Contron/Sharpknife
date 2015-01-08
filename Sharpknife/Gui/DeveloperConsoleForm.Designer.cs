@@ -77,6 +77,7 @@
 			this.Controls.Add(this.outputTextBox);
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
+			this.MinimumSize = new System.Drawing.Size(200, 200);
 			this.Name = "DeveloperConsoleForm";
 			this.ShowIcon = false;
 			this.ShowInTaskbar = false;
