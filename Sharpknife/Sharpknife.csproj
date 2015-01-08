@@ -49,7 +49,6 @@
   <ItemGroup>
     <Compile Include="Common\TypeCollectionEditor.cs" />
     <Compile Include="Core\CommandLine.cs" />
-    <Compile Include="Core\InteractiveConsole.cs" />
     <Compile Include="Core\Manager.cs" />
     <Compile Include="Gui\AboutForm.cs">
       <SubType>Form</SubType>
@@ -80,12 +79,6 @@
     </Compile>
     <Compile Include="Gui\Bases\BaseSettingsForm.Designer.cs">
       <DependentUpon>BaseSettingsForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Gui\DeveloperConsoleForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Gui\DeveloperConsoleForm.Designer.cs">
-      <DependentUpon>DeveloperConsoleForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Gui\Dialogs\ConfirmForm.cs">
       <SubType>Form</SubType>
@@ -131,9 +124,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Gui\Bases\BaseSettingsForm.resx">
       <DependentUpon>BaseSettingsForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Gui\DeveloperConsoleForm.resx">
-      <DependentUpon>DeveloperConsoleForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Gui\Dialogs\ConfirmForm.resx">
       <DependentUpon>ConfirmForm.cs</DependentUpon>
