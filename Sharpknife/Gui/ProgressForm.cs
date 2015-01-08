@@ -16,6 +16,18 @@ namespace Sharpknife.Gui
 	public partial class ProgressForm : BaseForm
 	{
 		/// <summary>
+		/// Shows a modal progress form.
+		/// </summary>
+		/// <param name="owner">the owner</param>
+		/// <param name="backgroundWorker">the background worker</param>
+		public static void Show(Form owner, BackgroundWorker backgroundWorker)
+		{
+			//show
+			var progressForm = new ProgressForm(backgroundWorker);
+			progressForm.ShowDialog(owner);
+		}
+
+		/// <summary>
 		/// Creates a new progress form.
 		/// </summary>
 		/// <param name="backgroundWorker">the background worker</param>

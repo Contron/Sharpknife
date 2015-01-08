@@ -18,6 +18,17 @@ namespace Sharpknife.Gui
 	public partial class AboutForm : BaseForm
 	{
 		/// <summary>
+		/// Shows a modal about form.
+		/// </summary>
+		/// <param name="owner">the owner</param>
+		public static void Show(Form owner)
+		{
+			//show
+			var aboutForm = new AboutForm();
+			aboutForm.ShowDialog(owner);
+		}
+
+		/// <summary>
 		/// Creates a new about form.
 		/// </summary>
 		public AboutForm() : base()

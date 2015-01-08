@@ -17,8 +17,8 @@ namespace Sharpknife.Gui.Dialogs
 		/// <summary>
 		/// Shows a modal message form.
 		/// </summary>
-		/// <param name="title">the title</param>
 		/// <param name="owner">the owner</param>
+		/// <param name="title">the title</param>
 		/// <param name="message">the message</param>
 		public static void Show(Form owner, string title = "Message", string message = "Message")
 		{
