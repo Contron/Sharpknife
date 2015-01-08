@@ -46,7 +46,6 @@ namespace Sharpknife.Gui
 		{
 			if (this.outputTextBox.Text.Length > 0)
 			{
-				//new line
 				message = (Environment.NewLine + message);
 			}
 
@@ -59,7 +58,6 @@ namespace Sharpknife.Gui
 		/// </summary>
 		private void InitialiseConsole()
 		{
-			//fonts
 			this.outputTextBox.Font = new Font(FontFamily.GenericMonospace, 9);
 			this.inputTextBox.Font = new Font(FontFamily.GenericMonospace, 9);
 		}
@@ -69,7 +67,6 @@ namespace Sharpknife.Gui
 		/// </summary>
 		private void AppendHeader()
 		{
-			//header
 			this.AppendLog("Developer console initialised.");
 		}
 
@@ -92,8 +89,6 @@ namespace Sharpknife.Gui
 			//post
 			this.AppendLog("> " + command);
 			this.AppendLog(result);
-
-			//clear
 			this.inputTextBox.Text = string.Empty;
 		}
 

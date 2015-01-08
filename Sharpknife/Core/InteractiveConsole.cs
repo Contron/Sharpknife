@@ -47,7 +47,6 @@ namespace Sharpknife.Core
 		/// </summary>
 		private void AddDefaultCommands()
 		{
-			//add
 			this.Commands["help"] = this.Help;
 			this.Commands["exit"] = this.Exit;
 			this.Commands["version"] = this.Version;
