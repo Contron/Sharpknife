@@ -42,7 +42,7 @@
 			this.outputTextBox.Multiline = true;
 			this.outputTextBox.Name = "outputTextBox";
 			this.outputTextBox.ReadOnly = true;
-			this.outputTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+			this.outputTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
 			this.outputTextBox.Size = new System.Drawing.Size(310, 210);
 			this.outputTextBox.TabIndex = 0;
 			this.outputTextBox.WordWrap = false;
