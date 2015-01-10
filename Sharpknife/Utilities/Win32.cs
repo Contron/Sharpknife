@@ -71,8 +71,13 @@ namespace Sharpknife.Utilities
 
 		#endregion
 
+		/// <summary>
+		/// A collection of common Win32 message codes.
+		/// </summary>
 		public class Constants
 		{
+			#pragma warning disable 1591
+
 			public static readonly int BS_COMMANDLINK = 0x0000000E;
 
 			public static readonly uint BCM_SETNOTE = 0x00001609;
@@ -80,6 +85,8 @@ namespace Sharpknife.Utilities
 			public static readonly uint BCM_GETNOTELENGTH = 0x0000160B;
 
 			public static readonly uint BCM_SETSHIELD = 0x0000160C;
+
+			#pragma warning restore 1591
 		}
 	}
 }
