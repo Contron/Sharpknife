@@ -77,10 +77,22 @@ namespace Sharpknife.Gui.Dialogs
 		/// <param name="action">the action</param>
 		private void InvokeAndClose(Action action)
 		{
-			//invoke
+			//close
+			this.DialogResult = DialogResult.OK;
 			this.Close();
+
+			//invoke
 			action.Invoke();
 		}
+
+		#region Event Handlers
+
+		private void CloseHandler(object sender, EventArgs eventArgs)
+		{
+			this.Close();
+		}
+
+		#endregion
 
 		private int choices;
 	}

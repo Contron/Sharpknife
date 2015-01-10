@@ -60,12 +60,14 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
 			this.CancelButton = this.cancelButton;
 			this.ClientSize = new System.Drawing.Size(334, 111);
+			this.ControlBox = false;
 			this.Controls.Add(this.cancelButton);
 			this.Controls.Add(this.okButton);
 			this.Name = "ConfirmationForm";
 			this.Controls.SetChildIndex(this.okButton, 0);
 			this.Controls.SetChildIndex(this.cancelButton, 0);
 			this.ResumeLayout(false);
+
 		}
 
 		#endregion
