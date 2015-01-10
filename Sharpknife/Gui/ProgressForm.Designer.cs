@@ -62,7 +62,6 @@
 			this.cancelButton.TabIndex = 1;
 			this.cancelButton.Text = "Cancel";
 			this.cancelButton.UseVisualStyleBackColor = true;
-			this.cancelButton.UseWaitCursor = true;
 			this.cancelButton.Click += new System.EventHandler(this.CancelHandler);
 			// 
 			// headerPanel
