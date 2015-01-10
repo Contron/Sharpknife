@@ -21,7 +21,7 @@ namespace Sharpknife.Gui.Dialogs
 		/// <param name="title">the title</param>
 		/// <param name="message">the message</param>
 		/// <returns>the dialog result</returns>
-		public static DialogResult Show(Form owner, string title, string message)
+		public static DialogResult Show(Form owner, string title = "Confirmation", string message = "Message")
 		{
 			//show
 			var confirmationForm = new ConfirmationForm(title, message);
