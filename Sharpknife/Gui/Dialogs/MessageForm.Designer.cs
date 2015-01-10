@@ -28,26 +28,8 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.messageLabel = new System.Windows.Forms.Label();
 			this.okButton = new System.Windows.Forms.Button();
-			this.MessagePanel.SuspendLayout();
 			this.SuspendLayout();
-			// 
-			// MessagePanel
-			// 
-			this.MessagePanel.Controls.Add(this.messageLabel);
-			// 
-			// messageLabel
-			// 
-			this.messageLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.messageLabel.Location = new System.Drawing.Point(10, 10);
-			this.messageLabel.Name = "messageLabel";
-			this.messageLabel.Size = new System.Drawing.Size(310, 50);
-			this.messageLabel.TabIndex = 0;
-			this.messageLabel.Text = "Message";
-			this.messageLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// okButton
 			// 
@@ -67,17 +49,12 @@
 			this.ClientSize = new System.Drawing.Size(334, 111);
 			this.Controls.Add(this.okButton);
 			this.Name = "MessageForm";
-			this.Text = "Message";
-			this.Controls.SetChildIndex(this.MessagePanel, 0);
 			this.Controls.SetChildIndex(this.okButton, 0);
-			this.MessagePanel.ResumeLayout(false);
 			this.ResumeLayout(false);
-
 		}
 
 		#endregion
 
-		private System.Windows.Forms.Label messageLabel;
 		private System.Windows.Forms.Button okButton;
 	}
 }

@@ -80,11 +80,11 @@
     <Compile Include="Gui\Bases\BaseSettingsForm.Designer.cs">
       <DependentUpon>BaseSettingsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Gui\Dialogs\ConfirmForm.cs">
+    <Compile Include="Gui\Dialogs\ConfirmationForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Gui\Dialogs\ConfirmForm.Designer.cs">
-      <DependentUpon>ConfirmForm.cs</DependentUpon>
+    <Compile Include="Gui\Dialogs\ConfirmationForm.Designer.cs">
+      <DependentUpon>ConfirmationForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Gui\Dialogs\MessageForm.cs">
       <SubType>Form</SubType>
@@ -125,8 +125,8 @@
     <EmbeddedResource Include="Gui\Bases\BaseSettingsForm.resx">
       <DependentUpon>BaseSettingsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Gui\Dialogs\ConfirmForm.resx">
-      <DependentUpon>ConfirmForm.cs</DependentUpon>
+    <EmbeddedResource Include="Gui\Dialogs\ConfirmationForm.resx">
+      <DependentUpon>ConfirmationForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Gui\Dialogs\MessageForm.resx">
       <DependentUpon>MessageForm.cs</DependentUpon>
@@ -135,6 +135,7 @@
       <DependentUpon>ProgressForm.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

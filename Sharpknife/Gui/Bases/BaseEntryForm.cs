@@ -22,7 +22,7 @@ namespace Sharpknife.Gui.Bases
 		}
 
 		/// <summary>
-		/// Populates the forms on this form.
+		/// Populates the fields on this form.
 		/// </summary>
 		public virtual void PopulateFields()
 		{

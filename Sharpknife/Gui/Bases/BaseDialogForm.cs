@@ -10,12 +10,23 @@ using System.Windows.Forms;
 namespace Sharpknife.Gui.Bases
 {
 	/// <summary>
-	/// Represents a base dialog (modal) form.
+	/// Represents a base dialog form, which is styled to look like a modal dialog box to display information to the user.
 	/// </summary>
 	public partial class BaseDialogForm : BaseForm
 	{
 		/// <summary>
 		/// Creates a new base dialog form.
+		/// </summary>
+		/// <param name="title">the title</param>
+		/// <param name="message">the message</param>
+		public BaseDialogForm(string title = "Dialog", string message = "Message") : base()
+		{
+			this.InitializeComponent();
+			this.InitialisePrompt(title, message);
+		}
+
+		/// <summary>
+		/// Creates a new, default base dialog form.
 		/// </summary>
 		public BaseDialogForm() : base()
 		{
@@ -29,6 +40,17 @@ namespace Sharpknife.Gui.Bases
 		{
 			//play
 			SystemSounds.Beep.Play();
+		}
+
+		/// <summary>
+		/// Initialises the prompt.
+		/// </summary>
+		/// <param name="title">the title</param>
+		/// <param name="message">the message</param>
+		private void InitialisePrompt(string title, string message)
+		{
+			this.Text = title;
+			this.messageLabel.Text = message;
 		}
 
 		#region Event Handlers

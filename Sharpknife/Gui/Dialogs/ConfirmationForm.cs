@@ -10,9 +10,9 @@ using System.Windows.Forms;
 namespace Sharpknife.Gui.Dialogs
 {
 	/// <summary>
-	/// Represents a modal confirmation dialog.
+	/// Represents a confirmation form to display a question to the user.
 	/// </summary>
-	public partial class ConfirmForm : BaseDialogForm
+	public partial class ConfirmationForm : BaseDialogForm
 	{
 		/// <summary>
 		/// Shows a modal confirmation form.
@@ -21,11 +21,11 @@ namespace Sharpknife.Gui.Dialogs
 		/// <param name="title">the title</param>
 		/// <param name="message">the message</param>
 		/// <returns>the dialog result</returns>
-		public static DialogResult Show(Form owner, string title = "Confirm", string message = "Prompt")
+		public static DialogResult Show(Form owner, string title, string message)
 		{
 			//show
-			var confirmForm = new ConfirmForm(title, message);
-			var dialogResult = confirmForm.ShowDialog(owner);
+			var confirmationForm = new ConfirmationForm(title, message);
+			var dialogResult = confirmationForm.ShowDialog(owner);
 
 			return dialogResult;
 		}
@@ -35,21 +35,9 @@ namespace Sharpknife.Gui.Dialogs
 		/// </summary>
 		/// <param name="title">the title</param>
 		/// <param name="message">the message</param>
-		public ConfirmForm(string title, string message) : base()
+		public ConfirmationForm(string title, string message) : base(title, message)
 		{
 			this.InitializeComponent();
-			this.InitialisePrompt(title, message);
-		}
-
-		/// <summary>
-		/// Initialises the prompt.
-		/// </summary>
-		/// <param name="title">the title</param>
-		/// <param name="message">the message</param>
-		private void InitialisePrompt(string title, string message)
-		{
-			this.Text = title;
-			this.promptLabel.Text = message;
 		}
 
 		#region Event Handlers

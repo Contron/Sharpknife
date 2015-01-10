@@ -10,7 +10,7 @@ using System.Windows.Forms;
 namespace Sharpknife.Gui.Dialogs
 {
 	/// <summary>
-	/// Represents a modal message dialog.
+	/// Represents a modal message form to inform the user of a particular message.
 	/// </summary>
 	public partial class MessageForm : BaseDialogForm
 	{
@@ -20,11 +20,14 @@ namespace Sharpknife.Gui.Dialogs
 		/// <param name="owner">the owner</param>
 		/// <param name="title">the title</param>
 		/// <param name="message">the message</param>
-		public static void Show(Form owner, string title = "Message", string message = "Message")
+		/// <returns>the dialog result</returns>
+		public static DialogResult Show(Form owner, string title, string message)
 		{
 			//show
 			var messageForm = new MessageForm(title, message);
-			messageForm.ShowDialog(owner);
+			var dialogResult = messageForm.ShowDialog(owner);
+
+			return dialogResult;
 		}
 
 		/// <summary>
@@ -32,21 +35,9 @@ namespace Sharpknife.Gui.Dialogs
 		/// </summary>
 		/// <param name="title">the title</param>
 		/// <param name="message">the message</param>
-		public MessageForm(string title, string message) : base()
+		public MessageForm(string title, string message) : base(title, message)
 		{
 			this.InitializeComponent();
-			this.InitialiseMessage(title, message);
-		}
-
-		/// <summary>
-		/// Initialises the message.
-		/// </summary>
-		/// <param name="title">the title</param>
-		/// <param name="message">the message</param>
-		private void InitialiseMessage(string title, string message)
-		{
-			this.Text = title;
-			this.messageLabel.Text = message;
 		}
 
 		#region Event Handlers
