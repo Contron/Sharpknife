@@ -9,7 +9,7 @@ using System.Windows.Forms;
 namespace Sharpknife.Gui.Bases
 {
 	/// <summary>
-	/// Represents a base settings form.
+	/// Represents a base settings form, which can be used as a template for a traditional settings dialog.
 	/// </summary>
 	public partial class BaseSettingsForm : BaseEntryForm
 	{

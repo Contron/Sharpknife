@@ -80,6 +80,9 @@
     <Compile Include="Gui\Bases\BaseSettingsForm.Designer.cs">
       <DependentUpon>BaseSettingsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Gui\Controls\CommandLink.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Gui\Dialogs\ChoiceForm.cs">
       <SubType>Form</SubType>
     </Compile>

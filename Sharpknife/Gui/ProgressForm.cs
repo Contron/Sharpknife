@@ -11,7 +11,7 @@ using System.Windows.Forms;
 namespace Sharpknife.Gui
 {
 	/// <summary>
-	/// Represents a progress form.
+	/// Represents a progress form, which can be used to display and control a background worker.
 	/// </summary>
 	public partial class ProgressForm : BaseForm
 	{
