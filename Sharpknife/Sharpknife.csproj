@@ -80,6 +80,12 @@
     <Compile Include="Gui\Bases\BaseSettingsForm.Designer.cs">
       <DependentUpon>BaseSettingsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Gui\Dialogs\ChoiceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\Dialogs\ChoiceForm.Designer.cs">
+      <DependentUpon>ChoiceForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Gui\Dialogs\ConfirmationForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,6 +130,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Gui\Bases\BaseSettingsForm.resx">
       <DependentUpon>BaseSettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\Dialogs\ChoiceForm.resx">
+      <DependentUpon>ChoiceForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Gui\Dialogs\ConfirmationForm.resx">
       <DependentUpon>ConfirmationForm.cs</DependentUpon>
