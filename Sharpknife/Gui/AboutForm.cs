@@ -73,6 +73,7 @@ namespace Sharpknife.Gui
 		private void OKHandler(object sender, EventArgs eventArgs)
 		{
 			this.Close();
+			this.Dispose();
 		}
 
 		private void LoadHandler(object sender, EventArgs eventArgs)

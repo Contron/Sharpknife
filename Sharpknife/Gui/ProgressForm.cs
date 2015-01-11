@@ -83,6 +83,7 @@ namespace Sharpknife.Gui
 
 			//close
 			this.Close();
+			this.Dispose();
 		}
 
 		#region Utility Methods

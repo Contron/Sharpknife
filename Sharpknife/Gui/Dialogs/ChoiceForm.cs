@@ -81,6 +81,7 @@ namespace Sharpknife.Gui.Dialogs
 			//close
 			this.DialogResult = DialogResult.OK;
 			this.Close();
+			this.Dispose();
 
 			//invoke
 			action.Invoke();
@@ -91,6 +92,7 @@ namespace Sharpknife.Gui.Dialogs
 		private void CloseHandler(object sender, EventArgs eventArgs)
 		{
 			this.Close();
+			this.Dispose();
 		}
 
 		#endregion

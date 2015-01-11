@@ -45,6 +45,7 @@ namespace Sharpknife.Gui.Dialogs
 		private void CloseHandler(object sender, EventArgs eventArgs)
 		{
 			this.Close();
+			this.Dispose();
 		}
 
 		#endregion

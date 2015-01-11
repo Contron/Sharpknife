@@ -51,11 +51,13 @@ namespace Sharpknife.Gui.Bases
 		{
 			this.ConfirmContents();
 			this.Close();
+			this.Dispose();
 		}
 
 		private void CancelHandler(object sender, EventArgs eventArgs)
 		{
 			this.Close();
+			this.Dispose();
 		}
 
 		#endregion
