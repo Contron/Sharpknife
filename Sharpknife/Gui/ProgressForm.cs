@@ -34,8 +34,6 @@ namespace Sharpknife.Gui
 		public ProgressForm(BackgroundWorker backgroundWorker) : base()
 		{
 			this.backgroundWorker = backgroundWorker;
-			this.backgroundWorker.ProgressChanged += new ProgressChangedEventHandler(this.ProgressChanged);
-			this.backgroundWorker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(this.RunWorkCompleted);
 
 			this.InitializeComponent();
 			this.StartProgress();
@@ -46,6 +44,10 @@ namespace Sharpknife.Gui
 		/// </summary>
 		private void StartProgress()
 		{
+			//events
+			this.backgroundWorker.ProgressChanged += new ProgressChangedEventHandler(this.ProgressChanged);
+			this.backgroundWorker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(this.RunWorkCompleted);
+
 			//update
 			this.statusLabel.Text = "Performing operation...";
 			this.cancelButton.Enabled = this.backgroundWorker.WorkerSupportsCancellation;
@@ -92,7 +94,7 @@ namespace Sharpknife.Gui
 		/// Updates the progress bar.
 		/// </summary>
 		/// <param name="amount">the amount</param>
-		private void QuickUpdateProgress(int amount)
+		private void UpdateProgress(int amount)
 		{
 			//update
 			this.progressBar.Value = amount;
@@ -104,7 +106,7 @@ namespace Sharpknife.Gui
 
 		private void ProgressChanged(object sender, ProgressChangedEventArgs eventArgs)
 		{
-			this.QuickUpdateProgress(eventArgs.ProgressPercentage);
+			this.UpdateProgress(eventArgs.ProgressPercentage);
 		}
 
 		private void RunWorkCompleted(object sender, RunWorkerCompletedEventArgs eventArgs)
