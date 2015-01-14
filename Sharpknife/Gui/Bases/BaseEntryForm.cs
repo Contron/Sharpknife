@@ -30,7 +30,7 @@ namespace Sharpknife.Gui.Bases
 		}
 
 		/// <summary>
-		/// Confirms the contents of this form.
+		/// Confirms the contents of the form.
 		/// </summary>
 		public virtual void ConfirmContents()
 		{

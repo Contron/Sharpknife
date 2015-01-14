@@ -121,7 +121,7 @@ namespace Sharpknife.Core
 		}
 
 		/// <summary>
-		/// The dictionary of arguments for this command line.
+		/// The dictionary of arguments for the command line.
 		/// </summary>
 		public Dictionary<string, object> Arguments
 		{

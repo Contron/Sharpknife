@@ -96,7 +96,7 @@ namespace Sharpknife.Core
 		}
 
 		/// <summary>
-		/// The directory for this manager.
+		/// The directory for the manager.
 		/// </summary>
 		public string Directory
 		{
@@ -105,7 +105,7 @@ namespace Sharpknife.Core
 		}
 
 		/// <summary>
-		/// The file for this manager.
+		/// The file for the manager.
 		/// </summary>
 		public string File
 		{
@@ -114,7 +114,7 @@ namespace Sharpknife.Core
 		}
 
 		/// <summary>
-		/// The element for this manager.
+		/// The element for the manager.
 		/// </summary>
 		public T Element
 		{

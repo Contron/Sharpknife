@@ -37,7 +37,7 @@ namespace Sharpknife.Common
 		}
 
 		/// <summary>
-		/// The type for this collection editor.
+		/// The type for the collection editor.
 		/// </summary>
 		public Type Type
 		{
