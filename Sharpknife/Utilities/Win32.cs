@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -9,7 +10,7 @@ using System.Windows.Forms;
 namespace Sharpknife.Utilities
 {
 	/// <summary>
-	/// A collection of native Win32 methods that are encapsulated in friendly methods.
+	/// A collection of native Win32 methods that are encapsulated in managed methods.
 	/// </summary>
 	public class Win32
 	{
@@ -55,6 +56,40 @@ namespace Sharpknife.Utilities
 			Win32.SendMessage(control.Handle, message, IntPtr.Zero, data);
 		}
 
+		/// <summary>
+		/// Opens a handle to a process.
+		/// </summary>
+		/// <param name="process">the process</param>
+		/// <returns>the handle</returns>
+		public static IntPtr OpenProcess(Process process)
+		{
+			return Win32.OpenProcess(Win32.Constants.PROCESS_VM_OPERATION | Win32.Constants.PROCESS_WM_READ | Win32.Constants.PROCESS_VM_WRITE, false, process.Id);
+		}
+
+		/// <summary>
+		/// Reads from a process' memory at the specified address into a buffer.
+		/// </summary>
+		/// <param name="pointer">the pointer</param>
+		/// <param name="address">the address</param>
+		/// <param name="buffer">the buffer</param>
+		/// <param name="bytesRead">the number of bytes read</param>
+		public static void ReadProcessMemory(IntPtr pointer, int address, byte[] buffer, ref int bytesRead)
+		{
+			Win32.ReadProcessMemory(pointer, address, buffer, buffer.Length, ref bytesRead);
+		}
+
+		/// <summary>
+		/// Writes to a process' memory at the specified address from a buffer.
+		/// </summary>
+		/// <param name="pointer">the pointer</param>
+		/// <param name="address">the address</param>
+		/// <param name="buffer">the buffer</param>
+		/// <param name="bytesWritten">the number of bytes written</param>
+		public static void WriteProcessMemory(IntPtr pointer, int address, byte[] buffer, ref int bytesWritten)
+		{
+			Win32.WriteProcessMemory(pointer, address, buffer, buffer.Length, ref bytesWritten);
+		}
+
 		#region External Methods
 
 		[DllImport("user32.dll")]
@@ -68,6 +103,15 @@ namespace Sharpknife.Utilities
 
 		[DllImport("user32.dll", CharSet = CharSet.Unicode)]
 		private static extern int SendMessage(IntPtr hWnd, uint Msg, IntPtr wParam, bool lParam);
+		
+		[DllImport("kernel32.dll", SetLastError = true)]
+		private static extern IntPtr OpenProcess(int dwDesiredAccess, bool bInheritHandle, int dwProcessId);
+
+		[DllImport("kernel32.dll", SetLastError = true)]
+		private static extern bool ReadProcessMemory(IntPtr hProcess, int lpBaseAddress, byte[] lpBuffer, int dwSize, ref int lpNumberOfBytesRead);
+
+		[DllImport("kernel32.dll", SetLastError = true)]
+		private static extern bool WriteProcessMemory(IntPtr hProcess, int lpBaseAddress, byte[] lpBuffer, int dwSize, ref int lpNumberOfBytesWritten);
 
 		#endregion
 
@@ -79,6 +123,10 @@ namespace Sharpknife.Utilities
 			#pragma warning disable 1591
 
 			public static readonly int BS_COMMANDLINK = 0x0000000E;
+
+			public static readonly int PROCESS_WM_READ = 0x0010;
+			public static readonly int PROCESS_VM_WRITE = 0x0020;
+			public static readonly int PROCESS_VM_OPERATION = 0x0008;
 
 			public static readonly uint BCM_SETNOTE = 0x00001609;
 			public static readonly uint BCM_GETNOTE = 0x0000160A;
