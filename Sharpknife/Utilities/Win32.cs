@@ -20,7 +20,7 @@ namespace Sharpknife.Utilities
 		/// <param name="form">the form</param>
 		public static void FlashWindow(Form form)
 		{
-			Win32.FlashWindow(form.Handle, false);
+			Win32.Internal.FlashWindow(form.Handle, false);
 		}
 
 		/// <summary>
@@ -31,7 +31,7 @@ namespace Sharpknife.Utilities
 		/// <param name="data">the data</param>
 		public static void SendMessage(Control control, uint message, IntPtr data)
 		{
-			Win32.SendMessage(control.Handle, message, IntPtr.Zero, data);
+			Win32.Internal.SendMessage(control.Handle, message, IntPtr.Zero, data);
 		}
 
 		/// <summary>
@@ -42,7 +42,7 @@ namespace Sharpknife.Utilities
 		/// <param name="data">the data</param>
 		public static void SendMessage(Control control, uint message, string data)
 		{
-			Win32.SendMessage(control.Handle, message, IntPtr.Zero, data);
+			Win32.Internal.SendMessage(control.Handle, message, IntPtr.Zero, data);
 		}
 
 		/// <summary>
@@ -53,7 +53,7 @@ namespace Sharpknife.Utilities
 		/// <param name="data">the data</param>
 		public static void SendMessage(Control control, uint message, bool data)
 		{
-			Win32.SendMessage(control.Handle, message, IntPtr.Zero, data);
+			Win32.Internal.SendMessage(control.Handle, message, IntPtr.Zero, data);
 		}
 
 		/// <summary>
@@ -63,57 +63,74 @@ namespace Sharpknife.Utilities
 		/// <returns>the handle</returns>
 		public static IntPtr OpenProcess(Process process)
 		{
-			return Win32.OpenProcess(Win32.Constants.PROCESS_VM_OPERATION | Win32.Constants.PROCESS_WM_READ | Win32.Constants.PROCESS_VM_WRITE, false, process.Id);
+			return Win32.Internal.OpenProcess(Win32.Constants.PROCESS_VM_OPERATION | Win32.Constants.PROCESS_WM_READ | Win32.Constants.PROCESS_VM_WRITE, false, process.Id);
 		}
 
 		/// <summary>
-		/// Reads from a process' memory at the specified address into a buffer.
+		/// Reads from a process' memory into the specified buffer.
 		/// </summary>
 		/// <param name="pointer">the pointer</param>
 		/// <param name="address">the address</param>
 		/// <param name="buffer">the buffer</param>
 		/// <param name="bytesRead">the number of bytes read</param>
-		public static void ReadProcessMemory(IntPtr pointer, int address, byte[] buffer, ref int bytesRead)
+		/// <returns>if memory was read successfully</returns>
+		public static bool ReadProcessMemory(IntPtr pointer, IntPtr address, byte[] buffer, ref int bytesRead)
 		{
-			Win32.ReadProcessMemory(pointer, address, buffer, buffer.Length, ref bytesRead);
+			return Win32.Internal.ReadProcessMemory(pointer, address, buffer, buffer.Length, ref bytesRead);
 		}
 
 		/// <summary>
-		/// Writes to a process' memory at the specified address from a buffer.
+		/// Writes to a process' memory from the specified buffer.
 		/// </summary>
 		/// <param name="pointer">the pointer</param>
 		/// <param name="address">the address</param>
 		/// <param name="buffer">the buffer</param>
 		/// <param name="bytesWritten">the number of bytes written</param>
-		public static void WriteProcessMemory(IntPtr pointer, int address, byte[] buffer, ref int bytesWritten)
+		/// <returns>if memory was written successfully</returns>
+		public static bool WriteProcessMemory(IntPtr pointer, IntPtr address, byte[] buffer, ref int bytesWritten)
 		{
-			Win32.WriteProcessMemory(pointer, address, buffer, buffer.Length, ref bytesWritten);
+			return Win32.Internal.WriteProcessMemory(pointer, address, buffer, buffer.Length, ref bytesWritten);
 		}
 
-		#region External Methods
+		/// <summary>
+		/// Closes a handle.
+		/// </summary>
+		/// <param name="handle">the handle</param>
+		/// <returns>if the handle was closed successfully</returns>
+		public static bool CloseHandle(IntPtr handle)
+		{
+			return Win32.Internal.CloseHandle(handle);
+		}
 
-		[DllImport("user32.dll")]
-		private static extern bool FlashWindow(IntPtr hWnd, bool bInvert);
+		/// <summary>
+		/// A collection of common Win32 external methods.
+		/// </summary>
+		public class Internal
+		{
+			[DllImport("user32.dll")]
+			public static extern bool FlashWindow(IntPtr hWnd, bool bInvert);
 
-		[DllImport("user32.dll", CharSet = CharSet.Unicode)]
-		private static extern int SendMessage(IntPtr hWnd, uint Msg, IntPtr wParam, IntPtr lParam);
+			[DllImport("user32.dll", CharSet = CharSet.Unicode)]
+			public static extern int SendMessage(IntPtr hWnd, uint Msg, IntPtr wParam, IntPtr lParam);
 
-		[DllImport("user32.dll", CharSet = CharSet.Unicode)]
-		private static extern int SendMessage(IntPtr hWnd, uint Msg, IntPtr wParam, string lParam);
+			[DllImport("user32.dll", CharSet = CharSet.Unicode)]
+			public static extern int SendMessage(IntPtr hWnd, uint Msg, IntPtr wParam, string lParam);
 
-		[DllImport("user32.dll", CharSet = CharSet.Unicode)]
-		private static extern int SendMessage(IntPtr hWnd, uint Msg, IntPtr wParam, bool lParam);
-		
-		[DllImport("kernel32.dll", SetLastError = true)]
-		private static extern IntPtr OpenProcess(int dwDesiredAccess, bool bInheritHandle, int dwProcessId);
+			[DllImport("user32.dll", CharSet = CharSet.Unicode)]
+			public static extern int SendMessage(IntPtr hWnd, uint Msg, IntPtr wParam, bool lParam);
 
-		[DllImport("kernel32.dll", SetLastError = true)]
-		private static extern bool ReadProcessMemory(IntPtr hProcess, int lpBaseAddress, byte[] lpBuffer, int dwSize, ref int lpNumberOfBytesRead);
+			[DllImport("kernel32.dll", SetLastError = true)]
+			public static extern IntPtr OpenProcess(int dwDesiredAccess, bool bInheritHandle, int dwProcessId);
 
-		[DllImport("kernel32.dll", SetLastError = true)]
-		private static extern bool WriteProcessMemory(IntPtr hProcess, int lpBaseAddress, byte[] lpBuffer, int dwSize, ref int lpNumberOfBytesWritten);
+			[DllImport("kernel32.dll", SetLastError = true)]
+			public static extern bool ReadProcessMemory(IntPtr hProcess, IntPtr lpBaseAddress, byte[] lpBuffer, int dwSize, ref int lpNumberOfBytesRead);
 
-		#endregion
+			[DllImport("kernel32.dll", SetLastError = true)]
+			public static extern bool WriteProcessMemory(IntPtr hProcess, IntPtr lpBaseAddress, byte[] lpBuffer, int dwSize, ref int lpNumberOfBytesWritten);
+
+			[DllImport("kernel32.dll", SetLastError = true)]
+			public static extern bool CloseHandle(IntPtr hObject);
+		}
 
 		/// <summary>
 		/// A collection of common Win32 message codes.
