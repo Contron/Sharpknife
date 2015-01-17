@@ -107,6 +107,8 @@ namespace Sharpknife.Utilities
 		/// </summary>
 		public class Internal
 		{
+			#pragma warning disable 1591
+
 			[DllImport("user32.dll")]
 			public static extern bool FlashWindow(IntPtr hWnd, bool bInvert);
 
@@ -130,6 +132,8 @@ namespace Sharpknife.Utilities
 
 			[DllImport("kernel32.dll", SetLastError = true)]
 			public static extern bool CloseHandle(IntPtr hObject);
+
+			#pragma warning restore 1591
 		}
 
 		/// <summary>
