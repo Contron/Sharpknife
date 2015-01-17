@@ -103,6 +103,16 @@ namespace Sharpknife.Utilities
 		}
 
 		/// <summary>
+		/// Returns the last Win32 error message.
+		/// This does not actually call a native method, but is rather a convenience method that wraps the <see cref="Marshal.GetLastWin32Error"/> method.
+		/// </summary>
+		/// <returns></returns>
+		public static int GetLastError()
+		{
+			return Marshal.GetLastWin32Error();
+		}
+
+		/// <summary>
 		/// A collection of common Win32 external methods.
 		/// </summary>
 		public class Internal
