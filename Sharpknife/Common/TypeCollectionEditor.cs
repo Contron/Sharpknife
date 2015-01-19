@@ -42,7 +42,7 @@ namespace Sharpknife.Common
 		public Type Type
 		{
 			get;
-			set;
+			private set;
 		}
 	}
 }
