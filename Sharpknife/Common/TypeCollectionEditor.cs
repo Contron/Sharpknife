@@ -15,7 +15,7 @@ namespace Sharpknife.Common
 	public class TypeCollectionEditor : CollectionEditor
 	{
 		/// <summary>
-		/// Creates a new 
+		/// Creates a new type collection editor.
 		/// </summary>
 		/// <param name="type"></param>
 		public TypeCollectionEditor(Type type) : base(type)

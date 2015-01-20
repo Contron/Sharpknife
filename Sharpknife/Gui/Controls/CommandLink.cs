@@ -42,7 +42,7 @@ namespace Sharpknife.Gui.Controls
 			{
 				this.shield = value;
 
-				Win32.SendMessage(this, Win32.Constants.BCM_SETSHIELD, this.shield = value);
+				Win32.SendMessage(this, Win32.Constants.BCM_SETSHIELD, this.shield);
 			}
 		}
 
@@ -51,7 +51,7 @@ namespace Sharpknife.Gui.Controls
 		/// </summary>
 		[Category("Command Link")]
 		[Description("The note text that is visible underneath the title of the command link.")]
-		[DefaultValue("")]
+		[DefaultValue("Description")]
 		public string Note
 		{
 			get
