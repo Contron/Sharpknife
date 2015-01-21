@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\EnumDescriptionConverter.cs" />
+    <Compile Include="Common\FileDialogResult.cs" />
     <Compile Include="Common\MatchingTypeAttribute.cs" />
     <Compile Include="Common\TypeCollectionEditor.cs" />
     <Compile Include="Core\CommandLine.cs" />
