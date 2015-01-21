@@ -37,15 +37,12 @@ namespace Sharpknife.Gui.Bases
 
 		}
 
-		/// <summary>
-		/// Initialises this form.
-		/// </summary>
-		public void InitialiseForm()
+		#region Event Handlers
+
+		private void LoadHandler(object sender, EventArgs eventArgs)
 		{
 			this.PopulateFields();
 		}
-
-		#region Event Handlers
 
 		private void OKHandler(object sender, EventArgs eventArgs)
 		{

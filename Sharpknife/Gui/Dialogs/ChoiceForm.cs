@@ -1,5 +1,6 @@
 ﻿using Sharpknife.Gui.Bases;
 using Sharpknife.Gui.Controls;
+using Sharpknife.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -57,7 +58,11 @@ namespace Sharpknife.Gui.Dialogs
 			{
 				Text = message,
 				Location = location,
-				Size = size
+				Size = size,
+				Image = Resources.Action,
+				ImageAlign = ContentAlignment.MiddleLeft,
+				TextAlign = ContentAlignment.MiddleCenter,
+				TextImageRelation = TextImageRelation.ImageBeforeText
 			};
 			button.Click += (sender, eventArgs) => this.InvokeAndClose(action);
 
