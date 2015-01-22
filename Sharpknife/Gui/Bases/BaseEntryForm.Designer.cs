@@ -84,6 +84,7 @@
 			this.ShowIcon = false;
 			this.ShowInTaskbar = false;
 			this.Text = "Base Entry Form";
+			this.Load += new System.EventHandler(this.LoadHandler);
 			this.buttonPanel.ResumeLayout(false);
 			this.ResumeLayout(false);
 
