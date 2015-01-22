@@ -39,6 +39,7 @@
 			// 
 			this.articlesTreeView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+			this.articlesTreeView.HideSelection = false;
 			this.articlesTreeView.Location = new System.Drawing.Point(10, 10);
 			this.articlesTreeView.Name = "articlesTreeView";
 			this.articlesTreeView.Size = new System.Drawing.Size(150, 200);
