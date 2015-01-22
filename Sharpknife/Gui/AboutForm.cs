@@ -70,15 +70,15 @@ namespace Sharpknife.Gui
 
 		#region Event Handlers
 
+		private void LoadHandler(object sender, EventArgs eventArgs)
+		{
+			this.ApplyIcon();
+		}
+
 		private void OKHandler(object sender, EventArgs eventArgs)
 		{
 			this.Close();
 			this.Dispose();
-		}
-
-		private void LoadHandler(object sender, EventArgs eventArgs)
-		{
-			this.ApplyIcon();
 		}
 
 		#endregion

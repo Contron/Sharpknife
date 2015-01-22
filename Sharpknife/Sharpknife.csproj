@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="Common\EnumDescriptionConverter.cs" />
     <Compile Include="Common\FileDialogResult.cs" />
+    <Compile Include="Common\HelpArticle.cs" />
     <Compile Include="Common\MatchingTypeAttribute.cs" />
     <Compile Include="Common\TypeCollectionEditor.cs" />
     <Compile Include="Core\CommandLine.cs" />
@@ -97,6 +98,12 @@
     </Compile>
     <Compile Include="Gui\Dialogs\ConfirmationForm.Designer.cs">
       <DependentUpon>ConfirmationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\Dialogs\HelpForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\Dialogs\HelpForm.Designer.cs">
+      <DependentUpon>HelpForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Gui\Dialogs\MessageForm.cs">
       <SubType>Form</SubType>
@@ -148,6 +155,9 @@
     <EmbeddedResource Include="Gui\Dialogs\ConfirmationForm.resx">
       <DependentUpon>ConfirmationForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Gui\Dialogs\HelpForm.resx">
+      <DependentUpon>HelpForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Gui\Dialogs\MessageForm.resx">
       <DependentUpon>MessageForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -161,6 +171,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\Action.png" />
+    <Content Include="Resources\Folder.png" />
+    <Content Include="Resources\Article.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

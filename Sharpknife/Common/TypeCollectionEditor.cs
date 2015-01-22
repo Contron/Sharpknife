@@ -26,7 +26,7 @@ namespace Sharpknife.Common
 		/// <summary>
 		/// Creates the new item types.
 		/// </summary>
-		/// <returns>the array of types</returns>
+		/// <returns>the types</returns>
 		protected override Type[] CreateNewItemTypes()
 		{
 			//find
