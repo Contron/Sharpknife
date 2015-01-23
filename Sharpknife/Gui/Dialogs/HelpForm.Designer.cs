@@ -32,15 +32,19 @@
 			this.articleTextBox = new System.Windows.Forms.TextBox();
 			this.okButton = new System.Windows.Forms.Button();
 			this.buttonsPanel = new System.Windows.Forms.Panel();
+			this.splitContainer = new System.Windows.Forms.SplitContainer();
 			this.buttonsPanel.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
+			this.splitContainer.Panel1.SuspendLayout();
+			this.splitContainer.Panel2.SuspendLayout();
+			this.splitContainer.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// articlesTreeView
 			// 
-			this.articlesTreeView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+			this.articlesTreeView.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.articlesTreeView.HideSelection = false;
-			this.articlesTreeView.Location = new System.Drawing.Point(10, 10);
+			this.articlesTreeView.Location = new System.Drawing.Point(0, 0);
 			this.articlesTreeView.Name = "articlesTreeView";
 			this.articlesTreeView.Size = new System.Drawing.Size(150, 200);
 			this.articlesTreeView.TabIndex = 0;
@@ -48,16 +52,14 @@
 			// 
 			// articleTextBox
 			// 
-			this.articleTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.articleTextBox.Location = new System.Drawing.Point(170, 10);
+			this.articleTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.articleTextBox.Location = new System.Drawing.Point(0, 0);
 			this.articleTextBox.Multiline = true;
 			this.articleTextBox.Name = "articleTextBox";
 			this.articleTextBox.ReadOnly = true;
 			this.articleTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
 			this.articleTextBox.Size = new System.Drawing.Size(300, 200);
-			this.articleTextBox.TabIndex = 1;
+			this.articleTextBox.TabIndex = 0;
 			// 
 			// okButton
 			// 
@@ -79,16 +81,39 @@
 			this.buttonsPanel.Location = new System.Drawing.Point(0, 220);
 			this.buttonsPanel.Name = "buttonsPanel";
 			this.buttonsPanel.Size = new System.Drawing.Size(490, 50);
-			this.buttonsPanel.TabIndex = 2;
+			this.buttonsPanel.TabIndex = 1;
+			// 
+			// splitContainer
+			// 
+			this.splitContainer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.splitContainer.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+			this.splitContainer.Location = new System.Drawing.Point(10, 10);
+			this.splitContainer.Name = "splitContainer";
+			// 
+			// splitContainer.Panel1
+			// 
+			this.splitContainer.Panel1.Controls.Add(this.articlesTreeView);
+			this.splitContainer.Panel1MinSize = 100;
+			// 
+			// splitContainer.Panel2
+			// 
+			this.splitContainer.Panel2.Controls.Add(this.articleTextBox);
+			this.splitContainer.Panel2MinSize = 200;
+			this.splitContainer.Size = new System.Drawing.Size(460, 200);
+			this.splitContainer.SplitterDistance = 150;
+			this.splitContainer.SplitterWidth = 10;
+			this.splitContainer.TabIndex = 0;
+			this.splitContainer.TabStop = false;
 			// 
 			// HelpForm
 			// 
 			this.AcceptButton = this.okButton;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
 			this.ClientSize = new System.Drawing.Size(484, 261);
+			this.Controls.Add(this.splitContainer);
 			this.Controls.Add(this.buttonsPanel);
-			this.Controls.Add(this.articleTextBox);
-			this.Controls.Add(this.articlesTreeView);
 			this.MinimizeBox = false;
 			this.MinimumSize = new System.Drawing.Size(400, 200);
 			this.Name = "HelpForm";
@@ -96,8 +121,12 @@
 			this.ShowInTaskbar = false;
 			this.Text = "Help";
 			this.buttonsPanel.ResumeLayout(false);
+			this.splitContainer.Panel1.ResumeLayout(false);
+			this.splitContainer.Panel2.ResumeLayout(false);
+			this.splitContainer.Panel2.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.splitContainer)).EndInit();
+			this.splitContainer.ResumeLayout(false);
 			this.ResumeLayout(false);
-			this.PerformLayout();
 
 		}
 
@@ -107,6 +136,7 @@
 		private System.Windows.Forms.TextBox articleTextBox;
 		private System.Windows.Forms.Button okButton;
 		private System.Windows.Forms.Panel buttonsPanel;
+		private System.Windows.Forms.SplitContainer splitContainer;
 
 	}
 }
