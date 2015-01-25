@@ -59,6 +59,9 @@
 
 		#endregion
 
+		/// <summary>
+		/// The tab control for the form.
+		/// </summary>
 		protected System.Windows.Forms.TabControl TabControl;
 	}
 }
