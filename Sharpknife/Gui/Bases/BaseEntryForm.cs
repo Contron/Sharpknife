@@ -47,6 +47,7 @@ namespace Sharpknife.Gui.Bases
 		private void OKHandler(object sender, EventArgs eventArgs)
 		{
 			this.ConfirmContents();
+
 			this.Close();
 			this.Dispose();
 		}

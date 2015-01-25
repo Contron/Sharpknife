@@ -40,7 +40,7 @@
 			this.TabControl.Name = "TabControl";
 			this.TabControl.SelectedIndex = 0;
 			this.TabControl.Size = new System.Drawing.Size(310, 200);
-			this.TabControl.TabIndex = 0;
+			this.TabControl.TabIndex = 1;
 			// 
 			// BaseSettingsForm
 			// 
@@ -57,8 +57,8 @@
 		#endregion
 
 		/// <summary>
-		/// The settings tab control.
+		/// The tab control for the settings form.
 		/// </summary>
-		public System.Windows.Forms.TabControl TabControl;
+		protected System.Windows.Forms.TabControl TabControl;
 	}
 }
