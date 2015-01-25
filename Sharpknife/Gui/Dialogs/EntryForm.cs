@@ -15,6 +15,24 @@ namespace Sharpknife.Gui.Dialogs
 	public partial class EntryForm : BaseForm
 	{
 		/// <summary>
+		/// Creates a new element and shows a modal entry form for it.
+		/// </summary>
+		/// <typeparam name="T">the type</typeparam>
+		/// <param name="owner">the owner</param>
+		/// <param name="title">the title</param>
+		/// <returns>the element</returns>
+		public static T ShowNew<T>(Form owner, string title) where T : new()
+		{
+			//create
+			var element = new T();
+
+			//show
+			EntryForm.Show(owner, title, element);
+
+			return element;
+		}
+
+		/// <summary>
 		/// Shows a modal entry form with the specified title and element.
 		/// </summary>
 		/// <param name="owner">the owner</param>
