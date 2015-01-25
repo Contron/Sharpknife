@@ -66,38 +66,26 @@
     <Compile Include="Gui\Bases\BaseDialogForm.Designer.cs">
       <DependentUpon>BaseDialogForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Gui\Bases\BaseEntryForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Gui\Bases\BaseEntryForm.Designer.cs">
-      <DependentUpon>BaseEntryForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Gui\Bases\BaseForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Gui\Bases\BaseForm.Designer.cs">
       <DependentUpon>BaseForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Gui\Bases\BaseSettingsForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Gui\Bases\BaseSettingsForm.Designer.cs">
-      <DependentUpon>BaseSettingsForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Gui\Controls\CommandLink.cs">
       <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Gui\Dialogs\ChoiceForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Gui\Dialogs\ChoiceForm.Designer.cs">
-      <DependentUpon>ChoiceForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Gui\Dialogs\ConfirmationForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Gui\Dialogs\ConfirmationForm.Designer.cs">
       <DependentUpon>ConfirmationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\Dialogs\EntryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\Dialogs\EntryForm.Designer.cs">
+      <DependentUpon>EntryForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Gui\Dialogs\HelpForm.cs">
       <SubType>Form</SubType>
@@ -141,20 +129,14 @@
     <EmbeddedResource Include="Gui\Bases\BaseDialogForm.resx">
       <DependentUpon>BaseDialogForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Gui\Bases\BaseEntryForm.resx">
-      <DependentUpon>BaseEntryForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Gui\Bases\BaseForm.resx">
       <DependentUpon>BaseForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Gui\Bases\BaseSettingsForm.resx">
-      <DependentUpon>BaseSettingsForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Gui\Dialogs\ChoiceForm.resx">
-      <DependentUpon>ChoiceForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Gui\Dialogs\ConfirmationForm.resx">
       <DependentUpon>ConfirmationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\Dialogs\EntryForm.resx">
+      <DependentUpon>EntryForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Gui\Dialogs\HelpForm.resx">
       <DependentUpon>HelpForm.cs</DependentUpon>
@@ -171,7 +153,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\Images\Action.png" />
     <Content Include="Resources\Images\Folder.png" />
     <Content Include="Resources\Images\Article.png" />
   </ItemGroup>

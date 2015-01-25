@@ -42,14 +42,6 @@ namespace Sharpknife.Gui.Dialogs
 		}
 
 		/// <summary>
-		/// Creates a new help form.
-		/// </summary>
-		public HelpForm() : this(new List<HelpArticle>())
-		{
-			
-		}
-
-		/// <summary>
 		/// Builds the help.
 		/// </summary>
 		private void BuildHelp()

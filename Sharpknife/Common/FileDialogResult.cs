@@ -46,7 +46,7 @@ namespace Sharpknife.Common
 		}
 
 		/// <summary>
-		/// Creates a new, empty file dialog result.
+		/// Creates a new empty file dialog result.
 		/// </summary>
 		public FileDialogResult() : this(default(T), false, null, null)
 		{

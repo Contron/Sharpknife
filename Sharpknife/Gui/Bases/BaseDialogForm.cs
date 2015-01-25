@@ -19,14 +19,13 @@ namespace Sharpknife.Gui.Bases
 		/// </summary>
 		/// <param name="title">the title</param>
 		/// <param name="message">the message</param>
-		public BaseDialogForm(string title = "Dialog", string message = "Message") : base()
+		public BaseDialogForm(string title = "Dialog", string message = "Message") : this()
 		{
-			this.InitializeComponent();
 			this.InitialisePrompt(title, message);
 		}
 
 		/// <summary>
-		/// Creates a new, default base dialog form.
+		/// Creates a new default base dialog form.
 		/// </summary>
 		public BaseDialogForm() : base()
 		{
