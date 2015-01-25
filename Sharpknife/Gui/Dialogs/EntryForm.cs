@@ -23,31 +23,31 @@ namespace Sharpknife.Gui.Dialogs
 		public static void Show(Form owner, string title, object element)
 		{
 			//show
-			var entryForm = new EntryForm(element)
-			{
-				Text = title
-			};
+			var entryForm = new EntryForm(title, element);
 			entryForm.ShowDialog(owner);
 		}
 
 		/// <summary>
 		/// Creates a new entry form.
 		/// </summary>
+		/// <param name="title">the title</param>
 		/// <param name="element">the element</param>
-		public EntryForm(object element)
+		public EntryForm(string title, object element)
 		{
-			this.element = element;
-
 			this.InitializeComponent();
-			this.UpdatePropertyGrid();
+			this.InitialiseEditor(title, element);
 		}
 
 		/// <summary>
-		/// Updates the property grid.
+		/// Initialises the editor.
 		/// </summary>
-		private void UpdatePropertyGrid()
+		/// <param name="title">the title</param>
+		/// <param name="element">the element</param>
+		private void InitialiseEditor(string title, object element)
 		{
-			this.propertyGrid.SelectedObject = this.element;
+			//set
+			this.Text = title;
+			this.propertyGrid.SelectedObject = element;
 		}
 
 		#region Event Handlers
@@ -59,7 +59,5 @@ namespace Sharpknife.Gui.Dialogs
 		}
 
 		#endregion
-
-		private object element;
 	}
 }
