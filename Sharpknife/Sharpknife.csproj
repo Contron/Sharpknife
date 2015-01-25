@@ -117,6 +117,7 @@
     <Compile Include="Gui\ProgressForm.Designer.cs">
       <DependentUpon>ProgressForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Persistence\ObjectCollectionManager.cs" />
     <Compile Include="Persistence\ObjectManager.cs" />
     <Compile Include="Persistence\SettingsManager.cs" />
     <Compile Include="Properties\Resources.Designer.cs">

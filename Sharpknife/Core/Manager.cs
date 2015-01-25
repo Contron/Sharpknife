@@ -11,7 +11,7 @@ namespace Sharpknife.Core
 {
 	/// <summary>
 	/// Represents a class that can be extended in order to provide the functionality of loading and saving any type to and from a file.
-	/// The type can be changed and retrieved at will.
+	/// The type can be modified at will.
 	/// </summary>
 	/// <typeparam name="T">the type</typeparam>
 	public abstract class Manager<T> where T : new()
@@ -19,45 +19,14 @@ namespace Sharpknife.Core
 		/// <summary>
 		/// Creates a new manager.
 		/// </summary>
-		/// <param name="directory">the directory</param>
 		/// <param name="file">the file</param>
-		/// <param name="element">the element</param>
-		public Manager(string directory, string file, T element)
+		public Manager(string file)
 		{
-			if (directory == null)
-			{
-				throw new ArgumentNullException("directory");
-			}
+			this.Directory = Sharpknife.ApplicationPath;
+			this.File = Path.Combine(this.Directory, file + ".xml");
+			this.Element = new T();
 
-			if (file == null)
-			{
-				throw new ArgumentNullException("file");
-			}
-
-			this.Directory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), directory);
-			this.File = Path.Combine(this.Directory, file + ".dat");
-			this.Element = element;
-
-			this.binaryFormatter = new BinaryFormatter();
-		}
-
-		/// <summary>
-		/// Creates a new manager with a default element.
-		/// </summary>
-		/// <param name="directory">the parent directory</param>
-		/// <param name="file">the file</param>
-		public Manager(string directory, string file) : this(directory, file, new T())
-		{
-
-		}
-
-		/// <summary>
-		/// Creates a new manager with a default location and element.
-		/// </summary>
-		/// <param name="file">the file</param>
-		public Manager(string file) : this(Sharpknife.ApplicationPath, file)
-		{
-
+			this.xmlSerializer = new XmlSerializer(typeof(T));
 		}
 
 		/// <summary>
@@ -73,7 +42,7 @@ namespace Sharpknife.Core
 			using (FileStream fileStream = System.IO.File.Open(this.File, FileMode.Open))
 			{
 				//deserialize
-				this.Element = (T) this.binaryFormatter.Deserialize(fileStream);
+				this.Element = (T) this.xmlSerializer.Deserialize(fileStream);
 			}
 		}
 
@@ -91,7 +60,7 @@ namespace Sharpknife.Core
 			using (FileStream fileStream = System.IO.File.Open(this.File, FileMode.Create))
 			{
 				//serialize
-				this.binaryFormatter.Serialize(fileStream, this.Element);
+				this.xmlSerializer.Serialize(fileStream, this.Element);
 			}
 		}
 
@@ -122,6 +91,6 @@ namespace Sharpknife.Core
 			set;
 		}
 
-		private BinaryFormatter binaryFormatter;
+		private XmlSerializer xmlSerializer;
 	}
 }
