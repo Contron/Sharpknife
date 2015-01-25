@@ -28,55 +28,54 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.buttonsPanel = new System.Windows.Forms.FlowLayoutPanel();
-			this.cancelButton = new System.Windows.Forms.Button();
-			this.okButton = new System.Windows.Forms.Button();
-			this.buttonsPanel.SuspendLayout();
+			this.ButtonsPanel = new System.Windows.Forms.Panel();
+			this.AbortButton = new System.Windows.Forms.Button();
+			this.OKButton = new System.Windows.Forms.Button();
+			this.ButtonsPanel.SuspendLayout();
 			this.SuspendLayout();
 			// 
-			// buttonsPanel
+			// ButtonsPanel
 			// 
-			this.buttonsPanel.BackColor = System.Drawing.SystemColors.Window;
-			this.buttonsPanel.Controls.Add(this.cancelButton);
-			this.buttonsPanel.Controls.Add(this.okButton);
-			this.buttonsPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.buttonsPanel.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-			this.buttonsPanel.Location = new System.Drawing.Point(0, 220);
-			this.buttonsPanel.Margin = new System.Windows.Forms.Padding(0);
-			this.buttonsPanel.Name = "buttonsPanel";
-			this.buttonsPanel.Size = new System.Drawing.Size(334, 41);
-			this.buttonsPanel.TabIndex = 0;
+			this.ButtonsPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.ButtonsPanel.BackColor = System.Drawing.SystemColors.Window;
+			this.ButtonsPanel.Controls.Add(this.AbortButton);
+			this.ButtonsPanel.Controls.Add(this.OKButton);
+			this.ButtonsPanel.Location = new System.Drawing.Point(0, 220);
+			this.ButtonsPanel.Name = "ButtonsPanel";
+			this.ButtonsPanel.Size = new System.Drawing.Size(340, 50);
+			this.ButtonsPanel.TabIndex = 0;
 			// 
-			// cancelButton
+			// AbortButton
 			// 
-			this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.cancelButton.Location = new System.Drawing.Point(249, 10);
-			this.cancelButton.Margin = new System.Windows.Forms.Padding(10);
-			this.cancelButton.Name = "cancelButton";
-			this.cancelButton.Size = new System.Drawing.Size(75, 23);
-			this.cancelButton.TabIndex = 1;
-			this.cancelButton.Text = "Cancel";
-			this.cancelButton.UseVisualStyleBackColor = true;
-			this.cancelButton.Click += new System.EventHandler(this.CancelHandler);
+			this.AbortButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.AbortButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			this.AbortButton.Location = new System.Drawing.Point(250, 10);
+			this.AbortButton.Name = "AbortButton";
+			this.AbortButton.Size = new System.Drawing.Size(70, 23);
+			this.AbortButton.TabIndex = 1;
+			this.AbortButton.Text = "Cancel";
+			this.AbortButton.UseVisualStyleBackColor = true;
+			this.AbortButton.Click += new System.EventHandler(this.CancelHandler);
 			// 
-			// okButton
+			// OKButton
 			// 
-			this.okButton.Location = new System.Drawing.Point(164, 10);
-			this.okButton.Margin = new System.Windows.Forms.Padding(10, 10, 0, 10);
-			this.okButton.Name = "okButton";
-			this.okButton.Size = new System.Drawing.Size(75, 23);
-			this.okButton.TabIndex = 0;
-			this.okButton.Text = "OK";
-			this.okButton.UseVisualStyleBackColor = true;
-			this.okButton.Click += new System.EventHandler(this.OKHandler);
+			this.OKButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.OKButton.Location = new System.Drawing.Point(170, 10);
+			this.OKButton.Name = "OKButton";
+			this.OKButton.Size = new System.Drawing.Size(70, 23);
+			this.OKButton.TabIndex = 0;
+			this.OKButton.Text = "OK";
+			this.OKButton.UseVisualStyleBackColor = true;
+			this.OKButton.Click += new System.EventHandler(this.OKHandler);
 			// 
 			// BaseEntryForm
 			// 
-			this.AcceptButton = this.okButton;
+			this.AcceptButton = this.OKButton;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-			this.CancelButton = this.cancelButton;
+			this.CancelButton = this.AbortButton;
 			this.ClientSize = new System.Drawing.Size(334, 261);
-			this.Controls.Add(this.buttonsPanel);
+			this.Controls.Add(this.ButtonsPanel);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
@@ -85,17 +84,26 @@
 			this.ShowInTaskbar = false;
 			this.Text = "Base Entry Form";
 			this.Load += new System.EventHandler(this.LoadHandler);
-			this.buttonsPanel.ResumeLayout(false);
+			this.ButtonsPanel.ResumeLayout(false);
 			this.ResumeLayout(false);
 
 		}
 
 		#endregion
 
-		private System.Windows.Forms.FlowLayoutPanel buttonsPanel;
-		private System.Windows.Forms.Button cancelButton;
-		private System.Windows.Forms.Button okButton;
+		/// <summary>
+		/// The buttons panel for the form.
+		/// </summary>
+		protected System.Windows.Forms.Panel ButtonsPanel;
 
+		/// <summary>
+		/// The Cancel button for the form.
+		/// </summary>
+		protected System.Windows.Forms.Button AbortButton;
 
+		/// <summary>
+		/// The OK button for the form.
+		/// </summary>
+		protected System.Windows.Forms.Button OKButton;
 	}
 }

@@ -137,6 +137,5 @@
 		private System.Windows.Forms.Button okButton;
 		private System.Windows.Forms.Panel buttonsPanel;
 		private System.Windows.Forms.SplitContainer splitContainer;
-
 	}
 }

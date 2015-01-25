@@ -29,6 +29,7 @@
 		private void InitializeComponent()
 		{
 			this.TabControl = new System.Windows.Forms.TabControl();
+			this.ButtonsPanel.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// TabControl
@@ -48,17 +49,16 @@
 			this.ClientSize = new System.Drawing.Size(334, 261);
 			this.Controls.Add(this.TabControl);
 			this.Name = "BaseSettingsForm";
-			this.Text = "Settings";
+			this.Text = "Base Settings Form";
+			this.Controls.SetChildIndex(this.ButtonsPanel, 0);
 			this.Controls.SetChildIndex(this.TabControl, 0);
+			this.ButtonsPanel.ResumeLayout(false);
 			this.ResumeLayout(false);
 
 		}
 
 		#endregion
 
-		/// <summary>
-		/// The tab control for the settings form.
-		/// </summary>
 		protected System.Windows.Forms.TabControl TabControl;
 	}
 }

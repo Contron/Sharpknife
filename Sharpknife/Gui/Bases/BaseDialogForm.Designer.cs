@@ -78,6 +78,5 @@
 
 		private System.Windows.Forms.Panel messagePanel;
 		private System.Windows.Forms.Label messageLabel;
-
 	}
 }
