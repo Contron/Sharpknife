@@ -10,10 +10,9 @@ using System.Xml.Serialization;
 namespace Sharpknife.Core
 {
 	/// <summary>
-	/// Represents a class that can be extended in order to provide the functionality of loading and saving any type to and from a file.
-	/// The type can be modified at will.
+	/// Represents a class that can manage the persistence of any type by providing the appropriate methods to load and save it from file.
 	/// </summary>
-	/// <typeparam name="T">the type</typeparam>
+	/// <typeparam name="T"></typeparam>
 	public abstract class Manager<T> where T : new()
 	{
 		/// <summary>

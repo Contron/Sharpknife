@@ -34,7 +34,7 @@ namespace Sharpknife.Gui.Bases
 		}
 
 		/// <summary>
-		/// Notifies that this form has loaded.
+		/// Notifies that the form has loaded.
 		/// </summary>
 		private void NotifyForm()
 		{

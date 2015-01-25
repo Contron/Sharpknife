@@ -25,7 +25,7 @@ namespace Sharpknife.Gui.Bases
 		}
 
 		/// <summary>
-		/// Styles this form.
+		/// Styles the form.
 		/// </summary>
 		private void StyleForm()
 		{
