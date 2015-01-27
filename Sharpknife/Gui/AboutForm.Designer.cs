@@ -118,6 +118,7 @@
 			this.ShowIcon = false;
 			this.ShowInTaskbar = false;
 			this.Text = "About";
+			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ClosedHandler);
 			this.Load += new System.EventHandler(this.LoadHandler);
 			((System.ComponentModel.ISupportInitialize)(this.iconPictureBox)).EndInit();
 			this.headerPanel.ResumeLayout(false);

@@ -33,6 +33,8 @@ namespace Sharpknife.Gui
 		/// </summary>
 		public AboutForm() : base()
 		{
+			this.icon = null;
+
 			this.InitializeComponent();
 			this.PopulateInformation();
 		}
@@ -52,7 +54,7 @@ namespace Sharpknife.Gui
 		}
 
 		/// <summary>
-		/// Applies the owner form's icon.
+		/// Applies the icon of the owner.
 		/// </summary>
 		private void ApplyIcon()
 		{
@@ -63,8 +65,21 @@ namespace Sharpknife.Gui
 				if (icon != null)
 				{
 					//apply
-					this.iconPictureBox.Image = icon.ToBitmap();
+					this.icon = icon.ToBitmap();
+					this.iconPictureBox.Image = this.icon;
 				}
+			}
+		}
+		
+		/// <summary>
+		/// Disposes of the icon.
+		/// </summary>
+		private void DisposeIcon()
+		{
+			if (this.icon != null)
+			{
+				//dispose
+				this.icon.Dispose();
 			}
 		}
 
@@ -81,6 +96,13 @@ namespace Sharpknife.Gui
 			this.Dispose();
 		}
 
+		private void ClosedHandler(object sender, FormClosedEventArgs eventArgs)
+		{
+			this.DisposeIcon();
+		}
+
 		#endregion
+
+		private Bitmap icon;
 	}
 }
