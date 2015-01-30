@@ -51,6 +51,7 @@
     <Compile Include="Common\FileDialogResult.cs" />
     <Compile Include="Common\HelpArticle.cs" />
     <Compile Include="Common\MatchingTypeAttribute.cs" />
+    <Compile Include="Common\NativeHandle.cs" />
     <Compile Include="Common\TypeCollectionEditor.cs" />
     <Compile Include="Core\CommandLine.cs" />
     <Compile Include="Core\Manager.cs" />

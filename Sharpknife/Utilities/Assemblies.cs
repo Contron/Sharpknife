@@ -33,10 +33,10 @@ namespace Sharpknife.Utilities
 		}
 
 		/// <summary>
-		/// Returns a list of all the types that inherit from the specified type.
+		/// Returns all the types that inherit from the specified type.
 		/// </summary>
 		/// <param name="type">the type</param>
-		/// <returns>all of the types that inherit it</returns>
+		/// <returns>the sub types</returns>
 		public static List<Type> GetSubTypesOf(Type type)
 		{
 			//find

@@ -16,7 +16,7 @@ namespace Sharpknife.Gui
 	public partial class ProgressForm : BaseForm
 	{
 		/// <summary>
-		/// Shows a modal progress form and starts a background worker.
+		/// Shows a modal progress form and starts the respective <see cref="BackgroundWorker" />.
 		/// </summary>
 		/// <param name="owner">the owner</param>
 		/// <param name="backgroundWorker">the background worker</param>

@@ -15,7 +15,7 @@ namespace Sharpknife.Utilities
 	public class Win32
 	{
 		/// <summary>
-		/// Flashes the specified form in the task bar.
+		/// Flashes the specified <see cref="Form" /> in the task bar.
 		/// </summary>
 		/// <param name="form">the form</param>
 		public static void FlashWindow(Form form)
@@ -24,7 +24,7 @@ namespace Sharpknife.Utilities
 		}
 
 		/// <summary>
-		/// Sends a message to the specified control.
+		/// Sends a message to the specified <see cref="Control" />.
 		/// </summary>
 		/// <param name="control">the control</param>
 		/// <param name="message">the message</param>
@@ -35,7 +35,7 @@ namespace Sharpknife.Utilities
 		}
 
 		/// <summary>
-		/// Sends a message to the specified control.
+		/// Sends a message to the specified <see cref="Control" />.
 		/// </summary>
 		/// <param name="control">the control</param>
 		/// <param name="message">the message</param>
@@ -46,7 +46,7 @@ namespace Sharpknife.Utilities
 		}
 
 		/// <summary>
-		/// Sends a message to the specified control.
+		/// Sends a message to the specified <see cref="Control" />.
 		/// </summary>
 		/// <param name="control">the control</param>
 		/// <param name="message">the message</param>
@@ -57,7 +57,7 @@ namespace Sharpknife.Utilities
 		}
 
 		/// <summary>
-		/// Opens a handle to a process.
+		/// Opens a handle to a <see cref="Process" />.
 		/// </summary>
 		/// <param name="process">the process</param>
 		/// <returns>the handle</returns>
@@ -67,7 +67,7 @@ namespace Sharpknife.Utilities
 		}
 
 		/// <summary>
-		/// Reads from a process' memory into the specified buffer.
+		/// Reads from the memory of a <see cref="Process" /> into the specified buffer.
 		/// </summary>
 		/// <param name="pointer">the pointer</param>
 		/// <param name="address">the address</param>
@@ -80,7 +80,7 @@ namespace Sharpknife.Utilities
 		}
 
 		/// <summary>
-		/// Writes to a process' memory from the specified buffer.
+		/// Writes to the memory of a <see cref="Process" /> from the specified buffer.
 		/// </summary>
 		/// <param name="pointer">the pointer</param>
 		/// <param name="address">the address</param>
@@ -93,7 +93,7 @@ namespace Sharpknife.Utilities
 		}
 
 		/// <summary>
-		/// Closes a handle.
+		/// Closes a <see cref="IntPtr"/> handle.
 		/// </summary>
 		/// <param name="handle">the handle</param>
 		/// <returns>if the handle was closed successfully</returns>
@@ -104,7 +104,7 @@ namespace Sharpknife.Utilities
 
 		/// <summary>
 		/// Returns the last Win32 error message.
-		/// This does not actually call a native method, but is rather a convenience method that wraps the <see cref="Marshal.GetLastWin32Error" /> method.
+		/// This does not actually call a native method, but is rather a convenience method that wraps the <see cref="Marshal.GetLastWin32Error" /> method for consistency.
 		/// </summary>
 		/// <returns></returns>
 		public static int GetLastError()

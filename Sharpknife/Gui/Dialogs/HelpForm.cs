@@ -17,7 +17,7 @@ namespace Sharpknife.Gui.Dialogs
 	public partial class HelpForm : BaseForm
 	{
 		/// <summary>
-		/// Shows a modal help form.
+		/// Shows a modal help form with the specified help articles.
 		/// </summary>
 		/// <param name="owner">the owner</param>
 		/// <param name="helpArticles">the help articles</param>
