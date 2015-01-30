@@ -10,7 +10,7 @@ namespace Sharpknife.Utilities
 	/// <summary>
 	/// A collection of useful debug utilities for printing and reading the console.
 	/// </summary>
-	public class Debug
+	public static class Debug
 	{
 		/// <summary>
 		/// Writes formatted information to the console.

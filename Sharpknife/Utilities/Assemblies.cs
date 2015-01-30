@@ -10,7 +10,7 @@ namespace Sharpknife.Utilities
 	/// <summary>
 	/// A collection of generic assembly related methods.
 	/// </summary>
-	public class Assemblies
+	public static class Assemblies
 	{
 		/// <summary>
 		/// Returns the matching attribute for the specified value.

@@ -12,7 +12,7 @@ namespace Sharpknife.Utilities
 	/// <summary>
 	/// A collection of quick shortcuts for common dialog tasks.
 	/// </summary>
-	public class Dialogs
+	public static class Dialogs
 	{
 		/// <summary>
 		/// Shows an open dialog.

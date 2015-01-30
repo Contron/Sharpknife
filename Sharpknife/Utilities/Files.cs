@@ -9,7 +9,7 @@ namespace Sharpknife.Utilities
 	/// <summary>
 	/// A collection of useful file utilities.
 	/// </summary>
-	public class Files
+	public static class Files
 	{
 		/// <summary>
 		/// Calculates the human readable size of a file.

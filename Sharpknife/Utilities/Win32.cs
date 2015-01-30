@@ -12,7 +12,7 @@ namespace Sharpknife.Utilities
 	/// <summary>
 	/// A collection of native Win32 methods that are encapsulated in managed methods.
 	/// </summary>
-	public class Win32
+	public static class Win32
 	{
 		/// <summary>
 		/// Flashes the specified <see cref="Form" /> in the task bar.
