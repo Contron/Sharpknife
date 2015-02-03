@@ -27,7 +27,7 @@ namespace Sharpknife.Utilities
 
 			//get
 			var attribute = (T) Attribute.GetCustomAttribute(Assembly.GetEntryAssembly(), typeof(T));
-			var result = value.Invoke(attribute);
+			var result = value(attribute);
 
 			return result;
 		}
