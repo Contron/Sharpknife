@@ -22,6 +22,14 @@ namespace Sharpknife.Gui.Bases
 		}
 
 		/// <summary>
+		/// Prepares the contents of the form.
+		/// </summary>
+		protected virtual void PrepareContents()
+		{
+
+		}
+
+		/// <summary>
 		/// Populates the contents of the form.
 		/// </summary>
 		protected virtual void PopulateContents()
@@ -58,6 +66,7 @@ namespace Sharpknife.Gui.Bases
 
 		private void LoadHandler(object sender, EventArgs eventArgs)
 		{
+			this.PrepareContents();
 			this.PopulateContents();
 		}
 
