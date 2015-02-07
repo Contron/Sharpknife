@@ -24,7 +24,7 @@ namespace Sharpknife.Gui.Bases
 		/// <summary>
 		/// Populates the contents of the form.
 		/// </summary>
-		public virtual void PopulateContents()
+		protected virtual void PopulateContents()
 		{
 
 		}
@@ -32,7 +32,7 @@ namespace Sharpknife.Gui.Bases
 		/// <summary>
 		/// Confirms the contents of the form.
 		/// </summary>
-		public virtual void ConfirmContents()
+		protected virtual void ConfirmContents()
 		{
 
 		}
