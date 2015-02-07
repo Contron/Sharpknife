@@ -16,26 +16,18 @@ namespace Sharpknife.Gui
 	public partial class ProgressForm : BaseForm
 	{
 		/// <summary>
-		/// Shows a modal progress form and starts the respective <see cref="BackgroundWorker" />.
-		/// </summary>
-		/// <param name="owner">the owner</param>
-		/// <param name="backgroundWorker">the background worker</param>
-		public static void ShowAndStart(Form owner, BackgroundWorker backgroundWorker)
-		{
-			//start
-			backgroundWorker.RunWorkerAsync();
-
-			//show
-			ProgressForm.Show(owner, backgroundWorker);
-		}
-
-		/// <summary>
-		/// Shows a modal progress form.
+		/// Shows a modal progress form, starting the specified <see cref="BackgroundWorker" /> if necessary.
 		/// </summary>
 		/// <param name="owner">the owner</param>
 		/// <param name="backgroundWorker">the background worker</param>
 		public static void Show(Form owner, BackgroundWorker backgroundWorker)
 		{
+			if (!backgroundWorker.IsBusy)
+			{
+				//start
+				backgroundWorker.RunWorkerAsync();
+			}
+
 			//show
 			var progressForm = new ProgressForm(backgroundWorker);
 			progressForm.ShowDialog(owner);
@@ -64,9 +56,19 @@ namespace Sharpknife.Gui
 
 			//update
 			this.statusLabel.Text = "Performing operation...";
+			this.progressBar.Style = ProgressBarStyle.Marquee;
 			this.cancelButton.Enabled = this.backgroundWorker.WorkerSupportsCancellation;
-			this.progressBar.Value = 0;
-			this.progressBar.Style = (this.backgroundWorker.WorkerReportsProgress ? ProgressBarStyle.Blocks : ProgressBarStyle.Marquee);
+		}
+
+		/// <summary>
+		/// Updates the progress.
+		/// </summary>
+		/// <param name="amount">the amount</param>
+		private void UpdateProgress(int amount)
+		{
+			//update
+			this.progressBar.Value = amount;
+			this.progressBar.Style = (amount <= 0 ? ProgressBarStyle.Marquee : ProgressBarStyle.Blocks);
 		}
 
 		/// <summary>
@@ -101,20 +103,6 @@ namespace Sharpknife.Gui
 			this.Close();
 			this.Dispose();
 		}
-
-		#region Utility Methods
-
-		/// <summary>
-		/// Updates the progress bar.
-		/// </summary>
-		/// <param name="amount">the amount</param>
-		private void UpdateProgress(int amount)
-		{
-			//update
-			this.progressBar.Value = amount;
-		}
-
-		#endregion
 
 		#region Event Handlers
 

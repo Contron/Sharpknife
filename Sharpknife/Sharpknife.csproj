@@ -73,6 +73,12 @@
     <Compile Include="Gui\Bases\BaseForm.Designer.cs">
       <DependentUpon>BaseForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Gui\Bases\BaseModalForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\Bases\BaseModalForm.Designer.cs">
+      <DependentUpon>BaseModalForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Gui\Controls\CommandLink.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -132,6 +138,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Gui\Bases\BaseForm.resx">
       <DependentUpon>BaseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\Bases\BaseModalForm.resx">
+      <DependentUpon>BaseModalForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Gui\Dialogs\ConfirmationForm.resx">
       <DependentUpon>ConfirmationForm.cs</DependentUpon>
