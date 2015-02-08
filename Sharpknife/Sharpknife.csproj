@@ -62,12 +62,6 @@
     <Compile Include="Gui\AboutForm.Designer.cs">
       <DependentUpon>AboutForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Gui\Bases\BaseControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Gui\Bases\BaseControl.Designer.cs">
-      <DependentUpon>BaseControl.cs</DependentUpon>
-    </Compile>
     <Compile Include="Gui\Bases\BaseDialogForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,9 +133,6 @@
   <ItemGroup>
     <EmbeddedResource Include="Gui\AboutForm.resx">
       <DependentUpon>AboutForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Gui\Bases\BaseControl.resx">
-      <DependentUpon>BaseControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Gui\Bases\BaseDialogForm.resx">
       <DependentUpon>BaseDialogForm.cs</DependentUpon>
