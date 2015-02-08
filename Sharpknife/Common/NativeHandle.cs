@@ -26,7 +26,6 @@ namespace Sharpknife.Common
 		/// </summary>
 		~NativeHandle()
 		{
-			//dispose
 			this.Dispose();
 		}
 

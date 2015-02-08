@@ -71,12 +71,18 @@ namespace Sharpknife.Utilities
 		/// </summary>
 		/// <param name="pointer">the pointer</param>
 		/// <param name="address">the address</param>
-		/// <param name="buffer">the buffer</param>
-		/// <param name="bytesRead">the number of bytes read</param>
-		/// <returns>if memory was read successfully</returns>
-		public static bool ReadProcessMemory(IntPtr pointer, IntPtr address, byte[] buffer, ref int bytesRead)
+		/// <param name="length">the length</param>
+		/// <returns>the read memory</returns>
+		public static byte[] ReadProcessMemory(IntPtr pointer, IntPtr address, int length)
 		{
-			return Win32.Internal.ReadProcessMemory(pointer, address, buffer, buffer.Length, ref bytesRead);
+			//context
+			var buffer = new byte[length];
+			var bytesRead = 0;
+			
+			//read
+			Win32.Internal.ReadProcessMemory(pointer, address, buffer, buffer.Length, ref bytesRead);
+
+			return buffer;
 		}
 
 		/// <summary>
@@ -85,11 +91,14 @@ namespace Sharpknife.Utilities
 		/// <param name="pointer">the pointer</param>
 		/// <param name="address">the address</param>
 		/// <param name="buffer">the buffer</param>
-		/// <param name="bytesWritten">the number of bytes written</param>
 		/// <returns>if memory was written successfully</returns>
-		public static bool WriteProcessMemory(IntPtr pointer, IntPtr address, byte[] buffer, ref int bytesWritten)
+		public static bool WriteProcessMemory(IntPtr pointer, IntPtr address, byte[] buffer)
 		{
-			return Win32.Internal.WriteProcessMemory(pointer, address, buffer, buffer.Length, ref bytesWritten);
+			//context
+			var bytesWritten = 0;
+			var success = Win32.Internal.WriteProcessMemory(pointer, address, buffer, buffer.Length, ref bytesWritten);
+
+			return success;
 		}
 
 		/// <summary>
