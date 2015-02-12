@@ -122,12 +122,6 @@ namespace Sharpknife.Gui.Dialogs
 			this.SwapHelp(eventArgs.Node);
 		}
 
-		private void OKHandler(object sender, EventArgs eventArgs)
-		{
-			this.Close();
-			this.Dispose();
-		}
-
 		#endregion
 
 		private List<HelpArticle> helpArticles;

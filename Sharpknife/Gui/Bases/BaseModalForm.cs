@@ -45,23 +45,6 @@ namespace Sharpknife.Gui.Bases
 
 		}
 
-		/// <summary>
-		/// Completes the form
-		/// </summary>
-		/// <param name="confirm">if the contents should be confirmed</param>
-		private void Complete(bool confirm)
-		{
-			if (confirm)
-			{
-				//confirm
-				this.ConfirmContents();
-			}
-
-			//close
-			this.Close();
-			this.Dispose();
-		}
-
 		#region Event Handlers
 
 		private void LoadHandler(object sender, EventArgs eventArgs)
@@ -72,12 +55,7 @@ namespace Sharpknife.Gui.Bases
 
 		private void OKHandler(object sender, EventArgs eventArgs)
 		{
-			this.Complete(true);
-		}
-
-		private void CancelHandler(object sender, EventArgs eventArgs)
-		{
-			this.Complete(false);
+			this.ConfirmContents();
 		}
 
 		#endregion

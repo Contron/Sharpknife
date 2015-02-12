@@ -39,15 +39,5 @@ namespace Sharpknife.Gui.Dialogs
 		{
 			this.InitializeComponent();
 		}
-
-		#region Event Handlers
-
-		private void CloseHandler(object sender, EventArgs eventArgs)
-		{
-			this.Close();
-			this.Dispose();
-		}
-
-		#endregion
 	}
 }

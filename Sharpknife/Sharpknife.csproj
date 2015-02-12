@@ -89,12 +89,6 @@
     <Compile Include="Gui\Dialogs\ConfirmationForm.Designer.cs">
       <DependentUpon>ConfirmationForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Gui\Dialogs\EntryForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Gui\Dialogs\EntryForm.Designer.cs">
-      <DependentUpon>EntryForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Gui\Dialogs\HelpForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,9 +139,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Gui\Dialogs\ConfirmationForm.resx">
       <DependentUpon>ConfirmationForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Gui\Dialogs\EntryForm.resx">
-      <DependentUpon>EntryForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Gui\Dialogs\HelpForm.resx">
       <DependentUpon>HelpForm.cs</DependentUpon>

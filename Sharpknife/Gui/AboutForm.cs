@@ -54,7 +54,7 @@ namespace Sharpknife.Gui
 		}
 
 		/// <summary>
-		/// Applies the icon of the owner.
+		/// Applies the icon of the owner to the image box.
 		/// </summary>
 		private void ApplyIcon()
 		{
@@ -88,12 +88,6 @@ namespace Sharpknife.Gui
 		private void LoadHandler(object sender, EventArgs eventArgs)
 		{
 			this.ApplyIcon();
-		}
-
-		private void OKHandler(object sender, EventArgs eventArgs)
-		{
-			this.Close();
-			this.Dispose();
 		}
 
 		private void ClosedHandler(object sender, FormClosedEventArgs eventArgs)

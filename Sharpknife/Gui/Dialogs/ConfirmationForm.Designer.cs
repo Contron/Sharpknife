@@ -41,7 +41,6 @@
 			this.okButton.TabIndex = 1;
 			this.okButton.Text = "OK";
 			this.okButton.UseVisualStyleBackColor = true;
-			this.okButton.Click += new System.EventHandler(this.CloseHandler);
 			// 
 			// cancelButton
 			// 
@@ -52,7 +51,6 @@
 			this.cancelButton.TabIndex = 2;
 			this.cancelButton.Text = "Cancel";
 			this.cancelButton.UseVisualStyleBackColor = true;
-			this.cancelButton.Click += new System.EventHandler(this.CloseHandler);
 			// 
 			// ConfirmationForm
 			// 
