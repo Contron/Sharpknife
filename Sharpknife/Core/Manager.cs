@@ -10,7 +10,7 @@ using System.Xml.Serialization;
 namespace Sharpknife.Core
 {
 	/// <summary>
-	/// Represents a class that can manage the persistence of any type by providing the appropriate methods to load and save it from file.
+	/// Represents a manager that can control the persistence of any type by providing the appropriate methods to load and save it from an XML file.
 	/// </summary>
 	/// <typeparam name="T"></typeparam>
 	public abstract class Manager<T> where T : new()

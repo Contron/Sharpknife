@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace Sharpknife.Core
 {
 	/// <summary>
-	/// Represents a class to assist in taking command-line arguments.
+	/// Represents a command-line interface to assist in a command-line application.
 	/// </summary>
 	public class CommandLine
 	{
