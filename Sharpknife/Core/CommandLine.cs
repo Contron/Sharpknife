@@ -22,7 +22,6 @@ namespace Sharpknife.Core
 			this.Arguments = new Dictionary<string, object>();
 			this.arguments = arguments;
 
-			this.Header();
 			this.Parse();
 		}
 
@@ -76,19 +75,6 @@ namespace Sharpknife.Core
 		public bool GetFlag(string name, bool placeholder = false)
 		{
 			return (bool) this.GetArgument(name, placeholder, false);
-		}
-
-		/// <summary>
-		/// Displays the header.
-		/// </summary>
-		private void Header()
-		{
-			//version info
-			var versionInfo = System.Diagnostics.FileVersionInfo.GetVersionInfo(Assembly.GetEntryAssembly().Location);
-
-			//header
-			Debug.Warning(versionInfo.ProductName);
-			Debug.Warning(string.Format("Version {0}, {1}", versionInfo.FileVersion, versionInfo.LegalCopyright));
 		}
 
 		/// <summary>

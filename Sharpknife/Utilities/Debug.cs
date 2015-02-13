@@ -13,6 +13,19 @@ namespace Sharpknife.Utilities
 	public static class Debug
 	{
 		/// <summary>
+		/// Writes the application header to the console.
+		/// </summary>
+		public static void Header()
+		{
+			//version info
+			var versionInfo = System.Diagnostics.FileVersionInfo.GetVersionInfo(Assembly.GetEntryAssembly().Location);
+
+			//header
+			Debug.Warning(versionInfo.ProductName);
+			Debug.Warning(string.Format("Version {0}, {1}", versionInfo.FileVersion, versionInfo.LegalCopyright));
+		}
+
+		/// <summary>
 		/// Writes formatted information to the console.
 		/// </summary>
 		/// <param name="message">the message</param>
