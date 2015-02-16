@@ -88,18 +88,18 @@ namespace Sharpknife.Utilities
 		/// </summary>
 		/// <param name="message">the message</param>
 		/// <returns>the result</returns>
-		public static string Prompt(string message)
+		public static string MessagePrompt(string message)
 		{
 			//message
 			Debug.Write(ConsoleColor.Green, message + ": ");
+			Console.ResetColor();
 
 			//read
-			Console.ResetColor();
 			var result = Console.ReadLine();
 
 			return (string.IsNullOrEmpty(result) ? null : result);
 		}
-		
+
 		/// <summary>
 		/// Prompts the user at the console for a question.
 		/// </summary>
@@ -109,9 +109,9 @@ namespace Sharpknife.Utilities
 		{
 			//message
 			Debug.Write(ConsoleColor.Green, message + " (y/n): ");
+			Console.ResetColor();
 
 			//read
-			Console.ResetColor();
 			var result = Console.ReadLine().ToLower();
 
 			return (result == "y");
@@ -131,9 +131,9 @@ namespace Sharpknife.Utilities
 			{
 				//message
 				Debug.Write(ConsoleColor.Green, message + ": ");
+				Console.ResetColor();
 
 				//read and parse
-				Console.ResetColor();
 				var result = Console.ReadLine();
 				var parsed = int.TryParse(result, out number);
 
@@ -155,9 +155,9 @@ namespace Sharpknife.Utilities
 		{
 			//message
 			Debug.Write(ConsoleColor.Green, message + ": ");
+			Console.ResetColor();
 
 			//password
-			Console.ResetColor();
 			var stringBuilder = new StringBuilder();
 
 			while (true)
@@ -168,21 +168,19 @@ namespace Sharpknife.Utilities
 
 				if (key == ConsoleKey.Enter)
 				{
-					//line
+					//completed
 					Console.WriteLine();
 
 					break;
 				}
 				else if (key == ConsoleKey.Backspace)
 				{
-					if (stringBuilder.Length <= 0)
+					if (stringBuilder.Length > 0)
 					{
-						continue;
+						//remove
+						stringBuilder.Remove(stringBuilder.Length - 1, 1);
+						Console.Write("\b \b");
 					}
-
-					//remove
-					stringBuilder.Remove(stringBuilder.Length - 1, 1);
-					Console.Write("\b \b");
 				}
 				else
 				{
@@ -190,6 +188,7 @@ namespace Sharpknife.Utilities
 					stringBuilder.Append(keyInfo.KeyChar);
 					Console.Write("*");
 				}
+
 			}
 
 			//result
@@ -205,7 +204,7 @@ namespace Sharpknife.Utilities
 		{
 			//wait
 			Debug.WriteLine(ConsoleColor.Yellow, "Press any key to continue.");
-			Console.ReadKey();
+			Console.ReadKey(true);
 		}
 
 		/// <summary>
@@ -237,7 +236,7 @@ namespace Sharpknife.Utilities
 		public static void Write(ConsoleColor consoleColor, string message)
 		{
 			//time
-			var time = DateTime.Now.ToString("HH:mm:ss");
+			var time = DateTime.Now.ToString("dd/MM/yy HH:mm:ss");
 
 			//print
 			Console.ForegroundColor = consoleColor;
