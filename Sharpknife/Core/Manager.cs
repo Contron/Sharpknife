@@ -38,7 +38,7 @@ namespace Sharpknife.Core
 				return;
 			}
 
-			using (FileStream fileStream = System.IO.File.Open(this.File, FileMode.Open))
+			using (var fileStream = System.IO.File.Open(this.File, FileMode.Open))
 			{
 				//deserialize
 				this.Element = (T) this.xmlSerializer.Deserialize(fileStream);
@@ -56,7 +56,7 @@ namespace Sharpknife.Core
 				System.IO.Directory.CreateDirectory(this.Directory);
 			}
 
-			using (FileStream fileStream = System.IO.File.Open(this.File, FileMode.Create))
+			using (var fileStream = System.IO.File.Open(this.File, FileMode.Create))
 			{
 				//serialize
 				this.xmlSerializer.Serialize(fileStream, this.Element);

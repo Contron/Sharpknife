@@ -29,7 +29,7 @@ namespace Sharpknife.Utilities
 			//serializer
 			var serializer = new XmlSerializer(typeof(T));
 			
-			using (FileStream fileStream = File.Open(file, FileMode.Open))
+			using (var fileStream = File.Open(file, FileMode.Open))
 			{
 				return (T) serializer.Deserialize(fileStream);
 			}
@@ -56,7 +56,7 @@ namespace Sharpknife.Utilities
 			//serializer
 			var serializer = new XmlSerializer(typeof(T));
 
-			using (FileStream fileStream = File.Open(file, FileMode.Create))
+			using (var fileStream = File.Open(file, FileMode.Create))
 			{
 				serializer.Serialize(fileStream, element);
 			}
