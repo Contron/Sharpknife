@@ -1,5 +1,6 @@
 ﻿using Sharpknife.Gui.Bases;
 using Sharpknife.Utilities;
+using Sharpknife.Utilities.Extensions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -95,7 +96,7 @@ namespace Sharpknife.Gui
 				if (this.Owner != null)
 				{
 					//flash
-					Win32.FlashWindow(this.Owner);
+					this.FlashInTaskbar();
 				}
 			}
 
