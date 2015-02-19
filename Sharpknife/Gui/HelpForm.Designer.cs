@@ -1,4 +1,4 @@
-﻿namespace Sharpknife.Gui.Dialogs
+﻿namespace Sharpknife.Gui
 {
 	partial class HelpForm
 	{

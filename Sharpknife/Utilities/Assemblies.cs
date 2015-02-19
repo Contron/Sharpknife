@@ -39,6 +39,11 @@ namespace Sharpknife.Utilities
 		/// <returns>the sub types</returns>
 		public static List<Type> GetSubTypesOf(Type type)
 		{
+			if (type == null)
+			{
+				throw new ArgumentNullException("type");
+			}
+
 			//find
 			var types = Assembly.GetAssembly(type).GetTypes().Where(currentType => currentType.IsSubclassOf(type));
 			var result = types.ToList();

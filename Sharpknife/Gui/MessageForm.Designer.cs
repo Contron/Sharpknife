@@ -1,4 +1,4 @@
-﻿namespace Sharpknife.Gui.Dialogs
+﻿namespace Sharpknife.Gui
 {
 	partial class MessageForm
 	{
@@ -29,6 +29,7 @@
 		private void InitializeComponent()
 		{
 			this.okButton = new System.Windows.Forms.Button();
+			this.messagePanel.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// okButton
@@ -48,8 +49,11 @@
 			this.ClientSize = new System.Drawing.Size(334, 111);
 			this.Controls.Add(this.okButton);
 			this.Name = "MessageForm";
+			this.Controls.SetChildIndex(this.messagePanel, 0);
 			this.Controls.SetChildIndex(this.okButton, 0);
+			this.messagePanel.ResumeLayout(false);
 			this.ResumeLayout(false);
+
 		}
 
 		#endregion

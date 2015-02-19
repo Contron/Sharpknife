@@ -12,20 +12,19 @@ namespace Sharpknife.Core
 	/// <summary>
 	/// Represents a manager that can control the persistence of any type by providing the appropriate methods to load and save it from an XML file.
 	/// </summary>
-	/// <typeparam name="T"></typeparam>
+	/// <typeparam name="T">the type</typeparam>
 	public abstract class Manager<T> where T : new()
 	{
 		/// <summary>
 		/// Creates a new manager.
 		/// </summary>
 		/// <param name="file">the file</param>
-		public Manager(string file)
+		/// <param name="format">the format</param>
+		public Manager(string file, string format)
 		{
 			this.Directory = Sharpknife.ApplicationPath;
-			this.File = Path.Combine(this.Directory, file + ".xml");
-			this.Element = new T();
-
-			this.xmlSerializer = new XmlSerializer(typeof(T));
+			this.File = Path.Combine(this.Directory, string.Format("{0}.{1}", file, format));
+			this.Element = default(T);
 		}
 
 		/// <summary>
@@ -40,8 +39,8 @@ namespace Sharpknife.Core
 
 			using (var fileStream = System.IO.File.Open(this.File, FileMode.Open))
 			{
-				//deserialize
-				this.Element = (T) this.xmlSerializer.Deserialize(fileStream);
+				//load
+				this.Element = this.LoadFromSource(fileStream);
 			}
 		}
 
@@ -58,10 +57,24 @@ namespace Sharpknife.Core
 
 			using (var fileStream = System.IO.File.Open(this.File, FileMode.Create))
 			{
-				//serialize
-				this.xmlSerializer.Serialize(fileStream, this.Element);
+				//save
+				this.SaveToSource(fileStream, this.Element);
 			}
 		}
+
+		/// <summary>
+		/// Loads from the source file.
+		/// </summary>
+		/// <param name="fileStream">the file stream</param>
+		/// <returns>the element</returns>
+		protected abstract T LoadFromSource(FileStream fileStream);
+
+		/// <summary>
+		/// Saves to the source file.
+		/// </summary>
+		/// <param name="fileStream">the file stream</param>
+		/// <param name="element">the element</param>
+		protected abstract void SaveToSource(FileStream fileStream, T element);
 
 		/// <summary>
 		/// The directory for the manager.
@@ -89,7 +102,5 @@ namespace Sharpknife.Core
 			get;
 			set;
 		}
-
-		private XmlSerializer xmlSerializer;
 	}
 }

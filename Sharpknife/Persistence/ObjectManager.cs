@@ -1,4 +1,5 @@
 ﻿using Sharpknife.Core;
+using Sharpknife.Core.Managers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace Sharpknife.Persistence
 	/// Represents a manager for a particular object.
 	/// </summary>
 	/// <typeparam name="T">the type</typeparam>
-	public class ObjectManager<T> : Manager<T> where T : new()
+	public class ObjectManager<T> : XmlManager<T> where T : new()
 	{
 		/// <summary>
 		/// Creates a new object manager.

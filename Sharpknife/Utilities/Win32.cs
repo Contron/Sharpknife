@@ -20,6 +20,11 @@ namespace Sharpknife.Utilities
 		/// <param name="form">the form</param>
 		public static void FlashWindow(Form form)
 		{
+			if (form == null)
+			{
+				throw new ArgumentNullException("form");
+			}
+
 			Win32.Internal.FlashWindow(form.Handle, false);
 		}
 
@@ -31,6 +36,16 @@ namespace Sharpknife.Utilities
 		/// <param name="data">the data</param>
 		public static void SendMessage(Control control, uint message, IntPtr data)
 		{
+			if (control == null)
+			{
+				throw new ArgumentNullException("control");
+			}
+
+			if (data == null)
+			{
+				throw new ArgumentNullException("data");
+			}
+
 			Win32.Internal.SendMessage(control.Handle, message, IntPtr.Zero, data);
 		}
 
@@ -42,6 +57,16 @@ namespace Sharpknife.Utilities
 		/// <param name="data">the data</param>
 		public static void SendMessage(Control control, uint message, string data)
 		{
+			if (control == null)
+			{
+				throw new ArgumentNullException("control");
+			}
+
+			if (data == null)
+			{
+				throw new ArgumentNullException("data");
+			}
+
 			Win32.Internal.SendMessage(control.Handle, message, IntPtr.Zero, data);
 		}
 
@@ -53,6 +78,11 @@ namespace Sharpknife.Utilities
 		/// <param name="data">the data</param>
 		public static void SendMessage(Control control, uint message, bool data)
 		{
+			if (control == null)
+			{
+				throw new ArgumentNullException("control");
+			}
+
 			Win32.Internal.SendMessage(control.Handle, message, IntPtr.Zero, data);
 		}
 
@@ -63,6 +93,11 @@ namespace Sharpknife.Utilities
 		/// <returns>the handle</returns>
 		public static IntPtr OpenProcess(Process process)
 		{
+			if (process == null)
+			{
+				throw new ArgumentNullException("process");
+			}
+
 			return Win32.Internal.OpenProcess(Win32.Constants.PROCESS_VM_OPERATION | Win32.Constants.PROCESS_WM_READ | Win32.Constants.PROCESS_VM_WRITE, false, process.Id);
 		}
 
@@ -75,6 +110,21 @@ namespace Sharpknife.Utilities
 		/// <returns>the read memory</returns>
 		public static byte[] ReadProcessMemory(IntPtr pointer, IntPtr address, int length)
 		{
+			if (pointer == null)
+			{
+				throw new ArgumentNullException("pointer");
+			}
+
+			if (address == null)
+			{
+				throw new ArgumentNullException("pointer");
+			}
+
+			if (length <= 0)
+			{
+				throw new ArgumentOutOfRangeException("length");
+			}
+
 			//context
 			var buffer = new byte[length];
 			var bytesRead = 0;
@@ -94,6 +144,21 @@ namespace Sharpknife.Utilities
 		/// <returns>if memory was written successfully</returns>
 		public static bool WriteProcessMemory(IntPtr pointer, IntPtr address, byte[] buffer)
 		{
+			if (pointer == null)
+			{
+				throw new ArgumentNullException("pointer");
+			}
+
+			if (address == null)
+			{
+				throw new ArgumentNullException("pointer");
+			}
+
+			if (buffer == null)
+			{
+				throw new ArgumentNullException("buffer");
+			}
+
 			//context
 			var bytesWritten = 0;
 			var success = Win32.Internal.WriteProcessMemory(pointer, address, buffer, buffer.Length, ref bytesWritten);
@@ -108,6 +173,11 @@ namespace Sharpknife.Utilities
 		/// <returns>if the handle was closed successfully</returns>
 		public static bool CloseHandle(IntPtr handle)
 		{
+			if (handle == null)
+			{
+				throw new ArgumentNullException("handle");
+			}
+
 			return Win32.Internal.CloseHandle(handle);
 		}
 

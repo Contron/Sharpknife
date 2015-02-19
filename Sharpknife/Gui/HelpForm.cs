@@ -9,7 +9,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace Sharpknife.Gui.Dialogs
+namespace Sharpknife.Gui
 {
 	/// <summary>
 	/// Represents an interactive help form to show information in a structured way to the user.

@@ -7,35 +7,35 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace Sharpknife.Gui.Dialogs
+namespace Sharpknife.Gui
 {
 	/// <summary>
-	/// Represents a confirmation form to display a question to the user.
+	/// Represents a modal message form to inform the user of a particular message.
 	/// </summary>
-	public partial class ConfirmationForm : BaseDialogForm
+	public partial class MessageForm : BaseDialogForm
 	{
 		/// <summary>
-		/// Shows a modal confirmation form.
+		/// Shows a modal message form.
 		/// </summary>
 		/// <param name="owner">the owner</param>
 		/// <param name="title">the title</param>
 		/// <param name="message">the message</param>
 		/// <returns>the dialog result</returns>
-		public static DialogResult Show(Form owner, string title = "Confirmation", string message = "Message")
+		public static DialogResult Show(Form owner, string title = "Message", string message = "Message")
 		{
 			//show
-			var confirmationForm = new ConfirmationForm(title, message);
-			var dialogResult = confirmationForm.ShowDialog(owner);
+			var messageForm = new MessageForm(title, message);
+			var dialogResult = messageForm.ShowDialog(owner);
 
 			return dialogResult;
 		}
 
 		/// <summary>
-		/// Creates a new confirmation form.
+		/// Creates a new message form.
 		/// </summary>
 		/// <param name="title">the title</param>
 		/// <param name="message">the message</param>
-		public ConfirmationForm(string title, string message) : base(title, message)
+		public MessageForm(string title, string message) : base(title, message)
 		{
 			this.InitializeComponent();
 		}

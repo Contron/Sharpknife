@@ -50,7 +50,7 @@ namespace Sharpknife.Gui
 			//labels
 			this.nameLabel.Text = versionInfo.ProductName;
 			this.versionLabel.Text = string.Format("Version {0}", versionInfo.FileVersion);
-			this.copyrightLabel.Text = versionInfo.LegalCopyright;
+			this.copyrightLabel.Text = string.Format("Copyright {0}", versionInfo.LegalCopyright);
 		}
 
 		/// <summary>
@@ -60,6 +60,7 @@ namespace Sharpknife.Gui
 		{
 			if (this.Owner != null)
 			{
+				//get
 				var icon = this.Owner.Icon;
 
 				if (icon != null)

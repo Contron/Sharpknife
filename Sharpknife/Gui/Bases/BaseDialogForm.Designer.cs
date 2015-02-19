@@ -76,7 +76,11 @@
 
 		#endregion
 
-		private System.Windows.Forms.Panel messagePanel;
-		private System.Windows.Forms.Label messageLabel;
+		#pragma warning disable 1591
+
+		protected System.Windows.Forms.Panel messagePanel;
+		protected System.Windows.Forms.Label messageLabel;
+
+		#pragma warning restore 1591
 	}
 }

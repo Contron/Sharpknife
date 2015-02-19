@@ -1,5 +1,5 @@
 ﻿using Sharpknife.Common;
-using Sharpknife.Gui.Dialogs;
+using Sharpknife.Gui;
 using System;
 using System.Collections.Generic;
 using System.Linq;

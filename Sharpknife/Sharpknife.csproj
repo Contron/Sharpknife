@@ -56,6 +56,8 @@
     <Compile Include="Common\TypeCollectionEditor.cs" />
     <Compile Include="Core\CommandLine.cs" />
     <Compile Include="Core\Manager.cs" />
+    <Compile Include="Core\Managers\BinaryManager.cs" />
+    <Compile Include="Core\Managers\XmlManager.cs" />
     <Compile Include="Gui\AboutForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,25 +82,31 @@
     <Compile Include="Gui\Bases\BaseModalForm.Designer.cs">
       <DependentUpon>BaseModalForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Gui\Bases\BaseSettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\Bases\BaseSettingsForm.Designer.cs">
+      <DependentUpon>BaseSettingsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Gui\Controls\CommandLink.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Gui\Dialogs\ConfirmationForm.cs">
+    <Compile Include="Gui\ConfirmationForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Gui\Dialogs\ConfirmationForm.Designer.cs">
+    <Compile Include="Gui\ConfirmationForm.Designer.cs">
       <DependentUpon>ConfirmationForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Gui\Dialogs\HelpForm.cs">
+    <Compile Include="Gui\HelpForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Gui\Dialogs\HelpForm.Designer.cs">
+    <Compile Include="Gui\HelpForm.Designer.cs">
       <DependentUpon>HelpForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Gui\Dialogs\MessageForm.cs">
+    <Compile Include="Gui\MessageForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Gui\Dialogs\MessageForm.Designer.cs">
+    <Compile Include="Gui\MessageForm.Designer.cs">
       <DependentUpon>MessageForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Gui\ProgressForm.cs">
@@ -137,13 +145,16 @@
     <EmbeddedResource Include="Gui\Bases\BaseModalForm.resx">
       <DependentUpon>BaseModalForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Gui\Dialogs\ConfirmationForm.resx">
+    <EmbeddedResource Include="Gui\Bases\BaseSettingsForm.resx">
+      <DependentUpon>BaseSettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\ConfirmationForm.resx">
       <DependentUpon>ConfirmationForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Gui\Dialogs\HelpForm.resx">
+    <EmbeddedResource Include="Gui\HelpForm.resx">
       <DependentUpon>HelpForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Gui\Dialogs\MessageForm.resx">
+    <EmbeddedResource Include="Gui\MessageForm.resx">
       <DependentUpon>MessageForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Gui\ProgressForm.resx">
