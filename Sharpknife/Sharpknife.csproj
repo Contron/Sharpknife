@@ -128,6 +128,8 @@
     <Compile Include="Utilities\Assemblies.cs" />
     <Compile Include="Utilities\Debug.cs" />
     <Compile Include="Utilities\Dialogs.cs" />
+    <Compile Include="Utilities\Extensions\ControlExtensions.cs" />
+    <Compile Include="Utilities\Extensions\FormExtensions.cs" />
     <Compile Include="Utilities\Files.cs" />
     <Compile Include="Utilities\Serialization.cs" />
     <Compile Include="Utilities\Win32.cs" />
