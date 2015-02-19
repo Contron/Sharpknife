@@ -96,7 +96,7 @@ namespace Sharpknife.Gui
 				if (this.Owner != null)
 				{
 					//flash
-					this.FlashInTaskbar();
+					this.Owner.FlashInTaskbar();
 				}
 			}
 
