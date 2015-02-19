@@ -21,5 +21,22 @@ namespace Sharpknife.Persistence
 		{
 
 		}
+
+		/// <summary>
+		/// The dictionary of settings for the manager.
+		/// </summary>
+		/// <param name="index">the index</param>
+		/// <returns>the value</returns>
+		public object this[string index]
+		{
+			get
+			{
+				return this.Element[index];
+			}
+			set
+			{
+				this.Element[index] = value;
+			}
+		}
 	}
 }
