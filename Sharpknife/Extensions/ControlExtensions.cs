@@ -1,11 +1,12 @@
-﻿using System;
+﻿using Sharpknife.Utilities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Sharpknife.Utilities.Extensions
+namespace Sharpknife.Extensions
 {
 	/// <summary>
 	/// A collection of <see cref="Control" /> extension methods.

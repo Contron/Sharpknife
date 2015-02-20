@@ -23,6 +23,14 @@ namespace Sharpknife.Persistence
 		}
 
 		/// <summary>
+		/// Creates a new settings manager.
+		/// </summary>
+		public SettingsManager() : this("Settings")
+		{
+
+		}
+
+		/// <summary>
 		/// The dictionary of settings for the manager.
 		/// </summary>
 		/// <param name="index">the index</param>

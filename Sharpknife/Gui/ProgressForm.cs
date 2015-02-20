@@ -1,6 +1,6 @@
-﻿using Sharpknife.Gui.Bases;
+﻿using Sharpknife.Extensions;
+using Sharpknife.Gui.Bases;
 using Sharpknife.Utilities;
-using Sharpknife.Utilities.Extensions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

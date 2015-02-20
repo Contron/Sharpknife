@@ -24,7 +24,7 @@ namespace Sharpknife.Core
 		{
 			this.Directory = Sharpknife.ApplicationPath;
 			this.File = Path.Combine(this.Directory, string.Format("{0}.{1}", file, format));
-			this.Element = default(T);
+			this.Element = new T();
 		}
 
 		/// <summary>
