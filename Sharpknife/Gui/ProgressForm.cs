@@ -38,7 +38,7 @@ namespace Sharpknife.Gui
 		/// Creates a new progress form.
 		/// </summary>
 		/// <param name="backgroundWorker">the background worker</param>
-		public ProgressForm(BackgroundWorker backgroundWorker) : base()
+		public ProgressForm(BackgroundWorker backgroundWorker)
 		{
 			this.backgroundWorker = backgroundWorker;
 

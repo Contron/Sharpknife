@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sharpknife.Extensions;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,20 +19,17 @@ namespace Sharpknife.Gui.Bases
 		/// <summary>
 		/// Creates a new base form.
 		/// </summary>
-		public BaseForm() : base()
+		public BaseForm()
 		{
 			this.InitializeComponent();
-			this.StyleForm();
+			this.NativeStyling();
 		}
 
 		/// <summary>
-		/// Styles the form.
+		/// Applies the parent icon.
 		/// </summary>
-		private void StyleForm()
+		private void ApplyParentIcon()
 		{
-			//style
-			this.Font = SystemFonts.MessageBoxFont;
-
 			if (this.Owner != null)
 			{
 				//icon
@@ -43,7 +41,7 @@ namespace Sharpknife.Gui.Bases
 
 		private void LoadHandler(object sender, EventArgs eventArgs)
 		{
-			this.StyleForm();
+			this.ApplyParentIcon();
 		}
 
 		#endregion

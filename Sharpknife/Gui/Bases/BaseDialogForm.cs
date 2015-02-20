@@ -27,7 +27,7 @@ namespace Sharpknife.Gui.Bases
 		/// <summary>
 		/// Creates a new default base dialog form.
 		/// </summary>
-		public BaseDialogForm() : base()
+		public BaseDialogForm()
 		{
 			this.InitializeComponent();
 		}
@@ -48,6 +48,7 @@ namespace Sharpknife.Gui.Bases
 		/// <param name="message">the message</param>
 		private void InitialisePrompt(string title, string message)
 		{
+			//update
 			this.Text = title;
 			this.messageLabel.Text = message;
 		}

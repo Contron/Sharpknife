@@ -1,6 +1,7 @@
 ﻿using Sharpknife.Utilities;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,16 @@ namespace Sharpknife.Extensions
 	/// </summary>
 	public static class ControlExtensions
 	{
+		/// <summary>
+		/// Performs native styling on the control.
+		/// </summary>
+		/// <param name="control">the control.</param>
+		public static void NativeStyling(this Control control)
+		{
+			//styles
+			control.Font = SystemFonts.MessageBoxFont;
+		}
+
 		/// <summary>
 		/// Invokes the specified action if required on the control's thread.
 		/// </summary>

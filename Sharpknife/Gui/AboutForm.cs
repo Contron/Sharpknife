@@ -31,7 +31,7 @@ namespace Sharpknife.Gui
 		/// <summary>
 		/// Creates a new about form.
 		/// </summary>
-		public AboutForm() : base()
+		public AboutForm()
 		{
 			this.icon = null;
 

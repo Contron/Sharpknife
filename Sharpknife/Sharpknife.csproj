@@ -64,6 +64,12 @@
     <Compile Include="Gui\AboutForm.Designer.cs">
       <DependentUpon>AboutForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Gui\Bases\BaseControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\Bases\BaseControl.Designer.cs">
+      <DependentUpon>BaseControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Gui\Bases\BaseDialogForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,6 +94,9 @@
     <Compile Include="Gui\Bases\BaseSettingsForm.Designer.cs">
       <DependentUpon>BaseSettingsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Gui\Controls\ContextMenuButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Gui\Editors\CollectionForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,6 +117,12 @@
     </Compile>
     <Compile Include="Gui\HelpForm.Designer.cs">
       <DependentUpon>HelpForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\InputForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\InputForm.Designer.cs">
+      <DependentUpon>InputForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Gui\MessageForm.cs">
       <SubType>Form</SubType>
@@ -144,6 +159,9 @@
     <EmbeddedResource Include="Gui\AboutForm.resx">
       <DependentUpon>AboutForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Gui\Bases\BaseControl.resx">
+      <DependentUpon>BaseControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Gui\Bases\BaseDialogForm.resx">
       <DependentUpon>BaseDialogForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -164,6 +182,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Gui\HelpForm.resx">
       <DependentUpon>HelpForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\InputForm.resx">
+      <DependentUpon>InputForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Gui\MessageForm.resx">
       <DependentUpon>MessageForm.cs</DependentUpon>

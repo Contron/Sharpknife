@@ -11,7 +11,7 @@ using System.Windows.Forms;
 namespace Sharpknife.Gui.Controls
 {
 	/// <summary>
-	/// Represents a command link button, which are used to present various options to the user.
+	/// Represents a command link button which are used to present various options to the user.
 	/// </summary>
 	public class CommandLink : Button
 	{
