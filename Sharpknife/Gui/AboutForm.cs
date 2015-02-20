@@ -13,7 +13,7 @@ using System.Windows.Forms;
 namespace Sharpknife.Gui
 {
 	/// <summary>
-	/// Represents an about form.
+	/// Represents an about form that displays general information about the application.
 	/// </summary>
 	public partial class AboutForm : BaseForm
 	{

@@ -88,6 +88,12 @@
     <Compile Include="Gui\Bases\BaseSettingsForm.Designer.cs">
       <DependentUpon>BaseSettingsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Gui\Editors\CollectionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\Editors\CollectionForm.Designer.cs">
+      <DependentUpon>CollectionForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Gui\Controls\CommandLink.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -150,6 +156,9 @@
     <EmbeddedResource Include="Gui\Bases\BaseSettingsForm.resx">
       <DependentUpon>BaseSettingsForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Gui\Editors\CollectionForm.resx">
+      <DependentUpon>CollectionForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Gui\ConfirmationForm.resx">
       <DependentUpon>ConfirmationForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -168,8 +177,12 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\Images\Add.png" />
+    <Content Include="Resources\Images\Clear.png" />
+    <Content Include="Resources\Images\Edit.png" />
     <Content Include="Resources\Images\Folder.png" />
     <Content Include="Resources\Images\Article.png" />
+    <Content Include="Resources\Images\Remove.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
