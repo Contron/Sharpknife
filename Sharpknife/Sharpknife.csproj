@@ -118,12 +118,6 @@
     <Compile Include="Gui\HelpForm.Designer.cs">
       <DependentUpon>HelpForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Gui\InputForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Gui\InputForm.Designer.cs">
-      <DependentUpon>InputForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Gui\MessageForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -182,9 +176,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Gui\HelpForm.resx">
       <DependentUpon>HelpForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Gui\InputForm.resx">
-      <DependentUpon>InputForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Gui\MessageForm.resx">
       <DependentUpon>MessageForm.cs</DependentUpon>
