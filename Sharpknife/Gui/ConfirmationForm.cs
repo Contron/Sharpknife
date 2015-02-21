@@ -10,7 +10,7 @@ using System.Windows.Forms;
 namespace Sharpknife.Gui
 {
 	/// <summary>
-	/// Represents a confirmation form to display a question to the user.
+	/// Represents a confirmation form to prompt the user to confirm an option.
 	/// </summary>
 	public partial class ConfirmationForm : BaseDialogForm
 	{
@@ -21,13 +21,13 @@ namespace Sharpknife.Gui
 		/// <param name="title">the title</param>
 		/// <param name="message">the message</param>
 		/// <returns>the dialog result</returns>
-		public static DialogResult Show(Form owner, string title = "Confirmation", string message = "Message")
+		public static DialogResult Show(Form owner, string title, string message)
 		{
 			//show
-			var confirmationForm = new ConfirmationForm(title, message);
-			var dialogResult = confirmationForm.ShowDialog(owner);
+			var form = new ConfirmationForm(title, message);
+			var result = form.ShowDialog(owner);
 
-			return dialogResult;
+			return result;
 		}
 
 		/// <summary>

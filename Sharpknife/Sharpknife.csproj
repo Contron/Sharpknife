@@ -94,6 +94,12 @@
     <Compile Include="Gui\Bases\BaseSettingsForm.Designer.cs">
       <DependentUpon>BaseSettingsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Gui\ConfirmationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\ConfirmationForm.Designer.cs">
+      <DependentUpon>ConfirmationForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Gui\Controls\ContextMenuButton.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -105,12 +111,6 @@
     </Compile>
     <Compile Include="Gui\Controls\CommandLink.cs">
       <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Gui\ConfirmationForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Gui\ConfirmationForm.Designer.cs">
-      <DependentUpon>ConfirmationForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Gui\HelpForm.cs">
       <SubType>Form</SubType>
@@ -168,11 +168,11 @@
     <EmbeddedResource Include="Gui\Bases\BaseSettingsForm.resx">
       <DependentUpon>BaseSettingsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Gui\Editors\CollectionForm.resx">
-      <DependentUpon>CollectionForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Gui\ConfirmationForm.resx">
       <DependentUpon>ConfirmationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\Editors\CollectionForm.resx">
+      <DependentUpon>CollectionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Gui\HelpForm.resx">
       <DependentUpon>HelpForm.cs</DependentUpon>

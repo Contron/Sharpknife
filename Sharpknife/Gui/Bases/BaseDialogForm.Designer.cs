@@ -41,7 +41,7 @@
 			this.messagePanel.Controls.Add(this.messageLabel);
 			this.messagePanel.Location = new System.Drawing.Point(0, 0);
 			this.messagePanel.Name = "messagePanel";
-			this.messagePanel.Size = new System.Drawing.Size(340, 70);
+			this.messagePanel.Size = new System.Drawing.Size(340, 80);
 			this.messagePanel.TabIndex = 0;
 			// 
 			// messageLabel
@@ -51,7 +51,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.messageLabel.Location = new System.Drawing.Point(10, 10);
 			this.messageLabel.Name = "messageLabel";
-			this.messageLabel.Size = new System.Drawing.Size(310, 50);
+			this.messageLabel.Size = new System.Drawing.Size(310, 60);
 			this.messageLabel.TabIndex = 0;
 			this.messageLabel.Text = "Message";
 			this.messageLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -59,16 +59,17 @@
 			// BaseDialogForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-			this.ClientSize = new System.Drawing.Size(334, 111);
+			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.ClientSize = new System.Drawing.Size(334, 121);
+			this.ControlBox = false;
 			this.Controls.Add(this.messagePanel);
-			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.Name = "BaseDialogForm";
 			this.ShowIcon = false;
 			this.ShowInTaskbar = false;
 			this.Text = "Base Dialog Form";
-			this.Load += new System.EventHandler(this.LoadHandler);
 			this.messagePanel.ResumeLayout(false);
 			this.ResumeLayout(false);
 
@@ -76,11 +77,7 @@
 
 		#endregion
 
-		#pragma warning disable 1591
-
-		protected System.Windows.Forms.Panel messagePanel;
-		protected System.Windows.Forms.Label messageLabel;
-
-		#pragma warning restore 1591
+		private System.Windows.Forms.Panel messagePanel;
+		private System.Windows.Forms.Label messageLabel;
 	}
 }

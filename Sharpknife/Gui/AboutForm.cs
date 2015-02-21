@@ -24,8 +24,8 @@ namespace Sharpknife.Gui
 		public static void Show(Form owner)
 		{
 			//show
-			var aboutForm = new AboutForm();
-			aboutForm.ShowDialog(owner);
+			var form = new AboutForm();
+			form.ShowDialog(owner);
 		}
 
 		/// <summary>

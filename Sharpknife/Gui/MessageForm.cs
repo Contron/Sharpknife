@@ -10,7 +10,7 @@ using System.Windows.Forms;
 namespace Sharpknife.Gui
 {
 	/// <summary>
-	/// Represents a modal message form to inform the user of a particular message.
+	/// Represents a message form to display information to the user.
 	/// </summary>
 	public partial class MessageForm : BaseDialogForm
 	{
@@ -21,13 +21,13 @@ namespace Sharpknife.Gui
 		/// <param name="title">the title</param>
 		/// <param name="message">the message</param>
 		/// <returns>the dialog result</returns>
-		public static DialogResult Show(Form owner, string title = "Message", string message = "Message")
+		public static DialogResult Show(Form owner, string title, string message)
 		{
 			//show
-			var messageForm = new MessageForm(title, message);
-			var dialogResult = messageForm.ShowDialog(owner);
+			var form = new MessageForm(title, message);
+			var result = form.ShowDialog(owner);
 
-			return dialogResult;
+			return result;
 		}
 
 		/// <summary>

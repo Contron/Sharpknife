@@ -30,8 +30,8 @@ namespace Sharpknife.Gui
 			}
 
 			//show
-			var progressForm = new ProgressForm(backgroundWorker);
-			progressForm.ShowDialog(owner);
+			var form = new ProgressForm(backgroundWorker);
+			form.ShowDialog(owner);
 		}
 
 		/// <summary>
