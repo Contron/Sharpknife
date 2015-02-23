@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Sharpknife.Utilities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace Sharpknife.Common
 {
@@ -30,6 +32,14 @@ namespace Sharpknife.Common
 		/// <param name="name">the name</param>
 		/// <param name="text">the text</param>
 		public HelpArticle(string name, string text) : this(name, text, new List<HelpArticle>())
+		{
+
+		}
+
+		/// <summary>
+		/// Creates a new empty help article.
+		/// </summary>
+		public HelpArticle() : this("Untitled Article", "No text provided.")
 		{
 
 		}

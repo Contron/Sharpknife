@@ -25,7 +25,7 @@ namespace Sharpknife.Utilities
 		public static FileDialogResult<T> ShowOpenDialog<T>(Form parent, string title, string filter)
 		{
 			//context
-			var header = ("Open " + title);
+			var header = string.Format("Open {0}", title);
 
 			//browse
 			var dialog = new OpenFileDialog()
@@ -45,7 +45,7 @@ namespace Sharpknife.Utilities
 			{
 				//load
 				var fileName = dialog.FileName;
-				var element = Serialization.Load<T>(fileName);
+				var element = Serialization.LoadFromFile<T>(fileName);
 
 				return new FileDialogResult<T>(element, fileName);
 			}
@@ -75,7 +75,7 @@ namespace Sharpknife.Utilities
 			}
 
 			//context
-			var header = ("Save " + title);
+			var header = string.Format("Save {0}", title);
 
 			//browse
 			var dialog = new SaveFileDialog()
@@ -95,7 +95,7 @@ namespace Sharpknife.Utilities
 			{
 				//save
 				var fileName = dialog.FileName;
-				Serialization.Save<T>(fileName, element);
+				Serialization.SaveToFile<T>(fileName, element);
 
 				return new FileDialogResult<T>(element, fileName);
 			}

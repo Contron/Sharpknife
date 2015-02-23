@@ -236,7 +236,7 @@ namespace Sharpknife.Utilities
 		public static void Write(ConsoleColor consoleColor, string message)
 		{
 			//time
-			var time = DateTime.Now.ToString("dd/MM/yy HH:mm:ss");
+			var time = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
 
 			//print
 			Console.ForegroundColor = consoleColor;

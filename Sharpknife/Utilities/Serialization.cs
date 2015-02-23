@@ -19,7 +19,7 @@ namespace Sharpknife.Utilities
 		/// <typeparam name="T">the type</typeparam>
 		/// <param name="file">the file</param>
 		/// <returns>the result</returns>
-		public static T Load<T>(string file)
+		public static T LoadFromFile<T>(string file)
 		{
 			if (file == null)
 			{
@@ -36,12 +36,34 @@ namespace Sharpknife.Utilities
 		}
 
 		/// <summary>
+		/// Loads an element from the specified text.
+		/// </summary>
+		/// <typeparam name="T">the type</typeparam>
+		/// <param name="text">the text</param>
+		/// <returns>the result</returns>
+		public static T LoadFromString<T>(string text)
+		{
+			if (text == null)
+			{
+				throw new ArgumentNullException("text");
+			}
+			
+			//serializer
+			var serializer = new XmlSerializer(typeof(T));
+
+			using (var stringReader = new StringReader(text))
+			{
+				return (T) serializer.Deserialize(stringReader);
+			}
+		}
+
+		/// <summary>
 		/// Saves an element to the specified file.
 		/// </summary>
 		/// <typeparam name="T">the type</typeparam>
 		/// <param name="file">the file</param>
 		/// <param name="element">the element</param>
-		public static void Save<T>(string file, T element)
+		public static void SaveToFile<T>(string file, T element)
 		{
 			if (file == null)
 			{

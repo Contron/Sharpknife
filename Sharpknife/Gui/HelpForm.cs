@@ -70,7 +70,7 @@ namespace Sharpknife.Gui
 			foreach (var helpArticle in helpArticles)
 			{
 				//image index
-				var imageIndex = (helpArticle.Children.Count > 0 ? 0 : 1);
+				var imageIndex = helpArticle.Children.Count > 0 ? 0 : 1;
 
 				//node
 				var treeNode = new TreeNode()

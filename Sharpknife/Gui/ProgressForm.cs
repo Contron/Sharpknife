@@ -69,7 +69,7 @@ namespace Sharpknife.Gui
 		{
 			//update
 			this.progressBar.Value = amount;
-			this.progressBar.Style = (amount <= 0 ? ProgressBarStyle.Marquee : ProgressBarStyle.Blocks);
+			this.progressBar.Style = amount <= 0 ? ProgressBarStyle.Marquee : ProgressBarStyle.Blocks;
 		}
 
 		/// <summary>
