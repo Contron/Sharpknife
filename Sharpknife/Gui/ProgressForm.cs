@@ -65,11 +65,23 @@ namespace Sharpknife.Gui
 		/// Updates the progress.
 		/// </summary>
 		/// <param name="amount">the amount</param>
-		private void UpdateProgress(int amount)
+		/// <param name="userState">the user state</param>
+		private void UpdateProgress(int amount, object userState)
 		{
+			if (this.backgroundWorker.CancellationPending)
+			{
+				return;
+			}
+
 			//update
 			this.progressBar.Value = amount;
 			this.progressBar.Style = amount <= 0 ? ProgressBarStyle.Marquee : ProgressBarStyle.Blocks;
+
+			if (userState is string)
+			{
+				//status
+				this.statusLabel.Text = (string) userState;
+			}
 		}
 
 		/// <summary>
@@ -109,7 +121,7 @@ namespace Sharpknife.Gui
 
 		private void ProgressChanged(object sender, ProgressChangedEventArgs eventArgs)
 		{
-			this.UpdateProgress(eventArgs.ProgressPercentage);
+			this.UpdateProgress(eventArgs.ProgressPercentage, eventArgs.UserState);
 		}
 
 		private void RunWorkCompleted(object sender, RunWorkerCompletedEventArgs eventArgs)
