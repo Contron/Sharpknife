@@ -52,8 +52,8 @@ namespace Sharpknife.Gui
 		private void StartProgress()
 		{
 			//events
-			this.backgroundWorker.ProgressChanged += new ProgressChangedEventHandler(this.ProgressChanged);
-			this.backgroundWorker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(this.RunWorkCompleted);
+			this.backgroundWorker.ProgressChanged += this.ProgressChangedHandler;
+			this.backgroundWorker.RunWorkerCompleted += this.RunWorkCompletedHandler;
 
 			//update
 			this.statusLabel.Text = "Performing operation...";
@@ -114,17 +114,16 @@ namespace Sharpknife.Gui
 
 			//close
 			this.Close();
-			this.Dispose();
 		}
 
 		#region Event Handlers
 
-		private void ProgressChanged(object sender, ProgressChangedEventArgs eventArgs)
+		private void ProgressChangedHandler(object sender, ProgressChangedEventArgs eventArgs)
 		{
 			this.UpdateProgress(eventArgs.ProgressPercentage, eventArgs.UserState);
 		}
 
-		private void RunWorkCompleted(object sender, RunWorkerCompletedEventArgs eventArgs)
+		private void RunWorkCompletedHandler(object sender, RunWorkerCompletedEventArgs eventArgs)
 		{
 			this.CompleteProgress();
 		}
