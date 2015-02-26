@@ -23,7 +23,7 @@ namespace Sharpknife.Utilities
 
 			//header
 			Debug.Warning(versionInfo.ProductName);
-			Debug.Warning(string.Format("Version {0}, {1}", versionInfo.FileVersion, versionInfo.LegalCopyright));
+			Debug.Warning(string.Format("Version {0}, Copyright {1}", versionInfo.FileVersion, versionInfo.LegalCopyright));
 		}
 
 		/// <summary>
