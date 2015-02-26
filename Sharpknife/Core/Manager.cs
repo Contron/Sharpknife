@@ -77,7 +77,7 @@ namespace Sharpknife.Core
 		protected abstract void SaveToSource(FileStream fileStream, T element);
 
 		/// <summary>
-		/// The directory for the manager.
+		/// Gets or sets the directory for the manager.
 		/// </summary>
 		public string Directory
 		{
@@ -86,7 +86,7 @@ namespace Sharpknife.Core
 		}
 
 		/// <summary>
-		/// The file for the manager.
+		/// Gets or sets the file for the manager.
 		/// </summary>
 		public string File
 		{
@@ -95,7 +95,7 @@ namespace Sharpknife.Core
 		}
 
 		/// <summary>
-		/// The element for the manager.
+		/// Gets or sets the element for the manager.
 		/// </summary>
 		public T Element
 		{

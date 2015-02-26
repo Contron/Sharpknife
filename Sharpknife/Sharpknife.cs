@@ -13,7 +13,7 @@ namespace Sharpknife
     public class Sharpknife
     {
 		/// <summary>
-		/// The current application path.
+		/// Gets the current application path.
 		/// </summary>
 		public static string ApplicationPath
 		{

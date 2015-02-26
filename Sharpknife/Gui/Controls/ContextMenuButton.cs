@@ -48,7 +48,7 @@ namespace Sharpknife.Gui.Controls
 		#endregion
 
 		/// <summary>
-		/// The context menu for the drop down button.
+		/// Gets or sets the context menu for the drop down button.
 		/// </summary>
 		[Category("Context Menu Button")]
 		[Description("The context menu strip of actions that will be shown when the button is clicked.")]

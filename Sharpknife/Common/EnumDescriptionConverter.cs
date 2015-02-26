@@ -98,7 +98,7 @@ namespace Sharpknife.Common
 		}
 
 		/// <summary>
-		/// The type for the enum converter.
+		/// Gets the type for the enum converter.
 		/// </summary>
 		public Type Type
 		{

@@ -40,12 +40,12 @@ namespace Sharpknife.Common
 		}
 
 		/// <summary>
-		/// The pointer for the handle.
+		/// Gets the pointer for the handle.
 		/// </summary>
 		public IntPtr Pointer
 		{
 			get;
-			set;
+			private set;
 		}
 	}
 }

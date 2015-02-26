@@ -54,7 +54,7 @@ namespace Sharpknife.Common
 		}
 
 		/// <summary>
-		/// The element for the result.
+		/// Gets or sets the element for the result.
 		/// </summary>
 		public T Element
 		{
@@ -63,7 +63,7 @@ namespace Sharpknife.Common
 		}
 
 		/// <summary>
-		/// If the result succeeded.
+		/// Gets or sets if the result succeeded.
 		/// </summary>
 		public bool Succeeded
 		{
@@ -72,7 +72,7 @@ namespace Sharpknife.Common
 		}
 
 		/// <summary>
-		/// The file for the result.
+		/// Gets or sets the file for the result.
 		/// </summary>
 		public string File
 		{
@@ -81,7 +81,7 @@ namespace Sharpknife.Common
 		}
 
 		/// <summary>
-		/// The exception for the result.
+		/// Gets or sets the exception for the result.
 		/// </summary>
 		public Exception Exception
 		{

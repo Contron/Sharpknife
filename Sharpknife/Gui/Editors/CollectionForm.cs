@@ -185,22 +185,22 @@ namespace Sharpknife.Gui.Editors
 		#endregion
 
 		/// <summary>
-		/// The Add clicked event.
+		/// Occurs when the Add button is clicked.
 		/// </summary>
 		public event EventHandler AddClicked;
 
 		/// <summary>
-		/// The Edit clicked event.
+		/// Occurs when the Edit button is clicked.
 		/// </summary>
 		public event EventHandler<T> EditClicked;
 
 		/// <summary>
-		/// The Remove clicked event.
+		/// Occurs when the Remove button is clicked.
 		/// </summary>
 		public event EventHandler<T> RemoveClicked;
 
 		/// <summary>
-		/// The Clear clicked event.
+		/// Occurs when the Clear button is clicked.
 		/// </summary>
 		public event EventHandler ClearClicked;
 

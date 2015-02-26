@@ -31,7 +31,7 @@ namespace Sharpknife.Persistence
 		}
 
 		/// <summary>
-		/// The dictionary of settings for the manager.
+		/// Gets or sets the dictionary of settings for the manager.
 		/// </summary>
 		/// <param name="index">the index</param>
 		/// <returns>the value</returns>

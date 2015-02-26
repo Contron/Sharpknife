@@ -45,7 +45,7 @@ namespace Sharpknife.Common
 		}
 
 		/// <summary>
-		/// The name of the article.
+		/// Gets or sets the name of the article.
 		/// </summary>
 		public string Name
 		{
@@ -54,7 +54,7 @@ namespace Sharpknife.Common
 		}
 
 		/// <summary>
-		/// The text of the article.
+		/// Gets or sets the text of the article.
 		/// </summary>
 		public string Text
 		{
@@ -63,7 +63,7 @@ namespace Sharpknife.Common
 		}
 
 		/// <summary>
-		/// The children of the article.
+		/// Gets or sets the children of the article.
 		/// </summary>
 		public List<HelpArticle> Children
 		{

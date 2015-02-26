@@ -14,7 +14,7 @@ namespace Sharpknife.Extensions
 	public static class FormExtensions
 	{
 		/// <summary>
-		/// Flashes the window in the task bar.
+		/// Flashes the specified form in the task bar.
 		/// </summary>
 		/// <param name="form">the form</param>
 		public static void FlashInTaskbar(this Form form)

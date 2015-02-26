@@ -15,7 +15,7 @@ namespace Sharpknife.Extensions
 	public static class ControlExtensions
 	{
 		/// <summary>
-		/// Performs native styling on the control.
+		/// Performs native styling on the specified control.
 		/// </summary>
 		/// <param name="control">the control.</param>
 		public static void NativeStyling(this Control control)
@@ -25,7 +25,7 @@ namespace Sharpknife.Extensions
 		}
 
 		/// <summary>
-		/// Invokes the specified action if required on the control's thread.
+		/// Invokes the specified action if required on the thread for the specified control.
 		/// </summary>
 		/// <param name="control">the control</param>
 		/// <param name="action">the action</param>

@@ -27,7 +27,7 @@ namespace Sharpknife.Gui.Controls
 		}
 
 		/// <summary>
-		/// If the shield is visible for the command link.
+		/// Gets or sets if the shield is visible for the command link.
 		/// </summary>
 		[Category("Command Link")]
 		[Description("If the shield is visible for the command link. A shield usually indicates an administrative action.")]
@@ -47,7 +47,7 @@ namespace Sharpknife.Gui.Controls
 		}
 
 		/// <summary>
-		/// The note for the command link.
+		/// Gets or sets the note for the command link.
 		/// </summary>
 		[Category("Command Link")]
 		[Description("The note text that is visible underneath the title of the command link.")]
@@ -67,7 +67,7 @@ namespace Sharpknife.Gui.Controls
 		}
 
 		/// <summary>
-		/// The default size of the command link.
+		/// Gets the default size of the command link.
 		/// </summary>
 		protected override Size DefaultSize
 		{
@@ -78,7 +78,7 @@ namespace Sharpknife.Gui.Controls
 		}
 
 		/// <summary>
-		/// The creation parameters for the command link.
+		/// Gets the creation parameters for the command link.
 		/// </summary>
 		protected override CreateParams CreateParams
 		{
