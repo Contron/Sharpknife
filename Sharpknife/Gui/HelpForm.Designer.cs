@@ -74,13 +74,12 @@
 			// 
 			// buttonsPanel
 			// 
-			this.buttonsPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
 			this.buttonsPanel.BackColor = System.Drawing.SystemColors.Window;
 			this.buttonsPanel.Controls.Add(this.okButton);
+			this.buttonsPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
 			this.buttonsPanel.Location = new System.Drawing.Point(0, 220);
 			this.buttonsPanel.Name = "buttonsPanel";
-			this.buttonsPanel.Size = new System.Drawing.Size(490, 50);
+			this.buttonsPanel.Size = new System.Drawing.Size(484, 41);
 			this.buttonsPanel.TabIndex = 1;
 			// 
 			// splitContainer
@@ -110,7 +109,6 @@
 			// HelpForm
 			// 
 			this.AcceptButton = this.okButton;
-			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
 			this.ClientSize = new System.Drawing.Size(484, 261);
 			this.Controls.Add(this.splitContainer);
 			this.Controls.Add(this.buttonsPanel);

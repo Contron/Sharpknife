@@ -44,7 +44,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.nameLabel.Location = new System.Drawing.Point(100, 10);
 			this.nameLabel.Name = "nameLabel";
-			this.nameLabel.Size = new System.Drawing.Size(220, 20);
+			this.nameLabel.Size = new System.Drawing.Size(214, 20);
 			this.nameLabel.TabIndex = 0;
 			this.nameLabel.Text = "Name";
 			// 
@@ -54,7 +54,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.versionLabel.Location = new System.Drawing.Point(100, 50);
 			this.versionLabel.Name = "versionLabel";
-			this.versionLabel.Size = new System.Drawing.Size(220, 20);
+			this.versionLabel.Size = new System.Drawing.Size(214, 20);
 			this.versionLabel.TabIndex = 1;
 			this.versionLabel.Text = "Version";
 			// 
@@ -64,7 +64,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.copyrightLabel.Location = new System.Drawing.Point(100, 70);
 			this.copyrightLabel.Name = "copyrightLabel";
-			this.copyrightLabel.Size = new System.Drawing.Size(220, 20);
+			this.copyrightLabel.Size = new System.Drawing.Size(214, 20);
 			this.copyrightLabel.TabIndex = 2;
 			this.copyrightLabel.Text = "Copyright";
 			// 
@@ -91,23 +91,20 @@
 			// 
 			// headerPanel
 			// 
-			this.headerPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
 			this.headerPanel.BackColor = System.Drawing.SystemColors.Window;
 			this.headerPanel.Controls.Add(this.iconPictureBox);
 			this.headerPanel.Controls.Add(this.nameLabel);
 			this.headerPanel.Controls.Add(this.copyrightLabel);
 			this.headerPanel.Controls.Add(this.versionLabel);
+			this.headerPanel.Dock = System.Windows.Forms.DockStyle.Top;
 			this.headerPanel.Location = new System.Drawing.Point(0, 0);
 			this.headerPanel.Name = "headerPanel";
-			this.headerPanel.Size = new System.Drawing.Size(340, 100);
+			this.headerPanel.Size = new System.Drawing.Size(334, 100);
 			this.headerPanel.TabIndex = 0;
 			// 
 			// AboutForm
 			// 
 			this.AcceptButton = this.okButton;
-			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
 			this.ClientSize = new System.Drawing.Size(334, 141);
 			this.Controls.Add(this.headerPanel);
 			this.Controls.Add(this.okButton);

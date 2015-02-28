@@ -11,10 +11,10 @@ namespace Sharpknife.Gui.Bases
 	/// <summary>
 	/// Represents a base settings form.
 	/// </summary>
-	public partial class BaseSettingsForm : BaseModalForm
+	public partial class BaseSettingsForm : BaseDialogForm
 	{
 		/// <summary>
-		/// Creates a new settings form.
+		/// Creates a new base settings form.
 		/// </summary>
 		public BaseSettingsForm()
 		{

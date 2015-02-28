@@ -3,10 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Media;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Sharpknife.Gui.Bases
@@ -19,35 +16,48 @@ namespace Sharpknife.Gui.Bases
 		/// <summary>
 		/// Creates a new base dialog form.
 		/// </summary>
-		/// <param name="title">the title</param>
-		/// <param name="message">the message</param>
-		public BaseDialogForm(string title, string message)
+		public BaseDialogForm()
 		{
 			this.InitializeComponent();
-			this.InitialisePrompt(title, message);
 		}
 
 		/// <summary>
-		/// Creates a new base dialog form.
+		/// Prepares the contents of the form.
 		/// </summary>
-		public BaseDialogForm() : this("Title", "Message")
+		protected virtual void PrepareContents()
 		{
 
 		}
 
 		/// <summary>
-		/// Initialises the prompt.
+		/// Populates the contents of the form.
 		/// </summary>
-		/// <param name="title">the title</param>
-		/// <param name="message">the message</param>
-		protected void InitialisePrompt(string title, string message)
+		protected virtual void PopulateContents()
 		{
-			//set
-			this.Text = title;
-			this.messageLabel.Text = message;
 
-			//ping
-			SystemSounds.Beep.Play();
 		}
+
+		/// <summary>
+		/// Confirms the contents of the form.
+		/// </summary>
+		protected virtual void ConfirmContents()
+		{
+
+		}
+
+		#region Event Handlers
+
+		private void LoadHandler(object sender, EventArgs eventArgs)
+		{
+			this.PrepareContents();
+			this.PopulateContents();
+		}
+
+		private void OKHandler(object sender, EventArgs eventArgs)
+		{
+			this.ConfirmContents();
+		}
+
+		#endregion
 	}
 }

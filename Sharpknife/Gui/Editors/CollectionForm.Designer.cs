@@ -34,7 +34,7 @@
 			this.clearButton = new System.Windows.Forms.Button();
 			this.listBox = new System.Windows.Forms.ListBox();
 			this.buttonsPanel = new System.Windows.Forms.Panel();
-			this.button1 = new System.Windows.Forms.Button();
+			this.okButton = new System.Windows.Forms.Button();
 			this.buttonsPanel.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -98,25 +98,24 @@
 			// 
 			// buttonsPanel
 			// 
-			this.buttonsPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
 			this.buttonsPanel.BackColor = System.Drawing.SystemColors.Window;
-			this.buttonsPanel.Controls.Add(this.button1);
+			this.buttonsPanel.Controls.Add(this.okButton);
+			this.buttonsPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
 			this.buttonsPanel.Location = new System.Drawing.Point(0, 220);
 			this.buttonsPanel.Name = "buttonsPanel";
-			this.buttonsPanel.Size = new System.Drawing.Size(390, 50);
+			this.buttonsPanel.Size = new System.Drawing.Size(384, 41);
 			this.buttonsPanel.TabIndex = 5;
 			// 
-			// button1
+			// okButton
 			// 
-			this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.button1.DialogResult = System.Windows.Forms.DialogResult.OK;
-			this.button1.Location = new System.Drawing.Point(300, 10);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(70, 23);
-			this.button1.TabIndex = 0;
-			this.button1.Text = "OK";
-			this.button1.UseVisualStyleBackColor = true;
+			this.okButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.okButton.DialogResult = System.Windows.Forms.DialogResult.OK;
+			this.okButton.Location = new System.Drawing.Point(300, 10);
+			this.okButton.Name = "okButton";
+			this.okButton.Size = new System.Drawing.Size(70, 23);
+			this.okButton.TabIndex = 0;
+			this.okButton.Text = "OK";
+			this.okButton.UseVisualStyleBackColor = true;
 			// 
 			// CollectionForm
 			// 
@@ -148,6 +147,6 @@
 		private System.Windows.Forms.Button clearButton;
 		private System.Windows.Forms.ListBox listBox;
 		private System.Windows.Forms.Panel buttonsPanel;
-		private System.Windows.Forms.Button button1;
+		private System.Windows.Forms.Button okButton;
 	}
 }

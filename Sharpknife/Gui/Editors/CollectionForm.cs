@@ -85,7 +85,7 @@ namespace Sharpknife.Gui.Editors
 		private void ClearAll()
 		{
 			//confirm
-			var result = ConfirmationForm.Show(this, "Clear All", "Are you sure you want to clear all entries?");
+			var result = DialogResult.OK;// ConfirmationForm.Show(this, "Clear All", "Are you sure you want to clear all entries?");
 
 			if (result == DialogResult.OK)
 			{

@@ -52,7 +52,7 @@ namespace Sharpknife.Utilities
 			catch (Exception exception)
 			{
 				//error
-				MessageForm.Show(null, header, string.Format("The {0} could not be opened successfully.", title.ToLower()));
+				//MessageForm.Show(null, header, string.Format("The {0} could not be opened successfully.", title.ToLower()));
 
 				return new FileDialogResult<T>(exception);
 			}
@@ -102,7 +102,7 @@ namespace Sharpknife.Utilities
 			catch (Exception exception)
 			{
 				//error
-				MessageForm.Show(null, header, string.Format("The {0} could not be saved successfully.", title.ToLower()));
+				//MessageForm.Show(null, header, string.Format("The {0} could not be saved successfully.", title.ToLower()));
 
 				return new FileDialogResult<T>(exception);
 			}

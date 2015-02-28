@@ -36,7 +36,7 @@
 			this.ClientSize = new System.Drawing.Size(284, 261);
 			this.Name = "BaseForm";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-			this.Text = "Base Form";
+			this.Text = "Form";
 			this.Load += new System.EventHandler(this.LoadHandler);
 			this.ResumeLayout(false);
 

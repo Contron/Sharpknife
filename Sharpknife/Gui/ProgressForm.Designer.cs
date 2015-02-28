@@ -66,20 +66,17 @@
 			// 
 			// headerPanel
 			// 
-			this.headerPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
 			this.headerPanel.BackColor = System.Drawing.SystemColors.Window;
 			this.headerPanel.Controls.Add(this.statusLabel);
 			this.headerPanel.Controls.Add(this.progressBar);
+			this.headerPanel.Dock = System.Windows.Forms.DockStyle.Top;
 			this.headerPanel.Location = new System.Drawing.Point(0, 0);
 			this.headerPanel.Name = "headerPanel";
-			this.headerPanel.Size = new System.Drawing.Size(340, 60);
+			this.headerPanel.Size = new System.Drawing.Size(334, 60);
 			this.headerPanel.TabIndex = 0;
 			// 
 			// ProgressForm
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
 			this.ClientSize = new System.Drawing.Size(334, 101);
 			this.ControlBox = false;
 			this.Controls.Add(this.headerPanel);
