@@ -28,6 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.components = new System.ComponentModel.Container();
 			this.addButton = new System.Windows.Forms.Button();
 			this.editButton = new System.Windows.Forms.Button();
 			this.removeButton = new System.Windows.Forms.Button();
@@ -35,6 +36,7 @@
 			this.listBox = new System.Windows.Forms.ListBox();
 			this.buttonsPanel = new System.Windows.Forms.Panel();
 			this.okButton = new System.Windows.Forms.Button();
+			this.toolTip = new System.Windows.Forms.ToolTip(this.components);
 			this.buttonsPanel.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -46,6 +48,7 @@
 			this.addButton.Name = "addButton";
 			this.addButton.Size = new System.Drawing.Size(30, 30);
 			this.addButton.TabIndex = 1;
+			this.toolTip.SetToolTip(this.addButton, "Add");
 			this.addButton.UseVisualStyleBackColor = true;
 			this.addButton.Click += new System.EventHandler(this.AddClickedHandler);
 			// 
@@ -57,6 +60,7 @@
 			this.editButton.Name = "editButton";
 			this.editButton.Size = new System.Drawing.Size(30, 30);
 			this.editButton.TabIndex = 2;
+			this.toolTip.SetToolTip(this.editButton, "Edit");
 			this.editButton.UseVisualStyleBackColor = true;
 			this.editButton.Click += new System.EventHandler(this.EditClickedHandler);
 			// 
@@ -68,6 +72,7 @@
 			this.removeButton.Name = "removeButton";
 			this.removeButton.Size = new System.Drawing.Size(30, 30);
 			this.removeButton.TabIndex = 3;
+			this.toolTip.SetToolTip(this.removeButton, "Remove");
 			this.removeButton.UseVisualStyleBackColor = true;
 			this.removeButton.Click += new System.EventHandler(this.RemoveClickedHandler);
 			// 
@@ -79,6 +84,7 @@
 			this.clearButton.Name = "clearButton";
 			this.clearButton.Size = new System.Drawing.Size(30, 30);
 			this.clearButton.TabIndex = 4;
+			this.toolTip.SetToolTip(this.clearButton, "Clear");
 			this.clearButton.UseVisualStyleBackColor = true;
 			this.clearButton.Click += new System.EventHandler(this.ClearClickedHandler);
 			// 
@@ -148,5 +154,6 @@
 		private System.Windows.Forms.ListBox listBox;
 		private System.Windows.Forms.Panel buttonsPanel;
 		private System.Windows.Forms.Button okButton;
+		private System.Windows.Forms.ToolTip toolTip;
 	}
 }
