@@ -20,10 +20,10 @@ namespace Sharpknife.Gui.Controls
 		/// </summary>
 		public CommandLink() : base()
 		{
+			this.FlatStyle = FlatStyle.System;
+
 			this.shield = false;
 			this.note = null;
-
-			this.FlatStyle = FlatStyle.System;
 		}
 
 		/// <summary>

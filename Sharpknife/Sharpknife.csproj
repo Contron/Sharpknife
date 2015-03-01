@@ -54,6 +54,7 @@
     <Compile Include="Common\MatchingTypeAttribute.cs" />
     <Compile Include="Common\NativeHandle.cs" />
     <Compile Include="Common\TypeCollectionEditor.cs" />
+    <Compile Include="Common\VerticalFillLayoutEngine.cs" />
     <Compile Include="Core\CommandLine.cs" />
     <Compile Include="Core\Manager.cs" />
     <Compile Include="Core\Managers\BinaryManager.cs" />
@@ -89,6 +90,9 @@
       <DependentUpon>BaseSettingsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Gui\Controls\ContextMenuButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Gui\Controls\VerticalFillLayoutPanel.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Gui\Editors\CollectionForm.cs">
