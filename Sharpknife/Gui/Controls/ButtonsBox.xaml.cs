@@ -71,5 +71,35 @@ namespace Sharpknife.Gui.Controls
 		/// Occurs when the Cancel button is clicked.
 		/// </summary>
 		public event RoutedEventHandler CancelClicked;
+
+		/// <summary>
+		/// Gets or sets if the OK button is hidden.
+		/// </summary>
+		public bool OKHidden
+		{
+			get
+			{
+				return this.okButton.Visibility == Visibility.Collapsed;
+			}
+			set
+			{
+				this.okButton.Visibility = value ? Visibility.Collapsed : Visibility.Visible;
+			}
+		}
+
+		/// <summary>
+		/// Gets or sets if the Cancel button is hidden.
+		/// </summary>
+		public bool CancelHidden
+		{
+			get
+			{
+				return this.cancelButton.Visibility == Visibility.Collapsed;
+			}
+			set
+			{
+				this.cancelButton.Visibility = value ? Visibility.Collapsed : Visibility.Visible;
+			}
+		}
 	}
 }
