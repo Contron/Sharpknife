@@ -11,6 +11,7 @@
     <AssemblyName>Sharpknife</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -38,7 +39,6 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
     <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -46,81 +46,36 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="WindowsBase" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\EnumDescriptionConverter.cs" />
     <Compile Include="Common\FileDialogResult.cs" />
     <Compile Include="Common\HelpArticle.cs" />
     <Compile Include="Common\MatchingTypeAttribute.cs" />
-    <Compile Include="Common\NativeHandle.cs" />
-    <Compile Include="Common\TypeCollectionEditor.cs" />
-    <Compile Include="Common\VerticalFillLayoutEngine.cs" />
-    <Compile Include="Core\CommandLine.cs" />
     <Compile Include="Core\Manager.cs" />
     <Compile Include="Core\Managers\BinaryManager.cs" />
     <Compile Include="Core\Managers\XmlManager.cs" />
-    <Compile Include="Gui\AboutForm.cs">
-      <SubType>Form</SubType>
+    <Compile Include="Core\NotificationCenter.cs" />
+    <Compile Include="Gui\AboutWindow.xaml.cs">
+      <DependentUpon>AboutWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Gui\AboutForm.Designer.cs">
-      <DependentUpon>AboutForm.cs</DependentUpon>
+    <Compile Include="Gui\Controls\ButtonsBox.xaml.cs">
+      <DependentUpon>ButtonsBox.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Gui\Bases\BaseControl.cs">
-      <SubType>UserControl</SubType>
+    <Compile Include="Gui\Editors\CollectionWindow.xaml.cs">
+      <DependentUpon>CollectionWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Gui\Bases\BaseControl.Designer.cs">
-      <DependentUpon>BaseControl.cs</DependentUpon>
+    <Compile Include="Gui\HelpWindow.xaml.cs">
+      <DependentUpon>HelpWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Gui\Bases\BaseForm.cs">
-      <SubType>Form</SubType>
+    <Compile Include="Gui\MessageWindow.xaml.cs">
+      <DependentUpon>MessageWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Gui\Bases\BaseForm.Designer.cs">
-      <DependentUpon>BaseForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Gui\Bases\BaseDialogForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Gui\Bases\BaseDialogForm.Designer.cs">
-      <DependentUpon>BaseDialogForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Gui\Bases\BaseSettingsForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Gui\Bases\BaseSettingsForm.Designer.cs">
-      <DependentUpon>BaseSettingsForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Gui\Controls\ContextMenuButton.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Gui\Controls\VerticalFillLayoutPanel.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Gui\Editors\CollectionForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Gui\Editors\CollectionForm.Designer.cs">
-      <DependentUpon>CollectionForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Gui\Controls\CommandLink.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Gui\HelpForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Gui\HelpForm.Designer.cs">
-      <DependentUpon>HelpForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Gui\MessageForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Gui\MessageForm.Designer.cs">
-      <DependentUpon>MessageForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Gui\ProgressForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Gui\ProgressForm.Designer.cs">
-      <DependentUpon>ProgressForm.cs</DependentUpon>
+    <Compile Include="Gui\ProgressWindow.xaml.cs">
+      <DependentUpon>ProgressWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Persistence\ObjectCollectionManager.cs" />
     <Compile Include="Persistence\ObjectManager.cs" />
@@ -130,57 +85,55 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Sharpknife.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities\Assemblies.cs" />
     <Compile Include="Utilities\Debug.cs" />
     <Compile Include="Utilities\Dialogs.cs" />
-    <Compile Include="Extensions\ControlExtensions.cs" />
-    <Compile Include="Extensions\FormExtensions.cs" />
     <Compile Include="Utilities\Files.cs" />
     <Compile Include="Utilities\Serialization.cs" />
     <Compile Include="Utilities\Win32.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Gui\AboutForm.resx">
-      <DependentUpon>AboutForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Gui\Bases\BaseControl.resx">
-      <DependentUpon>BaseControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Gui\Bases\BaseForm.resx">
-      <DependentUpon>BaseForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Gui\Bases\BaseDialogForm.resx">
-      <DependentUpon>BaseDialogForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Gui\Bases\BaseSettingsForm.resx">
-      <DependentUpon>BaseSettingsForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Gui\Editors\CollectionForm.resx">
-      <DependentUpon>CollectionForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Gui\HelpForm.resx">
-      <DependentUpon>HelpForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Gui\MessageForm.resx">
-      <DependentUpon>MessageForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Gui\ProgressForm.resx">
-      <DependentUpon>ProgressForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\Images\Add.png" />
-    <Content Include="Resources\Images\Clear.png" />
-    <Content Include="Resources\Images\Edit.png" />
-    <Content Include="Resources\Images\Folder.png" />
-    <Content Include="Resources\Images\Article.png" />
-    <Content Include="Resources\Images\Remove.png" />
+    <Resource Include="Resources\Images\Icon.png" />
+    <Resource Include="Resources\Images\Add.png" />
+    <Resource Include="Resources\Images\Clear.png" />
+    <Resource Include="Resources\Images\Edit.png" />
+    <Resource Include="Resources\Images\Folder.png" />
+    <Resource Include="Resources\Images\Article.png" />
+    <Resource Include="Resources\Images\Remove.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Page Include="Gui\AboutWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Gui\Controls\ButtonsBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Gui\Editors\CollectionWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Gui\HelpWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Gui\MessageWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Gui\ProgressWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

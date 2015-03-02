@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sharpknife.Utilities;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,7 +23,7 @@ namespace Sharpknife.Core
 		/// <param name="format">the format</param>
 		public Manager(string file, string format)
 		{
-			this.Directory = Sharpknife.ApplicationPath;
+			this.Directory = Assemblies.ApplicationPath;
 			this.File = Path.Combine(this.Directory, string.Format("{0}.{1}", file, format));
 			this.Element = new T();
 		}

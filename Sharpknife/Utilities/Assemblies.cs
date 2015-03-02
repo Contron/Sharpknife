@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -12,6 +13,16 @@ namespace Sharpknife.Utilities
 	/// </summary>
 	public static class Assemblies
 	{
+		/// <summary>
+		/// Returns a <see cref="Uri" /> to the specified resource for the calling assembly.
+		/// </summary>
+		/// <param name="location">the location</param>
+		/// <returns>the URI</returns>
+		public static Uri GetResource(string location)
+		{
+			return new Uri(string.Format("pack://application:,,,/{0};component/{1}", Assembly.GetCallingAssembly().FullName, location));
+		}
+
 		/// <summary>
 		/// Returns the matching attribute for the specified value.
 		/// </summary>
@@ -48,6 +59,22 @@ namespace Sharpknife.Utilities
 			var types = Assembly.GetAssembly(type).GetTypes().Where(currentType => currentType.IsSubclassOf(type)).ToList();
 
 			return types;
+		}
+
+		/// <summary>
+		/// Gets the current application path.
+		/// </summary>
+		public static string ApplicationPath
+		{
+			get
+			{
+				//folders
+				var folder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+				var assembly = System.Reflection.Assembly.GetEntryAssembly().GetName().Name;
+				var path = Path.Combine(folder, assembly);
+
+				return path;
+			}
 		}
 	}
 }

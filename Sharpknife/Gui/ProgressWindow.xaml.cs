@@ -1,43 +1,53 @@
-﻿using Sharpknife.Extensions;
-using Sharpknife.Gui.Bases;
-using Sharpknife.Utilities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
+using System.Linq;
+using System.Media;
 using System.Text;
-using System.Windows.Forms;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
 
 namespace Sharpknife.Gui
 {
 	/// <summary>
-	/// Represents a progress form, which can be used to display and control a background worker.
+	/// Represents a progress window to monitor the state of a <see cref="BackgroundWorker" /> until completion.
 	/// </summary>
-	public partial class ProgressForm : BaseForm
+	public partial class ProgressWindow : Window
 	{
 		/// <summary>
-		/// Shows a modal progress form, starting the specified <see cref="BackgroundWorker" /> if necessary.
+		/// Shows a modal progress window for the specified background worker.
+		/// It will be started if it is not already running.
 		/// </summary>
 		/// <param name="owner">the owner</param>
 		/// <param name="backgroundWorker">the background worker</param>
-		public static void Show(Form owner, BackgroundWorker backgroundWorker)
+		public static void Show(Window owner, BackgroundWorker backgroundWorker)
 		{
 			if (!backgroundWorker.IsBusy)
 			{
-				//start
+				//run
 				backgroundWorker.RunWorkerAsync();
 			}
 
 			//show
-			new ProgressForm(backgroundWorker).ShowDialog(owner);
+			var window = new ProgressWindow(backgroundWorker)
+			{
+				Owner = owner
+			};
+			window.ShowDialog();
 		}
 
 		/// <summary>
-		/// Creates a new progress form.
+		/// Creates a new progress window.
 		/// </summary>
 		/// <param name="backgroundWorker">the background worker</param>
-		public ProgressForm(BackgroundWorker backgroundWorker)
+		public ProgressWindow(BackgroundWorker backgroundWorker)
 		{
 			this.backgroundWorker = backgroundWorker;
 
@@ -56,8 +66,8 @@ namespace Sharpknife.Gui
 
 			//update
 			this.statusLabel.Text = "Performing operation...";
-			this.progressBar.Style = ProgressBarStyle.Marquee;
-			this.cancelButton.Enabled = this.backgroundWorker.WorkerSupportsCancellation;
+			this.progressBar.IsIndeterminate = true;
+			this.cancelButton.IsEnabled = this.backgroundWorker.WorkerSupportsCancellation;
 		}
 
 		/// <summary>
@@ -74,7 +84,7 @@ namespace Sharpknife.Gui
 
 			//update
 			this.progressBar.Value = amount;
-			this.progressBar.Style = amount <= 0 ? ProgressBarStyle.Marquee : ProgressBarStyle.Blocks;
+			this.progressBar.IsIndeterminate = amount <= 0;
 
 			if (userState is string)
 			{
@@ -93,29 +103,42 @@ namespace Sharpknife.Gui
 
 			//update
 			this.statusLabel.Text = "Cancelling operation...";
-			this.progressBar.Style = ProgressBarStyle.Marquee;
-			this.cancelButton.Enabled = false;
+			this.progressBar.IsIndeterminate = true;
+			this.cancelButton.IsEnabled = false;
 		}
 
 		/// <summary>
-		/// Completes the progress.
+		/// Attempts to cancel the progress.
 		/// </summary>
-		private void CompleteProgress()
+		/// <param name="eventArgs">the event args</param>
+		private void AttemptCancelProgress(CancelEventArgs eventArgs)
 		{
-			if (!this.Focused)
+			if (!this.backgroundWorker.IsBusy)
 			{
-				if (this.Owner != null)
-				{
-					//flash
-					this.Owner.FlashInTaskbar();
-				}
+				return;
 			}
 
-			//close
-			this.Close();
+			if (this.backgroundWorker.WorkerSupportsCancellation && this.backgroundWorker.IsBusy)
+			{
+				//cancel
+				this.CancelProgress();
+			}
+			else
+			{
+				//beep
+				SystemSounds.Beep.Play();
+			}
+
+			//ignore
+			eventArgs.Cancel = true;
 		}
 
 		#region Event Handlers
+
+		private void ClosingHandler(object sender, CancelEventArgs eventArgs)
+		{
+			this.AttemptCancelProgress(eventArgs);
+		}
 
 		private void ProgressChangedHandler(object sender, ProgressChangedEventArgs eventArgs)
 		{
@@ -124,10 +147,10 @@ namespace Sharpknife.Gui
 
 		private void RunWorkCompletedHandler(object sender, RunWorkerCompletedEventArgs eventArgs)
 		{
-			this.CompleteProgress();
+			this.Close();
 		}
 
-		private void CancelHandler(object sender, EventArgs eventArgs)
+		private void CancelHandler(object sender, RoutedEventArgs eventArgs)
 		{
 			this.CancelProgress();
 		}

@@ -1,11 +1,12 @@
-﻿using Sharpknife.Common;
+﻿using Microsoft.Win32;
+using Sharpknife.Common;
 using Sharpknife.Gui;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
+using System.Windows;
 
 namespace Sharpknife.Utilities
 {
@@ -22,7 +23,7 @@ namespace Sharpknife.Utilities
 		/// <param name="title">the title</param>
 		/// <param name="filter">the filter</param>
 		/// <returns>the result</returns>
-		public static FileDialogResult<T> ShowOpenDialog<T>(Form parent, string title, string filter)
+		public static FileDialogResult<T> ShowOpenDialog<T>(Window parent, string title, string filter)
 		{
 			//context
 			var header = string.Format("Open {0}", title);
@@ -36,7 +37,7 @@ namespace Sharpknife.Utilities
 			};
 			var result = dialog.ShowDialog(parent);
 
-			if (result != DialogResult.OK)
+			if (result != true)
 			{
 				return new FileDialogResult<T>();
 			}
@@ -52,7 +53,7 @@ namespace Sharpknife.Utilities
 			catch (Exception exception)
 			{
 				//error
-				//MessageForm.Show(null, header, string.Format("The {0} could not be opened successfully.", title.ToLower()));
+				MessageWindow.Show(null, header, string.Format("The {0} could not be opened successfully.", title.ToLower()));
 
 				return new FileDialogResult<T>(exception);
 			}
@@ -67,7 +68,7 @@ namespace Sharpknife.Utilities
 		/// <param name="filter">the filter</param>
 		/// <param name="element">the element</param>
 		/// <returns>the result</returns>
-		public static FileDialogResult<T> ShowSaveDialog<T>(Form parent, string title, string filter, T element)
+		public static FileDialogResult<T> ShowSaveDialog<T>(Window parent, string title, string filter, T element)
 		{
 			if (element == null)
 			{
@@ -86,7 +87,7 @@ namespace Sharpknife.Utilities
 			};
 			var result = dialog.ShowDialog(parent);
 
-			if (result != DialogResult.OK)
+			if (result != true)
 			{
 				return new FileDialogResult<T>();
 			}
@@ -102,7 +103,7 @@ namespace Sharpknife.Utilities
 			catch (Exception exception)
 			{
 				//error
-				//MessageForm.Show(null, header, string.Format("The {0} could not be saved successfully.", title.ToLower()));
+				MessageWindow.Show(null, header, string.Format("The {0} could not be saved successfully.", title.ToLower()));
 
 				return new FileDialogResult<T>(exception);
 			}

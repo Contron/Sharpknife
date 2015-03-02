@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Markup;
 using System.Xml.Serialization;
 
 namespace Sharpknife.Common
@@ -11,6 +12,7 @@ namespace Sharpknife.Common
 	/// <summary>
 	/// Represents a help article that can have descriptive text about a topic. It can also have children as sub-topics.
 	/// </summary>
+	[ContentProperty("Children")]
 	public class HelpArticle
 	{
 		/// <summary>
