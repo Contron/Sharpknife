@@ -67,7 +67,7 @@ namespace Sharpknife.Gui
 			//update
 			this.statusLabel.Text = "Performing operation...";
 			this.progressBar.IsIndeterminate = true;
-			this.cancelButton.IsEnabled = this.backgroundWorker.WorkerSupportsCancellation;
+			this.buttonsBox.CancelButton.IsEnabled = this.backgroundWorker.WorkerSupportsCancellation;
 		}
 
 		/// <summary>
@@ -104,7 +104,7 @@ namespace Sharpknife.Gui
 			//update
 			this.statusLabel.Text = "Cancelling operation...";
 			this.progressBar.IsIndeterminate = true;
-			this.cancelButton.IsEnabled = false;
+			this.buttonsBox.CancelButton.IsEnabled = false;
 		}
 
 		/// <summary>

@@ -169,6 +169,11 @@ namespace Sharpknife.Gui.Editors
 			this.ClearAll();
 		}
 
+		private void OKHandler(object sender, RoutedEventArgs eventArgs)
+		{
+			this.Close();
+		}
+
 		#endregion
 
 		/// <summary>

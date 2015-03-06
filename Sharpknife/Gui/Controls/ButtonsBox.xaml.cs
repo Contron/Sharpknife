@@ -73,7 +73,7 @@ namespace Sharpknife.Gui.Controls
 		public event RoutedEventHandler CancelClicked;
 
 		/// <summary>
-		/// Gets or sets if the OK button is hidden.
+		/// Gets or sets if the OK button is hidden for the button box.
 		/// </summary>
 		public bool OKHidden
 		{
@@ -88,7 +88,7 @@ namespace Sharpknife.Gui.Controls
 		}
 
 		/// <summary>
-		/// Gets or sets if the Cancel button is hidden.
+		/// Gets or sets if the Cancel button is hidden for the button box.
 		/// </summary>
 		public bool CancelHidden
 		{
@@ -99,6 +99,28 @@ namespace Sharpknife.Gui.Controls
 			set
 			{
 				this.cancelButton.Visibility = value ? Visibility.Collapsed : Visibility.Visible;
+			}
+		}
+
+		/// <summary>
+		/// Gets the OK button for the button box.
+		/// </summary>
+		public Button OKButton
+		{
+			get
+			{
+				return this.okButton;
+			}
+		}
+
+		/// <summary>
+		/// Gets the cancel button for the button box.
+		/// </summary>
+		public Button CancelButton
+		{
+			get
+			{
+				return this.cancelButton;
 			}
 		}
 	}

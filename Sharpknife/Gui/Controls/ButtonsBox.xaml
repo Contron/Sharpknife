@@ -1,6 +1,8 @@
 ﻿<UserControl x:Class="Sharpknife.Gui.Controls.ButtonsBox" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008">
-	<StackPanel Orientation="Horizontal" Background="WhiteSmoke" Margin="10" HorizontalAlignment="Right">
-		<Button x:Name="okButton" x:FieldModifier="private" Content="OK" Width="75" Click="OKHandler"></Button>
-		<Button x:Name="cancelButton" x:FieldModifier="private" Content="Cancel" Width="75" Margin="10,0,0,0" Click="CancelHandler"></Button>
-	</StackPanel>
+	<Border BorderBrush="DarkGray" BorderThickness="0,1,0,0" Background="WhiteSmoke">
+		<StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
+			<Button x:Name="okButton" x:FieldModifier="private" Content="OK" IsDefault="True" Width="75" Click="OKHandler"></Button>
+			<Button x:Name="cancelButton" x:FieldModifier="private" Content="Cancel" IsCancel="True" Width="75" Margin="10,0,0,0" Click="CancelHandler"></Button>
+		</StackPanel>
+	</Border>
 </UserControl>

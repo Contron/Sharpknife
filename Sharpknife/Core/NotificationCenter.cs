@@ -84,7 +84,7 @@ namespace Sharpknife.Core
 		}
 
 		/// <summary>
-		/// The static instance of the notification center.
+		/// Gets the instance of the notification center.
 		/// </summary>
 		public static readonly NotificationCenter Instance = new NotificationCenter();
 
