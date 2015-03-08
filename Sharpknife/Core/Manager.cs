@@ -11,21 +11,22 @@ using System.Xml.Serialization;
 namespace Sharpknife.Core
 {
 	/// <summary>
-	/// Represents a manager that can control the persistence of any type by providing the appropriate methods to load and save it from an XML file.
+	/// Represents a manager that can easily control the persistence of an object via XML serialization.
 	/// </summary>
 	/// <typeparam name="T">the type</typeparam>
-	public abstract class Manager<T> where T : new()
+	public class Manager<T> where T : new()
 	{
 		/// <summary>
 		/// Creates a new manager.
 		/// </summary>
 		/// <param name="file">the file</param>
-		/// <param name="format">the format</param>
-		public Manager(string file, string format)
+		public Manager(string file)
 		{
 			this.Directory = Assemblies.ApplicationPath;
-			this.File = Path.Combine(this.Directory, string.Format("{0}.{1}", file, format));
+			this.File = Path.Combine(this.Directory, string.Format("{0}.xml", file));
 			this.Element = new T();
+
+			this.serializer = new XmlSerializer(typeof(T));
 		}
 
 		/// <summary>
@@ -33,15 +34,13 @@ namespace Sharpknife.Core
 		/// </summary>
 		public void Load()
 		{
-			if (!System.IO.Directory.Exists(this.Directory) || !System.IO.File.Exists(this.File))
+			if (System.IO.Directory.Exists(this.Directory) && System.IO.File.Exists(this.File))
 			{
-				return;
-			}
-
-			using (var fileStream = System.IO.File.Open(this.File, FileMode.Open))
-			{
-				//load
-				this.Element = this.LoadFromSource(fileStream);
+				using (var fileStream = System.IO.File.Open(this.File, FileMode.Open))
+				{
+					//deserialize
+					this.Element = (T) this.serializer.Deserialize(fileStream);
+				}
 			}
 		}
 
@@ -58,24 +57,10 @@ namespace Sharpknife.Core
 
 			using (var fileStream = System.IO.File.Open(this.File, FileMode.Create))
 			{
-				//save
-				this.SaveToSource(fileStream, this.Element);
+				//serialize
+				this.serializer.Serialize(fileStream, this.Element);
 			}
 		}
-
-		/// <summary>
-		/// Loads from the source file.
-		/// </summary>
-		/// <param name="fileStream">the file stream</param>
-		/// <returns>the element</returns>
-		protected abstract T LoadFromSource(FileStream fileStream);
-
-		/// <summary>
-		/// Saves to the source file.
-		/// </summary>
-		/// <param name="fileStream">the file stream</param>
-		/// <param name="element">the element</param>
-		protected abstract void SaveToSource(FileStream fileStream, T element);
 
 		/// <summary>
 		/// Gets or sets the directory for the manager.
@@ -103,5 +88,7 @@ namespace Sharpknife.Core
 			get;
 			set;
 		}
+
+		private XmlSerializer serializer;
 	}
 }

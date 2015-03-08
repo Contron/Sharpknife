@@ -57,8 +57,6 @@
     <Compile Include="Common\MatchingTypeAttribute.cs" />
     <Compile Include="Core\Command.cs" />
     <Compile Include="Core\Manager.cs" />
-    <Compile Include="Core\Managers\BinaryManager.cs" />
-    <Compile Include="Core\Managers\XmlManager.cs" />
     <Compile Include="Core\NotificationCenter.cs" />
     <Compile Include="Core\Observable.cs" />
     <Compile Include="Gui\AboutWindow.xaml.cs">
@@ -79,9 +77,6 @@
     <Compile Include="Gui\ProgressWindow.xaml.cs">
       <DependentUpon>ProgressWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Persistence\ObjectCollectionManager.cs" />
-    <Compile Include="Persistence\ObjectManager.cs" />
-    <Compile Include="Persistence\SettingsManager.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
