@@ -51,7 +51,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Common\EnumDescriptionConverter.cs" />
     <Compile Include="Common\FileDialogResult.cs" />
     <Compile Include="Common\HelpArticle.cs" />
     <Compile Include="Common\MatchingTypeAttribute.cs" />

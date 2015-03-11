@@ -24,20 +24,21 @@ namespace Sharpknife.Utilities
 		}
 
 		/// <summary>
-		/// Returns the matching attribute for the specified value.
+		/// Returns the value of the specified attribute, or null if it does not exist.
 		/// </summary>
-		/// <typeparam name="T">the attribute</typeparam>
+		/// <typeparam name="T">the attribute type</typeparam>
+		/// <param name="type">the target type</param>
 		/// <param name="value">the value</param>
 		/// <returns>the result</returns>
-		public static string GetAssemblyAttribute<T>(Func<T, string> value) where T : Attribute
+		public static object GetAttributeValue<T>(Type type, Func<T, object> value) where T : Attribute
 		{
-			if (value == null)
+			if (!Attribute.IsDefined(type, typeof(T)))
 			{
-				throw new ArgumentNullException("value");
+				return null;
 			}
 
-			//get
-			var attribute = (T) Attribute.GetCustomAttribute(Assembly.GetEntryAssembly(), typeof(T));
+			//retrieve
+			var attribute = (T) Attribute.GetCustomAttribute(type, typeof(T));
 			var result = value(attribute);
 
 			return result;
