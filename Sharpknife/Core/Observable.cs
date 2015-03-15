@@ -14,6 +14,20 @@ namespace Sharpknife.Core
 	public class Observable : INotifyPropertyChanged
 	{
 		/// <summary>
+		/// Sets the specified field, triggering a property changed event.
+		/// </summary>
+		/// <typeparam name="T">the type</typeparam>
+		/// <param name="field">the field</param>
+		/// <param name="value">the value</param>
+		/// <param name="property">the property</param>
+		protected void SetField<T>(ref T field, T value, [CallerMemberName] string property = null)
+		{
+			//change
+			field = value;
+			this.NotifyPropertyChanged(property);
+		}
+
+		/// <summary>
 		/// Notifies that the specified property has changed.
 		/// </summary>
 		/// <param name="property">the property</param>

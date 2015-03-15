@@ -24,6 +24,15 @@ namespace Sharpknife.Core
 		}
 
 		/// <summary>
+		/// Creates a new command.
+		/// </summary>
+		/// <param name="command">the command</param>
+		public Command(Action<object> command) : this(command, parameter => true)
+		{
+
+		}
+
+		/// <summary>
 		/// Executes the command with the specified parameter.
 		/// </summary>
 		/// <param name="parameter">the parameter</param>
