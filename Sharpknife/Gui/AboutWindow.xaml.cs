@@ -52,10 +52,10 @@ namespace Sharpknife.Gui
 			//version info
 			var versionInfo = FileVersionInfo.GetVersionInfo(Assembly.GetEntryAssembly().Location);
 
-			//labels
-			this.titleLabel.Text = versionInfo.ProductName;
-			this.versionLabel.Text = string.Format("Version {0}", versionInfo.FileVersion);
-			this.copyrightLabel.Text = string.Format("Copyright {0}", versionInfo.LegalCopyright);
+			//general information
+			this.titleTextBlock.Text = versionInfo.ProductName;
+			this.versionTextBlock.Text = string.Format("Version {0}", versionInfo.FileVersion);
+			this.copyrightTextBlock.Text = string.Format("Copyright {0}", versionInfo.LegalCopyright);
 		}
 
 		#region Event Handlers

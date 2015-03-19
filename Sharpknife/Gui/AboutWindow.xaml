@@ -6,9 +6,9 @@
 				<Image x:Name="iconImage" x:FieldModifier="private" Source="../Resources/Images/Icon.png" Stretch="None" />
 			</Border>
 			<StackPanel>
-				<TextBlock x:Name="titleLabel" x:FieldModifier="private" Text="Title" TextWrapping="Wrap" TextTrimming="WordEllipsis" FontSize="18" Margin="0,0,0,30"></TextBlock>
-				<TextBlock x:Name="versionLabel" x:FieldModifier="private" Text="Version" TextWrapping="Wrap" TextTrimming="WordEllipsis"></TextBlock>
-				<TextBlock x:Name="copyrightLabel" x:FieldModifier="private" Text="Copyright" TextWrapping="Wrap" TextTrimming="WordEllipsis"></TextBlock>
+				<TextBlock x:Name="titleTextBlock" x:FieldModifier="private" Text="Title" TextWrapping="Wrap" TextTrimming="WordEllipsis" FontSize="18" Margin="0,0,0,30"></TextBlock>
+				<TextBlock x:Name="versionTextBlock" x:FieldModifier="private" Text="Version" TextWrapping="Wrap" TextTrimming="WordEllipsis"></TextBlock>
+				<TextBlock x:Name="copyrightTextBlock" x:FieldModifier="private" Text="Copyright" TextWrapping="Wrap" TextTrimming="WordEllipsis"></TextBlock>
 			</StackPanel>
 		</DockPanel>
 	</DockPanel>

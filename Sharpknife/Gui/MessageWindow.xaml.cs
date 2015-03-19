@@ -56,7 +56,7 @@ namespace Sharpknife.Gui
 		{
 			//update
 			this.Title = title;
-			this.messageLabel.Text = message;
+			this.messageTextBlock.Text = message;
 
 			//beep
 			SystemSounds.Beep.Play();

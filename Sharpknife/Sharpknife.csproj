@@ -52,7 +52,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\FileDialogResult.cs" />
-    <Compile Include="Common\HelpArticle.cs" />
     <Compile Include="Common\MatchingTypeAttribute.cs" />
     <Compile Include="Core\Command.cs" />
     <Compile Include="Core\Manager.cs" />
@@ -64,11 +63,8 @@
     <Compile Include="Gui\Controls\ButtonsBox.xaml.cs">
       <DependentUpon>ButtonsBox.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Gui\Editors\CollectionWindow.xaml.cs">
-      <DependentUpon>CollectionWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Gui\HelpWindow.xaml.cs">
-      <DependentUpon>HelpWindow.xaml</DependentUpon>
+    <Compile Include="Gui\Controls\HeaderBox.xaml.cs">
+      <DependentUpon>HeaderBox.xaml</DependentUpon>
     </Compile>
     <Compile Include="Gui\MessageWindow.xaml.cs">
       <DependentUpon>MessageWindow.xaml</DependentUpon>
@@ -114,11 +110,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Gui\Editors\CollectionWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Gui\HelpWindow.xaml">
+    <Page Include="Gui\Controls\HeaderBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

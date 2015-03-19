@@ -17,7 +17,7 @@ namespace Sharpknife.Core
 		/// </summary>
 		/// <param name="command">the command</param>
 		/// <param name="predicate">the predicate</param>
-		public Command(Action<object> command, Func<object, bool> predicate)
+		public Command(Action command, Func<bool> predicate)
 		{
 			this.command = command;
 			this.predicate = predicate;
@@ -27,15 +27,15 @@ namespace Sharpknife.Core
 		/// Creates a new command.
 		/// </summary>
 		/// <param name="command">the command</param>
-		public Command(Action<object> command) : this(command, parameter => true)
+		public Command(Action command) : this(command, () => true)
 		{
 
 		}
 
 		/// <summary>
 		/// Executes the command with the specified parameter.
-		/// </summary>
 		/// <param name="parameter">the parameter</param>
+		/// </summary>
 		public void Execute(object parameter)
 		{
 			if (this.command == null)
@@ -43,7 +43,7 @@ namespace Sharpknife.Core
 				return;
 			}
 
-			this.command(parameter);
+			this.command();
 		}
 
 		/// <summary>
@@ -58,7 +58,7 @@ namespace Sharpknife.Core
 				return false;
 			}
 
-			return this.predicate(parameter);
+			return this.predicate();
 		}
 
 		#region Event Triggers
@@ -78,7 +78,7 @@ namespace Sharpknife.Core
 		/// </summary>
 		public event EventHandler CanExecuteChanged;
 
-		private Action<object> command;
-		private Func<object, bool> predicate;
+		private Action command;
+		private Func<bool> predicate;
 	}
 }

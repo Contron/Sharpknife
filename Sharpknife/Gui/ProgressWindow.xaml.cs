@@ -65,7 +65,7 @@ namespace Sharpknife.Gui
 			this.backgroundWorker.RunWorkerCompleted += this.RunWorkCompletedHandler;
 
 			//update
-			this.statusLabel.Text = "Performing operation...";
+			this.statusTextBlock.Text = "Performing operation...";
 			this.progressBar.IsIndeterminate = true;
 			this.buttonsBox.CancelButton.IsEnabled = this.backgroundWorker.WorkerSupportsCancellation;
 		}
@@ -88,8 +88,8 @@ namespace Sharpknife.Gui
 
 			if (userState is string)
 			{
-				//status
-				this.statusLabel.Text = (string) userState;
+				//update
+				this.statusTextBlock.Text = (string) userState;
 			}
 		}
 
@@ -102,7 +102,7 @@ namespace Sharpknife.Gui
 			this.backgroundWorker.CancelAsync();
 
 			//update
-			this.statusLabel.Text = "Cancelling operation...";
+			this.statusTextBlock.Text = "Cancelling operation...";
 			this.progressBar.IsIndeterminate = true;
 			this.buttonsBox.CancelButton.IsEnabled = false;
 		}
