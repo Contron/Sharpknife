@@ -107,12 +107,12 @@ namespace Sharpknife.Utilities
 		/// <returns>the result</returns>
 		public static bool QuestionPrompt(string message)
 		{
-			//message
-			Debug.Write(ConsoleColor.Green, message + " (y/n): ");
-			Console.ResetColor();
-
 			while (true)
 			{
+				//message
+				Debug.Write(ConsoleColor.Green, message + " (y/n): ");
+				Console.ResetColor();
+
 				//read
 				var result = Console.ReadLine().ToLower();
 
