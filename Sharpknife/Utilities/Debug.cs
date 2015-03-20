@@ -97,7 +97,7 @@ namespace Sharpknife.Utilities
 			//read
 			var result = Console.ReadLine();
 
-			return (string.IsNullOrEmpty(result) ? null : result);
+			return string.IsNullOrEmpty(result) ? null : result;
 		}
 
 		/// <summary>
@@ -111,10 +111,24 @@ namespace Sharpknife.Utilities
 			Debug.Write(ConsoleColor.Green, message + " (y/n): ");
 			Console.ResetColor();
 
-			//read
-			var result = Console.ReadLine().ToLower();
+			while (true)
+			{
+				//read
+				var result = Console.ReadLine().ToLower();
 
-			return (result == "y");
+				if (result == "y")
+				{
+					return true;
+				}
+				else if (result == "n")
+				{
+					return false;
+				}
+				else
+				{
+					continue;
+				}
+			}
 		}
 
 		/// <summary>
