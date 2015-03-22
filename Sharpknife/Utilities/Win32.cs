@@ -124,33 +124,29 @@ namespace Sharpknife.Utilities
 		/// </summary>
 		public class Internal
 		{
-			#pragma warning disable 1591
-
 			[DllImport("user32.dll")]
-			public static extern bool FlashWindow(IntPtr hWnd, bool bInvert);
+			internal static extern bool FlashWindow(IntPtr hWnd, bool bInvert);
 
 			[DllImport("user32.dll", CharSet = CharSet.Unicode)]
-			public static extern int SendMessage(IntPtr hWnd, uint Msg, IntPtr wParam, IntPtr lParam);
+			internal static extern int SendMessage(IntPtr hWnd, uint Msg, IntPtr wParam, IntPtr lParam);
 
 			[DllImport("user32.dll", CharSet = CharSet.Unicode)]
-			public static extern int SendMessage(IntPtr hWnd, uint Msg, IntPtr wParam, string lParam);
+			internal static extern int SendMessage(IntPtr hWnd, uint Msg, IntPtr wParam, string lParam);
 
 			[DllImport("user32.dll", CharSet = CharSet.Unicode)]
-			public static extern int SendMessage(IntPtr hWnd, uint Msg, IntPtr wParam, bool lParam);
+			internal static extern int SendMessage(IntPtr hWnd, uint Msg, IntPtr wParam, bool lParam);
 
 			[DllImport("kernel32.dll", SetLastError = true)]
-			public static extern IntPtr OpenProcess(int dwDesiredAccess, bool bInheritHandle, int dwProcessId);
+			internal static extern IntPtr OpenProcess(int dwDesiredAccess, bool bInheritHandle, int dwProcessId);
 
 			[DllImport("kernel32.dll", SetLastError = true)]
-			public static extern bool ReadProcessMemory(IntPtr hProcess, IntPtr lpBaseAddress, byte[] lpBuffer, int dwSize, ref int lpNumberOfBytesRead);
+			internal static extern bool ReadProcessMemory(IntPtr hProcess, IntPtr lpBaseAddress, byte[] lpBuffer, int dwSize, ref int lpNumberOfBytesRead);
 
 			[DllImport("kernel32.dll", SetLastError = true)]
-			public static extern bool WriteProcessMemory(IntPtr hProcess, IntPtr lpBaseAddress, byte[] lpBuffer, int dwSize, ref int lpNumberOfBytesWritten);
+			internal static extern bool WriteProcessMemory(IntPtr hProcess, IntPtr lpBaseAddress, byte[] lpBuffer, int dwSize, ref int lpNumberOfBytesWritten);
 
 			[DllImport("kernel32.dll", SetLastError = true)]
-			public static extern bool CloseHandle(IntPtr hObject);
-
-			#pragma warning restore 1591
+			internal static extern bool CloseHandle(IntPtr hObject);
 		}
 
 		/// <summary>
@@ -158,21 +154,17 @@ namespace Sharpknife.Utilities
 		/// </summary>
 		public class Constants
 		{
-			#pragma warning disable 1591
+			internal static readonly int BS_COMMANDLINK = 0x0000000E;
 
-			public static readonly int BS_COMMANDLINK = 0x0000000E;
+			internal static readonly int PROCESS_WM_READ = 0x0010;
+			internal static readonly int PROCESS_VM_WRITE = 0x0020;
+			internal static readonly int PROCESS_VM_OPERATION = 0x0008;
 
-			public static readonly int PROCESS_WM_READ = 0x0010;
-			public static readonly int PROCESS_VM_WRITE = 0x0020;
-			public static readonly int PROCESS_VM_OPERATION = 0x0008;
+			internal static readonly uint BCM_SETNOTE = 0x00001609;
+			internal static readonly uint BCM_GETNOTE = 0x0000160A;
+			internal static readonly uint BCM_GETNOTELENGTH = 0x0000160B;
 
-			public static readonly uint BCM_SETNOTE = 0x00001609;
-			public static readonly uint BCM_GETNOTE = 0x0000160A;
-			public static readonly uint BCM_GETNOTELENGTH = 0x0000160B;
-
-			public static readonly uint BCM_SETSHIELD = 0x0000160C;
-
-			#pragma warning restore 1591
+			internal static readonly uint BCM_SETSHIELD = 0x0000160C;
 		}
 	}
 }

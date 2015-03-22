@@ -29,33 +29,43 @@ namespace Sharpknife.Gui.Controls
 		}
 
 		/// <summary>
-		/// Gets or sets the header of the header box.
+		/// Gets or sets the header for the header box.
 		/// </summary>
 		public string Header
 		{
 			get
 			{
-				return this.headerTextBlock.Text;
+				return (string) this.GetValue(HeaderBox.HeaderProperty);
 			}
 			set
 			{
-				this.headerTextBlock.Text = value;
+				this.SetValue(HeaderBox.HeaderProperty, value);
 			}
 		}
 
 		/// <summary>
-		/// Gets or sets the description of the header box.
+		/// Gets or sets the description for the header box.
 		/// </summary>
 		public string Description
 		{
 			get
 			{
-				return this.descriptionTextBlock.Text;
+				return (string) this.GetValue(HeaderBox.DescriptionProperty);
 			}
 			set
 			{
-				this.descriptionTextBlock.Text = value;
+				this.SetValue(HeaderBox.DescriptionProperty, value);
 			}
 		}
+
+		/// <summary>
+		/// Gets the header property.
+		/// </summary>
+		public static readonly DependencyProperty HeaderProperty = DependencyProperty.Register("Header", typeof(string), typeof(HeaderBox));
+
+		/// <summary>
+		/// Gets the description property.
+		/// </summary>
+		public static readonly DependencyProperty DescriptionProperty = DependencyProperty.Register("Description", typeof(string), typeof(HeaderBox));
 	}
 }

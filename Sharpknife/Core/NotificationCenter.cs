@@ -26,6 +26,11 @@ namespace Sharpknife.Core
 		/// <param name="parameter">the parameter</param>
 		public void Post(string notification, object parameter)
 		{
+			if (notification == null)
+			{
+				throw new ArgumentNullException("notification");
+			}
+
 			if (!this.listeners.ContainsKey(notification))
 			{
 				return;
@@ -42,6 +47,16 @@ namespace Sharpknife.Core
 		/// <param name="action">the action</param>
 		public void Subscribe(string notification, Action<object> action)
 		{
+			if (notification == null)
+			{
+				throw new ArgumentNullException("notification");
+			}
+
+			if (action == null)
+			{
+				throw new ArgumentNullException("action");
+			}
+
 			if (!this.listeners.ContainsKey(notification))
 			{
 				//create
@@ -59,6 +74,16 @@ namespace Sharpknife.Core
 		/// <param name="action">the action</param>
 		public void Unsubscribe(string notification, Action<object> action)
 		{
+			if (notification == null)
+			{
+				throw new ArgumentNullException("notification");
+			}
+
+			if (action == null)
+			{
+				throw new ArgumentNullException("action");
+			}
+
 			if (!this.listeners.ContainsKey(notification))
 			{
 				return;
@@ -74,6 +99,11 @@ namespace Sharpknife.Core
 		/// <param name="notification">the notification</param>
 		public void UnsubscribeAll(string notification)
 		{
+			if (notification == null)
+			{
+				throw new ArgumentNullException("notification");
+			}
+
 			if (!this.listeners.ContainsKey(notification))
 			{
 				return;

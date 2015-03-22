@@ -20,7 +20,7 @@ namespace Sharpknife.Core
 		/// <param name="field">the field</param>
 		/// <param name="value">the value</param>
 		/// <param name="property">the property</param>
-		protected void SetField<T>(ref T field, T value, [CallerMemberName] string property = null)
+		protected void SetNotify<T>(ref T field, T value, [CallerMemberName] string property = null)
 		{
 			//change
 			field = value;
@@ -42,17 +42,17 @@ namespace Sharpknife.Core
 			this.OnPropertyChanged(property);
 		}
 
-		#region Event Triggers
-
-		private void OnPropertyChanged(string property)
+		/// <summary>
+		/// Triggers the property changed event.
+		/// </summary>
+		/// <param name="property">the property</param>
+		protected void OnPropertyChanged(string property)
 		{
 			if (this.PropertyChanged != null)
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(property));
 			}
 		}
-
-		#endregion
 
 		/// <summary>
 		/// Occurs when a property changed.

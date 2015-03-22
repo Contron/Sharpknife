@@ -61,17 +61,16 @@ namespace Sharpknife.Core
 			return this.predicate();
 		}
 
-		#region Event Triggers
-
-		private void OnCanExecuteChanged()
+		/// <summary>
+		/// Triggers the can execute changed event.
+		/// </summary>
+		protected void OnCanExecuteChanged()
 		{
 			if (this.CanExecuteChanged != null)
 			{
 				this.CanExecuteChanged(this, EventArgs.Empty);
 			}
 		}
-
-		#endregion
 
 		/// <summary>
 		/// Occurs when the can execute status changes.

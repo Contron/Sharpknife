@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sharpknife.Core;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,100 +29,84 @@ namespace Sharpknife.Gui.Controls
 			this.InitializeComponent();
 		}
 
-		#region Event Triggers
-
-		private void OnOKClicked()
-		{
-			if (this.OKClicked != null)
-			{
-				this.OKClicked(this, new RoutedEventArgs());
-			}
-		}
-
-		private void OnCancelClicked()
-		{
-			if (this.CancelClicked != null)
-			{
-				this.CancelClicked(this, new RoutedEventArgs());
-			}
-		}
-
-		#endregion
-
-		#region Event Handlers
-
-		private void OKHandler(object sended, RoutedEventArgs eventArgs)
-		{
-			this.OnOKClicked();
-		}
-
-		private void CancelHandler(object sended, RoutedEventArgs eventArgs)
-		{
-			this.OnCancelClicked();
-		}
-
-		#endregion
-
 		/// <summary>
-		/// Occurs when the OK button is clicked.
+		/// Gets or sets the OK command for the buttons box.
 		/// </summary>
-		public event RoutedEventHandler OKClicked;
-
-		/// <summary>
-		/// Occurs when the Cancel button is clicked.
-		/// </summary>
-		public event RoutedEventHandler CancelClicked;
-
-		/// <summary>
-		/// Gets or sets if the OK button is hidden for the button box.
-		/// </summary>
-		public bool OKHidden
+		public ICommand OKCommand
 		{
 			get
 			{
-				return this.okButton.Visibility == Visibility.Collapsed;
+				return (ICommand) this.GetValue(ButtonsBox.OKCommandProperty);
 			}
 			set
 			{
-				this.okButton.Visibility = value ? Visibility.Collapsed : Visibility.Visible;
+				this.SetValue(ButtonsBox.OKCommandProperty, value);
 			}
 		}
 
 		/// <summary>
-		/// Gets or sets if the Cancel button is hidden for the button box.
+		/// Gets or sets the Cancel command for the buttons box.
 		/// </summary>
-		public bool CancelHidden
+		public ICommand CancelCommand
 		{
 			get
 			{
-				return this.cancelButton.Visibility == Visibility.Collapsed;
+				return (ICommand) this.GetValue(ButtonsBox.CancelCommandProperty);
 			}
 			set
 			{
-				this.cancelButton.Visibility = value ? Visibility.Collapsed : Visibility.Visible;
+				this.SetValue(ButtonsBox.CancelCommandProperty, value);
 			}
 		}
 
 		/// <summary>
-		/// Gets the OK button for the button box.
+		/// Gets or sets the OK button visibility for the buttons box.
 		/// </summary>
-		public Button OKButton
+		public Visibility OKVisibility
 		{
 			get
 			{
-				return this.okButton;
+				return (Visibility) this.GetValue(ButtonsBox.OKVisibilityProperty);
+			}
+			set
+			{
+				this.SetValue(ButtonsBox.OKVisibilityProperty, value);
 			}
 		}
 
 		/// <summary>
-		/// Gets the cancel button for the button box.
+		/// Gets or sets the Cancel button visibility for the buttons box.
 		/// </summary>
-		public Button CancelButton
+		public Visibility CancelVisibility
 		{
 			get
 			{
-				return this.cancelButton;
+				return (Visibility) this.GetValue(ButtonsBox.CancelVisibilityProperty);
+			}
+			set
+			{
+				this.SetValue(ButtonsBox.CancelVisibilityProperty, value);
 			}
 		}
+
+		/// <summary>
+		/// Gets the OK command property.
+		/// </summary>
+		public static readonly DependencyProperty OKCommandProperty = DependencyProperty.Register("OKCommand", typeof(ICommand), typeof(ButtonsBox));
+
+		/// <summary>
+		/// Gets the Cancel command property.
+		/// </summary>
+		public static readonly DependencyProperty CancelCommandProperty = DependencyProperty.Register("CancelCommand", typeof(ICommand), typeof(ButtonsBox));
+
+		/// <summary>
+		/// Gets the OK visibility property.
+		/// </summary>
+		public static readonly DependencyProperty OKVisibilityProperty = DependencyProperty.Register("OKVisibility", typeof(Visibility), typeof(ButtonsBox));
+
+		/// <summary>
+		/// Gets the Cancel visibility property.
+		/// </summary>
+		public static readonly DependencyProperty CancelVisibilityProperty = DependencyProperty.Register("CancelVisibility", typeof(Visibility), typeof(ButtonsBox));
 	}
 }
