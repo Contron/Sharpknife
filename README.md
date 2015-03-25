@@ -2,13 +2,14 @@
 
 A C# library to assist with Windows Presentation Foundation desktop application development.
 
-Although it's developed as my own personal framework, it provides a collection of useful windows, a few useful classes, and a bunch of utilities.
+Although I primarily use it as my own personal framework, it provides a collection of various useful classes.
 
 # Features
 
+* Designed around the the Model-View-ViewModel (MVVM) architecture
 * A collection of various useful windows and controls
-* Easy serialization support in the form of managers
-* Easy notification support in the form of a notification center
+* A collection of useful singleton classes
+* Easy persistence support
 * A collection of useful utility classes
 
 # Getting started
