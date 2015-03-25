@@ -22,11 +22,6 @@ namespace Sharpknife.Core
 		/// <param name="property">the property</param>
 		protected void SetNotify<T>(ref T field, T value, [CallerMemberName] string property = null)
 		{
-			if (field == null)
-			{
-				throw new ArgumentNullException("field");
-			}
-
 			//change
 			field = value;
 			this.NotifyPropertyChanged(property);
