@@ -57,7 +57,9 @@ namespace Sharpknife.Utilities
 			}
 
 			//find
-			var types = Assembly.GetAssembly(type).GetTypes().Where(currentType => currentType.IsSubclassOf(type)).ToList();
+			var types = Assembly.GetAssembly(type).GetTypes()
+				.Where(currentType => currentType.IsSubclassOf(type))
+				.ToList();
 
 			return types;
 		}

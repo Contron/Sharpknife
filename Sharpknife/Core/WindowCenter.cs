@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using Sharpknife.Common;
+using Sharpknife.Gui;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -32,7 +35,7 @@ namespace Sharpknife.Core
 			}
 
 			//show
-			this.Prepare(window).Show();
+			this.PrepareWindow(window).Show();
 		}
 
 		/// <summary>
@@ -48,7 +51,7 @@ namespace Sharpknife.Core
 			}
 
 			//show
-			var result = this.Prepare(window).ShowDialog();
+			var result = this.PrepareWindow(window).ShowDialog();
 			var actual = result.HasValue ? result.Value : false;
 
 			return actual;
@@ -58,7 +61,7 @@ namespace Sharpknife.Core
 		/// Shows the specified window, ensuring that only one instance is visible.
 		/// If an existing instance is visible, it will be brought to the front.
 		/// </summary>
-		/// <param name="window"></param>
+		/// <param name="window">the window</param>
 		public void ShowOnce(Window window)
 		{
 			if (window == null)
@@ -67,7 +70,9 @@ namespace Sharpknife.Core
 			}
 
 			//find
-			var duplicate = this.windows.Where(child => child.GetType() == window.GetType()).FirstOrDefault();
+			var duplicate = this.windows
+				.Where(child => child.GetType() == window.GetType())
+				.FirstOrDefault();
 
 			if (duplicate != null)
 			{
@@ -80,7 +85,7 @@ namespace Sharpknife.Core
 
 				if (duplicate.WindowState == WindowState.Minimized)
 				{
-					//display
+					//restore
 					duplicate.WindowState = WindowState.Normal;
 				}
 			}
@@ -89,6 +94,57 @@ namespace Sharpknife.Core
 				//show
 				this.Show(window);
 			}
+		}
+
+		/// <summary>
+		/// Shows an open file dialog optionally with the specified title, file name, and filter.
+		/// </summary>
+		/// <param name="title">the title</param>
+		/// <param name="fileName">the file name</param>
+		/// <param name="filter">the filter</param>
+		/// <returns>the path, or null</returns>
+		public string ShowOpenDialog(string title = "Open", string fileName = null, string filter = null)
+		{
+			return this.ShowDialog(new OpenFileDialog(), title, fileName, filter);
+		}
+
+		/// <summary>
+		/// Shows a save file dialog optionally with the specified title, file name, and filter.
+		/// </summary>
+		/// <param name="title">the title</param>
+		/// <param name="fileName">the file name</param>
+		/// <param name="filter">the filter</param>
+		/// <returns>the path, or null</returns>
+		public string ShowSaveDialog(string title = "Save", string fileName = null, string filter = null)
+		{
+			return this.ShowDialog(new SaveFileDialog(), title, fileName, filter);
+		}
+
+		/// <summary>
+		/// Shows a modal about window.
+		/// </summary>
+		public void ShowAboutWindow()
+		{
+			this.ShowModally(new AboutView());
+		}
+
+		/// <summary>
+		/// Shows a modal help window with the specified articles.
+		/// </summary>
+		/// <param name="helpArticles">the help articles</param>
+		public void ShowHelpWindow(List<HelpArticle> helpArticles)
+		{
+			this.ShowModally(new HelpView(helpArticles));
+		}
+
+		/// <summary>
+		/// Shows a modal message window with the specified text.
+		/// </summary>
+		/// <param name="title">the title</param>
+		/// <param name="message">the message</param>
+		public void ShowMessageWindow(string title = "Title", string message = "Message")
+		{
+			this.ShowModally(new MessageView(title, message));
 		}
 
 		/// <summary>
@@ -128,14 +184,15 @@ namespace Sharpknife.Core
 		public Window GetCurrentWindow()
 		{
 			//find
-			var window = Application.Current.Windows.OfType<Window>()
+			var window = Application.Current.Windows
+				.OfType<Window>()
 				.Where(child => child.IsActive)
 				.FirstOrDefault();
 
 			return window;
 		}
 
-		private Window Prepare(Window window)
+		private Window PrepareWindow(Window window)
 		{
 			//hook
 			window.Owner = this.GetCurrentWindow();
@@ -143,6 +200,20 @@ namespace Sharpknife.Core
 			window.Closed += (sender, eventArgs) => this.windows.Remove(window);
 
 			return window;
+		}
+
+		private string ShowDialog(FileDialog dialog, string title, string fileName, string filter)
+		{
+			//prepare
+			dialog.Title = title;
+			dialog.FileName = fileName;
+			dialog.Filter = filter;
+
+			//show
+			var result = dialog.ShowDialog();
+			var actual = result == true ? dialog.FileName : null;
+
+			return actual;
 		}
 
 		/// <summary>

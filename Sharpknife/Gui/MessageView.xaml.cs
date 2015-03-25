@@ -1,9 +1,7 @@
 ﻿using Sharpknife.Gui.ViewModels;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
-using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -18,16 +16,18 @@ using System.Windows.Shapes;
 namespace Sharpknife.Gui
 {
 	/// <summary>
-	/// Represents an about window to display information about the application to the user.
+	/// Represents a message window to display information to the user.
 	/// </summary>
-	public partial class AboutView : Window
+	public partial class MessageView : Window
 	{
 		/// <summary>
-		/// Creates a new about window.
+		/// Creates a new message view.
 		/// </summary>
-		public AboutView()
+		/// <param name="title">the title</param>
+		/// <param name="message">the message</param>
+		public MessageView(string title, string message)
 		{
-			this.DataContext = new AboutViewModel();
+			this.DataContext = new MessageViewModel(title, message);
 
 			this.InitializeComponent();
 		}
