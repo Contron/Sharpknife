@@ -61,11 +61,11 @@ namespace Sharpknife.Gui.Controls
 		/// <summary>
 		/// Gets the header property.
 		/// </summary>
-		public static readonly DependencyProperty HeaderProperty = DependencyProperty.Register("Header", typeof(string), typeof(HeaderBox));
+		public static readonly DependencyProperty HeaderProperty = DependencyProperty.Register("Header", typeof(string), typeof(HeaderBox), new UIPropertyMetadata("Header"));
 
 		/// <summary>
 		/// Gets the description property.
 		/// </summary>
-		public static readonly DependencyProperty DescriptionProperty = DependencyProperty.Register("Description", typeof(string), typeof(HeaderBox));
+		public static readonly DependencyProperty DescriptionProperty = DependencyProperty.Register("Description", typeof(string), typeof(HeaderBox), new UIPropertyMetadata("Description"));
 	}
 }
