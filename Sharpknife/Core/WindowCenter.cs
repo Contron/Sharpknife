@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 
@@ -145,6 +146,31 @@ namespace Sharpknife.Core
 		public void ShowMessageWindow(string title = "Title", string message = "Message")
 		{
 			this.ShowModally(new MessageView(title, message));
+		}
+
+		/// <summary>
+		/// Shows a modal progress window to wrap the specified action.
+		/// </summary>
+		/// <param name="action">the action</param>
+		public void ShowProgressWindow(Action action)
+		{
+			//create
+			var window = new ProgressView();
+			var thread = new Thread(() =>
+			{
+				//invoke
+				action();
+				window.Dispatcher.Invoke(() =>
+				{
+					//close
+					window.Completed = true;
+					this.Close(window);
+				});
+			});
+
+			//start
+			thread.Start();
+			this.ShowModally(window);
 		}
 
 		/// <summary>
