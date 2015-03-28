@@ -10,12 +10,12 @@ using System.Windows.Data;
 namespace Sharpknife.Common
 {
 	/// <summary>
-	/// Represents a value converter to determine the <see cref="Visibility" /> based on the specified value.
+	/// Represents a value converter to convert a null value to a <see cref="Visibility" />.
 	/// </summary>
 	public class NullVisibilityConverter : IValueConverter
 	{
 		/// <summary>
-		/// Converts an object to its matching visibility.
+		/// Converts a value to a visibility.
 		/// </summary>
 		/// <param name="value">the value</param>
 		/// <param name="targetType">the target type</param>
@@ -28,7 +28,7 @@ namespace Sharpknife.Common
 		}
 
 		/// <summary>
-		/// Converts an object to back from its matching visibility.
+		/// Converts a visibility back to a value.
 		/// </summary>
 		/// <param name="value">the value</param>
 		/// <param name="targetType">the target type</param>
