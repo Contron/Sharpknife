@@ -18,12 +18,12 @@ namespace Sharpknife.Utilities
 		/// </summary>
 		public static void Header()
 		{
-			//version info
-			var versionInfo = System.Diagnostics.FileVersionInfo.GetVersionInfo(Assembly.GetEntryAssembly().Location);
+			//information
+			var information = FileVersionInfo.GetVersionInfo(Assembly.GetEntryAssembly().Location);
 
 			//header
-			Debug.Warning(versionInfo.ProductName);
-			Debug.Warning(string.Format("Version {0}, Copyright {1}", versionInfo.FileVersion, versionInfo.LegalCopyright));
+			Debug.Warning(information.ProductName);
+			Debug.Warning(string.Format("Version {0}, Copyright {1}", information.FileVersion, information.LegalCopyright));
 		}
 
 		/// <summary>

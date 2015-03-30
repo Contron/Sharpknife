@@ -19,14 +19,24 @@ namespace Sharpknife.Core
 		/// <summary>
 		/// Creates a new manager.
 		/// </summary>
+		/// <param name="directory">the directory</param>
 		/// <param name="file">the file</param>
-		public Manager(string file)
+		public Manager(string directory, string file)
 		{
-			this.Directory = Assemblies.ApplicationPath;
-			this.File = Path.Combine(this.Directory, string.Format("{0}.xml", file));
+			this.Location = Path.Combine(directory, string.Format("{0}.xml", file));
 			this.Element = new T();
 
+			this.directory = Path.GetDirectoryName(this.Location);
 			this.serializer = new XmlSerializer(typeof(T));
+		}
+
+		/// <summary>
+		/// Creates a new manager.
+		/// </summary>
+		/// <param name="file">the file</param>
+		public Manager(string file) : this(Assemblies.GetApplicationPath(), file)
+		{
+			
 		}
 
 		/// <summary>
@@ -34,9 +44,9 @@ namespace Sharpknife.Core
 		/// </summary>
 		public void Load()
 		{
-			if (System.IO.Directory.Exists(this.Directory) && System.IO.File.Exists(this.File))
+			if (Directory.Exists(this.directory) && File.Exists(this.Location))
 			{
-				using (var fileStream = System.IO.File.Open(this.File, FileMode.Open))
+				using (var fileStream = File.Open(this.Location, FileMode.Open))
 				{
 					//deserialize
 					this.Element = (T) this.serializer.Deserialize(fileStream);
@@ -49,13 +59,13 @@ namespace Sharpknife.Core
 		/// </summary>
 		public void Save()
 		{
-			if (!System.IO.Directory.Exists(this.Directory))
+			if (!Directory.Exists(this.directory))
 			{
 				//create
-				System.IO.Directory.CreateDirectory(this.Directory);
+				Directory.CreateDirectory(this.directory);
 			}
 
-			using (var fileStream = System.IO.File.Open(this.File, FileMode.Create))
+			using (var fileStream = System.IO.File.Open(this.Location, FileMode.Create))
 			{
 				//serialize
 				this.serializer.Serialize(fileStream, this.Element);
@@ -63,21 +73,12 @@ namespace Sharpknife.Core
 		}
 
 		/// <summary>
-		/// Gets or sets the directory for the manager.
+		/// Gets or sets the location to the file for the manager.
 		/// </summary>
-		public string Directory
+		public string Location
 		{
 			get;
-			set;
-		}
-
-		/// <summary>
-		/// Gets or sets the file for the manager.
-		/// </summary>
-		public string File
-		{
-			get;
-			set;
+			private set;
 		}
 
 		/// <summary>
@@ -89,6 +90,7 @@ namespace Sharpknife.Core
 			set;
 		}
 
+		private string directory;
 		private XmlSerializer serializer;
 	}
 }

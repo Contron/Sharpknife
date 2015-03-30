@@ -26,7 +26,7 @@ namespace Sharpknife.Utilities
 				throw new ArgumentNullException("process");
 			}
 
-			return Win32.Internal.OpenProcess(Win32.Constants.PROCESS_VM_OPERATION | Win32.Constants.PROCESS_WM_READ | Win32.Constants.PROCESS_VM_WRITE, false, process.Id);
+			return Win32.Internal.OpenProcess(0x0008 | 0x0010 | 0x0020, false, process.Id);
 		}
 
 		/// <summary>
@@ -124,18 +124,6 @@ namespace Sharpknife.Utilities
 		/// </summary>
 		public class Internal
 		{
-			[DllImport("user32.dll")]
-			internal static extern bool FlashWindow(IntPtr hWnd, bool bInvert);
-
-			[DllImport("user32.dll", CharSet = CharSet.Unicode)]
-			internal static extern int SendMessage(IntPtr hWnd, uint Msg, IntPtr wParam, IntPtr lParam);
-
-			[DllImport("user32.dll", CharSet = CharSet.Unicode)]
-			internal static extern int SendMessage(IntPtr hWnd, uint Msg, IntPtr wParam, string lParam);
-
-			[DllImport("user32.dll", CharSet = CharSet.Unicode)]
-			internal static extern int SendMessage(IntPtr hWnd, uint Msg, IntPtr wParam, bool lParam);
-
 			[DllImport("kernel32.dll", SetLastError = true)]
 			internal static extern IntPtr OpenProcess(int dwDesiredAccess, bool bInheritHandle, int dwProcessId);
 
@@ -147,24 +135,6 @@ namespace Sharpknife.Utilities
 
 			[DllImport("kernel32.dll", SetLastError = true)]
 			internal static extern bool CloseHandle(IntPtr hObject);
-		}
-
-		/// <summary>
-		/// A collection of common Win32 message codes.
-		/// </summary>
-		public class Constants
-		{
-			internal static readonly int BS_COMMANDLINK = 0x0000000E;
-
-			internal static readonly int PROCESS_WM_READ = 0x0010;
-			internal static readonly int PROCESS_VM_WRITE = 0x0020;
-			internal static readonly int PROCESS_VM_OPERATION = 0x0008;
-
-			internal static readonly uint BCM_SETNOTE = 0x00001609;
-			internal static readonly uint BCM_GETNOTE = 0x0000160A;
-			internal static readonly uint BCM_GETNOTELENGTH = 0x0000160B;
-
-			internal static readonly uint BCM_SETSHIELD = 0x0000160C;
 		}
 	}
 }

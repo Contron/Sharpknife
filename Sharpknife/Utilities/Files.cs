@@ -22,7 +22,7 @@ namespace Sharpknife.Utilities
 			var sizes = new string[] { "bytes", "KB", "MB", "GB", "TB", "PB" };
 			var order = 0;
 
-			while (size >= 1024 && ((order + 1) < sizes.Length))
+			while (size >= 1024 && (order + 1) < sizes.Length)
 			{
 				//increment
 				order++;

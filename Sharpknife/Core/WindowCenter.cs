@@ -122,58 +122,6 @@ namespace Sharpknife.Core
 		}
 
 		/// <summary>
-		/// Shows a modal about window.
-		/// </summary>
-		public void ShowAboutWindow()
-		{
-			this.ShowModally(new AboutView());
-		}
-
-		/// <summary>
-		/// Shows a modal help window with the specified articles.
-		/// </summary>
-		/// <param name="helpArticles">the help articles</param>
-		public void ShowHelpWindow(List<HelpArticle> helpArticles)
-		{
-			this.ShowModally(new HelpView(helpArticles));
-		}
-
-		/// <summary>
-		/// Shows a modal message window with the specified text.
-		/// </summary>
-		/// <param name="title">the title</param>
-		/// <param name="message">the message</param>
-		public void ShowMessageWindow(string title = "Title", string message = "Message")
-		{
-			this.ShowModally(new MessageView(title, message));
-		}
-
-		/// <summary>
-		/// Shows a modal progress window to wrap the specified action.
-		/// </summary>
-		/// <param name="action">the action</param>
-		public void ShowProgressWindow(Action action)
-		{
-			//create
-			var window = new ProgressView();
-			var thread = new Thread(() =>
-			{
-				//invoke
-				action();
-				window.Dispatcher.Invoke(() =>
-				{
-					//close
-					window.Completed = true;
-					this.Close(window);
-				});
-			});
-
-			//start
-			thread.Start();
-			this.ShowModally(window);
-		}
-
-		/// <summary>
 		/// Closes the specified window.
 		/// </summary>
 		/// <param name="window">the window</param>

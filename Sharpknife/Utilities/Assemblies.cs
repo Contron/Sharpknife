@@ -20,7 +20,31 @@ namespace Sharpknife.Utilities
 		/// <returns>the URI</returns>
 		public static Uri GetResource(string location)
 		{
+			if (location == null)
+			{
+				throw new ArgumentNullException("location");
+			}
+
 			return new Uri(string.Format("pack://application:,,,/{0};component/{1}", Assembly.GetCallingAssembly().FullName, location));
+		}
+
+		/// <summary>
+		/// Returns the path belonging to the application, optionally with the specified subdirectories.
+		/// </summary>
+		/// <param name="subdirectories">the subdirectories</param>
+		/// <returns>the path</returns>
+		public static string GetApplicationPath(params string[] subdirectories)
+		{
+			//folders
+			var folder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+			var assembly = Assembly.GetEntryAssembly().GetName().Name;
+			
+			//combine
+			var rootPath = Path.Combine(folder, assembly);
+			var subdirectoryPath = Path.Combine(subdirectories);
+			var finalPath = Path.Combine(rootPath, subdirectoryPath);
+
+			return finalPath;
 		}
 
 		/// <summary>
@@ -32,6 +56,16 @@ namespace Sharpknife.Utilities
 		/// <returns>the result</returns>
 		public static object GetAttributeValue<T>(Type type, Func<T, object> value) where T : Attribute
 		{
+			if (type == null)
+			{
+				throw new ArgumentNullException("type");
+			}
+
+			if (value == null)
+			{
+				throw new ArgumentNullException("value");
+			}
+
 			if (!Attribute.IsDefined(type, typeof(T)))
 			{
 				return null;
@@ -62,22 +96,6 @@ namespace Sharpknife.Utilities
 				.ToList();
 
 			return types;
-		}
-
-		/// <summary>
-		/// Gets the current application path.
-		/// </summary>
-		public static string ApplicationPath
-		{
-			get
-			{
-				//folders
-				var folder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-				var assembly = System.Reflection.Assembly.GetEntryAssembly().GetName().Name;
-				var path = Path.Combine(folder, assembly);
-
-				return path;
-			}
 		}
 	}
 }

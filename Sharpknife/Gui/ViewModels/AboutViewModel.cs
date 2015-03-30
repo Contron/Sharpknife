@@ -13,6 +13,10 @@ namespace Sharpknife.Gui.ViewModels
 	{
 		public AboutViewModel()
 		{
+			this.name = null;
+			this.version = null;
+			this.copyright = null;
+
 			this.GatherAssemblyInformation();
 		}
 

@@ -73,13 +73,9 @@
     <Compile Include="Gui\MessageView.xaml.cs">
       <DependentUpon>MessageView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Gui\ProgressView.xaml.cs">
-      <DependentUpon>ProgressView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Gui\ViewModels\HelpViewModel.cs" />
     <Compile Include="Gui\ViewModels\MessageViewModel.cs" />
     <Compile Include="Gui\ViewModels\AboutViewModel.cs" />
-    <Compile Include="Gui\ViewModels\ProgressViewModel.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -120,10 +116,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Gui\MessageView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Gui\ProgressView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
