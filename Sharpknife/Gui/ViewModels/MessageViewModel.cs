@@ -21,11 +21,11 @@ namespace Sharpknife.Gui.ViewModels
 		{
 			get
 			{
-				return this.title;
+				return (string) this.Get();
 			}
 			set
 			{
-				this.SetNotify(ref this.title, value);
+				this.Set(value);
 			}
 		}
 
@@ -33,11 +33,11 @@ namespace Sharpknife.Gui.ViewModels
 		{
 			get
 			{
-				return this.message;
+				return (string) this.Get();
 			}
 			set
 			{
-				this.SetNotify(ref this.message, value);
+				this.Set(value);
 			}
 		}
 

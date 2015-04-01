@@ -11,34 +11,38 @@ namespace Sharpknife.Core
 	/// <summary>
 	/// Represents an implementation of <see cref="INotifyPropertyChanged" /> which can be subclassed to provide notification support.
 	/// </summary>
-	public class Observable : INotifyPropertyChanged
+	public abstract class Observable : INotifyPropertyChanged
 	{
 		/// <summary>
-		/// Sets the specified field, triggering a property changed event.
+		/// Creates a new observable.
 		/// </summary>
-		/// <typeparam name="T">the type</typeparam>
-		/// <param name="field">the field</param>
-		/// <param name="value">the value</param>
-		/// <param name="property">the property</param>
-		protected void SetNotify<T>(ref T field, T value, [CallerMemberName] string property = null)
+		public Observable()
 		{
-			//change
-			field = value;
-			this.NotifyPropertyChanged(property);
+			this.properties = new Dictionary<string, object>();
 		}
 
 		/// <summary>
-		/// Notifies that the specified property has changed.
+		/// Returns the value of the specified property, or null if it does not exist.
 		/// </summary>
 		/// <param name="property">the property</param>
-		protected void NotifyPropertyChanged([CallerMemberName] string property = null)
+		/// <returns>the value</returns>
+		protected object Get([CallerMemberName] string property = null)
 		{
-			if (property == null)
-			{
-				throw new ArgumentNullException("property");
-			}
+			//get
+			var result = this.properties.ContainsKey(property) ? this.properties[property] : null;
 
-			//trigger
+			return result;
+		}
+
+		/// <summary>
+		/// Sets the value of the specified property.
+		/// </summary>
+		/// <param name="value">the value</param>
+		/// <param name="property">the property</param>
+		protected void Set(object value, [CallerMemberName] string property = null)
+		{
+			//set
+			this.properties[property] = value;
 			this.OnPropertyChanged(property);
 		}
 
@@ -58,5 +62,7 @@ namespace Sharpknife.Core
 		/// Occurs when a property changed.
 		/// </summary>
 		public event PropertyChangedEventHandler PropertyChanged;
+
+		private Dictionary<string, object> properties;
 	}
 }

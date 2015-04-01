@@ -12,18 +12,18 @@ namespace Sharpknife.Gui.ViewModels
 	{
 		public HelpViewModel(List<HelpArticle> helpArticles)
 		{
-			this.helpArticles = helpArticles;
+			this.HelpArticles = helpArticles;
 		}
 
 		public List<HelpArticle> HelpArticles
 		{
 			get
 			{
-				return this.helpArticles;
+				return (List<HelpArticle>) this.Get();
 			}
 			set
 			{
-				this.SetNotify(ref this.helpArticles, value);
+				this.Set(value);
 			}
 		}
 
@@ -34,7 +34,5 @@ namespace Sharpknife.Gui.ViewModels
 				return new Command(() => WindowCenter.Instance.CloseCurrentWindow());
 			}
 		}
-
-		private List<HelpArticle> helpArticles;
 	}
 }

@@ -22,10 +22,10 @@ namespace Sharpknife.Common
 		/// <param name="children">the children</param>
 		public HelpArticle(string title, string text, List<HelpArticle> children)
 		{
-			this.title = title;
-			this.text = text;
+			this.Title = title;
+			this.Text = text;
 
-			this.children = children;
+			this.Children = children;
 		}
 
 		/// <summary>
@@ -53,11 +53,11 @@ namespace Sharpknife.Common
 		{
 			get
 			{
-				return this.title;
+				return (string) this.Get();
 			}
 			set
 			{
-				this.SetNotify(ref this.title, value);
+				this.Set(value);
 			}
 		}
 
@@ -68,11 +68,11 @@ namespace Sharpknife.Common
 		{
 			get
 			{
-				return this.text;
+				return (string) this.Get();
 			}
 			set
 			{
-				this.SetNotify(ref this.text, value);
+				this.Set(value);
 			}
 		}
 
@@ -83,17 +83,12 @@ namespace Sharpknife.Common
 		{
 			get
 			{
-				return this.children;
+				return (List<HelpArticle>) this.Get();
 			}
 			set
 			{
-				this.SetNotify(ref this.children, value);
+				this.Set(value);
 			}
 		}
-
-		private string title;
-		private string text;
-
-		private List<HelpArticle> children;
 	}
 }

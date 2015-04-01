@@ -13,9 +13,9 @@ namespace Sharpknife.Gui.ViewModels
 	{
 		public AboutViewModel()
 		{
-			this.name = null;
-			this.version = null;
-			this.copyright = null;
+			this.Name = null;
+			this.Version = null;
+			this.Copyright = null;
 
 			this.GatherAssemblyInformation();
 		}
@@ -26,20 +26,20 @@ namespace Sharpknife.Gui.ViewModels
 			var information = FileVersionInfo.GetVersionInfo(Assembly.GetEntryAssembly().Location);
 
 			//update
-			this.name = information.ProductName;
-			this.version = string.Format("Version {0}", information.FileVersion);
-			this.copyright = string.Format("Copyright {0}", information.LegalCopyright);
+			this.Name = information.ProductName;
+			this.Version = string.Format("Version {0}", information.FileVersion);
+			this.Copyright = string.Format("Copyright {0}", information.LegalCopyright);
 		}
 
 		public string Name
 		{
 			get
 			{
-				return this.name;
+				return (string) this.Get();
 			}
 			set
 			{
-				this.SetNotify(ref this.name, value);
+				this.Set(value);
 			}
 		}
 
@@ -47,11 +47,11 @@ namespace Sharpknife.Gui.ViewModels
 		{
 			get
 			{
-				return this.version;
+				return (string) this.Get();
 			}
 			set
 			{
-				this.SetNotify(ref this.name, value);
+				this.Set(value);
 			}
 		}
 
@@ -59,11 +59,11 @@ namespace Sharpknife.Gui.ViewModels
 		{
 			get
 			{
-				return this.copyright;
+				return (string) this.Get();
 			}
 			set
 			{
-				this.SetNotify(ref this.name, value);
+				this.Set(value);
 			}
 		}
 
@@ -74,9 +74,5 @@ namespace Sharpknife.Gui.ViewModels
 				return new Command(() => WindowCenter.Instance.CloseCurrentWindow());
 			}
 		}
-
-		private string name;
-		private string version;
-		private string copyright;
 	}
 }
