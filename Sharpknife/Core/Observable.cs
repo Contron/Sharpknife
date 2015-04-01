@@ -28,6 +28,11 @@ namespace Sharpknife.Core
 		/// <returns>the value</returns>
 		protected object Get([CallerMemberName] string property = null)
 		{
+			if (property == null)
+			{
+				throw new ArgumentNullException(property);
+			}
+
 			//get
 			var result = this.properties.ContainsKey(property) ? this.properties[property] : null;
 
@@ -41,6 +46,11 @@ namespace Sharpknife.Core
 		/// <param name="property">the property</param>
 		protected void Set(object value, [CallerMemberName] string property = null)
 		{
+			if (property == null)
+			{
+				throw new ArgumentNullException(property);
+			}
+
 			//set
 			this.properties[property] = value;
 			this.OnPropertyChanged(property);

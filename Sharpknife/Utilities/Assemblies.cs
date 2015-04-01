@@ -48,37 +48,6 @@ namespace Sharpknife.Utilities
 		}
 
 		/// <summary>
-		/// Returns the value of the specified attribute, or null if it does not exist.
-		/// </summary>
-		/// <typeparam name="T">the attribute type</typeparam>
-		/// <param name="type">the target type</param>
-		/// <param name="value">the value</param>
-		/// <returns>the result</returns>
-		public static object GetAttributeValue<T>(Type type, Func<T, object> value) where T : Attribute
-		{
-			if (type == null)
-			{
-				throw new ArgumentNullException("type");
-			}
-
-			if (value == null)
-			{
-				throw new ArgumentNullException("value");
-			}
-
-			if (!Attribute.IsDefined(type, typeof(T)))
-			{
-				return null;
-			}
-
-			//retrieve
-			var attribute = (T) Attribute.GetCustomAttribute(type, typeof(T));
-			var result = value(attribute);
-
-			return result;
-		}
-
-		/// <summary>
 		/// Returns all the types that inherit from the specified type.
 		/// </summary>
 		/// <param name="type">the type</param>
