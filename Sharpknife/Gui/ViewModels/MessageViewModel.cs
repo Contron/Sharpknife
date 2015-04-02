@@ -13,8 +13,8 @@ namespace Sharpknife.Gui.ViewModels
 	{
 		public MessageViewModel(string title, string message)
 		{
-			this.title = title;
-			this.message = message;
+			this.Title = title;
+			this.Message = message;
 		}
 
 		public string Title
@@ -48,8 +48,5 @@ namespace Sharpknife.Gui.ViewModels
 				return new Command(() => WindowCenter.Instance.CloseCurrentWindow());
 			}
 		}
-
-		private string title;
-		private string message;
 	}
 }
