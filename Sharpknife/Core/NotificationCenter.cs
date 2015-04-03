@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Sharpknife.Core
 {
 	/// <summary>
-	/// Represents a notification center to send and receive loosely coupled events.
+	/// Represents a notification center to independently send and receive events.
 	/// </summary>
 	public class NotificationCenter
 	{

@@ -30,6 +30,26 @@ namespace Sharpknife.Gui.Controls
 		}
 
 		/// <summary>
+		/// Gets the OK command property.
+		/// </summary>
+		public static readonly DependencyProperty OKCommandProperty = DependencyProperty.Register("OKCommand", typeof(ICommand), typeof(ButtonsBox), new UIPropertyMetadata(null));
+
+		/// <summary>
+		/// Gets the Cancel command property.
+		/// </summary>
+		public static readonly DependencyProperty CancelCommandProperty = DependencyProperty.Register("CancelCommand", typeof(ICommand), typeof(ButtonsBox), new UIPropertyMetadata(null));
+
+		/// <summary>
+		/// Gets the OK visibility property.
+		/// </summary>
+		public static readonly DependencyProperty OKVisibilityProperty = DependencyProperty.Register("OKVisibility", typeof(Visibility), typeof(ButtonsBox), new UIPropertyMetadata(Visibility.Visible));
+
+		/// <summary>
+		/// Gets the Cancel visibility property.
+		/// </summary>
+		public static readonly DependencyProperty CancelVisibilityProperty = DependencyProperty.Register("CancelVisibility", typeof(Visibility), typeof(ButtonsBox), new UIPropertyMetadata(Visibility.Visible));
+
+		/// <summary>
 		/// Gets or sets the OK command for the buttons box.
 		/// </summary>
 		public ICommand OKCommand
@@ -88,25 +108,5 @@ namespace Sharpknife.Gui.Controls
 				this.SetValue(ButtonsBox.CancelVisibilityProperty, value);
 			}
 		}
-
-		/// <summary>
-		/// Gets the OK command property.
-		/// </summary>
-		public static readonly DependencyProperty OKCommandProperty = DependencyProperty.Register("OKCommand", typeof(ICommand), typeof(ButtonsBox), new UIPropertyMetadata(null));
-
-		/// <summary>
-		/// Gets the Cancel command property.
-		/// </summary>
-		public static readonly DependencyProperty CancelCommandProperty = DependencyProperty.Register("CancelCommand", typeof(ICommand), typeof(ButtonsBox), new UIPropertyMetadata(null));
-
-		/// <summary>
-		/// Gets the OK visibility property.
-		/// </summary>
-		public static readonly DependencyProperty OKVisibilityProperty = DependencyProperty.Register("OKVisibility", typeof(Visibility), typeof(ButtonsBox), new UIPropertyMetadata(Visibility.Visible));
-
-		/// <summary>
-		/// Gets the Cancel visibility property.
-		/// </summary>
-		public static readonly DependencyProperty CancelVisibilityProperty = DependencyProperty.Register("CancelVisibility", typeof(Visibility), typeof(ButtonsBox), new UIPropertyMetadata(Visibility.Visible));
 	}
 }

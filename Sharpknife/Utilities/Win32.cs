@@ -119,10 +119,7 @@ namespace Sharpknife.Utilities
 			return Marshal.GetLastWin32Error();
 		}
 
-		/// <summary>
-		/// A collection of common Win32 external methods.
-		/// </summary>
-		public class Internal
+		internal class Internal
 		{
 			[DllImport("kernel32.dll", SetLastError = true)]
 			internal static extern IntPtr OpenProcess(int dwDesiredAccess, bool bInheritHandle, int dwProcessId);

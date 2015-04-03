@@ -26,12 +26,9 @@ namespace Sharpknife.Utilities
 				throw new ArgumentNullException("file");
 			}
 
-			//serializer
-			var serializer = new XmlSerializer(typeof(T));
-			
 			using (var fileStream = File.Open(file, FileMode.Open))
 			{
-				return (T) serializer.Deserialize(fileStream);
+				return (T) new XmlSerializer(typeof(T)).Deserialize(fileStream);
 			}
 		}
 
@@ -47,13 +44,10 @@ namespace Sharpknife.Utilities
 			{
 				throw new ArgumentNullException("text");
 			}
-			
-			//serializer
-			var serializer = new XmlSerializer(typeof(T));
 
 			using (var stringReader = new StringReader(text))
 			{
-				return (T) serializer.Deserialize(stringReader);
+				return (T) new XmlSerializer(typeof(T)).Deserialize(stringReader);
 			}
 		}
 
@@ -75,12 +69,9 @@ namespace Sharpknife.Utilities
 				throw new ArgumentNullException("element");
 			}
 
-			//serializer
-			var serializer = new XmlSerializer(typeof(T));
-
 			using (var fileStream = File.Open(file, FileMode.Create))
 			{
-				serializer.Serialize(fileStream, element);
+				new XmlSerializer(typeof(T)).Serialize(fileStream, element);
 			}
 		}
 	}

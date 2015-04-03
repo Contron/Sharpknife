@@ -69,7 +69,7 @@ namespace Sharpknife.Core
 		}
 
 		/// <summary>
-		/// Occurs when a property changed.
+		/// Occurs when a property has changed.
 		/// </summary>
 		public event PropertyChangedEventHandler PropertyChanged;
 

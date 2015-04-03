@@ -67,6 +67,7 @@
     <Compile Include="Gui\Controls\HeaderBox.xaml.cs">
       <DependentUpon>HeaderBox.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Gui\Controls\MenuButton.cs" />
     <Compile Include="Gui\HelpView.xaml.cs">
       <DependentUpon>HelpView.xaml</DependentUpon>
     </Compile>
