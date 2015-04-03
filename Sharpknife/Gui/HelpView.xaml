@@ -12,7 +12,7 @@
 					</HierarchicalDataTemplate>
 				</TreeView.ItemTemplate>
 			</TreeView>
-			<TextBox Text="{Binding Path=SelectedItem.Text, ElementName=treeView, FallbackValue={StaticResource welcomeMessage}}" TextWrapping="Wrap" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Visible" IsReadOnly="True" Margin="10,0,0,0"></TextBox>
+			<TextBox Text="{Binding Path=SelectedItem.Text, ElementName=treeView, FallbackValue={StaticResource welcomeMessage}}" TextWrapping="Wrap" IsReadOnly="True" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Visible" Margin="10,0,0,0"></TextBox>
 		</DockPanel>
 	</DockPanel>
 </Window>
