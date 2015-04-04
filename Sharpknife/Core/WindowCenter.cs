@@ -139,7 +139,8 @@ namespace Sharpknife.Core
 		/// <summary>
 		/// Closes the currently active window, if any.
 		/// </summary>
-		public void CloseCurrentWindow()
+		/// <param name="result">the dialog result</param>
+		public void CloseCurrentWindow(bool result = false)
 		{
 			//find
 			var window = this.GetCurrentWindow();
@@ -147,6 +148,7 @@ namespace Sharpknife.Core
 			if (window != null)
 			{
 				//close
+				window.DialogResult = result;
 				window.Close();
 			}
 		}
