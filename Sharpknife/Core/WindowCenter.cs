@@ -147,8 +147,13 @@ namespace Sharpknife.Core
 
 			if (window != null)
 			{
+				if (result)
+				{
+					//result
+					window.DialogResult = true;
+				}
+
 				//close
-				window.DialogResult = result;
 				window.Close();
 			}
 		}
