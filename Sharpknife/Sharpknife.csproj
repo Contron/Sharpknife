@@ -58,6 +58,7 @@
     <Compile Include="Core\Manager.cs" />
     <Compile Include="Core\NotificationCenter.cs" />
     <Compile Include="Core\Observable.cs" />
+    <Compile Include="Core\ObservableList.cs" />
     <Compile Include="Core\WindowCenter.cs" />
     <Compile Include="Gui\AboutView.xaml.cs">
       <DependentUpon>AboutView.xaml</DependentUpon>
