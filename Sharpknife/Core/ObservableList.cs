@@ -44,9 +44,37 @@ namespace Sharpknife.Core
 				return;
 			}
 
-			//refresh
-			this.list.Clear();
-			this.list.AddRange(this);
+			switch (eventArgs.Action)
+			{
+				case NotifyCollectionChangedAction.Add:
+				{
+					//add
+					eventArgs.NewItems
+						.Cast<T>()
+						.ToList()
+						.ForEach(item => this.list.Add(item));
+
+					break;
+				}
+				case NotifyCollectionChangedAction.Remove:
+				{
+					//remove
+					eventArgs.OldItems
+						.Cast<T>()
+						.ToList()
+						.ForEach(item => this.list.Remove(item));
+
+					break;
+				}
+				default:
+				{
+					//refresh
+					this.list.Clear();
+					this.list.AddRange(this);
+
+					break;
+				}
+			}
 		}
 
 		private List<T> list;
