@@ -6,27 +6,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sharpknife.Core
+namespace Sharpknife.Common
 {
 	/// <summary>
-	/// Represents a list that can be observed for changes. Changes will be propogated to the original backing list.
+	/// Represents an observable collection that is backed by an original <see cref="List{T}" />.
 	/// </summary>
 	/// <typeparam name="T">the type</typeparam>
-	public class ObservableList<T> : ObservableCollection<T>
+	public class BackedObservableCollection<T> : ObservableCollection<T>
 	{
 		/// <summary>
-		/// Creates a new observable list.
+		/// Creates a new backed observable collection.
 		/// </summary>
-		/// <param name="list">the backing list</param>
-		public ObservableList(List<T> list) : base(list)
+		/// <param name="list">the list</param>
+		public BackedObservableCollection(List<T> list) : base(list)
 		{
 			this.list = list;
 		}
 
 		/// <summary>
-		/// Creates a new empty observable list.
+		/// Creates a new empty backed observable collection.
 		/// </summary>
-		public ObservableList() : this(null)
+		public BackedObservableCollection() : this(null)
 		{
 
 		}
