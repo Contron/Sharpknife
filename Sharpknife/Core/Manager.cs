@@ -44,13 +44,15 @@ namespace Sharpknife.Core
 		/// </summary>
 		public void Load()
 		{
-			if (Directory.Exists(this.directory) && File.Exists(this.Location))
+			if (!Directory.Exists(this.directory) || !File.Exists(this.Location))
 			{
-				using (var fileStream = File.Open(this.Location, FileMode.Open))
-				{
-					//deserialize
-					this.Element = (T) this.serializer.Deserialize(fileStream);
-				}
+				return;
+			}
+
+			using (var stream = File.Open(this.Location, FileMode.Open))
+			{
+				//deserialize
+				this.Element = (T) this.serializer.Deserialize(stream);
 			}
 		}
 
@@ -65,10 +67,10 @@ namespace Sharpknife.Core
 				Directory.CreateDirectory(this.directory);
 			}
 
-			using (var fileStream = System.IO.File.Open(this.Location, FileMode.Create))
+			using (var stream = File.Open(this.Location, FileMode.Create))
 			{
 				//serialize
-				this.serializer.Serialize(fileStream, this.Element);
+				this.serializer.Serialize(stream, this.Element);
 			}
 		}
 
