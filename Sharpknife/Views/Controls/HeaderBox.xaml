@@ -1,0 +1,6 @@
+﻿<UserControl x:Name="control" x:Class="Sharpknife.Views.Controls.HeaderBox" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" BorderBrush="DarkGray" BorderThickness="0,0,0,1" Background="WhiteSmoke">
+	<StackPanel Margin="10">
+		<TextBlock Text="{Binding Header, FallbackValue=Header, ElementName=control}" FontSize="18"></TextBlock>
+		<TextBlock Text="{Binding Description, FallbackValue=Description, ElementName=control}"></TextBlock>
+	</StackPanel>
+</UserControl>

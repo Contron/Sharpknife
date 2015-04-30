@@ -14,7 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Sharpknife.Gui.Controls
+namespace Sharpknife.Views.Controls
 {
 	/// <summary>
 	/// Represents a buttons box with the standard OK and Cancel buttons.
@@ -38,12 +38,12 @@ namespace Sharpknife.Gui.Controls
 		/// <summary>
 		/// Gets the OK command property.
 		/// </summary>
-		public static readonly DependencyProperty OKCommandProperty = DependencyProperty.Register("OKCommand", typeof(ICommand), typeof(ButtonsBox));
+		public static readonly DependencyProperty OKCommandProperty = DependencyProperty.Register("OKCommand", typeof(Command), typeof(ButtonsBox));
 
 		/// <summary>
 		/// Gets the Cancel command property.
 		/// </summary>
-		public static readonly DependencyProperty CancelCommandProperty = DependencyProperty.Register("CancelCommand", typeof(ICommand), typeof(ButtonsBox));
+		public static readonly DependencyProperty CancelCommandProperty = DependencyProperty.Register("CancelCommand", typeof(Command), typeof(ButtonsBox));
 
 		/// <summary>
 		/// Gets the OK visibility property.

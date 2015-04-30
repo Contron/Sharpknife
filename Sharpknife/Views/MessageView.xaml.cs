@@ -1,4 +1,4 @@
-﻿using Sharpknife.Gui.ViewModels;
+﻿using Sharpknife.Views.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Sharpknife.Gui
+namespace Sharpknife.Views
 {
 	/// <summary>
 	/// Represents a message window to display information to the user.

@@ -12,11 +12,11 @@ namespace Sharpknife.Utilities
 	public static class Files
 	{
 		/// <summary>
-		/// Calculates the human readable size of a file.
+		/// Returns the friendly size of a file, with its appropriate suffix.
 		/// </summary>
 		/// <param name="size">the size</param>
-		/// <returns>the human readable size</returns>
-		public static string CalculateFriendlySize(long size)
+		/// <returns>the result</returns>
+		public static string GetFriendlySize(long size)
 		{
 			//sizes
 			var sizes = new string[] { "bytes", "KB", "MB", "GB", "TB", "PB" };

@@ -7,7 +7,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sharpknife.Gui.ViewModels
+namespace Sharpknife.Views.ViewModels
 {
 	internal class MessageViewModel : Observable
 	{

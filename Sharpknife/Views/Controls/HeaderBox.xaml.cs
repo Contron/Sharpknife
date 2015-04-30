@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Sharpknife.Gui.Controls
+namespace Sharpknife.Views.Controls
 {
 	/// <summary>
 	/// Represents a header box with a large title and description.

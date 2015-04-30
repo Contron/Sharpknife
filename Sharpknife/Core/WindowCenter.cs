@@ -1,6 +1,6 @@
 ﻿using Microsoft.Win32;
 using Sharpknife.Common;
-using Sharpknife.Gui;
+using Sharpknife.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
