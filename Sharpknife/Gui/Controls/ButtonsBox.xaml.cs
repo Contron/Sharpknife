@@ -26,28 +26,34 @@ namespace Sharpknife.Gui.Controls
 		/// </summary>
 		public ButtonsBox()
 		{
+			this.OKCommand = null;
+			this.CancelCommand = null;
+
+			this.OKVisibility = Visibility.Visible;
+			this.CancelVisibility = Visibility.Visible;
+
 			this.InitializeComponent();
 		}
 
 		/// <summary>
 		/// Gets the OK command property.
 		/// </summary>
-		public static readonly DependencyProperty OKCommandProperty = DependencyProperty.Register("OKCommand", typeof(ICommand), typeof(ButtonsBox), new UIPropertyMetadata(null));
+		public static readonly DependencyProperty OKCommandProperty = DependencyProperty.Register("OKCommand", typeof(ICommand), typeof(ButtonsBox));
 
 		/// <summary>
 		/// Gets the Cancel command property.
 		/// </summary>
-		public static readonly DependencyProperty CancelCommandProperty = DependencyProperty.Register("CancelCommand", typeof(ICommand), typeof(ButtonsBox), new UIPropertyMetadata(null));
+		public static readonly DependencyProperty CancelCommandProperty = DependencyProperty.Register("CancelCommand", typeof(ICommand), typeof(ButtonsBox));
 
 		/// <summary>
 		/// Gets the OK visibility property.
 		/// </summary>
-		public static readonly DependencyProperty OKVisibilityProperty = DependencyProperty.Register("OKVisibility", typeof(Visibility), typeof(ButtonsBox), new UIPropertyMetadata(Visibility.Visible));
+		public static readonly DependencyProperty OKVisibilityProperty = DependencyProperty.Register("OKVisibility", typeof(Visibility), typeof(ButtonsBox));
 
 		/// <summary>
 		/// Gets the Cancel visibility property.
 		/// </summary>
-		public static readonly DependencyProperty CancelVisibilityProperty = DependencyProperty.Register("CancelVisibility", typeof(Visibility), typeof(ButtonsBox), new UIPropertyMetadata(Visibility.Visible));
+		public static readonly DependencyProperty CancelVisibilityProperty = DependencyProperty.Register("CancelVisibility", typeof(Visibility), typeof(ButtonsBox));
 
 		/// <summary>
 		/// Gets or sets the OK command for the buttons box.

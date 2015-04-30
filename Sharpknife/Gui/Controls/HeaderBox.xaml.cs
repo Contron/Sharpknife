@@ -25,18 +25,21 @@ namespace Sharpknife.Gui.Controls
 		/// </summary>
 		public HeaderBox()
 		{
+			this.Header = "Header";
+			this.Description = "Description";
+
 			this.InitializeComponent();
 		}
 
 		/// <summary>
 		/// Gets the header property.
 		/// </summary>
-		public static readonly DependencyProperty HeaderProperty = DependencyProperty.Register("Header", typeof(string), typeof(HeaderBox), new UIPropertyMetadata("Header"));
+		public static readonly DependencyProperty HeaderProperty = DependencyProperty.Register("Header", typeof(string), typeof(HeaderBox));
 
 		/// <summary>
 		/// Gets the description property.
 		/// </summary>
-		public static readonly DependencyProperty DescriptionProperty = DependencyProperty.Register("Description", typeof(string), typeof(HeaderBox), new UIPropertyMetadata("Description"));
+		public static readonly DependencyProperty DescriptionProperty = DependencyProperty.Register("Description", typeof(string), typeof(HeaderBox));
 
 		/// <summary>
 		/// Gets or sets the header for the header box.

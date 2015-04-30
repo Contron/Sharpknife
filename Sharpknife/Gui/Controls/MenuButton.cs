@@ -48,7 +48,7 @@ namespace Sharpknife.Gui.Controls
 		/// <summary>
 		/// Gets the display menu property.
 		/// </summary>
-		public static readonly DependencyProperty DisplayMenuProperty = DependencyProperty.Register("DisplayMenu", typeof(ContextMenu), typeof(MenuButton), new UIPropertyMetadata(null));
+		public static readonly DependencyProperty DisplayMenuProperty = DependencyProperty.Register("DisplayMenu", typeof(ContextMenu), typeof(MenuButton));
 
 		/// <summary>
 		/// Gets or sets the display menu for the menu button.
