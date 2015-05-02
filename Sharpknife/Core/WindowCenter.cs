@@ -77,7 +77,7 @@ namespace Sharpknife.Core
 
 			if (duplicate != null)
 			{
-				//cancel
+				//close
 				window.Close();
 
 				//highlight
@@ -93,32 +93,36 @@ namespace Sharpknife.Core
 			else
 			{
 				//show
-				this.Show(window);
+				window.Show();
 			}
 		}
 
 		/// <summary>
-		/// Shows an open file dialog optionally with the specified title, file name, and filter.
+		/// Shows the specified file dialog modally, using the currently active window as a parent.
 		/// </summary>
+		/// <param name="dialog">the dialog</param>
 		/// <param name="title">the title</param>
 		/// <param name="fileName">the file name</param>
 		/// <param name="filter">the filter</param>
-		/// <returns>the path, or null</returns>
-		public string ShowOpenDialog(string title = "Open", string fileName = null, string filter = null)
+		/// <returns>the path</returns>
+		public string ShowFileDialog(FileDialog dialog, string title = null, string fileName = null, string filter = null)
 		{
-			return this.ShowDialog(new OpenFileDialog(), title, fileName, filter);
-		}
+			if (dialog == null)
+			{
+				throw new ArgumentNullException("dialog");
+			}
 
-		/// <summary>
-		/// Shows a save file dialog optionally with the specified title, file name, and filter.
-		/// </summary>
-		/// <param name="title">the title</param>
-		/// <param name="fileName">the file name</param>
-		/// <param name="filter">the filter</param>
-		/// <returns>the path, or null</returns>
-		public string ShowSaveDialog(string title = "Save", string fileName = null, string filter = null)
-		{
-			return this.ShowDialog(new SaveFileDialog(), title, fileName, filter);
+			//prepare
+			dialog.Title = title ?? dialog.Title;
+			dialog.FileName = fileName ?? dialog.FileName;
+			dialog.Filter = filter ?? dialog.Filter;
+
+			//show
+			var owner = this.GetCurrentWindow();
+			var result = dialog.ShowDialog(owner);
+			var actual = result == true ? dialog.FileName : null;
+
+			return actual;
 		}
 
 		/// <summary>
@@ -181,20 +185,6 @@ namespace Sharpknife.Core
 			window.Closed += (sender, eventArgs) => this.windows.Remove(window);
 
 			return window;
-		}
-
-		private string ShowDialog(FileDialog dialog, string title, string fileName, string filter)
-		{
-			//prepare
-			dialog.Title = title;
-			dialog.FileName = fileName;
-			dialog.Filter = filter;
-
-			//show
-			var result = dialog.ShowDialog();
-			var actual = result == true ? dialog.FileName : null;
-
-			return actual;
 		}
 
 		/// <summary>

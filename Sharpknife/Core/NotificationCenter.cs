@@ -37,7 +37,7 @@ namespace Sharpknife.Core
 			}
 
 			//post
-			this.listeners[notification].ForEach(action => action(parameter));
+			this.listeners[notification].ForEach(action => action.Invoke(parameter));
 		}
 
 		/// <summary>
