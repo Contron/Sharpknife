@@ -3,7 +3,7 @@
 		<svc:ButtonsBox DockPanel.Dock="Bottom" OKCommand="{Binding CloseCommand}" CancelVisibility="Collapsed"></svc:ButtonsBox>
 		<StackPanel Margin="10">
 			<TextBlock Text="{Binding Title, FallbackValue=Title}" FontSize="18" TextWrapping="Wrap"></TextBlock>
-			<TextBlock Text="{Binding Message, FallbackValue=Message}" TextWrapping="Wrap" Margin="0,10,0,0"></TextBlock>
+			<TextBlock Text="{Binding Message, FallbackValue=Message}" TextWrapping="Wrap"></TextBlock>
 		</StackPanel>
 	</DockPanel>
 </Window>
