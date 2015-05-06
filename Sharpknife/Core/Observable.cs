@@ -33,10 +33,7 @@ namespace Sharpknife.Core
 				throw new ArgumentNullException(property);
 			}
 
-			//get
-			var result = this.properties.ContainsKey(property) ? this.properties[property] : null;
-
-			return result;
+			return this.properties.ContainsKey(property) ? this.properties[property] : null;
 		}
 
 		/// <summary>
@@ -51,7 +48,6 @@ namespace Sharpknife.Core
 				throw new ArgumentNullException(property);
 			}
 
-			//set
 			this.properties[property] = value;
 			this.OnPropertyChanged(property);
 		}

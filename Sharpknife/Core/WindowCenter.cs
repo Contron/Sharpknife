@@ -35,7 +35,6 @@ namespace Sharpknife.Core
 				throw new ArgumentNullException("window");
 			}
 
-			//show
 			this.PrepareWindow(window).Show();
 		}
 
@@ -51,7 +50,6 @@ namespace Sharpknife.Core
 				throw new ArgumentNullException("window");
 			}
 
-			//show
 			var result = this.PrepareWindow(window).ShowDialog();
 			var actual = result.HasValue ? result.Value : false;
 
@@ -70,29 +68,24 @@ namespace Sharpknife.Core
 				throw new ArgumentNullException("window");
 			}
 
-			//find
 			var duplicate = this.windows
 				.Where(child => child.GetType() == window.GetType())
 				.FirstOrDefault();
 
 			if (duplicate != null)
 			{
-				//close
 				window.Close();
 
-				//highlight
 				duplicate.Activate();
 				duplicate.Focus();
 
 				if (duplicate.WindowState == WindowState.Minimized)
 				{
-					//restore
 					duplicate.WindowState = WindowState.Normal;
 				}
 			}
 			else
 			{
-				//show
 				window.Show();
 			}
 		}
@@ -112,12 +105,10 @@ namespace Sharpknife.Core
 				throw new ArgumentNullException("dialog");
 			}
 
-			//prepare
 			dialog.Title = title ?? dialog.Title;
 			dialog.FileName = fileName ?? dialog.FileName;
 			dialog.Filter = filter ?? dialog.Filter;
 
-			//show
 			var owner = this.GetCurrentWindow();
 			var result = dialog.ShowDialog(owner);
 			var actual = result == true ? dialog.FileName : null;
@@ -136,7 +127,6 @@ namespace Sharpknife.Core
 				throw new ArgumentNullException("window");
 			}
 
-			//close
 			window.Close();
 		}
 
@@ -153,11 +143,9 @@ namespace Sharpknife.Core
 			{
 				if (result)
 				{
-					//result
 					window.DialogResult = true;
 				}
 
-				//close
 				window.Close();
 			}
 		}
@@ -168,7 +156,6 @@ namespace Sharpknife.Core
 		/// <returns>the currently active window</returns>
 		public Window GetCurrentWindow()
 		{
-			//find
 			var window = Application.Current.Windows
 				.OfType<Window>()
 				.Where(child => child.IsActive)
@@ -179,7 +166,6 @@ namespace Sharpknife.Core
 
 		private Window PrepareWindow(Window window)
 		{
-			//hook
 			window.Owner = this.GetCurrentWindow();
 			window.Loaded += (sender, eventArgs) => this.windows.Add(window);
 			window.Closed += (sender, eventArgs) => this.windows.Remove(window);

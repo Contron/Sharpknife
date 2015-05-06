@@ -51,7 +51,6 @@ namespace Sharpknife.Core
 
 			using (var stream = File.Open(this.Location, FileMode.Open))
 			{
-				//deserialize
 				this.Element = (T) this.serializer.Deserialize(stream);
 			}
 		}
@@ -63,13 +62,11 @@ namespace Sharpknife.Core
 		{
 			if (!Directory.Exists(this.directory))
 			{
-				//create
 				Directory.CreateDirectory(this.directory);
 			}
 
 			using (var stream = File.Open(this.Location, FileMode.Create))
 			{
-				//serialize
 				this.serializer.Serialize(stream, this.Element);
 			}
 		}

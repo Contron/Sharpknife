@@ -22,10 +22,8 @@ namespace Sharpknife.Views.ViewModels
 
 		private void GatherAssemblyInformation()
 		{
-			//information
 			var information = FileVersionInfo.GetVersionInfo(Assembly.GetEntryAssembly().Location);
 
-			//update
 			this.Name = information.ProductName;
 			this.Version = string.Format("Version {0}", information.FileVersion);
 			this.Copyright = string.Format("Copyright {0}", information.LegalCopyright);

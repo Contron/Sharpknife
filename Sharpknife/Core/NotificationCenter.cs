@@ -36,7 +36,6 @@ namespace Sharpknife.Core
 				return;
 			}
 
-			//post
 			this.listeners[notification].ForEach(action => action.Invoke(parameter));
 		}
 
@@ -59,11 +58,9 @@ namespace Sharpknife.Core
 
 			if (!this.listeners.ContainsKey(notification))
 			{
-				//create
 				this.listeners[notification] = new List<Action<object>>();
 			}
 
-			//add
 			this.listeners[notification].Add(action);
 		}
 
@@ -89,7 +86,6 @@ namespace Sharpknife.Core
 				return;
 			}
 
-			//remove
 			this.listeners[notification].Remove(action);
 		}
 
@@ -109,7 +105,6 @@ namespace Sharpknife.Core
 				return;
 			}
 
-			//clear
 			this.listeners[notification].Clear();
 		}
 

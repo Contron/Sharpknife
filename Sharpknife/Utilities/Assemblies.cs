@@ -35,11 +35,9 @@ namespace Sharpknife.Utilities
 		/// <returns>the path</returns>
 		public static string GetApplicationPath(params string[] subdirectories)
 		{
-			//folders
 			var folder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
 			var assembly = Assembly.GetEntryAssembly().GetName().Name;
-			
-			//combine
+
 			var rootPath = Path.Combine(folder, assembly);
 			var subdirectoryPath = Path.Combine(subdirectories);
 			var finalPath = Path.Combine(rootPath, subdirectoryPath);
@@ -59,7 +57,6 @@ namespace Sharpknife.Utilities
 				throw new ArgumentNullException("type");
 			}
 
-			//find
 			var types = Assembly.GetAssembly(type).GetTypes()
 				.Where(currentType => currentType.IsSubclassOf(type))
 				.ToList();

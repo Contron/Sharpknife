@@ -38,7 +38,6 @@ namespace Sharpknife.Views.Controls
 
 			if (!this.DisplayMenu.IsOpen)
 			{
-				//open
 				this.DisplayMenu.PlacementTarget = this;
 				this.DisplayMenu.Placement = PlacementMode.Bottom;
 				this.DisplayMenu.IsOpen = true;
