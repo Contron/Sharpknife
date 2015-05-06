@@ -16,18 +16,16 @@ namespace Sharpknife.Core
 		/// Creates a new command.
 		/// </summary>
 		/// <param name="command">the command</param>
-		/// <param name="predicate">the predicate</param>
-		public Command(Action command, Func<bool> predicate)
+		public Command(Action<object> command)
 		{
 			this.command = command;
-			this.predicate = predicate;
 		}
 
 		/// <summary>
 		/// Creates a new command.
 		/// </summary>
 		/// <param name="command">the command</param>
-		public Command(Action command) : this(command, () => true)
+		public Command(Action command) : this(parameter => command.Invoke())
 		{
 
 		}
@@ -43,7 +41,7 @@ namespace Sharpknife.Core
 				return;
 			}
 
-			this.command();
+			this.command.Invoke(parameter);
 		}
 
 		/// <summary>
@@ -53,12 +51,12 @@ namespace Sharpknife.Core
 		/// <returns>if the command can execute</returns>
 		public bool CanExecute(object parameter)
 		{
-			if (this.predicate == null)
+			if (this.command == null)
 			{
 				return false;
 			}
 
-			return this.predicate();
+			return true;
 		}
 
 		/// <summary>
@@ -73,11 +71,10 @@ namespace Sharpknife.Core
 		}
 
 		/// <summary>
-		/// Occurs when the can execute status changes.
+		/// Occurs when the can execute state changes.
 		/// </summary>
 		public event EventHandler CanExecuteChanged;
 
-		private Action command;
-		private Func<bool> predicate;
+		private Action<object> command;
 	}
 }
