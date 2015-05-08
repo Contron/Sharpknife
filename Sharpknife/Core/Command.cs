@@ -36,12 +36,10 @@ namespace Sharpknife.Core
 		/// </summary>
 		public void Execute(object parameter)
 		{
-			if (this.command == null)
+			if (this.command != null)
 			{
-				return;
+				this.command.Invoke(parameter);
 			}
-
-			this.command.Invoke(parameter);
 		}
 
 		/// <summary>
@@ -51,12 +49,7 @@ namespace Sharpknife.Core
 		/// <returns>if the command can execute</returns>
 		public bool CanExecute(object parameter)
 		{
-			if (this.command == null)
-			{
-				return false;
-			}
-
-			return true;
+			return this.command != null;
 		}
 
 		/// <summary>
