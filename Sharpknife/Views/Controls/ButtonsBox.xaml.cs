@@ -27,9 +27,11 @@ namespace Sharpknife.Views.Controls
 		public ButtonsBox()
 		{
 			this.OkCommand = null;
-			this.CancelCommand = null;
-
+			this.OkEnabled = true;
 			this.OkVisibility = Visibility.Visible;
+
+			this.CancelCommand = null;
+			this.CancelEnabled = true;
 			this.CancelVisibility = Visibility.Visible;
 
 			this.InitializeComponent();
@@ -44,6 +46,16 @@ namespace Sharpknife.Views.Controls
 		/// Gets the Cancel command property.
 		/// </summary>
 		public static readonly DependencyProperty CancelCommandProperty = DependencyProperty.Register("CancelCommand", typeof(Command), typeof(ButtonsBox));
+
+		/// <summary>
+		/// Gets the OK enabled property.
+		/// </summary>
+		public static readonly DependencyProperty OkEnabledProperty = DependencyProperty.Register("OkEnabled", typeof(bool), typeof(ButtonsBox));
+
+		/// <summary>
+		/// Gets the Cancel enabled property.
+		/// </summary>
+		public static readonly DependencyProperty CancelEnabledProperty = DependencyProperty.Register("CancelEnabled", typeof(bool), typeof(ButtonsBox));
 
 		/// <summary>
 		/// Gets the OK visibility property.
@@ -82,6 +94,36 @@ namespace Sharpknife.Views.Controls
 			set
 			{
 				this.SetValue(ButtonsBox.CancelCommandProperty, value);
+			}
+		}
+
+		/// <summary>
+		/// Gets or sets if the OK button is enabled.
+		/// </summary>
+		public bool OkEnabled
+		{
+			get
+			{
+				return (bool) this.GetValue(ButtonsBox.OkEnabledProperty);
+			}
+			set
+			{
+				this.SetValue(ButtonsBox.OkEnabledProperty, value);
+			}
+		}
+
+		/// <summary>
+		/// Gets or sets the if the Cancel button is enabled.
+		/// </summary>
+		public bool CancelEnabled
+		{
+			get
+			{
+				return (bool) this.GetValue(ButtonsBox.CancelEnabledProperty);
+			}
+			set
+			{
+				this.SetValue(ButtonsBox.CancelEnabledProperty, value);
 			}
 		}
 
