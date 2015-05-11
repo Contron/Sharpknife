@@ -58,11 +58,11 @@ namespace Sharpknife.Views.Controls
 		/// <summary>
 		/// Gets or sets the OK command for the buttons box.
 		/// </summary>
-		public ICommand OkCommand
+		public Command OkCommand
 		{
 			get
 			{
-				return (ICommand) this.GetValue(ButtonsBox.OkCommandProperty);
+				return (Command) this.GetValue(ButtonsBox.OkCommandProperty);
 			}
 			set
 			{
@@ -73,11 +73,11 @@ namespace Sharpknife.Views.Controls
 		/// <summary>
 		/// Gets or sets the Cancel command for the buttons box.
 		/// </summary>
-		public ICommand CancelCommand
+		public Command CancelCommand
 		{
 			get
 			{
-				return (ICommand) this.GetValue(ButtonsBox.CancelCommandProperty);
+				return (Command) this.GetValue(ButtonsBox.CancelCommandProperty);
 			}
 			set
 			{
