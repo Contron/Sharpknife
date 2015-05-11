@@ -41,7 +41,7 @@ namespace Sharpknife.Views.ViewModels
 			}
 		}
 
-		public Command CloseCommand
+		public Command OkCommand
 		{
 			get
 			{

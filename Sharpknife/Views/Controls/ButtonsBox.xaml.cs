@@ -26,10 +26,10 @@ namespace Sharpknife.Views.Controls
 		/// </summary>
 		public ButtonsBox()
 		{
-			this.OKCommand = null;
+			this.OkCommand = null;
 			this.CancelCommand = null;
 
-			this.OKVisibility = Visibility.Visible;
+			this.OkVisibility = Visibility.Visible;
 			this.CancelVisibility = Visibility.Visible;
 
 			this.InitializeComponent();
@@ -38,7 +38,7 @@ namespace Sharpknife.Views.Controls
 		/// <summary>
 		/// Gets the OK command property.
 		/// </summary>
-		public static readonly DependencyProperty OKCommandProperty = DependencyProperty.Register("OKCommand", typeof(Command), typeof(ButtonsBox));
+		public static readonly DependencyProperty OkCommandProperty = DependencyProperty.Register("OkCommand", typeof(Command), typeof(ButtonsBox));
 
 		/// <summary>
 		/// Gets the Cancel command property.
@@ -48,7 +48,7 @@ namespace Sharpknife.Views.Controls
 		/// <summary>
 		/// Gets the OK visibility property.
 		/// </summary>
-		public static readonly DependencyProperty OKVisibilityProperty = DependencyProperty.Register("OKVisibility", typeof(Visibility), typeof(ButtonsBox));
+		public static readonly DependencyProperty OkVisibilityProperty = DependencyProperty.Register("OkVisibility", typeof(Visibility), typeof(ButtonsBox));
 
 		/// <summary>
 		/// Gets the Cancel visibility property.
@@ -58,15 +58,15 @@ namespace Sharpknife.Views.Controls
 		/// <summary>
 		/// Gets or sets the OK command for the buttons box.
 		/// </summary>
-		public ICommand OKCommand
+		public ICommand OkCommand
 		{
 			get
 			{
-				return (ICommand) this.GetValue(ButtonsBox.OKCommandProperty);
+				return (ICommand) this.GetValue(ButtonsBox.OkCommandProperty);
 			}
 			set
 			{
-				this.SetValue(ButtonsBox.OKCommandProperty, value);
+				this.SetValue(ButtonsBox.OkCommandProperty, value);
 			}
 		}
 
@@ -88,15 +88,15 @@ namespace Sharpknife.Views.Controls
 		/// <summary>
 		/// Gets or sets the OK button visibility for the buttons box.
 		/// </summary>
-		public Visibility OKVisibility
+		public Visibility OkVisibility
 		{
 			get
 			{
-				return (Visibility) this.GetValue(ButtonsBox.OKVisibilityProperty);
+				return (Visibility) this.GetValue(ButtonsBox.OkVisibilityProperty);
 			}
 			set
 			{
-				this.SetValue(ButtonsBox.OKVisibilityProperty, value);
+				this.SetValue(ButtonsBox.OkVisibilityProperty, value);
 			}
 		}
 
