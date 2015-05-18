@@ -93,20 +93,13 @@ namespace Sharpknife.Core
 		/// Shows the specified file dialog modally, using the currently active window as a parent.
 		/// </summary>
 		/// <param name="dialog">the dialog</param>
-		/// <param name="title">the title</param>
-		/// <param name="fileName">the file name</param>
-		/// <param name="filter">the filter</param>
 		/// <returns>the path</returns>
-		public string ShowFileDialog(FileDialog dialog, string title = null, string fileName = null, string filter = null)
+		public string ShowFileDialog(FileDialog dialog)
 		{
 			if (dialog == null)
 			{
 				throw new ArgumentNullException("dialog");
 			}
-
-			dialog.Title = title ?? dialog.Title;
-			dialog.FileName = fileName ?? dialog.FileName;
-			dialog.Filter = filter ?? dialog.Filter;
 
 			var owner = this.GetCurrentWindow();
 			var result = dialog.ShowDialog(owner);
