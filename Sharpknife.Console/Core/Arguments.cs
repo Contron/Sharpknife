@@ -30,6 +30,11 @@ namespace Sharpknife.Desktop.Console.Core
 		/// <param name="arguments">the arguments</param>
 		public Arguments(string[] arguments)
 		{
+			if (arguments == null)
+			{
+				throw new ArgumentNullException("arguments");
+			}
+
 			this.source = arguments;
 
 			this.arguments = new Dictionary<string, string>();
@@ -59,6 +64,48 @@ namespace Sharpknife.Desktop.Console.Core
 					this.flags[argument] = true;
 				}
 			}
+		}
+
+		/// <summary>
+		/// Returns the value of the specified argument, or the placeholder if it does not exist.
+		/// </summary>
+		/// <param name="name">the name</param>
+		/// <param name="placeholder">the default value</param>
+		/// <returns>the value</returns>
+		public string GetArgument(string name, string placeholder = null)
+		{
+			if (name == null)
+			{
+				throw new ArgumentNullException("name");
+			}
+
+			if (this.arguments.ContainsKey(name))
+			{
+				return this.arguments[name];
+			}
+
+			return placeholder;
+		}
+
+		/// <summary>
+		/// Returns the value of the specified flag, or the placeholder if it does not exist.
+		/// </summary>
+		/// <param name="name">the name</param>
+		/// <param name="placeholder">the default value</param>
+		/// <returns>the flag</returns>
+		public bool GetFlag(string name, bool placeholder = false)
+		{
+			if (name == null)
+			{
+				throw new ArgumentNullException("name");
+			}
+
+			if (this.flags.ContainsKey(name))
+			{
+				return this.flags[name];
+			}
+
+			return placeholder;
 		}
 
 		private string[] source;
