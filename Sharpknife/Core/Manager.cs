@@ -23,6 +23,16 @@ namespace Sharpknife.Core
 		/// <param name="file">the file</param>
 		public Manager(string directory, string file)
 		{
+			if (directory == null)
+			{
+				throw new ArgumentNullException("directory");
+			}
+
+			if (file == null)
+			{
+				throw new ArgumentNullException("file");
+			}
+
 			this.Location = Path.Combine(directory, string.Format("{0}.xml", file));
 			this.Element = new T();
 
