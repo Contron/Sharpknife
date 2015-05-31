@@ -7,7 +7,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sharpknife.Desktop.Console.Core
+namespace Sharpknife.Desktop.Console.Utilities
 {
 	/// <summary>
 	/// A collection of simplistic console output methods.

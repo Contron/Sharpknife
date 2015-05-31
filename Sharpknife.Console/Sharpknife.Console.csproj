@@ -41,8 +41,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Core\Arguments.cs" />
-    <Compile Include="Core\Input.cs" />
-    <Compile Include="Core\Output.cs" />
+    <Compile Include="Utilities\Input.cs" />
+    <Compile Include="Utilities\Output.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

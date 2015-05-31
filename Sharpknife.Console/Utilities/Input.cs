@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace Sharpknife.Desktop.Console.Core
+namespace Sharpknife.Desktop.Console.Utilities
 {
 	/// <summary>
 	/// A collection of simplistic console input methods.
@@ -17,7 +17,7 @@ namespace Sharpknife.Desktop.Console.Core
 		/// </summary>
 		/// <param name="message">the message</param>
 		/// <returns>the result</returns>
-		public static string Prompt(string message)
+		public static string Message(string message)
 		{
 			var result = string.Empty;
 
@@ -39,7 +39,7 @@ namespace Sharpknife.Desktop.Console.Core
 		/// </summary>
 		/// <param name="message">the message</param>
 		/// <returns>the result</returns>
-		public static int NumberPrompt(string message)
+		public static int Number(string message)
 		{
 			var result = 0;
 
@@ -62,7 +62,7 @@ namespace Sharpknife.Desktop.Console.Core
 		/// </summary>
 		/// <param name="message">the message</param>
 		/// <returns>the result</returns>
-		public static bool QuestionPrompt(string message)
+		public static bool Question(string message)
 		{
 			var result = false;
 
@@ -87,6 +87,7 @@ namespace Sharpknife.Desktop.Console.Core
 		public static void AnyKey()
 		{
 			Output.Warning("Press any key to continue.");
+
 			System.Console.ReadKey(true);
 		}
 
