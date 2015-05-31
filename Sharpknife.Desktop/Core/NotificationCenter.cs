@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sharpknife.Core
+namespace Sharpknife.Desktop.Core
 {
 	/// <summary>
 	/// Represents a notification center to independently send and receive events.

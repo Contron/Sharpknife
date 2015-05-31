@@ -1,4 +1,5 @@
-﻿using Sharpknife.Core;
+﻿using Sharpknife.Desktop.Core;
+using Sharpknife.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -7,7 +8,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sharpknife.Views.ViewModels
+namespace Sharpknife.Desktop.Views.ViewModels
 {
 	internal class AboutViewModel : Observable
 	{
@@ -22,7 +23,7 @@ namespace Sharpknife.Views.ViewModels
 
 		private void GatherAssemblyInformation()
 		{
-			var information = FileVersionInfo.GetVersionInfo(Assembly.GetEntryAssembly().Location);
+			var information = Assemblies.GetInformation();
 
 			this.Name = information.ProductName;
 			this.Version = string.Format("Version {0}", information.FileVersion);

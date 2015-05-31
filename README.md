@@ -1,15 +1,17 @@
 # Sharpknife
 
-A C# library to assist with Windows Presentation Foundation desktop application development.
+A C# library to assist with general application development. The library is split up into three components for modularity, tailored for either desktop or console applications.
 
-Although I primarily use it as my own personal framework, it may be useful to others.
+# Components
 
-# Features
+## Sharpknife
 
-* Tailored for the Model-View-ViewModel (MVVM) pattern
-* Classes for commands, notifications, and window management
-* Classes for persistence and utilities
+The core library, containing the required and shared classes. Provides a collection general utilities itself.
 
-# Getting started
+## Sharpknife.Desktop
 
-Check out the code in order to explore the features of the library - it's all fully documented.
+The desktop library, designed for WPF applications - containing classes for MVVM, along with utilities for commands, notifications, and window mangement. It also contains a few common views.
+
+## Sharpknife.Console
+
+The console library, designed for console applications - containing classes for advanced output and argument parsing.

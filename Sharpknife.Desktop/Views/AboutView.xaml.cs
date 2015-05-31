@@ -1,4 +1,4 @@
-﻿using Sharpknife.Views.ViewModels;
+﻿using Sharpknife.Desktop.Views.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -15,7 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Sharpknife.Views
+namespace Sharpknife.Desktop.Views
 {
 	/// <summary>
 	/// Represents an about window to display information about the application to the user.

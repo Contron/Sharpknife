@@ -6,7 +6,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sharpknife.Core
+namespace Sharpknife.Desktop.Core
 {
 	/// <summary>
 	/// Represents an object that can be observed for changes.

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -43,6 +44,15 @@ namespace Sharpknife.Utilities
 			var finalPath = Path.Combine(rootPath, subdirectoryPath);
 
 			return finalPath;
+		}
+
+		/// <summary>
+		/// Returns the <see cref="FileVersionInfo" /> for the entry assembly.
+		/// </summary>
+		/// <returns>the information</returns>
+		public static FileVersionInfo GetInformation()
+		{
+			return FileVersionInfo.GetVersionInfo(Assembly.GetEntryAssembly().Location);
 		}
 
 		/// <summary>

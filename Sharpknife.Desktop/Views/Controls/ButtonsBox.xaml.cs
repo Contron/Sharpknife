@@ -1,4 +1,4 @@
-﻿using Sharpknife.Core;
+﻿using Sharpknife.Desktop.Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Sharpknife.Views.Controls
+namespace Sharpknife.Desktop.Views.Controls
 {
 	/// <summary>
 	/// Represents a buttons box with the standard OK and Cancel buttons.

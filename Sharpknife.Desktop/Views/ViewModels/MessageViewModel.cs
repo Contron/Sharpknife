@@ -1,4 +1,4 @@
-﻿using Sharpknife.Core;
+﻿using Sharpknife.Desktop.Core;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -7,7 +7,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sharpknife.Views.ViewModels
+namespace Sharpknife.Desktop.Views.ViewModels
 {
 	internal class MessageViewModel : Observable
 	{

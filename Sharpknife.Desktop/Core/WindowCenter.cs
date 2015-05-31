@@ -1,5 +1,5 @@
 ﻿using Microsoft.Win32;
-using Sharpknife.Views;
+using Sharpknife.Desktop.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +8,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace Sharpknife.Core
+namespace Sharpknife.Desktop.Core
 {
 	/// <summary>
 	/// Represents a windowing center to independently show and close <see cref="Window" /> objects.

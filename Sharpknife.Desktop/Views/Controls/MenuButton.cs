@@ -8,7 +8,7 @@ using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Markup;
 
-namespace Sharpknife.Views.Controls
+namespace Sharpknife.Desktop.Views.Controls
 {
 	/// <summary>
 	/// Represents a button that can have a <see cref="ContextMenu" /> attached to it when clicked.
@@ -40,6 +40,7 @@ namespace Sharpknife.Views.Controls
 			{
 				this.DisplayMenu.PlacementTarget = this;
 				this.DisplayMenu.Placement = PlacementMode.Bottom;
+
 				this.DisplayMenu.IsOpen = true;
 			}
 		}
