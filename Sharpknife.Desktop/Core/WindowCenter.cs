@@ -34,7 +34,9 @@ namespace Sharpknife.Desktop.Core
 				throw new ArgumentNullException("window");
 			}
 
-			this.PrepareWindow(window).Show();
+			this.Prepare(window);
+				
+			window.Show();
 		}
 
 		/// <summary>
@@ -49,10 +51,11 @@ namespace Sharpknife.Desktop.Core
 				throw new ArgumentNullException("window");
 			}
 
-			var result = this.PrepareWindow(window).ShowDialog();
-			var actual = result.HasValue ? result.Value : false;
+			this.Prepare(window);
 
-			return actual;
+			var result = window.ShowDialog();
+
+			return result.GetValueOrDefault();
 		}
 
 		/// <summary>
@@ -103,9 +106,8 @@ namespace Sharpknife.Desktop.Core
 
 			var owner = this.GetCurrentWindow();
 			var result = dialog.ShowDialog(owner);
-			var actual = result == true ? dialog.FileName : null;
 
-			return actual;
+			return result.GetValueOrDefault() ? dialog.FileName : null;
 		}
 
 		/// <summary>
@@ -156,13 +158,11 @@ namespace Sharpknife.Desktop.Core
 			return window;
 		}
 
-		private Window PrepareWindow(Window window)
+		private void Prepare(Window window)
 		{
 			window.Owner = this.GetCurrentWindow();
 			window.Loaded += (sender, eventArgs) => this.windows.Add(window);
 			window.Closed += (sender, eventArgs) => this.windows.Remove(window);
-
-			return window;
 		}
 
 		/// <summary>
