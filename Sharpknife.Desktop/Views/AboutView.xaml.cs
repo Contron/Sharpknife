@@ -27,8 +27,6 @@ namespace Sharpknife.Desktop.Views
 		/// </summary>
 		public AboutView()
 		{
-			this.DataContext = new AboutViewModel();
-
 			this.InitializeComponent();
 		}
 	}

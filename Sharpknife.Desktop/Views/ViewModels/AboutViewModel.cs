@@ -1,4 +1,5 @@
 ﻿using Sharpknife.Desktop.Core;
+using Sharpknife.Desktop.Core.Services;
 using Sharpknife.Utilities;
 using System;
 using System.Collections.Generic;
@@ -70,7 +71,7 @@ namespace Sharpknife.Desktop.Views.ViewModels
 		{
 			get
 			{
-				return new Command(() => WindowCenter.Instance.CloseCurrentWindow());
+				return new Command(() => WindowService.Instance.CloseCurrent());
 			}
 		}
 	}

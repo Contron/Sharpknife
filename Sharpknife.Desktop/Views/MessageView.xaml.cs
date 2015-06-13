@@ -23,12 +23,8 @@ namespace Sharpknife.Desktop.Views
 		/// <summary>
 		/// Creates a new message view.
 		/// </summary>
-		/// <param name="title">the title</param>
-		/// <param name="message">the message</param>
-		public MessageView(string title, string message)
+		public MessageView()
 		{
-			this.DataContext = new MessageViewModel(title, message);
-
 			this.InitializeComponent();
 		}
 	}

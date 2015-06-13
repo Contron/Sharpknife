@@ -4,17 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sharpknife.Desktop.Core
+namespace Sharpknife.Desktop.Core.Services
 {
 	/// <summary>
-	/// Represents a notification center to independently send and receive events.
+	/// Represents a notification service to send and receive events.
 	/// </summary>
-	public class NotificationCenter
+	public class NotificationService
 	{
 		/// <summary>
-		/// Creates a new notification center.
+		/// Creates a new notification service.
 		/// </summary>
-		public NotificationCenter()
+		public NotificationService()
 		{
 			this.listeners = new Dictionary<string, List<Action<object>>>();
 		}
@@ -111,7 +111,7 @@ namespace Sharpknife.Desktop.Core
 		/// <summary>
 		/// Gets the instance of the notification center.
 		/// </summary>
-		public static readonly NotificationCenter Instance = new NotificationCenter();
+		public static readonly NotificationService Instance = new NotificationService();
 
 		private Dictionary<string, List<Action<object>>> listeners;
 	}

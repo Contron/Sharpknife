@@ -1,4 +1,5 @@
 ﻿using Sharpknife.Desktop.Core;
+using Sharpknife.Desktop.Core.Services;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -15,6 +16,11 @@ namespace Sharpknife.Desktop.Views.ViewModels
 		{
 			this.Title = title;
 			this.Message = message;
+		}
+
+		public MessageViewModel() : this("Title", "Message")
+		{
+
 		}
 
 		public string Title
@@ -45,7 +51,7 @@ namespace Sharpknife.Desktop.Views.ViewModels
 		{
 			get
 			{
-				return new Command(() => WindowCenter.Instance.CloseCurrentWindow());
+				return new Command(() => WindowService.Instance.CloseCurrent());
 			}
 		}
 	}

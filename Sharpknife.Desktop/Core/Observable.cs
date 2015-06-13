@@ -49,6 +49,7 @@ namespace Sharpknife.Desktop.Core
 			}
 
 			this.properties[property] = value;
+
 			this.OnPropertyChanged(property);
 		}
 
