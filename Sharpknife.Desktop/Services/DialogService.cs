@@ -1,13 +1,14 @@
 ﻿using Microsoft.Win32;
 using Sharpknife.Desktop.Views;
-using Sharpknife.Desktop.Views.ViewModels;
+using Sharpknife.Desktop.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
-namespace Sharpknife.Desktop.Core.Services
+namespace Sharpknife.Desktop.Services
 {
 	/// <summary>
 	/// Represents a dialog service to display common dialogs.
@@ -19,7 +20,7 @@ namespace Sharpknife.Desktop.Core.Services
 		/// </summary>
 		public DialogService()
 		{
-
+			this.progress = null;
 		}
 
 		/// <summary>
@@ -42,13 +43,12 @@ namespace Sharpknife.Desktop.Core.Services
 		/// <param name="message">the message</param>
 		public void ShowMessage(string title, string message)
 		{
-			var viewModel = new MessageViewModel(title, message);
 			var view = new MessageView()
 			{
-				DataContext = viewModel
+				DataContext = new MessageViewModel(title, message),
+				Owner = WindowService.Instance.GetCurrent()
 			};
 
-			view.Owner = WindowService.Instance.GetCurrent();
 			view.ShowDialog();
 		}
 
@@ -57,15 +57,63 @@ namespace Sharpknife.Desktop.Core.Services
 		/// </summary>
 		public void ShowAbout()
 		{
-			var view = new AboutView();
+			var view = new AboutView()
+			{
+				Owner = WindowService.Instance.GetCurrent()
+			};
 
-			view.Owner = WindowService.Instance.GetCurrent();
 			view.ShowDialog();
+		}
+
+		/// <summary>
+		/// Shows the progress view.
+		/// </summary>
+		/// <param name="status">the status</param>
+		public void ShowProgress(string status)
+		{
+			if (this.progress != null)
+			{
+				throw new InvalidOperationException();
+			}
+
+			this.progress = new ProgressView()
+			{
+				DataContext = new ProgressViewModel(status),
+				Owner = WindowService.Instance.GetCurrent()
+			};
+
+			Task.Run(() => this.progress.Dispatcher.Invoke(() =>
+			{
+				this.progress.ShowDialog();
+			}));
+		}
+
+		/// <summary>
+		/// Closes the progress view.
+		/// </summary>
+		public void CloseProgress()
+		{
+			if (this.progress == null)
+			{
+				throw new InvalidOperationException();
+			}
+
+			var viewModel = this.progress.DataContext as ProgressViewModel;
+
+			if (viewModel != null)
+			{
+				viewModel.Busy = false;
+			}
+
+			this.progress.Hide();
+			this.progress = null;
 		}
 
 		/// <summary>
 		/// Gets the instance of the dialog service.
 		/// </summary>
 		public static readonly DialogService Instance = new DialogService();
+
+		private ProgressView progress;
 	}
 }

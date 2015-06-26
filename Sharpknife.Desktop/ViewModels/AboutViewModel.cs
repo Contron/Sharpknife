@@ -1,5 +1,5 @@
 ﻿using Sharpknife.Desktop.Core;
-using Sharpknife.Desktop.Core.Services;
+using Sharpknife.Desktop.Services;
 using Sharpknife.Utilities;
 using System;
 using System.Collections.Generic;
@@ -9,7 +9,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sharpknife.Desktop.Views.ViewModels
+namespace Sharpknife.Desktop.ViewModels
 {
 	internal class AboutViewModel : Observable
 	{

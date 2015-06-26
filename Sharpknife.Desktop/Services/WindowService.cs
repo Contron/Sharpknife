@@ -8,7 +8,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace Sharpknife.Desktop.Core.Services
+namespace Sharpknife.Desktop.Services
 {
 	/// <summary>
 	/// Represents a window service to display <see cref="Window" />s.

@@ -1,4 +1,4 @@
-﻿<Window x:Class="Sharpknife.Desktop.Views.MessageView" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:sdv="clr-namespace:Sharpknife.Desktop.Views.ViewModels" xmlns:sdvc="clr-namespace:Sharpknife.Desktop.Views.Controls" Title="Message" ResizeMode="NoResize" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterOwner" MinWidth="300" MaxWidth="500">
+﻿<Window x:Class="Sharpknife.Desktop.Views.MessageView" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:sdv="clr-namespace:Sharpknife.Desktop.ViewModels" xmlns:sdvc="clr-namespace:Sharpknife.Desktop.Views.Controls" Title="Message" ResizeMode="NoResize" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterOwner" MinWidth="300" MaxWidth="500">
 	<Window.DataContext>
 		<sdv:MessageViewModel></sdv:MessageViewModel>
 	</Window.DataContext>

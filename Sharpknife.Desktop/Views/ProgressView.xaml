@@ -1,0 +1,9 @@
+﻿<Window x:Class="Sharpknife.Desktop.Views.ProgressView" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:sdv="clr-namespace:Sharpknife.Desktop.ViewModels" Title="Progress" ResizeMode="NoResize" SizeToContent="Height" WindowStartupLocation="CenterOwner" Width="300">
+	<Window.DataContext>
+		<sdv:ProgressViewModel></sdv:ProgressViewModel>
+	</Window.DataContext>
+	<StackPanel Margin="10">
+		<TextBlock Text="{Binding Status}"></TextBlock>
+		<ProgressBar IsIndeterminate="True" Margin="0,10,0,0" Height="20"></ProgressBar>
+	</StackPanel>
+</Window>

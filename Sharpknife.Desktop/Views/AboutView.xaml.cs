@@ -1,4 +1,4 @@
-﻿using Sharpknife.Desktop.Views.ViewModels;
+﻿using Sharpknife.Desktop.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
