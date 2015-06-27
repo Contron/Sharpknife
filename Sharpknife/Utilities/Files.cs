@@ -34,11 +34,11 @@ namespace Sharpknife.Utilities
 		}
 
 		/// <summary>
-		/// Returns the type the specified extension.
+		/// Returns a description of the specified extension.
 		/// </summary>
 		/// <param name="extension">the extension</param>
 		/// <returns>the type</returns>
-		public static string GetType(string extension)
+		public static string GetDescription(string extension)
 		{
 			if (extension == null)
 			{
