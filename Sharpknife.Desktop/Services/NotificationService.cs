@@ -109,7 +109,7 @@ namespace Sharpknife.Desktop.Services
 		}
 
 		/// <summary>
-		/// Gets the instance of the notification center.
+		/// Gets the instance of the notification service.
 		/// </summary>
 		public static readonly NotificationService Instance = new NotificationService();
 

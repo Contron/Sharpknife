@@ -20,7 +20,7 @@ namespace Sharpknife.Desktop.Services
 		/// </summary>
 		public DialogService()
 		{
-			this.progress = null;
+
 		}
 
 		/// <summary>
@@ -66,54 +66,8 @@ namespace Sharpknife.Desktop.Services
 		}
 
 		/// <summary>
-		/// Shows the progress view.
-		/// </summary>
-		/// <param name="status">the status</param>
-		public void ShowProgress(string status)
-		{
-			if (this.progress != null)
-			{
-				throw new InvalidOperationException();
-			}
-
-			this.progress = new ProgressView()
-			{
-				DataContext = new ProgressViewModel(status),
-				Owner = WindowService.Instance.GetCurrent()
-			};
-
-			Task.Run(() => this.progress.Dispatcher.Invoke(() =>
-			{
-				this.progress.ShowDialog();
-			}));
-		}
-
-		/// <summary>
-		/// Closes the progress view.
-		/// </summary>
-		public void CloseProgress()
-		{
-			if (this.progress == null)
-			{
-				throw new InvalidOperationException();
-			}
-
-			var viewModel = this.progress.DataContext as ProgressViewModel;
-
-			if (viewModel != null)
-			{
-				viewModel.Busy = false;
-			}
-
-			this.progress.Hide();
-			this.progress = null;
-		}
-
-		/// <summary>
 		/// Gets the instance of the dialog service.
 		/// </summary>
 		public static readonly DialogService Instance = new DialogService();
-
-		private ProgressView progress;
 	}
 }
