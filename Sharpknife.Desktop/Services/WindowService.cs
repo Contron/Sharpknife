@@ -24,31 +24,31 @@ namespace Sharpknife.Desktop.Services
 		}
 
 		/// <summary>
-		/// Shows the specified window.
+		/// Opens the specified window.
 		/// </summary>
 		/// <param name="window">the window</param>
-		public void Show(Window window)
+		public void Open(Window window)
 		{
 			if (window == null)
 			{
 				throw new ArgumentNullException("window");
 			}
 
-			this.Show(window, false);
+			this.Open(window, false);
 		}
 
 		/// <summary>
-		/// Shows the specified window modally.
+		/// Opens the specified window modally.
 		/// </summary>
 		/// <param name="window">the window</param>
-		public void ShowModally(Window window)
+		public void OpenModally(Window window)
 		{
 			if (window == null)
 			{
 				throw new ArgumentNullException("window");
 			}
 
-			this.Show(window, true);
+			this.Open(window, true);
 		}
 
 		/// <summary>
@@ -91,7 +91,7 @@ namespace Sharpknife.Desktop.Services
 			return window;
 		}
 
-		private void Show(Window window, bool modal)
+		private void Open(Window window, bool modal)
 		{
 			window.Owner = this.GetCurrent();
 
@@ -106,7 +106,7 @@ namespace Sharpknife.Desktop.Services
 		}
 
 		/// <summary>
-		/// Gets the instance of the window center.
+		/// Gets the instance of the window service.
 		/// </summary>
 		public static readonly WindowService Instance = new WindowService();
 	}
