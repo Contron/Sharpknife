@@ -45,45 +45,54 @@ namespace Sharpknife.Utilities
 				throw new ArgumentNullException("extension");
 			}
 
-			var index = extension.LastIndexOf('.');
-
-			if (index != -1)
-			{
-				extension = extension.Substring(index);
-			}
+			extension = extension.ToUpper();
+			extension = extension.Replace(".", string.Empty);
 
 			switch (extension)
 			{
-				case "png":
-				case "jpg":
-				case "jpeg":
-				case "gif":
+				case "PNG":
+				case "JPG":
+				case "JPEG":
+				case "GIF":
 				{
 					return "Image File";
 				}
-				case "mp3":
-				case "wav":
+				case "MP3":
+				case "WAV":
 				{
 					return "Audio File";
 				}
-				case "mpg":
-				case "mp4":
-				case "webm":
-				case "avi":
+				case "MPG":
+				case "MP4":
+				case "WEBM":
+				case "AVI":
 				{
 					return "Video File";
 				}
-				case "rtf":
-				case "txt":
+				case "RTF":
+				case "TXT":
 				{
 					return "Text Document";
 				}
-				case "htm":
-				case "html":
+				case "CS":
+				case "VB":
+				case "C":
+				case "CPP":
+				case "D":
+				case "M":
+				case "H":
+				case "JS":
+				case "PY":
+				case "LUA":
+				{
+					return "Code Document";
+				}
+				case "HTM":
+				case "HTML":
 				{
 					return "HTML Document";
 				}
-				case "xml":
+				case "XML":
 				{
 					return "XML Document";
 				}
