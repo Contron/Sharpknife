@@ -74,7 +74,7 @@ namespace Sharpknife.Desktop.Services
 
 			if (window != null)
 			{
-				window.Close();
+				this.Close(window);
 			}
 		}
 
@@ -95,14 +95,19 @@ namespace Sharpknife.Desktop.Services
 		{
 			window.Owner = this.GetCurrent();
 
-			if (modal)
+			var action = new Action(() =>
 			{
-				window.ShowDialog();
-			}
-			else
-			{
-				window.Show();
-			}
+				if (modal)
+				{
+					window.ShowDialog();
+				}
+				else
+				{
+					window.Show();
+				}
+			});
+
+			Task.Run(() => window.Dispatcher.Invoke(action));
 		}
 
 		/// <summary>

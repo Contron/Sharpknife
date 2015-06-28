@@ -38,12 +38,9 @@ namespace Sharpknife.Desktop.Services
 				DataContext = new ProgressViewModel(status),
 				Owner = WindowService.Instance.GetCurrent()
 			};
+			this.visible = true;
 
-			Task.Run(() => this.view.Dispatcher.Invoke(() =>
-			{
-				this.visible = true;
-				this.view.ShowDialog();
-			}));
+			WindowService.Instance.ShowModally(this.view);
 		}
 
 		/// <summary>
@@ -64,7 +61,8 @@ namespace Sharpknife.Desktop.Services
 			}
 
 			this.visible = false;
-			this.view.Close();
+
+			WindowService.Instance.Close(this.view);
 		}
 
 		/// <summary>
