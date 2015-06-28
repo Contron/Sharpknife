@@ -27,13 +27,12 @@ namespace Sharpknife.Desktop.Services
 		/// Shows a file dialog.
 		/// </summary>
 		/// <param name="dialog">the dialog</param>
-		/// <returns>the path, or null</returns>
+		/// <returns>the path</returns>
 		public string ShowFileDialog(FileDialog dialog)
 		{
 			var result = dialog.ShowDialog(WindowService.Instance.GetCurrent());
-			var path = result.GetValueOrDefault() ? dialog.FileName : null;
 
-			return path;
+			return result.GetValueOrDefault() ? dialog.FileName : null;
 		}
 
 		/// <summary>
@@ -41,12 +40,11 @@ namespace Sharpknife.Desktop.Services
 		/// </summary>
 		/// <param name="dialog">the dialog</param>
 		/// <returns>the paths</returns>
-		public List<string> ShowMultiselectionFileDialog(FileDialog dialog)
+		public List<string> ShowMultiSelectionFileDialog(FileDialog dialog)
 		{
 			var result = dialog.ShowDialog(WindowService.Instance.GetCurrent());
-			var path = result.GetValueOrDefault() ? dialog.FileNames.ToList() : null;
 
-			return path;
+			return result.GetValueOrDefault() ? dialog.FileNames.ToList() : null;
 		}
 
 		/// <summary>
@@ -58,11 +56,10 @@ namespace Sharpknife.Desktop.Services
 		{
 			var view = new MessageView()
 			{
-				DataContext = new MessageViewModel(title, message),
-				Owner = WindowService.Instance.GetCurrent()
+				DataContext = new MessageViewModel(title, message)
 			};
 
-			view.ShowDialog();
+			WindowService.Instance.ShowModally(view);
 		}
 
 		/// <summary>
@@ -70,12 +67,7 @@ namespace Sharpknife.Desktop.Services
 		/// </summary>
 		public void ShowAbout()
 		{
-			var view = new AboutView()
-			{
-				Owner = WindowService.Instance.GetCurrent()
-			};
-
-			view.ShowDialog();
+			WindowService.Instance.ShowModally(new AboutView());
 		}
 
 		/// <summary>
