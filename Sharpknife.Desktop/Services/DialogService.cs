@@ -31,7 +31,7 @@ namespace Sharpknife.Desktop.Services
 		public string ShowFileDialog(FileDialog dialog)
 		{
 			var result = dialog.ShowDialog(WindowService.Instance.GetCurrent());
-			var path = result.HasValue ? dialog.FileName : null;
+			var path = result.GetValueOrDefault() ? dialog.FileName : null;
 
 			return path;
 		}
