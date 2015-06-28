@@ -62,7 +62,10 @@ namespace Sharpknife.Desktop.Services
 				throw new ArgumentNullException("window");
 			}
 
-			window.Close();
+			window.Dispatcher.Invoke(() =>
+			{
+				window.Close();
+			});
 		}
 
 		/// <summary>
@@ -93,10 +96,10 @@ namespace Sharpknife.Desktop.Services
 
 		private void Show(Window window, bool modal)
 		{
-			window.Owner = this.GetCurrent();
-
-			var action = new Action(() =>
+			window.Dispatcher.Invoke(() =>
 			{
+				window.Owner = this.GetCurrent();
+
 				if (modal)
 				{
 					window.ShowDialog();
@@ -106,8 +109,6 @@ namespace Sharpknife.Desktop.Services
 					window.Show();
 				}
 			});
-
-			Task.Run(() => window.Dispatcher.Invoke(action));
 		}
 
 		/// <summary>
