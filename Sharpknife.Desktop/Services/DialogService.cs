@@ -37,6 +37,19 @@ namespace Sharpknife.Desktop.Services
 		}
 
 		/// <summary>
+		/// Shows a multi-selection file dialog.
+		/// </summary>
+		/// <param name="dialog">the dialog</param>
+		/// <returns>the paths</returns>
+		public List<string> ShowMultiselectionFileDialog(FileDialog dialog)
+		{
+			var result = dialog.ShowDialog(WindowService.Instance.GetCurrent());
+			var path = result.GetValueOrDefault() ? dialog.FileNames.ToList() : null;
+
+			return path;
+		}
+
+		/// <summary>
 		/// Shows a message dialog with the specified title and message.
 		/// </summary>
 		/// <param name="title">the title</param>
