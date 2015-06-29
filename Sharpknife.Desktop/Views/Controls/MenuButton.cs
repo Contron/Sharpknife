@@ -51,7 +51,7 @@ namespace Sharpknife.Desktop.Views.Controls
 		public static readonly DependencyProperty DisplayMenuProperty = DependencyProperty.Register("DisplayMenu", typeof(ContextMenu), typeof(MenuButton));
 
 		/// <summary>
-		/// Gets or sets the display menu for the menu button.
+		/// Gets or sets the display menu.
 		/// </summary>
 		public ContextMenu DisplayMenu
 		{

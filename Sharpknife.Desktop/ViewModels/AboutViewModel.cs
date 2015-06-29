@@ -19,10 +19,10 @@ namespace Sharpknife.Desktop.ViewModels
 			this.Version = null;
 			this.Copyright = null;
 
-			this.GatherAssemblyInformation();
+			this.Populate();
 		}
 
-		private void GatherAssemblyInformation()
+		private void Populate()
 		{
 			var information = Assemblies.GetInformation();
 

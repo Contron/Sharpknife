@@ -37,7 +37,7 @@ namespace Sharpknife.Utilities
 		/// Returns a description of the specified extension.
 		/// </summary>
 		/// <param name="extension">the extension</param>
-		/// <returns>the type</returns>
+		/// <returns>the description</returns>
 		public static string GetDescription(string extension)
 		{
 			if (extension == null)

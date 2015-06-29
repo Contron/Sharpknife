@@ -42,7 +42,7 @@ namespace Sharpknife.Desktop.Views.Controls
 		public static readonly DependencyProperty DescriptionProperty = DependencyProperty.Register("Description", typeof(string), typeof(HeaderBox));
 
 		/// <summary>
-		/// Gets or sets the header for the header box.
+		/// Gets or sets the header.
 		/// </summary>
 		public string Header
 		{
@@ -57,7 +57,7 @@ namespace Sharpknife.Desktop.Views.Controls
 		}
 
 		/// <summary>
-		/// Gets or sets the description for the header box.
+		/// Gets or sets the description.
 		/// </summary>
 		public string Description
 		{

@@ -43,8 +43,10 @@ namespace Sharpknife.Desktop.Console.Utilities
 
 		/// <summary>
 		/// Prints a standard application header to the console.
-		/// Contains the application's name and copyright notice.
 		/// </summary>
+		/// <remarks>
+		/// Contains the application's full name, along with its current version and copyright notice.
+		/// </remarks>
 		public static void Header()
 		{
 			var information = Assemblies.GetInformation();

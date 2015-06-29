@@ -68,7 +68,7 @@ namespace Sharpknife.Desktop.Views.Controls
 		public static readonly DependencyProperty CancelVisibilityProperty = DependencyProperty.Register("CancelVisibility", typeof(Visibility), typeof(ButtonsBox));
 
 		/// <summary>
-		/// Gets or sets the OK command for the buttons box.
+		/// Gets or sets the OK command.
 		/// </summary>
 		public Command OkCommand
 		{
@@ -83,7 +83,7 @@ namespace Sharpknife.Desktop.Views.Controls
 		}
 
 		/// <summary>
-		/// Gets or sets the Cancel command for the buttons box.
+		/// Gets or sets the Cancel command.
 		/// </summary>
 		public Command CancelCommand
 		{
@@ -128,7 +128,7 @@ namespace Sharpknife.Desktop.Views.Controls
 		}
 
 		/// <summary>
-		/// Gets or sets the OK button visibility for the buttons box.
+		/// Gets or sets the visibility of the OK button.
 		/// </summary>
 		public Visibility OkVisibility
 		{
@@ -143,7 +143,7 @@ namespace Sharpknife.Desktop.Views.Controls
 		}
 
 		/// <summary>
-		/// Gets or sets the Cancel button visibility for the buttons box.
+		/// Gets or sets the visibility of the Cancel button.
 		/// </summary>
 		public Visibility CancelVisibility
 		{

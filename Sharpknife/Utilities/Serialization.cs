@@ -33,25 +33,6 @@ namespace Sharpknife.Utilities
 		}
 
 		/// <summary>
-		/// Loads an element from the specified text.
-		/// </summary>
-		/// <typeparam name="T">the type</typeparam>
-		/// <param name="text">the text</param>
-		/// <returns>the result</returns>
-		public static T LoadFromString<T>(string text)
-		{
-			if (text == null)
-			{
-				throw new ArgumentNullException("text");
-			}
-
-			using (var reader = new StringReader(text))
-			{
-				return (T) new XmlSerializer(typeof(T)).Deserialize(reader);
-			}
-		}
-
-		/// <summary>
 		/// Saves an element to the specified file.
 		/// </summary>
 		/// <typeparam name="T">the type</typeparam>

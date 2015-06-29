@@ -33,10 +33,10 @@ namespace Sharpknife.Core
 				throw new ArgumentNullException("file");
 			}
 
-			this.Location = Path.Combine(directory, string.Format("{0}.xml", file));
+			this.Path = System.IO.Path.Combine(directory, string.Format("{0}.xml", file));
 			this.Element = new T();
 
-			this.directory = Path.GetDirectoryName(this.Location);
+			this.directory = System.IO.Path.GetDirectoryName(this.Path);
 			this.serializer = new XmlSerializer(typeof(T));
 		}
 
@@ -54,12 +54,12 @@ namespace Sharpknife.Core
 		/// </summary>
 		public void Load()
 		{
-			if (!Directory.Exists(this.directory) || !File.Exists(this.Location))
+			if (!Directory.Exists(this.directory) || !File.Exists(this.Path))
 			{
 				return;
 			}
 
-			using (var stream = File.Open(this.Location, FileMode.Open))
+			using (var stream = File.Open(this.Path, FileMode.Open))
 			{
 				this.Element = (T) this.serializer.Deserialize(stream);
 			}
@@ -75,23 +75,23 @@ namespace Sharpknife.Core
 				Directory.CreateDirectory(this.directory);
 			}
 
-			using (var stream = File.Open(this.Location, FileMode.Create))
+			using (var stream = File.Open(this.Path, FileMode.Create))
 			{
 				this.serializer.Serialize(stream, this.Element);
 			}
 		}
 
 		/// <summary>
-		/// Gets or sets the location to the file for the manager.
+		/// Gets or sets the path of the file.
 		/// </summary>
-		public string Location
+		public string Path
 		{
 			get;
 			private set;
 		}
 
 		/// <summary>
-		/// Gets or sets the element for the manager.
+		/// Gets or sets the element.
 		/// </summary>
 		public T Element
 		{

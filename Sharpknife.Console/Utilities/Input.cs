@@ -37,6 +37,9 @@ namespace Sharpknife.Desktop.Console.Utilities
 		/// <summary>
 		/// Prompts the console for a numeric response with the specified message.
 		/// </summary>
+		/// <remarks>
+		/// Control will not be returned until the user enters a valid response.
+		/// </remarks>
 		/// <param name="message">the message</param>
 		/// <returns>the result</returns>
 		public static int Number(string message)
@@ -60,6 +63,9 @@ namespace Sharpknife.Desktop.Console.Utilities
 		/// <summary>
 		/// Prompts the console for a boolean response with the specified message.
 		/// </summary>
+		/// <remarks>
+		/// Control will not be returned until the user enters a valid response.
+		/// </remarks>
 		/// <param name="message">the message</param>
 		/// <returns>the result</returns>
 		public static bool Question(string message)
