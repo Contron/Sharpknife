@@ -3,7 +3,7 @@
 		<sdv:MessageViewModel></sdv:MessageViewModel>
 	</Window.DataContext>
 	<DockPanel>
-		<sdvc:ButtonsBox DockPanel.Dock="Bottom" OkCommand="{Binding OkCommand}" CancelVisibility="Collapsed"></sdvc:ButtonsBox>
+		<sdvc:ButtonsBox OkCommand="{Binding OkCommand}" CancelVisibility="Collapsed" DockPanel.Dock="Bottom"></sdvc:ButtonsBox>
 		<StackPanel Margin="10">
 			<TextBlock Text="{Binding Title}" FontSize="18" TextWrapping="Wrap"></TextBlock>
 			<TextBlock Text="{Binding Message}" TextWrapping="Wrap" Margin="0,10,0,0"></TextBlock>
