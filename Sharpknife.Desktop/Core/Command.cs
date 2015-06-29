@@ -93,6 +93,8 @@ namespace Sharpknife.Desktop.Core
 			set
 			{
 				this.Set(value);
+
+				this.OnCanExecuteChanged();
 			}
 		}
 
