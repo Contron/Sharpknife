@@ -59,9 +59,6 @@
     <Compile Include="Views\Controls\ButtonsBox.xaml.cs">
       <DependentUpon>ButtonsBox.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Controls\HeaderBox.xaml.cs">
-      <DependentUpon>HeaderBox.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\Controls\MenuButton.cs" />
     <Compile Include="Views\Controls\StatusBox.xaml.cs">
       <DependentUpon>StatusBox.xaml</DependentUpon>
@@ -78,10 +75,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\Controls\ButtonsBox.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\Controls\HeaderBox.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
