@@ -13,6 +13,9 @@ namespace Sharpknife.Desktop.Models
 	/// </summary>
 	public class Status : Observable
 	{
+		/// <summary>
+		/// Creates a new status.
+		/// </summary>
 		public Status()
 		{
 			this.Message = "Ready";
@@ -55,9 +58,6 @@ namespace Sharpknife.Desktop.Models
 		/// <summary>
 		/// Gets the visibility of controls.
 		/// </summary>
-		/// <remarks>
-		/// This will be <see cref="Visibility.Visible"/> if the status is busy, otherwise <see cref="Visibility.Collapsed"/>
-		/// </remarks>
 		public Visibility Visibility
 		{
 			get
@@ -69,9 +69,6 @@ namespace Sharpknife.Desktop.Models
 		/// <summary>
 		/// Gets if the controls are enabled.
 		/// </summary>
-		/// <remarks>
-		/// This will be <see cref="true"/> if the status is busy, otherwise <see cref="false"/>.
-		/// </remarks>
 		public bool Enabled
 		{
 			get
