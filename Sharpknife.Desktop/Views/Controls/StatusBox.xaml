@@ -4,7 +4,16 @@
 			<TextBlock Text="{Binding Status.Message, FallbackValue=Message, ElementName=Control}"></TextBlock>
 		</StatusBarItem>
 		<StatusBarItem HorizontalAlignment="Right">
-			<ProgressBar Visibility="{Binding Status.Visibility, ElementName=Control}" IsIndeterminate="True" Width="100" Height="10"></ProgressBar>
+			<StackPanel Orientation="Horizontal">
+				<ItemsControl ItemsSource="{Binding Children, ElementName=Control}">
+					<ItemsControl.ItemsPanel>
+						<ItemsPanelTemplate>
+							<StackPanel Orientation="Horizontal"></StackPanel>
+						</ItemsPanelTemplate>
+					</ItemsControl.ItemsPanel>
+				</ItemsControl>
+				<ProgressBar Visibility="{Binding Status.Visibility, ElementName=Control}" IsIndeterminate="True" Width="100" Height="10" Margin="10, 0, 0, 0"></ProgressBar>
+			</StackPanel>
 		</StatusBarItem>
 	</StatusBar>
 </UserControl>

@@ -3,10 +3,12 @@
 		<sdv:MessageViewModel></sdv:MessageViewModel>
 	</Window.DataContext>
 	<DockPanel>
-		<sdvc:ButtonsBox OkCommand="{Binding OkCommand}" CancelVisibility="Collapsed" DockPanel.Dock="Bottom"></sdvc:ButtonsBox>
+		<sdvc:ButtonsBox DockPanel.Dock="Bottom">
+			<Button Content="OK" Command="{Binding OkCommand}"></Button>
+		</sdvc:ButtonsBox>
 		<StackPanel Margin="10">
 			<TextBlock Text="{Binding Title}" FontSize="18" TextWrapping="Wrap"></TextBlock>
-			<TextBlock Text="{Binding Message}" TextWrapping="Wrap" Margin="0,10,0,0"></TextBlock>
+			<TextBlock Text="{Binding Message}" TextWrapping="Wrap" Margin="0, 10, 0, 0"></TextBlock>
 		</StackPanel>
 	</DockPanel>
 </Window>
