@@ -17,10 +17,13 @@ namespace Sharpknife.Desktop.Core
 		/// Creates a new command.
 		/// </summary>
 		/// <param name="action">the action</param>
+		/// <param name="predicate">the predicate</param>
 		/// <param name="gesture">the gesture</param>
-		public Command(Action<object> action, KeyGesture gesture)
+		public Command(Action<object> action, Func<bool> predicate = null, KeyGesture gesture = null)
 		{
 			this.Action = action;
+			this.Predicate = predicate;
+
 			this.Gesture = gesture;
 		}
 
@@ -28,17 +31,9 @@ namespace Sharpknife.Desktop.Core
 		/// Creates a new command.
 		/// </summary>
 		/// <param name="action">the action</param>
+		/// <param name="predicate">the predicate</param>
 		/// <param name="gesture">the gesture</param>
-		public Command(Action action, KeyGesture gesture) : this(parameter => action.Invoke(), gesture)
-		{
-
-		}
-
-		/// <summary>
-		/// Creates a new command.
-		/// </summary>
-		/// <param name="action">the action</param>
-		public Command(Action action) : this(action, null)
+		public Command(Action action, Func<bool> predicate = null, KeyGesture gesture = null) : this(parameter => action.Invoke(), predicate, gesture)
 		{
 
 		}
@@ -62,24 +57,28 @@ namespace Sharpknife.Desktop.Core
 		/// <returns>if the command can execute</returns>
 		public bool CanExecute(object parameter)
 		{
-			return this.Action != null;
-		}
-
-		/// <summary>
-		/// Triggers the can execute changed event.
-		/// </summary>
-		protected void OnCanExecuteChanged()
-		{
-			if (this.CanExecuteChanged != null)
+			if (this.Predicate != null)
 			{
-				this.CanExecuteChanged(this, EventArgs.Empty);
+				return this.Predicate();
 			}
+
+			return this.Action != null;
 		}
 
 		/// <summary>
 		/// Occurs when the can execute state changes.
 		/// </summary>
-		public event EventHandler CanExecuteChanged;
+		public event EventHandler CanExecuteChanged
+		{
+			add
+			{
+				CommandManager.RequerySuggested += value;
+			}
+			remove
+			{
+				CommandManager.RequerySuggested -= value;
+			}
+		}
 
 		/// <summary>
 		/// Gets or sets the action.
@@ -93,8 +92,21 @@ namespace Sharpknife.Desktop.Core
 			set
 			{
 				this.Set(value);
+			}
+		}
 
-				this.OnCanExecuteChanged();
+		/// <summary>
+		/// Gets or sets the predicate.
+		/// </summary>
+		public Func<bool> Predicate
+		{
+			get
+			{
+				return (Func<bool>) this.Get();
+			}
+			set
+			{
+				this.Set(value);
 			}
 		}
 
