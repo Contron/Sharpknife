@@ -18,13 +18,15 @@ namespace Sharpknife.Desktop.Core
 		/// </summary>
 		/// <param name="action">the action</param>
 		/// <param name="predicate">the predicate</param>
-		/// <param name="gesture">the gesture</param>
-		public Command(Action<object> action, Func<bool> predicate = null, KeyGesture gesture = null)
+		public Command(Action<object> action, Func<bool> predicate = null)
 		{
+			if (action == null)
+			{
+				throw new ArgumentNullException("action");
+			}
+
 			this.Action = action;
 			this.Predicate = predicate;
-
-			this.Gesture = gesture;
 		}
 
 		/// <summary>
@@ -32,10 +34,15 @@ namespace Sharpknife.Desktop.Core
 		/// </summary>
 		/// <param name="action">the action</param>
 		/// <param name="predicate">the predicate</param>
-		/// <param name="gesture">the gesture</param>
-		public Command(Action action, Func<bool> predicate = null, KeyGesture gesture = null) : this(parameter => action.Invoke(), predicate, gesture)
+		public Command(Action action, Func<bool> predicate = null)
 		{
+			if (action == null)
+			{
+				throw new ArgumentNullException("action");
+			}
 
+			this.Action = parameter => action.Invoke();
+			this.Predicate = predicate;
 		}
 
 		/// <summary>
@@ -44,10 +51,7 @@ namespace Sharpknife.Desktop.Core
 		/// </summary>
 		public void Execute(object parameter)
 		{
-			if (this.Action != null)
-			{
-				this.Action.Invoke(parameter);
-			}
+			this.Action.Invoke(parameter);
 		}
 
 		/// <summary>
@@ -62,7 +66,7 @@ namespace Sharpknife.Desktop.Core
 				return this.Predicate();
 			}
 
-			return this.Action != null;
+			return true;
 		}
 
 		/// <summary>
@@ -107,41 +111,6 @@ namespace Sharpknife.Desktop.Core
 			set
 			{
 				this.Set(value);
-			}
-		}
-
-		/// <summary>
-		/// Gets or sets the gesture.
-		/// </summary>
-		public KeyGesture Gesture
-		{
-			get
-			{
-				return (KeyGesture) this.Get();
-			}
-			set
-			{
-				this.Set(value);
-
-				this.OnPropertyChanged("GestureText");
-			}
-		}
-
-		/// <summary>
-		/// Gets the shortcut text.
-		/// </summary>
-		public string Shortcut
-		{
-			get
-			{
-				if (this.Gesture != null)
-				{
-					return this.Gesture.GetDisplayStringForCulture(CultureInfo.CurrentUICulture);
-				}
-				else
-				{
-					return null;
-				}
 			}
 		}
 	}
