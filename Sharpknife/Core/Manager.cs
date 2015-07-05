@@ -22,7 +22,7 @@ namespace Sharpknife.Core
 		/// <returns>the manager</returns>
 		public static Manager<T> CreatePersistence(string name)
 		{
-			return new Manager<T>(Path.Combine(Assemblies.GetApplicationPath(), name));
+			return new Manager<T>(Path.Combine(Assemblies.GetApplicationPath(), string.Format("{0}.xml")));
 		}
 
 		/// <summary>
