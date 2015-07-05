@@ -15,21 +15,6 @@ namespace Sharpknife.Utilities
 	public static class Assemblies
 	{
 		/// <summary>
-		/// Returns a <see cref="Uri" /> to the specified resource for the calling assembly.
-		/// </summary>
-		/// <param name="location">the location</param>
-		/// <returns>the URI</returns>
-		public static Uri GetResource(string location)
-		{
-			if (location == null)
-			{
-				throw new ArgumentNullException("location");
-			}
-
-			return new Uri(string.Format("pack://application:,,,/{0};component/{1}", Assembly.GetCallingAssembly().FullName, location));
-		}
-
-		/// <summary>
 		/// Returns the path belonging to the application, optionally with the specified subdirectories.
 		/// </summary>
 		/// <param name="subdirectories">the subdirectories</param>
@@ -44,6 +29,21 @@ namespace Sharpknife.Utilities
 			var finalPath = Path.Combine(rootPath, subdirectoryPath);
 
 			return finalPath;
+		}
+
+		/// <summary>
+		/// Returns a <see cref="Uri" /> to the specified resource for the calling assembly.
+		/// </summary>
+		/// <param name="location">the location</param>
+		/// <returns>the URI</returns>
+		public static Uri GetResource(string location)
+		{
+			if (location == null)
+			{
+				throw new ArgumentNullException("location");
+			}
+
+			return new Uri(string.Format("pack://application:,,,/{0};component/{1}", Assembly.GetCallingAssembly().FullName, location));
 		}
 
 		/// <summary>
