@@ -114,6 +114,14 @@ namespace Sharpknife.Desktop.Services
 		/// <summary>
 		/// Gets the instance of the window service.
 		/// </summary>
-		public static readonly WindowService Instance = new WindowService();
+		public static WindowService Instance
+		{
+			get
+			{
+				return WindowService.instance;
+			}
+		}
+
+		private static readonly WindowService instance = new WindowService();
 	}
 }
