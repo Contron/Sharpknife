@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sharpknife.Desktop.Services;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -11,20 +12,33 @@ namespace Sharpknife.Desktop.Core
 	/// <summary>
 	/// Represents an implementation of <see cref="ICommand" /> which can wrap a <see cref="Action" /> to act as a command.
 	/// </summary>
-	public class Command : Observable, ICommand
+	public class Command : ICommand
 	{
+		/// <summary>
+		/// Creates a new <see cref="Command" /> to close the current window.
+		/// </summary>
+		/// <returns></returns>
+		public static Command CreateExit()
+		{
+			return new Command(() => WindowService.Instance.CloseCurrent());
+		}
+
+		/// <summary>
+		/// Creates a new <see cref="Command" /> to show an about dialog.
+		/// </summary>
+		/// <returns></returns>
+		public static Command CreateAbout()
+		{
+			return new Command(() => DialogService.Instance.ShowAbout());
+		}
+
 		/// <summary>
 		/// Creates a new command.
 		/// </summary>
 		/// <param name="action">the action</param>
 		/// <param name="predicate">the predicate</param>
-		public Command(Action<object> action, Func<bool> predicate = null)
+		public Command(Action action, Func<bool> predicate)
 		{
-			if (action == null)
-			{
-				throw new ArgumentNullException("action");
-			}
-
 			this.Action = action;
 			this.Predicate = predicate;
 		}
@@ -33,16 +47,9 @@ namespace Sharpknife.Desktop.Core
 		/// Creates a new command.
 		/// </summary>
 		/// <param name="action">the action</param>
-		/// <param name="predicate">the predicate</param>
-		public Command(Action action, Func<bool> predicate = null)
+		public Command(Action action) : this(action, null)
 		{
-			if (action == null)
-			{
-				throw new ArgumentNullException("action");
-			}
 
-			this.Action = parameter => action.Invoke();
-			this.Predicate = predicate;
 		}
 
 		/// <summary>
@@ -51,7 +58,10 @@ namespace Sharpknife.Desktop.Core
 		/// </summary>
 		public void Execute(object parameter)
 		{
-			this.Action.Invoke(parameter);
+			if (this.Action != null)
+			{
+				this.Action.Invoke();
+			}
 		}
 
 		/// <summary>
@@ -63,7 +73,7 @@ namespace Sharpknife.Desktop.Core
 		{
 			if (this.Predicate != null)
 			{
-				return this.Predicate();
+				return this.Predicate.Invoke();
 			}
 
 			return true;
@@ -87,16 +97,10 @@ namespace Sharpknife.Desktop.Core
 		/// <summary>
 		/// Gets or sets the action.
 		/// </summary>
-		public Action<object> Action
+		public Action Action
 		{
-			get
-			{
-				return (Action<object>) this.Get();
-			}
-			set
-			{
-				this.Set(value);
-			}
+			get;
+			set;
 		}
 
 		/// <summary>
@@ -104,14 +108,8 @@ namespace Sharpknife.Desktop.Core
 		/// </summary>
 		public Func<bool> Predicate
 		{
-			get
-			{
-				return (Func<bool>) this.Get();
-			}
-			set
-			{
-				this.Set(value);
-			}
+			get;
+			set;
 		}
 	}
 }

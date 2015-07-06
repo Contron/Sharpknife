@@ -16,7 +16,7 @@ namespace Sharpknife.Core
 	public class Manager<T> where T : new()
 	{
 		/// <summary>
-		/// Creates a new manager using the path from <see cref="Assemblies.GetApplicationPath" />.
+		/// Creates a <see cref="Manager{T}" /> using the path from <see cref="Assemblies.GetApplicationPath" />.
 		/// </summary>
 		/// <param name="name">the file name</param>
 		/// <returns>the manager</returns>
