@@ -9,7 +9,7 @@ using System.Xml.Serialization;
 namespace Sharpknife.Utilities
 {
 	/// <summary>
-	/// A collection of one-off serialization methods to quickly load and save XML files.
+	/// A collection of common serialization methods.
 	/// </summary>
 	public static class Serialization
 	{

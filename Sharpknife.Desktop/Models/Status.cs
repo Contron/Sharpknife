@@ -18,6 +18,28 @@ namespace Sharpknife.Desktop.Models
 		/// </summary>
 		public Status()
 		{
+			this.Message = null;
+			this.Busy = false;
+
+			this.Reset();
+		}
+
+		/// <summary>
+		/// Updates the status with the specified message and busy state.
+		/// </summary>
+		/// <param name="message">the message</param>
+		/// <param name="busy">the busy state</param>
+		public void Update(string message, bool busy)
+		{
+			this.Message = message;
+			this.Busy = busy;
+		}
+
+		/// <summary>
+		/// Resets the status.
+		/// </summary>
+		public void Reset()
+		{
 			this.Message = "Ready";
 			this.Busy = false;
 		}

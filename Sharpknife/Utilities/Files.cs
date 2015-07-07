@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Sharpknife.Utilities
 {
 	/// <summary>
-	/// A collection of useful file utilities.
+	/// A collection of common file methods.
 	/// </summary>
 	public static class Files
 	{
@@ -18,7 +18,7 @@ namespace Sharpknife.Utilities
 		/// <returns>the result</returns>
 		public static string GetSize(long size)
 		{
-			var sizes = new string[] { "bytes", "KB", "MB", "GB", "TB", "PB" };
+			var sizes = new string[] { "bytes", "KB", "MB", "GB", "TB", "PB", "EB" };
 			var order = 0;
 
 			while (size >= 1024 && order + 1 < sizes.Length)

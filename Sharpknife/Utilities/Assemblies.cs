@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace Sharpknife.Utilities
 {
 	/// <summary>
-	/// A collection of generic assembly related methods.
+	/// A collection of common assembly methods.
 	/// </summary>
 	public static class Assemblies
 	{
@@ -29,21 +29,6 @@ namespace Sharpknife.Utilities
 			var finalPath = Path.Combine(rootPath, subdirectoryPath);
 
 			return finalPath;
-		}
-
-		/// <summary>
-		/// Returns a <see cref="Uri" /> to the specified resource for the calling assembly.
-		/// </summary>
-		/// <param name="location">the location</param>
-		/// <returns>the URI</returns>
-		public static Uri GetResource(string location)
-		{
-			if (location == null)
-			{
-				throw new ArgumentNullException("location");
-			}
-
-			return new Uri(string.Format("pack://application:,,,/{0};component/{1}", Assembly.GetCallingAssembly().FullName, location));
 		}
 
 		/// <summary>
