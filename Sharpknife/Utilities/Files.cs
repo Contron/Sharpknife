@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +12,34 @@ namespace Sharpknife.Utilities
 	/// </summary>
 	public static class Files
 	{
+		/// <summary>
+		/// Returns a unique file name for the specified path, ensuring that no other file exists.
+		/// </summary>
+		/// <param name="path">the path</param>
+		/// <returns>the result</returns>
+		public static string GetUniquePath(string path)
+		{
+			if (path == null)
+			{
+				throw new ArgumentNullException(path);
+			}
+
+			var directory = Path.GetDirectoryName(path);
+			var name = Path.GetFileNameWithoutExtension(path);
+			var extension = Path.GetExtension(path);
+
+			var result = path;
+			var count = 0;
+
+			while (File.Exists(result) || count <= 0)
+			{
+				count++;
+				result = Path.Combine(directory, string.Format("{0}{1}{2}", name, count, extension));
+			}
+
+			return result;
+		}
+
 		/// <summary>
 		/// Returns the friendly size of the specified size.
 		/// </summary>

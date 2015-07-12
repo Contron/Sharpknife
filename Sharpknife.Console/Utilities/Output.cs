@@ -20,7 +20,7 @@ namespace Sharpknife.Desktop.Console.Utilities
 		/// <param name="message">the message</param>
 		public static void Message(string message)
 		{
-			Output.WriteLine(ConsoleColor.Green, message);
+			Output.WriteLine(ConsoleColor.Gray, message);
 		}
 
 		/// <summary>
@@ -51,12 +51,12 @@ namespace Sharpknife.Desktop.Console.Utilities
 		{
 			var information = Assemblies.GetInformation();
 
-			Output.Warning(information.ProductName);
-			Output.Warning(string.Format("Version {0}, Copyright {1}", information.FileVersion, information.LegalCopyright));
+			Output.Message(information.ProductName);
+			Output.Message(string.Format("Version {0}, Copyright {1}", information.FileVersion, information.LegalCopyright));
 		}
 
 		/// <summary>
-		/// Writes the specified message (with a new line) to the console with the specified <see cref="ConsoleColor" />.
+		/// Writes the specified line (with a new line) to the console with the specified <see cref="ConsoleColor" />.
 		/// </summary>
 		/// <param name="colour">the colour</param>
 		/// <param name="message">the message</param>
@@ -66,7 +66,7 @@ namespace Sharpknife.Desktop.Console.Utilities
 		}
 
 		/// <summary>
-		/// Writes the specified message to the console with the specified <see cref="ConsoleColor" />.
+		/// Writes the specified line to the console with the specified <see cref="ConsoleColor" />.
 		/// </summary>
 		/// <param name="colour">the colour</param>
 		/// <param name="message">the message</param>

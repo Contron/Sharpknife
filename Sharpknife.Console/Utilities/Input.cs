@@ -23,7 +23,7 @@ namespace Sharpknife.Desktop.Console.Utilities
 
 			while (true)
 			{
-				result = Input.PromptLine(message);
+				result = Input.ReadLine(message);
 
 				if (!string.IsNullOrWhiteSpace(result))
 				{
@@ -37,9 +37,6 @@ namespace Sharpknife.Desktop.Console.Utilities
 		/// <summary>
 		/// Prompts the console for a numeric response with the specified message.
 		/// </summary>
-		/// <remarks>
-		/// Control will not be returned until the user enters a valid response.
-		/// </remarks>
 		/// <param name="message">the message</param>
 		/// <returns>the result</returns>
 		public static int Number(string message)
@@ -48,7 +45,7 @@ namespace Sharpknife.Desktop.Console.Utilities
 
 			while (true)
 			{
-				var line = Input.PromptLine(message);
+				var line = Input.ReadLine(message);
 				var parsed = int.TryParse(line, out result);
 
 				if (parsed)
@@ -63,9 +60,6 @@ namespace Sharpknife.Desktop.Console.Utilities
 		/// <summary>
 		/// Prompts the console for a boolean response with the specified message.
 		/// </summary>
-		/// <remarks>
-		/// Control will not be returned until the user enters a valid response.
-		/// </remarks>
 		/// <param name="message">the message</param>
 		/// <returns>the result</returns>
 		public static bool Question(string message)
@@ -74,7 +68,7 @@ namespace Sharpknife.Desktop.Console.Utilities
 
 			while (true)
 			{
-				var line = Input.PromptLine(message).ToLower();
+				var line = Input.ReadLine(message).ToLower();
 				
 				if (line == "y" || line == "n")
 				{
@@ -90,14 +84,19 @@ namespace Sharpknife.Desktop.Console.Utilities
 		/// <summary>
 		/// Prompts the console to press any key before continuing.
 		/// </summary>
-		public static void AnyKey()
+		public static void Wait()
 		{
 			Output.Warning("Press any key to continue.");
 
 			System.Console.ReadKey(true);
 		}
 
-		private static string PromptLine(string message)
+		/// <summary>
+		/// Reads a line from the console with the specified message.
+		/// </summary>
+		/// <param name="message">the message</param>
+		/// <returns>the result</returns>
+		public static string ReadLine(string message)
 		{
 			Output.Write(ConsoleColor.DarkGreen, string.Format("{0}: ", message));
 
