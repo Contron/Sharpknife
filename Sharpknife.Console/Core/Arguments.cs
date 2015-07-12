@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sharpknife.Desktop.Console.Core
+namespace Sharpknife.Console.Core
 {
 	/// <summary>
 	/// Represents a parser for command-line arguments.

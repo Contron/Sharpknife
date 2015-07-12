@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace Sharpknife.Desktop.Console.Utilities
+namespace Sharpknife.Console.Utilities
 {
 	/// <summary>
 	/// A collection of simplistic console input methods.
