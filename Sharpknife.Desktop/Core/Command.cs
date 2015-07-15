@@ -18,7 +18,7 @@ namespace Sharpknife.Desktop.Core
 		/// Creates a new <see cref="Command" /> to close the current window.
 		/// </summary>
 		/// <returns></returns>
-		public static Command CreateExit()
+		public static Command CreateClose()
 		{
 			return new Command(() => WindowService.Instance.CloseCurrent());
 		}
