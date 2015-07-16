@@ -29,7 +29,7 @@ namespace Sharpknife.Desktop.Models
 		/// </summary>
 		/// <param name="message">the message</param>
 		/// <param name="busy">the busy state</param>
-		public void Update(string message, bool busy)
+		public void Update(string message, bool busy = false)
 		{
 			this.Message = message;
 			this.Busy = busy;

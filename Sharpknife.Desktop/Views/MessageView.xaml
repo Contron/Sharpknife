@@ -4,7 +4,7 @@
 	</Window.DataContext>
 	<DockPanel>
 		<sdvc:ButtonsBox DockPanel.Dock="Bottom">
-			<Button Content="OK" Command="{Binding OkCommand}"></Button>
+			<Button Command="{Binding OkCommand}" Content="OK" IsDefault="True" IsCancel="True"></Button>
 		</sdvc:ButtonsBox>
 		<StackPanel Margin="10">
 			<TextBlock Text="{Binding Title}" FontSize="18" TextWrapping="Wrap"></TextBlock>
