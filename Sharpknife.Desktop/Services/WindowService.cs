@@ -20,7 +20,7 @@ namespace Sharpknife.Desktop.Services
 		/// </summary>
 		public WindowService()
 		{
-
+			this.windows = new List<Window>();
 		}
 
 		/// <summary>
@@ -34,7 +34,40 @@ namespace Sharpknife.Desktop.Services
 				throw new ArgumentNullException("window");
 			}
 
-			this.Show(window, false);
+			this.InvokeShow(window, false);
+		}
+
+		/// <summary>
+		/// Shows the specified window once.
+		/// </summary>
+		/// <param name="window"></param>
+		public void ShowOnce(Window window)
+		{
+			if (window == null)
+			{
+				throw new ArgumentNullException("window");
+			}
+
+			var duplicate = this.windows
+				.Where(child => child.GetType() == window.GetType())
+				.FirstOrDefault();
+
+			if (duplicate != null)
+			{
+				window.Close();
+
+				duplicate.Activate();
+				duplicate.Focus();
+
+				if (duplicate.WindowState == WindowState.Minimized)
+				{
+					duplicate.WindowState = WindowState.Normal;
+				}
+			}
+			else
+			{
+				this.InvokeShow(window, false);
+			}
 		}
 
 		/// <summary>
@@ -48,7 +81,7 @@ namespace Sharpknife.Desktop.Services
 				throw new ArgumentNullException("window");
 			}
 
-			this.Show(window, true);
+			this.InvokeShow(window, true);
 		}
 
 		/// <summary>
@@ -62,10 +95,7 @@ namespace Sharpknife.Desktop.Services
 				throw new ArgumentNullException("window");
 			}
 
-			window.Dispatcher.Invoke(() =>
-			{
-				window.Close();
-			});
+			this.InvokeClose(window);
 		}
 
 		/// <summary>
@@ -77,25 +107,25 @@ namespace Sharpknife.Desktop.Services
 
 			if (window != null)
 			{
-				this.Close(window);
+				this.InvokeClose(window);
 			}
 		}
 
 		/// <summary>
-		/// Returns the currently window.
+		/// Returns the currently active window.
 		/// </summary>
 		/// <returns>the window</returns>
 		public Window GetCurrent()
 		{
-			var window = Application.Current.Windows
+			return Application.Current.Windows
 				.OfType<Window>()
-				.FirstOrDefault(child => child.IsActive);
-
-			return window;
+				.FirstOrDefault(window => window.IsActive);
 		}
 
-		private void Show(Window window, bool modal)
+		private void InvokeShow(Window window, bool modal)
 		{
+			this.windows.Add(window);
+
 			window.Dispatcher.Invoke(() =>
 			{
 				window.Owner = this.GetCurrent();
@@ -111,6 +141,16 @@ namespace Sharpknife.Desktop.Services
 			});
 		}
 
+		private void InvokeClose(Window window)
+		{
+			this.windows.Remove(window);
+
+			window.Dispatcher.Invoke(() =>
+			{
+				window.Close();
+			});
+		}
+
 		/// <summary>
 		/// Gets the instance of the window service.
 		/// </summary>
@@ -123,5 +163,7 @@ namespace Sharpknife.Desktop.Services
 		}
 
 		private static readonly WindowService instance = new WindowService();
+
+		private List<Window> windows;
 	}
 }
