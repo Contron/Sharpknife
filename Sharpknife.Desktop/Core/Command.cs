@@ -58,10 +58,7 @@ namespace Sharpknife.Desktop.Core
 		/// </summary>
 		public void Execute(object parameter)
 		{
-			if (this.Action != null)
-			{
-				this.Action.Invoke();
-			}
+			this.Action?.Invoke();
 		}
 
 		/// <summary>
@@ -71,12 +68,7 @@ namespace Sharpknife.Desktop.Core
 		/// <returns>if the command can execute</returns>
 		public bool CanExecute(object parameter)
 		{
-			if (this.Predicate != null)
-			{
-				return this.Predicate.Invoke();
-			}
-
-			return true;
+			return this.Predicate?.Invoke() ?? true;
 		}
 
 		/// <summary>

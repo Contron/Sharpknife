@@ -22,7 +22,7 @@ namespace Sharpknife.Desktop.Core
 		}
 
 		/// <summary>
-		/// Returns the value of the specified property, or null if it does not exist.
+		/// Returns the value of the specified property.
 		/// </summary>
 		/// <param name="property">the property</param>
 		/// <returns>the value</returns>
@@ -30,10 +30,10 @@ namespace Sharpknife.Desktop.Core
 		{
 			if (property == null)
 			{
-				throw new ArgumentNullException(property);
+				throw new ArgumentNullException(nameof(property));
 			}
 
-			return this.properties.ContainsKey(property) ? this.properties[property] : null;
+			return this.properties?[property];
 		}
 
 		/// <summary>
@@ -45,7 +45,7 @@ namespace Sharpknife.Desktop.Core
 		{
 			if (property == null)
 			{
-				throw new ArgumentNullException(property);
+				throw new ArgumentNullException(nameof(property));
 			}
 
 			this.properties[property] = value;
@@ -59,10 +59,7 @@ namespace Sharpknife.Desktop.Core
 		/// <param name="property">the property</param>
 		protected void OnPropertyChanged(string property)
 		{
-			if (this.PropertyChanged != null)
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(property));
-			}
+			this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
 		}
 
 		/// <summary>

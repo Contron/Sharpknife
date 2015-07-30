@@ -31,7 +31,7 @@ namespace Sharpknife.Desktop.Services
 		{
 			if (window == null)
 			{
-				throw new ArgumentNullException("window");
+				throw new ArgumentNullException(nameof(window));
 			}
 
 			this.InvokeShow(window, false);
@@ -45,7 +45,7 @@ namespace Sharpknife.Desktop.Services
 		{
 			if (window == null)
 			{
-				throw new ArgumentNullException("window");
+				throw new ArgumentNullException(nameof(window));
 			}
 
 			var duplicate = this.windows
@@ -78,7 +78,7 @@ namespace Sharpknife.Desktop.Services
 		{
 			if (window == null)
 			{
-				throw new ArgumentNullException("window");
+				throw new ArgumentNullException(nameof(window));
 			}
 
 			this.InvokeShow(window, true);
@@ -92,7 +92,7 @@ namespace Sharpknife.Desktop.Services
 		{
 			if (window == null)
 			{
-				throw new ArgumentNullException("window");
+				throw new ArgumentNullException(nameof(window));
 			}
 
 			this.InvokeClose(window);

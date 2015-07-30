@@ -63,12 +63,10 @@ namespace Sharpknife.Desktop.Services
 		/// <param name="message">the message</param>
 		public void ShowMessage(string title, string message)
 		{
-			var view = new MessageView()
+			WindowService.Instance.ShowModally(new MessageView()
 			{
 				DataContext = new MessageViewModel(title, message)
-			};
-
-			WindowService.Instance.ShowModally(view);
+			});
 		}
 
 		/// <summary>

@@ -21,7 +21,7 @@ namespace Sharpknife.Utilities
 		{
 			if (path == null)
 			{
-				throw new ArgumentNullException(path);
+				throw new ArgumentNullException(nameof(path));
 			}
 
 			var directory = Path.GetDirectoryName(path);
@@ -71,7 +71,7 @@ namespace Sharpknife.Utilities
 		{
 			if (extension == null)
 			{
-				throw new ArgumentNullException("extension");
+				throw new ArgumentNullException(nameof(extension));
 			}
 
 			extension = extension.ToUpper();

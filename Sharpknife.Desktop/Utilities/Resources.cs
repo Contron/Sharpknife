@@ -21,7 +21,7 @@ namespace Sharpknife.Desktop.Utilities
 		{
 			if (path == null)
 			{
-				throw new ArgumentNullException("path");
+				throw new ArgumentNullException(nameof(path));
 			}
 
 			return new Uri(string.Format("pack://application:,,,/{0};component/{1}", Assembly.GetCallingAssembly().FullName, path));

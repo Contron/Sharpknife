@@ -28,7 +28,7 @@ namespace Sharpknife.Desktop.Services
 		{
 			if (notification == null)
 			{
-				throw new ArgumentNullException("notification");
+				throw new ArgumentNullException(nameof(notification));
 			}
 
 			if (!this.listeners.ContainsKey(notification))
@@ -48,12 +48,12 @@ namespace Sharpknife.Desktop.Services
 		{
 			if (notification == null)
 			{
-				throw new ArgumentNullException("notification");
+				throw new ArgumentNullException(nameof(notification));
 			}
 
 			if (action == null)
 			{
-				throw new ArgumentNullException("action");
+				throw new ArgumentNullException(nameof(action));
 			}
 
 			if (!this.listeners.ContainsKey(notification))
@@ -73,12 +73,12 @@ namespace Sharpknife.Desktop.Services
 		{
 			if (notification == null)
 			{
-				throw new ArgumentNullException("notification");
+				throw new ArgumentNullException(nameof(notification));
 			}
 
 			if (action == null)
 			{
-				throw new ArgumentNullException("action");
+				throw new ArgumentNullException(nameof(action));
 			}
 
 			if (!this.listeners.ContainsKey(notification))
@@ -97,7 +97,7 @@ namespace Sharpknife.Desktop.Services
 		{
 			if (notification == null)
 			{
-				throw new ArgumentNullException("notification");
+				throw new ArgumentNullException(nameof(notification));
 			}
 
 			if (!this.listeners.ContainsKey(notification))

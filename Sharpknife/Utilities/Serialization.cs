@@ -23,7 +23,7 @@ namespace Sharpknife.Utilities
 		{
 			if (file == null)
 			{
-				throw new ArgumentNullException("file");
+				throw new ArgumentNullException(nameof(file));
 			}
 
 			using (var stream = File.Open(file, FileMode.Open))
@@ -42,12 +42,12 @@ namespace Sharpknife.Utilities
 		{
 			if (file == null)
 			{
-				throw new ArgumentNullException("file");
+				throw new ArgumentNullException(nameof(file));
 			}
 
 			if (element == null)
 			{
-				throw new ArgumentNullException("element");
+				throw new ArgumentNullException(nameof(element));
 			}
 
 			using (var stream = File.Open(file, FileMode.Create))

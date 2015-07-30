@@ -32,7 +32,7 @@ namespace Sharpknife.Console.Core
 		{
 			if (arguments == null)
 			{
-				throw new ArgumentNullException("arguments");
+				throw new ArgumentNullException(nameof(arguments));
 			}
 
 			this.source = arguments;
@@ -76,7 +76,7 @@ namespace Sharpknife.Console.Core
 		{
 			if (name == null)
 			{
-				throw new ArgumentNullException("name");
+				throw new ArgumentNullException(nameof(name));
 			}
 
 			if (this.arguments.ContainsKey(name))
@@ -97,7 +97,7 @@ namespace Sharpknife.Console.Core
 		{
 			if (name == null)
 			{
-				throw new ArgumentNullException("name");
+				throw new ArgumentNullException(nameof(name));
 			}
 
 			if (this.flags.ContainsKey(name))

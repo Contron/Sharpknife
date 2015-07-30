@@ -49,7 +49,7 @@ namespace Sharpknife.Utilities
 		{
 			if (type == null)
 			{
-				throw new ArgumentNullException("type");
+				throw new ArgumentNullException(nameof(type));
 			}
 
 			var types = Assembly.GetAssembly(type).GetTypes()
