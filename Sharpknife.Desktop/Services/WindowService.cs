@@ -103,7 +103,7 @@ namespace Sharpknife.Desktop.Services
 		/// </summary>
 		public void CloseCurrent()
 		{
-			var window = this.GetCurrent();
+			var window = this.GetActive();
 
 			if (window != null)
 			{
@@ -115,7 +115,7 @@ namespace Sharpknife.Desktop.Services
 		/// Returns the currently active window.
 		/// </summary>
 		/// <returns>the window</returns>
-		public Window GetCurrent()
+		public Window GetActive()
 		{
 			return Application.Current.Windows
 				.OfType<Window>()
@@ -128,7 +128,7 @@ namespace Sharpknife.Desktop.Services
 
 			window.Dispatcher.Invoke(() =>
 			{
-				window.Owner = this.GetCurrent();
+				window.Owner = this.GetActive();
 
 				if (modal)
 				{

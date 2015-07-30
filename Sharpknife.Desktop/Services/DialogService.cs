@@ -30,7 +30,7 @@ namespace Sharpknife.Desktop.Services
 		/// <returns>the path</returns>
 		public string ShowFileDialog(FileDialog dialog)
 		{
-			var result = dialog.ShowDialog(WindowService.Instance.GetCurrent());
+			var result = dialog.ShowDialog(WindowService.Instance.GetActive());
 			var path = result.GetValueOrDefault() ? dialog.FileName : null;
 
 			return path;
@@ -45,7 +45,7 @@ namespace Sharpknife.Desktop.Services
 		{
 			dialog.Multiselect = true;
 
-			var result = dialog.ShowDialog(WindowService.Instance.GetCurrent());
+			var result = dialog.ShowDialog(WindowService.Instance.GetActive());
 			var paths = new List<string>();
 
 			if (result.GetValueOrDefault())

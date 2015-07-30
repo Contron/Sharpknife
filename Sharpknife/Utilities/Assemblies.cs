@@ -24,11 +24,11 @@ namespace Sharpknife.Utilities
 			var folder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
 			var assembly = Assembly.GetEntryAssembly().GetName().Name;
 
-			var rootPath = Path.Combine(folder, assembly);
-			var subdirectoryPath = Path.Combine(subdirectories);
-			var finalPath = Path.Combine(rootPath, subdirectoryPath);
+			var root = Path.Combine(folder, assembly);
+			var child = Path.Combine(subdirectories);
+			var final = Path.Combine(root, child);
 
-			return finalPath;
+			return final;
 		}
 
 		/// <summary>
@@ -45,7 +45,7 @@ namespace Sharpknife.Utilities
 		/// </summary>
 		/// <param name="type">the type</param>
 		/// <returns>the sub types</returns>
-		public static List<Type> GetSubTypesOf(Type type)
+		public static List<Type> GetSubTypes(Type type)
 		{
 			if (type == null)
 			{

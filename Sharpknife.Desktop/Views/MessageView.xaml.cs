@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -26,6 +27,11 @@ namespace Sharpknife.Desktop.Views
 		public MessageView()
 		{
 			this.InitializeComponent();
+		}
+
+		private void WindowLoaded(object sender, RoutedEventArgs eventArgs)
+		{
+			SystemSounds.Beep.Play();
 		}
 	}
 }

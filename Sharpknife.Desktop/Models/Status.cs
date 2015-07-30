@@ -40,8 +40,7 @@ namespace Sharpknife.Desktop.Models
 		/// </summary>
 		public void Reset()
 		{
-			this.Message = "Ready";
-			this.Busy = false;
+			this.Update("Ready");
 		}
 
 		/// <summary>

@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Sharpknife</RootNamespace>
     <AssemblyName>Sharpknife</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -56,7 +56,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities\Assemblies.cs" />
     <Compile Include="Utilities\Files.cs" />
-    <Compile Include="Utilities\Serialization.cs" />
     <Compile Include="Utilities\Wmi.cs" />
   </ItemGroup>
   <ItemGroup />
