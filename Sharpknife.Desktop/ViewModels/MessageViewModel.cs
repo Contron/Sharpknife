@@ -51,7 +51,7 @@ namespace Sharpknife.Desktop.ViewModels
 		{
 			get
 			{
-				return new Command(() => WindowService.Instance.CloseCurrent());
+				return Command.CreateClose();
 			}
 		}
 	}
