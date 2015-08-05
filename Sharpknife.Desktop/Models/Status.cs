@@ -71,8 +71,8 @@ namespace Sharpknife.Desktop.Models
 			{
 				this.Set(value);
 
-				this.OnPropertyChanged("Visibility");
-				this.OnPropertyChanged("Enabled");
+				this.Notify("Visibility");
+				this.Notify("Enabled");
 			}
 		}
 
