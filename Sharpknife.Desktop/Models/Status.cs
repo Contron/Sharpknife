@@ -71,15 +71,27 @@ namespace Sharpknife.Desktop.Models
 			{
 				this.Set(value);
 
-				this.Notify("Visibility");
-				this.Notify("Enabled");
+				this.Notify(nameof(this.ControlsVisibility));
+				this.Notify(nameof(this.BusyVisibility));
+				this.Notify(nameof(this.Busy));
 			}
 		}
 
 		/// <summary>
-		/// Gets the visibility of controls.
+		/// Gets the control visibility.
 		/// </summary>
-		public Visibility Visibility
+		public Visibility ControlsVisibility
+		{
+			get
+			{
+				return this.Busy ? Visibility.Collapsed : Visibility.Visible;
+			}
+		}
+
+		/// <summary>
+		/// Gets the busy visibility.
+		/// </summary>
+		public Visibility BusyVisibility
 		{
 			get
 			{

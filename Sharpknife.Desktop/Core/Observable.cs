@@ -33,7 +33,12 @@ namespace Sharpknife.Desktop.Core
 				throw new ArgumentNullException(nameof(property));
 			}
 
-			return this.properties?[property];
+			if (this.properties.ContainsKey(property))
+			{
+				return this.properties[property];
+			}
+
+			return null;
 		}
 
 		/// <summary>
