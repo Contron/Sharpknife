@@ -41,7 +41,7 @@ namespace Sharpknife.Desktop.Services
 		/// </summary>
 		/// <param name="dialog">the dialog</param>
 		/// <returns>the paths</returns>
-		public List<string> ShowMultipleFileDialog(OpenFileDialog dialog)
+		public List<string> ShowMultipleSelectionFileDialog(OpenFileDialog dialog)
 		{
 			dialog.Multiselect = true;
 

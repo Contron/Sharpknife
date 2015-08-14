@@ -1,6 +1,4 @@
-﻿using Microsoft.Win32;
-using Sharpknife.Desktop.Views;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -99,9 +97,9 @@ namespace Sharpknife.Desktop.Services
 		}
 
 		/// <summary>
-		/// Closes the current window.
+		/// Closes the currently active window.
 		/// </summary>
-		public void CloseCurrent()
+		public void CloseActive()
 		{
 			var window = this.GetActive();
 
@@ -129,6 +127,7 @@ namespace Sharpknife.Desktop.Services
 			window.Dispatcher.Invoke(() =>
 			{
 				window.Owner = this.GetActive();
+				window.ShowInTaskbar = !modal;
 
 				if (modal)
 				{

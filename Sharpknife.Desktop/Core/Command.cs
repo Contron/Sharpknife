@@ -20,7 +20,7 @@ namespace Sharpknife.Desktop.Core
 		/// <returns></returns>
 		public static Command CreateClose()
 		{
-			return new Command(() => WindowService.Instance.CloseCurrent());
+			return new Command(() => WindowService.Instance.CloseActive());
 		}
 
 		/// <summary>

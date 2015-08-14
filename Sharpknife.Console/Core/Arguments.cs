@@ -79,7 +79,12 @@ namespace Sharpknife.Console.Core
 				throw new ArgumentNullException(nameof(name));
 			}
 
-			return this.arguments?[name] ?? placeholder;
+			if (this.arguments.ContainsKey(name))
+			{
+				return this.arguments[name];
+			}
+
+			return placeholder;
 		}
 
 		/// <summary>
@@ -95,7 +100,12 @@ namespace Sharpknife.Console.Core
 				throw new ArgumentNullException(nameof(name));
 			}
 
-			return this.flags?[name] ?? placeholder;
+			if (this.flags.ContainsKey(name))
+			{
+				return this.flags[name];
+			}
+
+			return placeholder;
 		}
 
 		private string[] source;

@@ -1,5 +1,4 @@
 ﻿using Sharpknife.Desktop.Core;
-using Sharpknife.Desktop.Services;
 using Sharpknife.Utilities;
 using System;
 using System.Collections.Generic;
