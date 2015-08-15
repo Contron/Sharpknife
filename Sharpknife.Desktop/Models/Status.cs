@@ -4,12 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows;
 
 namespace Sharpknife.Desktop.Models
 {
 	/// <summary>
-	/// Represents the status of a window with a message, and a busy indicator.
+	/// Represents the status of a window with a message and a busy status.
 	/// </summary>
 	public class Status : Observable
 	{
@@ -70,43 +69,6 @@ namespace Sharpknife.Desktop.Models
 			set
 			{
 				this.Set(value);
-
-				this.Notify(nameof(this.ControlsVisibility));
-				this.Notify(nameof(this.BusyVisibility));
-				this.Notify(nameof(this.Busy));
-			}
-		}
-
-		/// <summary>
-		/// Gets the control visibility.
-		/// </summary>
-		public Visibility ControlsVisibility
-		{
-			get
-			{
-				return this.Busy ? Visibility.Collapsed : Visibility.Visible;
-			}
-		}
-
-		/// <summary>
-		/// Gets the busy visibility.
-		/// </summary>
-		public Visibility BusyVisibility
-		{
-			get
-			{
-				return this.Busy ? Visibility.Visible : Visibility.Collapsed;
-			}
-		}
-
-		/// <summary>
-		/// Gets if the controls are enabled.
-		/// </summary>
-		public bool Enabled
-		{
-			get
-			{
-				return !this.Busy;
 			}
 		}
 	}

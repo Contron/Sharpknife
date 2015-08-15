@@ -16,14 +16,6 @@ namespace Sharpknife.Desktop.Services
 	public class DialogService
 	{
 		/// <summary>
-		/// Creates a new dialog service.
-		/// </summary>
-		public DialogService()
-		{
-
-		}
-
-		/// <summary>
 		/// Shows a file dialog.
 		/// </summary>
 		/// <param name="dialog">the dialog</param>
