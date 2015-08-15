@@ -26,8 +26,8 @@ namespace Sharpknife.Desktop.ViewModels
 			var information = Assemblies.GetInformation();
 
 			this.Name = information.ProductName;
-			this.Version = string.Format("Version {0}", information.FileVersion);
-			this.Copyright = string.Format("Copyright {0}", information.LegalCopyright);
+			this.Version = $"Version {information.FileVersion}";
+			this.Copyright = $"Copyright {information.LegalCopyright}";
 		}
 
 		public string Name
