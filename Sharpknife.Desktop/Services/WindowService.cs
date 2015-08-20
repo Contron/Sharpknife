@@ -13,10 +13,7 @@ namespace Sharpknife.Desktop.Services
 	/// </summary>
 	public class WindowService
 	{
-		/// <summary>
-		/// Creates a new window service.
-		/// </summary>
-		public WindowService()
+		private WindowService()
 		{
 			this.windows = new List<Window>();
 		}
@@ -32,7 +29,7 @@ namespace Sharpknife.Desktop.Services
 				throw new ArgumentNullException(nameof(window));
 			}
 
-			this.InvokeShow(window, false);
+			this.DoShow(window, false);
 		}
 
 		/// <summary>
@@ -64,7 +61,7 @@ namespace Sharpknife.Desktop.Services
 			}
 			else
 			{
-				this.InvokeShow(window, false);
+				this.DoShow(window, false);
 			}
 		}
 
@@ -79,7 +76,7 @@ namespace Sharpknife.Desktop.Services
 				throw new ArgumentNullException(nameof(window));
 			}
 
-			this.InvokeShow(window, true);
+			this.DoShow(window, true);
 		}
 
 		/// <summary>
@@ -93,7 +90,7 @@ namespace Sharpknife.Desktop.Services
 				throw new ArgumentNullException(nameof(window));
 			}
 
-			this.InvokeClose(window);
+			this.DoClose(window);
 		}
 
 		/// <summary>
@@ -105,7 +102,7 @@ namespace Sharpknife.Desktop.Services
 
 			if (window != null)
 			{
-				this.InvokeClose(window);
+				this.DoClose(window);
 			}
 		}
 
@@ -120,7 +117,7 @@ namespace Sharpknife.Desktop.Services
 				.FirstOrDefault(window => window.IsActive);
 		}
 
-		private void InvokeShow(Window window, bool modal)
+		private void DoShow(Window window, bool modal)
 		{
 			this.windows.Add(window);
 
@@ -140,7 +137,7 @@ namespace Sharpknife.Desktop.Services
 			});
 		}
 
-		private void InvokeClose(Window window)
+		private void DoClose(Window window)
 		{
 			this.windows.Remove(window);
 

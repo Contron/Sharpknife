@@ -15,6 +15,11 @@ namespace Sharpknife.Desktop.Services
 	/// </summary>
 	public class DialogService
 	{
+		private DialogService()
+		{
+
+		}
+
 		/// <summary>
 		/// Shows a file dialog.
 		/// </summary>

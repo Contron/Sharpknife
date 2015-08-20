@@ -11,10 +11,7 @@ namespace Sharpknife.Desktop.Services
 	/// </summary>
 	public class NotificationService
 	{
-		/// <summary>
-		/// Creates a new notification service.
-		/// </summary>
-		public NotificationService()
+		private NotificationService()
 		{
 			this.listeners = new Dictionary<string, List<Action<object>>>();
 		}
@@ -24,7 +21,7 @@ namespace Sharpknife.Desktop.Services
 		/// </summary>
 		/// <param name="notification">the notification</param>
 		/// <param name="parameter">the parameter</param>
-		public void Post(string notification, object parameter)
+		public void Post(string notification, object parameter = null)
 		{
 			if (notification == null)
 			{
