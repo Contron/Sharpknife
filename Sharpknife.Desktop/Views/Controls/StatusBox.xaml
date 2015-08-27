@@ -4,18 +4,18 @@
     </UserControl.Resources>
     <StatusBar>
         <StatusBarItem HorizontalAlignment="Left">
-            <TextBlock Text="{Binding ElementName=Control, Path=Status.Message, FallbackValue=Message}" />
+            <TextBlock Text="{Binding Status.Message, ElementName=Control}" />
         </StatusBarItem>
         <StatusBarItem HorizontalAlignment="Right">
             <StackPanel Orientation="Horizontal">
-                <ItemsControl ItemsSource="{Binding ElementName=Control, Path=Children}">
+                <ItemsControl ItemsSource="{Binding Children, ElementName=Control}">
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>
                             <StackPanel Orientation="Horizontal" />
                         </ItemsPanelTemplate>
                     </ItemsControl.ItemsPanel>
                 </ItemsControl>
-                <ProgressBar Visibility="{Binding Converter={StaticResource BoolVisibilityConverter}, ElementName=Control, Path=Status.Busy}" IsIndeterminate="True" Width="100" Height="10" Margin="10, 0, 0, 0" />
+                <ProgressBar Visibility="{Binding Status.Busy, ElementName=Control, Converter={StaticResource BoolVisibilityConverter}}" IsIndeterminate="True" Width="100" Height="10" Margin="10, 0, 0, 0" />
             </StackPanel>
         </StatusBarItem>
     </StatusBar>

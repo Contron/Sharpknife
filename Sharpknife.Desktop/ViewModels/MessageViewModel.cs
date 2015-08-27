@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Sharpknife.Desktop.ViewModels
 {
-	internal class MessageViewModel : Observable
+	class MessageViewModel : Observable
 	{
 		public MessageViewModel(string title, string message)
 		{

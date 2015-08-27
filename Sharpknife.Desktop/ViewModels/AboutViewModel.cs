@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Sharpknife.Desktop.ViewModels
 {
-	internal class AboutViewModel : Observable
+	class AboutViewModel : Observable
 	{
 		public AboutViewModel()
 		{
