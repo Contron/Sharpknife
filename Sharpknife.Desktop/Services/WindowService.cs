@@ -43,9 +43,7 @@ namespace Sharpknife.Desktop.Services
 				throw new ArgumentNullException(nameof(window));
 			}
 
-			var duplicate = this.windows
-				.Where(child => child.GetType() == window.GetType())
-				.FirstOrDefault();
+			var duplicate = this.windows.FirstOrDefault(child => child.GetType() == window.GetType());
 
 			if (duplicate != null)
 			{

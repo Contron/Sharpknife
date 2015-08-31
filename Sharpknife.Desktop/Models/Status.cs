@@ -28,7 +28,7 @@ namespace Sharpknife.Desktop.Models
 		/// </summary>
 		/// <param name="message">the message</param>
 		/// <param name="busy">the busy state</param>
-		public void Update(string message, bool busy = false)
+		public void Update(string message, bool busy = true)
 		{
 			this.Message = message;
 			this.Busy = busy;
@@ -39,7 +39,7 @@ namespace Sharpknife.Desktop.Models
 		/// </summary>
 		public void Reset()
 		{
-			this.Update("Ready");
+			this.Update("Ready", false);
 		}
 
 		/// <summary>
