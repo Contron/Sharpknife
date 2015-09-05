@@ -52,7 +52,7 @@ namespace Sharpknife.Console.Utilities
 			var information = Assemblies.GetInformation();
 
 			Output.Message(information.ProductName);
-			Output.Message(string.Format("Version {0}, Copyright {1}", information.FileVersion, information.LegalCopyright));
+			Output.Message($"Version {information.FileVersion}, Copyright {information.LegalCopyright}");
 		}
 
 		/// <summary>

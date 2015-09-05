@@ -34,7 +34,8 @@ namespace Sharpknife.Utilities
 			while (File.Exists(result) || count <= 0)
 			{
 				count++;
-				result = Path.Combine(directory, string.Format("{0}{1}{2}", name, count, extension));
+
+				result = Path.Combine(directory, $"{name}{count}{extension}");
 			}
 
 			return result;
@@ -60,76 +61,6 @@ namespace Sharpknife.Utilities
 			var result = string.Format("{0:0} {1}", size, suffix);
 
 			return result;
-		}
-
-		/// <summary>
-		/// Returns a description of the specified extension.
-		/// </summary>
-		/// <param name="extension">the extension</param>
-		/// <returns>the description</returns>
-		public static string GetDescription(string extension)
-		{
-			if (extension == null)
-			{
-				throw new ArgumentNullException(nameof(extension));
-			}
-
-			extension = extension.ToUpper();
-			extension = extension.Replace(".", string.Empty);
-
-			switch (extension)
-			{
-				case "PNG":
-				case "JPG":
-				case "JPEG":
-				case "GIF":
-				{
-					return "Image File";
-				}
-				case "MP3":
-				case "WAV":
-				{
-					return "Audio File";
-				}
-				case "MPG":
-				case "MP4":
-				case "WEBM":
-				case "AVI":
-				{
-					return "Video File";
-				}
-				case "RTF":
-				case "TXT":
-				{
-					return "Text Document";
-				}
-				case "CS":
-				case "VB":
-				case "C":
-				case "CPP":
-				case "D":
-				case "M":
-				case "H":
-				case "JS":
-				case "PY":
-				case "LUA":
-				{
-					return "Code Document";
-				}
-				case "HTM":
-				case "HTML":
-				{
-					return "HTML Document";
-				}
-				case "XML":
-				{
-					return "XML Document";
-				}
-				default:
-				{
-					return string.Format("{0} File", extension);
-				}
-			}
 		}
 	}
 }
