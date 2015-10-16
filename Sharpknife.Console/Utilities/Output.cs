@@ -51,8 +51,19 @@ namespace Sharpknife.Console.Utilities
 		{
 			var information = Assemblies.GetInformation();
 
-			Output.Message(information.ProductName);
-			Output.Message($"Version {information.FileVersion}, Copyright {information.LegalCopyright}");
+			Output.Warning(information.ProductName);
+			Output.Warning($"Version {information.FileVersion}, Copyright {information.LegalCopyright}");
+		}
+
+		/// <summary>
+		/// Prints a separator line to the console.
+		/// The line will be the exact length of the window's width.
+		/// </summary>
+		public static void Separator()
+		{
+			var width = System.Console.BufferWidth - 12;
+
+			Output.Message(string.Concat(Enumerable.Repeat("=", width)));
 		}
 
 		/// <summary>
@@ -72,9 +83,11 @@ namespace Sharpknife.Console.Utilities
 		/// <param name="message">the message</param>
 		public static void Write(ConsoleColor colour, string message)
 		{
+			var time = DateTime.Now.ToString("HH:mm:ss");
+
 			System.Console.ForegroundColor = colour;
-			System.Console.Write(string.Format("[{0}] {1}", DateTime.Now.ToString("HH:mm:ss"), message));
-			System.Console.ResetColor();
+			System.Console.Write($"[{time}] {message}");
+            System.Console.ResetColor();
 		}
 	}
 }

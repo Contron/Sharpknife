@@ -98,7 +98,7 @@ namespace Sharpknife.Console.Utilities
 		/// <returns>the result</returns>
 		public static string ReadLine(string message)
 		{
-			Output.Write(ConsoleColor.DarkGreen, string.Format("{0}: ", message));
+			Output.Write(ConsoleColor.Green, $"{message}: ");
 
 			return System.Console.ReadLine();
 		}
