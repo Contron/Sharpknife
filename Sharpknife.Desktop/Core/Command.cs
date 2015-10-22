@@ -39,8 +39,8 @@ namespace Sharpknife.Desktop.Core
 		/// <param name="predicate">the predicate</param>
 		public Command(Action action, Func<bool> predicate)
 		{
-			this.Action = action;
-			this.Predicate = predicate;
+			this.action = action;
+			this.predicate = predicate;
 		}
 
 		/// <summary>
@@ -56,9 +56,9 @@ namespace Sharpknife.Desktop.Core
 		/// Executes the command with the specified parameter.
 		/// <param name="parameter">the parameter</param>
 		/// </summary>
-		public void Execute(object parameter)
+		public void Execute(object parameter = null)
 		{
-			this.Action?.Invoke();
+			this.action?.Invoke();
 		}
 
 		/// <summary>
@@ -66,9 +66,9 @@ namespace Sharpknife.Desktop.Core
 		/// </summary>
 		/// <param name="parameter">the parameter</param>
 		/// <returns>if the command can execute</returns>
-		public bool CanExecute(object parameter)
+		public bool CanExecute(object parameter = null)
 		{
-			return this.Predicate?.Invoke() ?? true;
+			return this.predicate?.Invoke() ?? true;
 		}
 
 		/// <summary>
@@ -86,22 +86,7 @@ namespace Sharpknife.Desktop.Core
 			}
 		}
 
-		/// <summary>
-		/// Gets or sets the action.
-		/// </summary>
-		public Action Action
-		{
-			get;
-			set;
-		}
-
-		/// <summary>
-		/// Gets or sets the predicate.
-		/// </summary>
-		public Func<bool> Predicate
-		{
-			get;
-			set;
-		}
+		private Action action;
+		private Func<bool> predicate;
 	}
 }
