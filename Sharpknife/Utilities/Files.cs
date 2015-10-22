@@ -58,7 +58,7 @@ namespace Sharpknife.Utilities
 			}
 
 			var suffix = sizes[order];
-			var result = string.Format("{0:0} {1}", size, suffix);
+			var result = $"{size:0} {suffix}";
 
 			return result;
 		}
