@@ -48,7 +48,7 @@ namespace Sharpknife.Utilities
 		/// <returns>the result</returns>
 		public static string GetSize(long size)
 		{
-			var sizes = new string[] { "bytes", "KB", "MB", "GB", "TB", "PB", "EB" };
+			var sizes = new string[] { "B", "KB", "MB", "GB", "TB", "PB", "EB" };
 			var order = 0;
 
 			while (size >= 1024 && order + 1 < sizes.Length)
