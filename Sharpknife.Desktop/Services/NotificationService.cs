@@ -33,7 +33,10 @@ namespace Sharpknife.Desktop.Services
 				return;
 			}
 
-			this.listeners[notification].ForEach(action => action.Invoke(parameter));
+			foreach (var listener in this.listeners[notification])
+			{
+				listener.Invoke(parameter);
+			}
 		}
 
 		/// <summary>

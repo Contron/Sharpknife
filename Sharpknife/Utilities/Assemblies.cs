@@ -53,7 +53,7 @@ namespace Sharpknife.Utilities
 			}
 
 			var types = Assembly.GetAssembly(type).GetTypes()
-				.Where(currentType => currentType.IsSubclassOf(type))
+				.Where(current => current.IsSubclassOf(type))
 				.ToList();
 
 			return types;

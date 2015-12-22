@@ -69,10 +69,13 @@ namespace Sharpknife.Console.Utilities
 			while (true)
 			{
 				var line = Input.ReadLine(message).ToLower();
+
+				var yes = line == "y";
+				var no = line == "n";
 				
-				if (line == "y" || line == "n")
+				if (yes || no)
 				{
-					result = line == "y";
+					result = yes;
 
 					break;
 				}

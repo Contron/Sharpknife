@@ -28,9 +28,16 @@ namespace Sharpknife.Desktop.Services
 		public string ShowFileDialog(FileDialog dialog)
 		{
 			var result = dialog.ShowDialog(WindowService.Instance.GetActive());
-			var path = result.GetValueOrDefault() ? dialog.FileName : null;
 
-			return path;
+			if (result != null)
+			{
+				if (result.Value)
+				{
+					return dialog.FileName;
+				}
+			}
+
+			return null;
 		}
 
 		/// <summary>
@@ -45,9 +52,12 @@ namespace Sharpknife.Desktop.Services
 			var result = dialog.ShowDialog(WindowService.Instance.GetActive());
 			var paths = new List<string>();
 
-			if (result.GetValueOrDefault())
+			if (result != null)
 			{
-				paths.AddRange(dialog.FileNames);
+				if (result.Value)
+				{
+					paths.AddRange(dialog.FileNames);
+				}
 			}
 
 			return paths;
