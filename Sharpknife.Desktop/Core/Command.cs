@@ -72,6 +72,18 @@ namespace Sharpknife.Desktop.Core
 		}
 
 		/// <summary>
+		/// Attempts to execute the command, only if <see cref="CanExecute(object)" /> returns <c>true</c>.
+		/// <param name="parameter">the parameter</param>
+		/// </summary>
+		public void TryExecute(object parameter = null)
+		{
+			if (this.CanExecute(parameter))
+			{
+				this.Execute(parameter);
+			}
+		}
+
+		/// <summary>
 		/// Occurs when the can execute state changes.
 		/// </summary>
 		public event EventHandler CanExecuteChanged
