@@ -16,8 +16,8 @@ namespace Sharpknife.Desktop.Utilities
 		/// Locates the resource at the specified path.
 		/// </summary>
 		/// <param name="path">the path</param>
-		/// <returns>the URI</returns>
-		public static Uri Locate(string path)
+		/// <returns>the path</returns>
+		public static string Locate(string path)
 		{
 			if (path == null)
 			{
@@ -26,7 +26,7 @@ namespace Sharpknife.Desktop.Utilities
 
 			var name = Assembly.GetCallingAssembly().FullName;
 
-			return new Uri($"pack://application:,,,/{name};component/{path}");
+			return $"pack://application:,,,/{name};component/{path}";
 		}
 	}
 }
