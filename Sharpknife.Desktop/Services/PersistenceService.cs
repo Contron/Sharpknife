@@ -45,7 +45,7 @@ namespace Sharpknife.Desktop.Services
 
 			if (result == null)
 			{
-				throw new InvalidOperationException("Result is not the valid type.");
+				throw new InvalidOperationException("Invalid result.");
 			}
 
 			return result;
@@ -65,26 +65,24 @@ namespace Sharpknife.Desktop.Services
 		private T Load<T>(string name) where T : class, new()
 		{
 			var path = this.GetPath(name);
+			var result = default(T);
 
-			if (!File.Exists(path))
+			if (File.Exists(path))
 			{
-				return new T();
-			}
+				var serializer = new XmlSerializer(typeof(T));
 
-			var serializer = new XmlSerializer(typeof(T));
-
-			using (var stream = File.Open(path, FileMode.Open))
-			{
-				var instance = serializer.Deserialize(stream);
-				var result = instance as T;
-
-				if (result == null)
+				using (var stream = File.Open(path, FileMode.Open))
 				{
-					throw new InvalidOperationException("Loaded data is not the valid type.");
+					result = serializer.Deserialize(stream) as T;
 				}
-
-				return result;
 			}
+
+			if (result == null)
+			{
+				result = new T();
+			}
+
+			return result;
 		}
 
 		private void Save(string name, object instance)
