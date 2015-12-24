@@ -13,6 +13,7 @@ namespace Sharpknife.Core
 	/// Represents a manager to load and save an element by using XML serialization.
 	/// </summary>
 	/// <typeparam name="T">the type</typeparam>
+	[Obsolete("Use the persistence service instead.")]
 	public class Manager<T> where T : new()
 	{
 		/// <summary>

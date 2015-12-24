@@ -15,30 +15,9 @@ namespace Sharpknife.Desktop.Services
 	/// </summary>
 	public class PersistenceService
 	{
-		class Entry
-		{
-			public Entry(string name, object instance)
-			{
-				this.Name = name;
-				this.Instance = instance;
-			}
-
-			public string Name
-			{
-				get;
-				set;
-			}
-
-			public object Instance
-			{
-				get;
-				set;
-			}
-		}
-
 		private PersistenceService()
 		{
-			this.entries = new List<Entry>();
+			this.instances = new Dictionary<string, object>();
 
 			this.Hook();
 		}
@@ -49,69 +28,78 @@ namespace Sharpknife.Desktop.Services
 		/// <typeparam name="T">the type</typeparam>
 		/// <param name="name">the name</param>
 		/// <returns>the object</returns>
-		public T Get<T>(string name)
+		public T Get<T>(string name) where T : class, new()
 		{
-			var entry = this.entries.FirstOrDefault(current => current.Name == name);
-
-			if (entry == null)
+			if (name == null)
 			{
-				entry = this.Store(name, typeof(T));
+				throw new ArgumentNullException(nameof(name));
 			}
 
-			return (T) entry.Instance;
+			if (!this.instances.ContainsKey(name))
+			{
+				this.instances[name] = this.Load<T>(name);
+			}
+
+			var instance = this.instances[name];
+			var result = instance as T;
+
+			if (result == null)
+			{
+				throw new InvalidOperationException("Result is not the valid type.");
+			}
+
+			return result;
 		}
 
 		/// <summary>
-		/// Syncs all loaded persistence objects and writes them to file.
+		/// Syncs all currently loaded persistence objects by writing them to file.
 		/// </summary>
 		public void Sync()
 		{
-			foreach (var entry in this.entries)
+			foreach (var entry in this.instances)
 			{
-				this.Save(entry.Name, entry.Instance, entry.Instance.GetType());
+				this.Save(entry.Key, entry.Value);
 			}
 		}
 
-		private Entry Store(string name, Type type)
-		{
-			var instance = this.Load(name, type);
-			var entry = new Entry(name, instance);
-
-			this.entries.Add(entry);
-
-			return entry;
-		}
-
-		private object Load(string name, Type type)
+		private T Load<T>(string name) where T : class, new()
 		{
 			var path = this.GetPath(name);
 
 			if (!File.Exists(path))
 			{
-				return Activator.CreateInstance(type);
+				return new T();
 			}
 
-			var serializer = new XmlSerializer(type);
+			var serializer = new XmlSerializer(typeof(T));
 
 			using (var stream = File.Open(path, FileMode.Open))
 			{
-				return serializer.Deserialize(stream);
+				var instance = serializer.Deserialize(stream);
+				var result = instance as T;
+
+				if (result == null)
+				{
+					throw new InvalidOperationException("Loaded data is not the valid type.");
+				}
+
+				return result;
 			}
 		}
 
-		private void Save(string name, object instance, Type type)
+		private void Save(string name, object instance)
 		{
 			var path = this.GetPath(name);
-			var directory = Path.GetExtension(path);
+			var directory = Path.GetDirectoryName(path);
 
 			if (!Directory.Exists(directory))
 			{
 				Directory.CreateDirectory(directory);
 			}
 
-			var serializer = new XmlSerializer(type);
+			var serializer = new XmlSerializer(instance.GetType());
 
-			using (var stream = File.Open(path, FileMode.Open))
+			using (var stream = File.Open(path, FileMode.Create))
 			{
 				serializer.Serialize(stream, instance);
 			}
@@ -122,9 +110,22 @@ namespace Sharpknife.Desktop.Services
 			return Path.Combine(Assemblies.GetApplicationPath(), $"{name}.xml");
 		}
 
+		private void TrySync()
+		{
+			try
+			{
+				this.Sync();
+			}
+			catch
+			{
+				// Failed to save one or more files.
+				// Perhaps throw the exception here?
+			}
+		}
+
 		private void Hook()
 		{
-			Application.Current.Exit += (sender, eventArgs) => this.Sync();
+			Application.Current.Exit += (sender, eventArgs) => this.TrySync();
 		}
 
 		/// <summary>
@@ -140,6 +141,6 @@ namespace Sharpknife.Desktop.Services
 
 		private static readonly PersistenceService instance = new PersistenceService();
 
-		private List<Entry> entries;
+		private Dictionary<string, object> instances;
 	}
 }
