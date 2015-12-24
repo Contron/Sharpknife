@@ -15,20 +15,15 @@ namespace Sharpknife.Utilities
 	public static class Assemblies
 	{
 		/// <summary>
-		/// Returns the path belonging to the application, optionally with the specified subdirectories.
+		/// Returns the storage path belonging to the application.
 		/// </summary>
-		/// <param name="subdirectories">the subdirectories</param>
 		/// <returns>the path</returns>
-		public static string GetApplicationPath(params string[] subdirectories)
+		public static string GetApplicationPath()
 		{
 			var folder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
 			var assembly = Assembly.GetEntryAssembly().GetName().Name;
 
-			var root = Path.Combine(folder, assembly);
-			var child = Path.Combine(subdirectories);
-			var final = Path.Combine(root, child);
-
-			return final;
+			return Path.Combine(folder, assembly);
 		}
 
 		/// <summary>
