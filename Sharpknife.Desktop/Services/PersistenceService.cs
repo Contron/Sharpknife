@@ -52,6 +52,16 @@ namespace Sharpknife.Desktop.Services
 		}
 
 		/// <summary>
+		/// Gets an object from persistence with the specified type, using its name.
+		/// </summary>
+		/// <typeparam name="T">the type</typeparam>
+		/// <returns>the object</returns>
+		public T Get<T>() where T : class, new()
+		{
+			return this.Get<T>(typeof(T).Name);
+		}
+
+		/// <summary>
 		/// Syncs all currently loaded persistence objects by writing them to file.
 		/// </summary>
 		public void Sync()
