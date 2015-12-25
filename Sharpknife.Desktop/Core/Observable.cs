@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace Sharpknife.Desktop.Core
 {
 	/// <summary>
-	/// Represents an object that can be observed for changes.
+	/// Represents an implementation of <see cref="INotifyPropertyChanged" /> to form an 'observable' object.
 	/// </summary>
 	public abstract class Observable : INotifyPropertyChanged
 	{

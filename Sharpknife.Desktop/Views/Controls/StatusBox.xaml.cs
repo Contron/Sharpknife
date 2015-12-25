@@ -19,7 +19,7 @@ using System.Windows.Shapes;
 namespace Sharpknife.Desktop.Views.Controls
 {
 	/// <summary>
-	/// Represents a status box with a message and progress bar, to be paired with a <see cref="Status"/>.
+	/// Represents a status box with a message and progress bar, to be paired with a <see cref="Status" />.
 	/// </summary>
 	[ContentProperty("Children")]
 	public partial class StatusBox : UserControl

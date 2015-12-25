@@ -40,12 +40,11 @@ namespace Sharpknife.Desktop.Services
 				this.instances[name] = this.Load<T>(name);
 			}
 
-			var instance = this.instances[name];
-			var result = instance as T;
+			var result = this.instances[name] as T;
 
 			if (result == null)
 			{
-				throw new InvalidOperationException("Result is not the valid type.");
+				throw new InvalidOperationException("Data is not the valid type.");
 			}
 
 			return result;
@@ -85,12 +84,11 @@ namespace Sharpknife.Desktop.Services
 
 			using (var stream = File.Open(path, FileMode.Open))
 			{
-				var instance = serializer.Deserialize(stream);
-				var result = instance as T;
+				var result = serializer.Deserialize(stream) as T;
 
 				if (result == null)
 				{
-					throw new InvalidOperationException("Loaded data is not the valid type.");
+					throw new InvalidOperationException("Failed to deserialize data.");
 				}
 
 				return result;

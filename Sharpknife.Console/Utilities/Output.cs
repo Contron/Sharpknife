@@ -15,7 +15,7 @@ namespace Sharpknife.Console.Utilities
 	public static class Output
 	{
 		/// <summary>
-		/// Prints a message to the console.
+		/// Prints a message to the <see cref="System.Console" />.
 		/// </summary>
 		/// <param name="message">the message</param>
 		public static void Message(string message)
@@ -24,7 +24,7 @@ namespace Sharpknife.Console.Utilities
 		}
 
 		/// <summary>
-		/// Prints a warning message to the console.
+		/// Prints a warning message to the <see cref="System.Console" />.
 		/// </summary>
 		/// <param name="message">the message</param>
 		public static void Warning(string message)
@@ -33,7 +33,7 @@ namespace Sharpknife.Console.Utilities
 		}
 
 		/// <summary>
-		/// Prints an error message to the console.
+		/// Prints an error message to the <see cref="System.Console" />.
 		/// </summary>
 		/// <param name="message">the message</param>
 		public static void Error(string message)
@@ -42,7 +42,7 @@ namespace Sharpknife.Console.Utilities
 		}
 
 		/// <summary>
-		/// Prints a standard application header to the console.
+		/// Prints a standard application header to the <see cref="System.Console" />.
 		/// </summary>
 		/// <remarks>
 		/// Contains the application's full name, along with its current version and copyright notice.
@@ -56,8 +56,8 @@ namespace Sharpknife.Console.Utilities
 		}
 
 		/// <summary>
-		/// Prints a separator line to the console.
-		/// The line will be the exact length of the window's width.
+		/// Prints a separator line to the <see cref="System.Console" />.
+		/// The line will be the value of <see cref="System.Console.BufferWidth" />.
 		/// </summary>
 		public static void Separator()
 		{
@@ -67,7 +67,7 @@ namespace Sharpknife.Console.Utilities
 		}
 
 		/// <summary>
-		/// Writes the specified line (with a new line) to the console with the specified <see cref="ConsoleColor" />.
+		/// Writes the specified line (with a new line) to the <see cref="System.Console" /> with the specified <see cref="ConsoleColor" />.
 		/// </summary>
 		/// <param name="colour">the colour</param>
 		/// <param name="message">the message</param>
@@ -77,7 +77,7 @@ namespace Sharpknife.Console.Utilities
 		}
 
 		/// <summary>
-		/// Writes the specified line to the console with the specified <see cref="ConsoleColor" />.
+		/// Writes the specified line to the <see cref="System.Console" /> with the specified <see cref="ConsoleColor" />.
 		/// </summary>
 		/// <param name="colour">the colour</param>
 		/// <param name="message">the message</param>
@@ -87,7 +87,7 @@ namespace Sharpknife.Console.Utilities
 
 			System.Console.ForegroundColor = colour;
 			System.Console.Write($"[{time}] {message}");
-            System.Console.ResetColor();
+			System.Console.ResetColor();
 		}
 	}
 }

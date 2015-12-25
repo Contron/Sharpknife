@@ -13,7 +13,7 @@ namespace Sharpknife.Console.Utilities
 	public static class Input
 	{
 		/// <summary>
-		/// Prompts the console for a response with the specified message.
+		/// Prompts the <see cref="System.Console" /> for a response with the specified message.
 		/// </summary>
 		/// <param name="message">the message</param>
 		/// <returns>the result</returns>
@@ -35,7 +35,7 @@ namespace Sharpknife.Console.Utilities
 		}
 
 		/// <summary>
-		/// Prompts the console for a numeric response with the specified message.
+		/// Prompts the <see cref="System.Console" /> for a numeric response with the specified message.
 		/// </summary>
 		/// <param name="message">the message</param>
 		/// <returns>the result</returns>
@@ -58,7 +58,7 @@ namespace Sharpknife.Console.Utilities
 		}
 
 		/// <summary>
-		/// Prompts the console for a boolean response with the specified message.
+		/// Prompts the <see cref="System.Console" /> for a boolean response with the specified message.
 		/// </summary>
 		/// <param name="message">the message</param>
 		/// <returns>the result</returns>
@@ -85,7 +85,7 @@ namespace Sharpknife.Console.Utilities
 		}
 
 		/// <summary>
-		/// Prompts the console to press any key before continuing.
+		/// Prompts the <see cref="System.Console" /> to press any key before continuing.
 		/// </summary>
 		public static void Wait()
 		{
@@ -95,7 +95,7 @@ namespace Sharpknife.Console.Utilities
 		}
 
 		/// <summary>
-		/// Reads a line from the console with the specified message.
+		/// Reads a line from the <see cref="System.Console" /> with the specified message.
 		/// </summary>
 		/// <param name="message">the message</param>
 		/// <returns>the result</returns>

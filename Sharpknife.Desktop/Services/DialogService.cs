@@ -21,7 +21,7 @@ namespace Sharpknife.Desktop.Services
 		}
 
 		/// <summary>
-		/// Shows a file dialog.
+		/// Shows a <see cref="FileDialog" />.
 		/// </summary>
 		/// <param name="dialog">the dialog</param>
 		/// <returns>the path</returns>
@@ -41,7 +41,7 @@ namespace Sharpknife.Desktop.Services
 		}
 
 		/// <summary>
-		/// Shows a multiple selection file dialog.
+		/// Shows a <see cref="FileDialog" /> in multiple selection mode.
 		/// </summary>
 		/// <param name="dialog">the dialog</param>
 		/// <returns>the paths</returns>
@@ -64,7 +64,7 @@ namespace Sharpknife.Desktop.Services
 		}
 
 		/// <summary>
-		/// Shows a message dialog with the specified title and message.
+		/// Shows a <see cref="MessageView" /> with the specified title and message.
 		/// </summary>
 		/// <param name="title">the title</param>
 		/// <param name="message">the message</param>
@@ -77,7 +77,7 @@ namespace Sharpknife.Desktop.Services
 		}
 
 		/// <summary>
-		/// Shows an about dialog.
+		/// Shows an <see cref="AboutView" />.
 		/// </summary>
 		public void ShowAbout()
 		{

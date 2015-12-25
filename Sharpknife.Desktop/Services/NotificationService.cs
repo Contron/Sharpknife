@@ -90,7 +90,7 @@ namespace Sharpknife.Desktop.Services
 		}
 
 		/// <summary>
-		/// Unsubscribes all subscribed <see cref="Action "/>s from the specified notification.
+		/// Unsubscribes all subscribed <see cref="Action" />s from the specified notification.
 		/// </summary>
 		/// <param name="notification">the notification</param>
 		public void UnsubscribeAll(string notification)

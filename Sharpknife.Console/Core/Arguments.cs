@@ -31,7 +31,7 @@ namespace Sharpknife.Console.Core
 		}
 
 		/// <summary>
-		/// Returns the value of the specified argument.
+		/// Returns the value of the specified argument, or optionally <c>null</c> if it does not exist.
 		/// </summary>
 		/// <param name="name">the name</param>
 		/// <param name="placeholder">the default value</param>
@@ -52,7 +52,7 @@ namespace Sharpknife.Console.Core
 		}
 
 		/// <summary>
-		/// Returns the value of the specified flag.
+		/// Returns the value of the specified flag, or optionally <c>false</c> if it does not exist.
 		/// </summary>
 		/// <param name="name">the name</param>
 		/// <param name="placeholder">the default value</param>
