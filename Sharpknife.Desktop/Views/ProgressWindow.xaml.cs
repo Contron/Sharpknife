@@ -1,9 +1,8 @@
 ﻿using Sharpknife.Desktop.ViewModels;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
+using System.ComponentModel;
 using System.Linq;
-using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -18,16 +17,26 @@ using System.Windows.Shapes;
 namespace Sharpknife.Desktop.Views
 {
 	/// <summary>
-	/// Represents an about window to display information about the application.
+	/// Represents a progress window to indicate a task is in progress.
 	/// </summary>
-	public partial class AboutView : Window
+	public partial class ProgressWindow : Window
 	{
 		/// <summary>
-		/// Creates a new about window.
+		/// Creates a new progress window.
 		/// </summary>
-		public AboutView()
+		public ProgressWindow()
 		{
 			this.InitializeComponent();
+		}
+
+		private void WindowClosing(object sender, CancelEventArgs eventArgs)
+		{
+			var viewModel = this.DataContext as ProgressViewModel;
+
+			if (viewModel != null)
+			{
+				eventArgs.Cancel = !viewModel.Completed;
+			}
 		}
 	}
 }

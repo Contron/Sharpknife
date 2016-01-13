@@ -40,7 +40,7 @@ namespace Sharpknife.Desktop.Services
 		}
 
 		/// <summary>
-		/// Subscribes the specified <see cref="Action" /> to the specified notification.
+		/// Subscribes the specified <see cref="Action{T}" /> to the specified notification.
 		/// </summary>
 		/// <param name="notification">the notification</param>
 		/// <param name="action">the action</param>
@@ -65,7 +65,7 @@ namespace Sharpknife.Desktop.Services
 		}
 
 		/// <summary>
-		/// Unsubscribes the specified <see cref="Action" /> from the specified notification.
+		/// Unsubscribes the specified <see cref="Action{T}" /> from the specified notification.
 		/// </summary>
 		/// <param name="notification">the notification</param>
 		/// <param name="action">the action</param>
@@ -90,7 +90,7 @@ namespace Sharpknife.Desktop.Services
 		}
 
 		/// <summary>
-		/// Unsubscribes all subscribed <see cref="Action" />s from the specified notification.
+		/// Unsubscribes all subscribed <see cref="Action{T}" />s from the specified notification.
 		/// </summary>
 		/// <param name="notification">the notification</param>
 		public void UnsubscribeAll(string notification)

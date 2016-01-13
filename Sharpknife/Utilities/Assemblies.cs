@@ -27,12 +27,13 @@ namespace Sharpknife.Utilities
 		}
 
 		/// <summary>
-		/// Returns the <see cref="FileVersionInfo" /> for the entry assembly.
+		/// Returns the specified <see cref="Attribute" /> for the entry assembly.
 		/// </summary>
-		/// <returns>the information</returns>
-		public static FileVersionInfo GetInformation()
+		/// <typeparam name="T">the attribute type</typeparam>
+		/// <returns>the attribute</returns>
+		public static T GetAttribute<T>() where T : Attribute
 		{
-			return FileVersionInfo.GetVersionInfo(Assembly.GetEntryAssembly().Location);
+			return Assembly.GetEntryAssembly().GetCustomAttribute<T>();
 		}
 
 		/// <summary>

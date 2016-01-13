@@ -11,15 +11,10 @@ namespace Sharpknife.Desktop.ViewModels
 {
 	class MessageViewModel : Observable
 	{
-		public MessageViewModel(string title, string message)
+		public MessageViewModel()
 		{
-			this.Title = title;
-			this.Message = message;
-		}
-
-		public MessageViewModel() : this("Title", "Message")
-		{
-
+			this.Title = "Title";
+			this.Message = "Message";
 		}
 
 		public string Title

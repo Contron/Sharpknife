@@ -49,10 +49,8 @@ namespace Sharpknife.Console.Utilities
 		/// </remarks>
 		public static void Header()
 		{
-			var information = Assemblies.GetInformation();
-
-			Output.Warning(information.ProductName);
-			Output.Warning($"Version {information.FileVersion}, Copyright {information.LegalCopyright}");
+			Output.Warning(Assemblies.GetAttribute<AssemblyProductAttribute>().Product);
+			Output.Warning($"Version {Assemblies.GetAttribute<AssemblyFileVersionAttribute>().Version}, Copyright {Assemblies.GetAttribute<AssemblyCopyrightAttribute>().Copyright}");
 		}
 
 		/// <summary>

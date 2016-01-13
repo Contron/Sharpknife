@@ -19,9 +19,9 @@ using System.Windows.Shapes;
 namespace Sharpknife.Desktop.Views.Controls
 {
 	/// <summary>
-	/// Represents a buttons box with the standard OK and Cancel buttons.
+	/// Represents a buttons box that can contain <see cref="Button" />s.
 	/// </summary>
-	[ContentProperty("Buttons")]
+	[ContentProperty(nameof(ButtonsBox.Buttons))]
 	public partial class ButtonsBox : UserControl
 	{
 		/// <summary>
@@ -37,7 +37,7 @@ namespace Sharpknife.Desktop.Views.Controls
 		/// <summary>
 		/// Gets the buttons property.
 		/// </summary>
-		public static readonly DependencyProperty ButtonsProperty = DependencyProperty.Register("Buttons", typeof(ObservableCollection<Button>), typeof(StatusBox));
+		public static readonly DependencyProperty ButtonsProperty = DependencyProperty.Register(nameof(ButtonsBox.Buttons), typeof(ObservableCollection<Button>), typeof(ButtonsBox));
 
 		/// <summary>
 		/// Gets or sets the buttons.

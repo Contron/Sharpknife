@@ -70,9 +70,23 @@ namespace Sharpknife.Desktop.Services
 		/// <param name="message">the message</param>
 		public void ShowMessage(string title, string message)
 		{
+			if (title == null)
+			{
+				throw new ArgumentNullException(nameof(title));
+			}
+
+			if (message == null)
+			{
+				throw new ArgumentNullException(nameof(message));
+			}
+
 			WindowService.Instance.ShowModally(new MessageView()
 			{
-				DataContext = new MessageViewModel(title, message)
+				DataContext = new MessageViewModel()
+				{
+					Title = title,
+					Message = message
+				}
 			});
 		}
 

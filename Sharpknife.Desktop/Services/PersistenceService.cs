@@ -44,7 +44,7 @@ namespace Sharpknife.Desktop.Services
 
 			if (result == null)
 			{
-				throw new InvalidOperationException("Data is not the valid type.");
+				throw new InvalidOperationException("Failed to cast instance.");
 			}
 
 			return result;

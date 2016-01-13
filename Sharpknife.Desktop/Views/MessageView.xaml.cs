@@ -17,7 +17,7 @@ using System.Windows.Shapes;
 namespace Sharpknife.Desktop.Views
 {
 	/// <summary>
-	/// Represents a message window to display information to the user.
+	/// Represents a message window to display information.
 	/// </summary>
 	public partial class MessageView : Window
 	{
