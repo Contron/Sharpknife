@@ -1,4 +1,4 @@
-﻿<Window x:Class="Sharpknife.Desktop.Views.ProgressWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:sdv="clr-namespace:Sharpknife.Desktop.ViewModels" xmlns:sdvc="clr-namespace:Sharpknife.Desktop.Views.Controls" Closing="WindowClosing" Title="Progress" ResizeMode="NoResize" SizeToContent="Height" WindowStartupLocation="CenterOwner" Width="400" MinHeight="200">
+﻿<Window x:Class="Sharpknife.Desktop.Views.ProgressWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:sdv="clr-namespace:Sharpknife.Desktop.ViewModels" xmlns:sdvc="clr-namespace:Sharpknife.Desktop.Views.Controls" Closing="WindowClosing" Title="Progress" ResizeMode="NoResize" SizeToContent="Height" WindowStartupLocation="CenterOwner" Width="400">
 	<Window.DataContext>
 		<sdv:ProgressViewModel />
 	</Window.DataContext>
