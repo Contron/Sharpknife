@@ -52,7 +52,6 @@
     <Compile Include="Converters\BoolVisibilityConverter.cs" />
     <Compile Include="Core\Command.cs" />
     <Compile Include="Core\Converter.cs" />
-    <Compile Include="Models\Status.cs" />
     <Compile Include="Services\DialogService.cs" />
     <Compile Include="Services\NotificationService.cs" />
     <Compile Include="Core\Observable.cs" />
