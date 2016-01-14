@@ -61,12 +61,12 @@ namespace Sharpknife.Desktop.Services
 		}
 
 		/// <summary>
-		/// Updates the status and progress.
-		/// The progress can be from 0 to 100.
+		/// Updates the status and progress, and optionally the maximum progress.
 		/// </summary>
 		/// <param name="status">the status</param>
 		/// <param name="progress">the progress</param>
-		public void Update(string status, int progress = 0)
+		/// <param name="maximum">the maximum progress</param>
+		public void Update(string status, int progress = 0, int maximum = 100)
 		{
 			if (this.view == null)
 			{
@@ -74,7 +74,9 @@ namespace Sharpknife.Desktop.Services
 			}
 
 			this.viewModel.Status = status;
+
 			this.viewModel.Progress = progress;
+			this.viewModel.Maximum = maximum;
 		}
 
 		/// <summary>
@@ -87,6 +89,7 @@ namespace Sharpknife.Desktop.Services
 				throw new InvalidOperationException("Progress window is not visible.");
 			}
 
+			this.viewModel.Progress = this.viewModel.Maximum;
 			this.viewModel.Completed = true;
 
 			WindowService.Instance.Close(this.view);

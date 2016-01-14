@@ -2,6 +2,9 @@
 	<Window.DataContext>
 		<sdv:ProgressViewModel />
 	</Window.DataContext>
+	<Window.TaskbarItemInfo>
+		<TaskbarItemInfo ProgressState="Indeterminate" />
+	</Window.TaskbarItemInfo>
 	<DockPanel>
 		<sdvc:HeaderBox DockPanel.Dock="Top">
 			<TextBlock Text="{Binding Title}" />
@@ -11,7 +14,7 @@
 		</sdvc:ButtonsBox>
 		<StackPanel Margin="10">
 			<TextBlock Text="{Binding Status}" TextWrapping="Wrap" />
-			<ProgressBar Value="{Binding Progress}" IsIndeterminate="{Binding Indeterminate}" Height="20" Margin="0, 10, 0, 0" />
+			<ProgressBar Value="{Binding Progress}" Maximum="{Binding Maximum}" IsIndeterminate="{Binding Indeterminate}" Height="20" Margin="0, 10, 0, 0" />
 		</StackPanel>
 	</DockPanel>
 </Window>

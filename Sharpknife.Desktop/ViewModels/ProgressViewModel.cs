@@ -15,6 +15,8 @@ namespace Sharpknife.Desktop.ViewModels
 			this.Status = "Status";
 
 			this.Progress = 0;
+			this.Maximum = 100;
+
 			this.Completed = false;
 		}
 
@@ -58,6 +60,18 @@ namespace Sharpknife.Desktop.ViewModels
 				this.Set(value);
 
 				this.Notify(nameof(this.Indeterminate));
+			}
+		}
+
+		public int Maximum
+		{
+			get
+			{
+				return (int) this.Get();
+			}
+			set
+			{
+				this.Set(value);
 			}
 		}
 

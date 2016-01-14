@@ -122,7 +122,6 @@ namespace Sharpknife.Desktop.Services
 			window.Dispatcher.Invoke(() =>
 			{
 				window.Owner = this.GetActive();
-				window.ShowInTaskbar = !modal;
 
 				if (modal)
 				{
