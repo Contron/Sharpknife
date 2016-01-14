@@ -15,24 +15,6 @@ namespace Sharpknife.Desktop.Core
 	public class Command : ICommand
 	{
 		/// <summary>
-		/// Creates a new <see cref="Command" /> to close the current window.
-		/// </summary>
-		/// <returns></returns>
-		public static Command CreateClose()
-		{
-			return new Command(() => WindowService.Instance.CloseActive());
-		}
-
-		/// <summary>
-		/// Creates a new <see cref="Command" /> to show an about dialog.
-		/// </summary>
-		/// <returns></returns>
-		public static Command CreateAbout()
-		{
-			return new Command(() => DialogService.Instance.ShowAbout());
-		}
-
-		/// <summary>
 		/// Creates a new command.
 		/// </summary>
 		/// <param name="action">the action</param>
@@ -80,6 +62,28 @@ namespace Sharpknife.Desktop.Core
 			if (this.CanExecute(parameter))
 			{
 				this.Execute(parameter);
+			}
+		}
+
+		/// <summary>
+		/// Gets the command to close the active <see cref="System.Windows.Window" />..
+		/// </summary>
+		public static Command Close
+		{
+			get
+			{
+				return new Command(() => WindowService.Instance.CloseActive());
+			}
+		}
+
+		/// <summary>
+		/// Gets the command to display the <see cref="Sharpknife.Desktop.Views.AboutView" />.
+		/// </summary>
+		public static Command About
+		{
+			get
+			{
+				return new Command(() => DialogService.Instance.ShowAbout());
 			}
 		}
 
