@@ -52,6 +52,7 @@
     <Compile Include="Converters\BoolVisibilityConverter.cs" />
     <Compile Include="Core\Command.cs" />
     <Compile Include="Core\Converter.cs" />
+    <Compile Include="Models\Status.cs" />
     <Compile Include="Services\DialogService.cs" />
     <Compile Include="Services\NotificationService.cs" />
     <Compile Include="Core\Observable.cs" />
@@ -72,6 +73,9 @@
       <DependentUpon>HeaderBox.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Controls\MenuButton.cs" />
+    <Compile Include="Views\Controls\StatusBox.xaml.cs">
+      <DependentUpon>StatusBox.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\MessageView.xaml.cs">
       <DependentUpon>MessageView.xaml</DependentUpon>
     </Compile>
@@ -91,6 +95,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\Controls\HeaderBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Controls\StatusBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
