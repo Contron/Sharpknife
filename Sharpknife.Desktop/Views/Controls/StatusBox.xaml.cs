@@ -21,7 +21,7 @@ namespace Sharpknife.Desktop.Views.Controls
 	/// <summary>
 	/// Represents a status box with a message and progress bar, to be paired with a <see cref="Status" />.
 	/// </summary>
-	[ContentProperty("Children")]
+	[ContentProperty(nameof(StatusBox.Children))]
 	public partial class StatusBox : UserControl
 	{
 		/// <summary>
@@ -30,7 +30,7 @@ namespace Sharpknife.Desktop.Views.Controls
 		public StatusBox()
 		{
 			this.Status = new Status();
-			this.Children = new ObservableCollection<UIElement>();
+			this.Children = new ObservableCollection<Control>();
 
 			this.InitializeComponent();
 		}
@@ -38,12 +38,12 @@ namespace Sharpknife.Desktop.Views.Controls
 		/// <summary>
 		/// Gets the status property.
 		/// </summary>
-		public static readonly DependencyProperty StatusProperty = DependencyProperty.Register("Status", typeof(Status), typeof(StatusBox));
+		public static readonly DependencyProperty StatusProperty = DependencyProperty.Register(nameof(StatusBox.Status), typeof(Status), typeof(StatusBox));
 
 		/// <summary>
 		/// Gets the children property.
 		/// </summary>
-		public static readonly DependencyProperty ChildrenProperty = DependencyProperty.Register("Children", typeof(ObservableCollection<UIElement>), typeof(StatusBox));
+		public static readonly DependencyProperty ChildrenProperty = DependencyProperty.Register(nameof(StatusBox.Children), typeof(ObservableCollection<Control>), typeof(StatusBox));
 
 		/// <summary>
 		/// Gets or sets the status.
@@ -63,11 +63,11 @@ namespace Sharpknife.Desktop.Views.Controls
 		/// <summary>
 		/// Gets or sets the children.
 		/// </summary>
-		public ObservableCollection<UIElement> Children
+		public ObservableCollection<Control> Children
 		{
 			get
 			{
-				return (ObservableCollection<UIElement>) this.GetValue(StatusBox.ChildrenProperty);
+				return (ObservableCollection<Control>) this.GetValue(StatusBox.ChildrenProperty);
 			}
 			set
 			{

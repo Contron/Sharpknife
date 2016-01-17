@@ -2,9 +2,25 @@
 	<UserControl.Resources>
 		<sdc:BoolVisibilityConverter x:Key="BoolVisibilityConverter" />
 	</UserControl.Resources>
-	<DockPanel>
-		<TextBlock Text="{Binding Status.Message, ElementName=Control}" DockPanel.Dock="Left" />
-		<StackPanel DockPanel.Dock="Right" Orientation="Horizontal" Margin="10, 0, 0, 0">
+	<StatusBar Background="{Binding Background, ElementName=Control}">
+		<StatusBar.ItemsPanel>
+			<ItemsPanelTemplate>
+				<Grid>
+					<Grid.RowDefinitions>
+						<RowDefinition Height="*" />
+					</Grid.RowDefinitions>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="*" />
+						<ColumnDefinition Width="Auto" />
+						<ColumnDefinition Width="Auto" />
+					</Grid.ColumnDefinitions>
+				</Grid>
+			</ItemsPanelTemplate>
+		</StatusBar.ItemsPanel>
+		<StatusBarItem Grid.Row="0" Grid.Column="0">
+			<TextBlock Text="{Binding Status.Message, ElementName=Control}" />
+		</StatusBarItem>
+		<StatusBarItem Grid.Row="0" Grid.Column="1">
 			<ItemsControl ItemsSource="{Binding Children, ElementName=Control}">
 				<ItemsControl.ItemsPanel>
 					<ItemsPanelTemplate>
@@ -12,7 +28,9 @@
 					</ItemsPanelTemplate>
 				</ItemsControl.ItemsPanel>
 			</ItemsControl>
-			<ProgressBar Visibility="{Binding Status.Busy, ElementName=Control, Converter={StaticResource BoolVisibilityConverter}}" IsIndeterminate="True" Width="100" Height="10" Margin="10, 0, 0, 0" />
-		</StackPanel>
-	</DockPanel>
+		</StatusBarItem>
+		<StatusBarItem Visibility="{Binding Status.Busy, ElementName=Control, Converter={StaticResource BoolVisibilityConverter}}" Grid.Row="0" Grid.Column="2">
+			<ProgressBar IsIndeterminate="True" Width="100" Height="10" />
+		</StatusBarItem>
+	</StatusBar>
 </UserControl>
