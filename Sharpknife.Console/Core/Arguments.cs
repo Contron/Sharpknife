@@ -12,7 +12,7 @@ namespace Sharpknife.Console.Core
 	public class Arguments
 	{
 		/// <summary>
-		/// Creates a new arguments parser.
+		/// Creates a new arguments parser with the specified arguments.
 		/// </summary>
 		/// <param name="arguments">the arguments</param>
 		public Arguments(string[] arguments)
