@@ -30,7 +30,7 @@ namespace Sharpknife.Desktop.Views.Controls
 		public StatusBox()
 		{
 			this.Status = new Status();
-			this.Children = new ObservableCollection<Control>();
+			this.Children = new ObservableCollection<UIElement>();
 
 			this.InitializeComponent();
 		}
@@ -63,11 +63,11 @@ namespace Sharpknife.Desktop.Views.Controls
 		/// <summary>
 		/// Gets or sets the children.
 		/// </summary>
-		public ObservableCollection<Control> Children
+		public ObservableCollection<UIElement> Children
 		{
 			get
 			{
-				return (ObservableCollection<Control>) this.GetValue(StatusBox.ChildrenProperty);
+				return (ObservableCollection<UIElement>) this.GetValue(StatusBox.ChildrenProperty);
 			}
 			set
 			{
