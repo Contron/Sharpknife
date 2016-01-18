@@ -43,7 +43,7 @@ namespace Sharpknife.Desktop.Views.Controls
 		/// <summary>
 		/// Gets the children property.
 		/// </summary>
-		public static readonly DependencyProperty ChildrenProperty = DependencyProperty.Register(nameof(StatusBox.Children), typeof(ObservableCollection<Control>), typeof(StatusBox));
+		public static readonly DependencyProperty ChildrenProperty = DependencyProperty.Register(nameof(StatusBox.Children), typeof(ObservableCollection<UIElement>), typeof(StatusBox));
 
 		/// <summary>
 		/// Gets or sets the status.
