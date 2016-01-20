@@ -1,5 +1,4 @@
-﻿using Microsoft.Win32;
-using Sharpknife.Desktop.Views;
+﻿using Sharpknife.Desktop.Views;
 using Sharpknife.Desktop.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -18,49 +17,6 @@ namespace Sharpknife.Desktop.Services
 		private DialogService()
 		{
 
-		}
-
-		/// <summary>
-		/// Shows a <see cref="FileDialog" />.
-		/// </summary>
-		/// <param name="dialog">the dialog</param>
-		/// <returns>the path</returns>
-		public string ShowFileDialog(FileDialog dialog)
-		{
-			var result = dialog.ShowDialog(WindowService.Instance.GetActive());
-
-			if (result != null)
-			{
-				if (result.Value)
-				{
-					return dialog.FileName;
-				}
-			}
-
-			return null;
-		}
-
-		/// <summary>
-		/// Shows a <see cref="FileDialog" /> in multiple selection mode.
-		/// </summary>
-		/// <param name="dialog">the dialog</param>
-		/// <returns>the paths</returns>
-		public List<string> ShowMultipleSelectionFileDialog(OpenFileDialog dialog)
-		{
-			dialog.Multiselect = true;
-
-			var result = dialog.ShowDialog(WindowService.Instance.GetActive());
-			var paths = new List<string>();
-
-			if (result != null)
-			{
-				if (result.Value)
-				{
-					paths.AddRange(dialog.FileNames);
-				}
-			}
-
-			return paths;
 		}
 
 		/// <summary>
