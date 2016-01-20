@@ -24,45 +24,40 @@ namespace Sharpknife.Desktop.Services
 		/// Shows an open dialog with the specified filter.
 		/// </summary>
 		/// <param name="filter">the filter</param>
+		/// <param name="index">the filter index</param>
 		/// <returns>the path</returns>
-		public string ShowOpenDialog(string filter = null)
+		public string ShowOpenDialog(string filter = null, int index = 0)
 		{
 			var dialog = new OpenFileDialog()
 			{
 				Title = "Open",
 				Filter = filter,
+				FilterIndex = index,
 				CheckPathExists = true,
 				CheckFileExists = true
 			};
 
-			var result = dialog.ShowDialog(WindowService.Instance.GetActive());
-
-			if (result != null)
-			{
-				if (result.Value)
-				{
-					return dialog.FileName;
-				}
-			}
-
-			return null;
+			return this.ShowDialog(dialog);
 		}
 
 		/// <summary>
 		/// Show a save dialog with the specified filter.
 		/// </summary>
 		/// <param name="filter">the filter</param>
-		public void ShowSaveDialog(string filter = null)
+		/// <param name="index">the filter index</param>
+		/// <returns>the path</returns>
+		public string ShowSaveDialog(string filter = null, int index = 0)
 		{
 			var dialog = new SaveFileDialog()
 			{
 				Title = "Save",
 				Filter = filter,
+				FilterIndex = index,
 				CreatePrompt = true,
 				OverwritePrompt = true
 			};
 
-			dialog.ShowDialog(WindowService.Instance.GetActive());
+			return this.ShowDialog(dialog);
 		}
 
 		/// <summary>
@@ -98,6 +93,21 @@ namespace Sharpknife.Desktop.Services
 		public void ShowAbout()
 		{
 			WindowService.Instance.ShowModally(new AboutView());
+		}
+
+		private string ShowDialog(FileDialog dialog)
+		{
+			var result = dialog.ShowDialog(WindowService.Instance.GetActive());
+
+			if (result != null)
+			{
+				if (result.Value)
+				{
+					return dialog.FileName;
+				}
+			}
+
+			return null;
 		}
 
 		/// <summary>
