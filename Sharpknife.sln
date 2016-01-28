@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sharpknife", "Sharpknife\Sh
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{454C13F4-9132-43AE-8C52-91FB16B78F0B}"
 	ProjectSection(SolutionItems) = preProject
-		LICENCE.txt = LICENCE.txt
+		LICENSE.txt = LICENSE.txt
 		README.md = README.md
 	EndProjectSection
 EndProject
