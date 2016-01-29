@@ -14,7 +14,7 @@ namespace Sharpknife.Desktop.Utilities
 	public static class Controls
 	{
 		/// <summary>
-		/// Return a <see cref="DependencyObject" /> of the specified type in the visual hierarchy.
+		/// Returns a <see cref="DependencyObject" /> of the specified type in the visual hierarchy.
 		/// </summary>
 		/// <typeparam name="T">the type</typeparam>
 		/// <param name="root">the root object</param>
@@ -47,6 +47,21 @@ namespace Sharpknife.Desktop.Utilities
 			}
 
 			return null;
+		}
+
+		/// <summary>
+		/// Attempts to focus the first element found of the specified type in the visual hierarchy.
+		/// </summary>
+		/// <typeparam name="T">the type</typeparam>
+		/// <param name="root">the root element</param>
+		public static void Focus<T>(UIElement root) where T : UIElement
+		{
+			var element = Controls.Find<T>(root);
+
+			if (element != null)
+			{
+				element.Focus();
+			}
 		}
 	}
 }
