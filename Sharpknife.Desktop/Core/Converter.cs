@@ -36,7 +36,7 @@ namespace Sharpknife.Desktop.Core
 		/// <returns>the result</returns>
 		public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
 		{
-			return this.ConvertBack(value);
+			return this.Revert(value);
 		}
 
 		/// <summary>
@@ -50,11 +50,11 @@ namespace Sharpknife.Desktop.Core
 		}
 
 		/// <summary>
-		/// Converts the specified value back into its original type.
+		/// Reverts the specified value back into its original type.
 		/// </summary>
 		/// <param name="value">the value</param>
 		/// <returns>the result</returns>
-		public virtual object ConvertBack(object value)
+		public virtual object Revert(object value)
 		{
 			throw new NotImplementedException();
 		}

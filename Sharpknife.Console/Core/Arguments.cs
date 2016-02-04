@@ -31,12 +31,12 @@ namespace Sharpknife.Console.Core
 		}
 
 		/// <summary>
-		/// Returns the value of the specified argument, or optionally <c>null</c> if it does not exist.
+		/// Returns the value of the specified option, or <c>null</c> if it does not exist.
 		/// </summary>
 		/// <param name="name">the name</param>
 		/// <param name="placeholder">the default value</param>
 		/// <returns>the value</returns>
-		public string GetArgument(string name, string placeholder = null)
+		public string GetOption(string name, string placeholder = null)
 		{
 			if (name == null)
 			{
@@ -52,7 +52,7 @@ namespace Sharpknife.Console.Core
 		}
 
 		/// <summary>
-		/// Returns the value of the specified flag, or optionally <c>false</c> if it does not exist.
+		/// Returns the value of the specified flag, or <c>false</c> if it does not exist.
 		/// </summary>
 		/// <param name="name">the name</param>
 		/// <param name="placeholder">the default value</param>

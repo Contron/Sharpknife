@@ -66,7 +66,7 @@ namespace Sharpknife.Desktop.Core
 		}
 
 		/// <summary>
-		/// Gets the command to close the active <see cref="System.Windows.Window" />..
+		/// Gets the command to close the active <see cref="System.Windows.Window" />.
 		/// </summary>
 		public static Command Close
 		{
