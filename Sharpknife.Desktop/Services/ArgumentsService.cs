@@ -17,7 +17,7 @@ namespace Sharpknife.Desktop.Services
 		}
 
 		/// <summary>
-		/// Gets the arguments supplied to the application, minus the name.
+		/// Returns the arguments supplied to the application, minus the name.
 		/// </summary>
 		/// <returns></returns>
 		public List<string> Get()

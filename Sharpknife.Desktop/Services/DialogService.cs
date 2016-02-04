@@ -21,7 +21,7 @@ namespace Sharpknife.Desktop.Services
 		}
 
 		/// <summary>
-		/// Shows an open dialog with the specified filter.
+		/// Shows an <see cref="OpenFileDialog" /> dialog with the specified filter.
 		/// </summary>
 		/// <param name="filter">the filter</param>
 		/// <param name="index">the filter index</param>
@@ -41,7 +41,7 @@ namespace Sharpknife.Desktop.Services
 		}
 
 		/// <summary>
-		/// Show a save dialog with the specified filter.
+		/// Show a <see cref="SaveFileDialog" /> with the specified filter.
 		/// </summary>
 		/// <param name="filter">the filter</param>
 		/// <param name="index">the filter index</param>
