@@ -1,6 +1,7 @@
 ﻿using Sharpknife.Utilities;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -30,6 +31,14 @@ namespace Sharpknife.Desktop.Services
 		/// <returns>the object</returns>
 		public T Get<T>(string name) where T : class, new()
 		{
+			if (this.IsDesigner())
+			{
+				// Don't do any caching in designer mode.
+				// Simply return a new instance each time.
+
+				return new T();
+			}
+
 			if (name == null)
 			{
 				throw new ArgumentNullException(nameof(name));
@@ -65,6 +74,14 @@ namespace Sharpknife.Desktop.Services
 		/// </summary>
 		public void Sync()
 		{
+			if (this.IsDesigner())
+			{
+				// Don't save in designer mode.
+				// Results in unusual behaviour (it's saved under the designer process).
+
+				return;
+			}
+
 			foreach (var entry in this.instances)
 			{
 				this.Save(entry.Key, entry.Value);
@@ -116,6 +133,21 @@ namespace Sharpknife.Desktop.Services
 		private string GetPath(string name)
 		{
 			return Path.Combine(Assemblies.GetApplicationPath(), $"{name}.xml");
+		}
+
+		private bool IsDesigner()
+		{
+			using (var process = Process.GetCurrentProcess())
+			{
+				var name = process.ProcessName.ToLower();
+
+				if (name == "devenv" || name == "xdesproc")
+				{
+					return true;
+				}
+			}
+
+			return false;
 		}
 
 		private void TrySync()
