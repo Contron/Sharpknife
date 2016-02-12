@@ -29,13 +29,13 @@ namespace Sharpknife.Desktop.Views
 			this.InitializeComponent();
 		}
 
-		private void WindowClosing(object sender, CancelEventArgs eventArgs)
+		private void WindowClosing(object sender, CancelEventArgs args)
 		{
 			var viewModel = this.DataContext as ProgressViewModel;
 
 			if (viewModel != null)
 			{
-				eventArgs.Cancel = !viewModel.Completed;
+				args.Cancel = !viewModel.Completed;
 			}
 		}
 	}

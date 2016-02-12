@@ -70,10 +70,10 @@ namespace Sharpknife.Desktop.Core
 		/// <summary>
 		/// Triggers the property changed event.
 		/// </summary>
-		/// <param name="eventArgs">the event args</param>
-		protected void OnPropertyChanged(PropertyChangedEventArgs eventArgs)
+		/// <param name="args">the event args</param>
+		protected void OnPropertyChanged(PropertyChangedEventArgs args)
 		{
-			this.PropertyChanged?.Invoke(this, eventArgs);
+			this.PropertyChanged?.Invoke(this, args);
 		}
 
 		/// <summary>

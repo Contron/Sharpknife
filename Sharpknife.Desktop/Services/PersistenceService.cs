@@ -31,17 +31,17 @@ namespace Sharpknife.Desktop.Services
 		/// <returns>the object</returns>
 		public T Get<T>(string name) where T : class, new()
 		{
-			if (this.IsDesigner())
-			{
-				// Don't do any caching in designer mode.
-				// Simply return a new instance each time.
-
-				return new T();
-			}
-
 			if (name == null)
 			{
 				throw new ArgumentNullException(nameof(name));
+			}
+
+			if (this.IsDesigner())
+			{
+				// Don't do any caching in designer mode.
+				// Return a new instance each time.
+
+				return new T();
 			}
 
 			if (!this.instances.ContainsKey(name))
@@ -77,7 +77,6 @@ namespace Sharpknife.Desktop.Services
 			if (this.IsDesigner())
 			{
 				// Don't save in designer mode.
-				// Results in unusual behaviour (it's saved under the designer process).
 
 				return;
 			}
@@ -165,7 +164,7 @@ namespace Sharpknife.Desktop.Services
 
 		private void Hook()
 		{
-			Application.Current.Exit += (sender, eventArgs) => this.TrySync();
+			Application.Current.Exit += (sender, args) => this.TrySync();
 		}
 
 		/// <summary>

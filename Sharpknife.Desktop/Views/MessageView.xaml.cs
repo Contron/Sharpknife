@@ -29,7 +29,7 @@ namespace Sharpknife.Desktop.Views
 			this.InitializeComponent();
 		}
 
-		private void WindowLoaded(object sender, RoutedEventArgs eventArgs)
+		private void WindowLoaded(object sender, RoutedEventArgs args)
 		{
 			SystemSounds.Beep.Play();
 		}
