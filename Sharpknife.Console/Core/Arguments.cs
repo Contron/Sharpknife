@@ -25,7 +25,7 @@ namespace Sharpknife.Console.Core
 			this.source = arguments;
 
 			this.arguments = new Dictionary<string, string>();
-			this.flags = new Dictionary<string, bool>();
+			this.flags = new List<string>();
 
 			this.Parse();
 		}
@@ -55,41 +55,47 @@ namespace Sharpknife.Console.Core
 		/// Returns the value of the specified flag, or <c>false</c> if it does not exist.
 		/// </summary>
 		/// <param name="name">the name</param>
-		/// <param name="placeholder">the default value</param>
 		/// <returns>the flag</returns>
-		public bool GetFlag(string name, bool placeholder = false)
+		public bool GetFlag(string name)
 		{
 			if (name == null)
 			{
 				throw new ArgumentNullException(nameof(name));
 			}
 
-			if (this.flags.ContainsKey(name))
+			if (this.flags.Contains(name))
 			{
-				return this.flags[name];
+				return true;
 			}
 
-			return placeholder;
+			return false;
 		}
 
 		private void Parse()
 		{
-			for (var index = 0; index < this.source.Length; index++)
+			var index = 0;
+
+			while (index < this.source.Length)
 			{
 				var argument = this.source[index];
 
 				if (argument.StartsWith("-"))
 				{
+					var name = argument.Substring(1);
 					var next = index + 1;
 
 					if (next < this.source.Length)
 					{
-						this.arguments[argument] = this.source[next];
+						this.arguments[name] = this.source[next];
+
+						index += 2;
 					}
 				}
 				else
 				{
-					this.flags[argument] = true;
+					this.flags.Add(argument);
+
+					index++;
 				}
 			}
 		}
@@ -97,6 +103,6 @@ namespace Sharpknife.Console.Core
 		private string[] source;
 
 		private Dictionary<string, string> arguments;
-		private Dictionary<string, bool> flags;
+		private List<string> flags;
 	}
 }
