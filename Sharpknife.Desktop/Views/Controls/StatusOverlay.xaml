@@ -1,0 +1,15 @@
+﻿<UserControl x:Name="Control" x:Class="Sharpknife.Desktop.Views.Controls.StatusOverlay" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:sdc="clr-namespace:Sharpknife.Desktop.Converters">
+	<UserControl.Resources>
+		<sdc:BoolVisibilityConverter x:Key="BoolVisibilityConverter" />
+	</UserControl.Resources>
+	<UserControl.Visibility>
+		<Binding Path="Status.Busy" ElementName="Control" Converter="{StaticResource BoolVisibilityConverter}" />
+	</UserControl.Visibility>
+	<UserControl.Background>
+		<SolidColorBrush Color="LightGray" Opacity="0.2" />
+	</UserControl.Background>
+	<StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10">
+		<TextBlock Text="{Binding Status.Message, ElementName=Control}" HorizontalAlignment="Center" />
+		<ProgressBar IsIndeterminate="True" Width="200" Height="20" Margin="0, 10, 0, 0" />
+	</StackPanel>
+</UserControl>
