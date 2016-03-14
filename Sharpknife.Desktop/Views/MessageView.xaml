@@ -7,7 +7,7 @@
 			<TextBlock Text="{Binding Title}" />
 		</sdvc:HeaderBox>
 		<sdvc:ButtonsBox DockPanel.Dock="Bottom">
-			<Button Command="{Binding OkCommand}" Content="OK" IsDefault="True" IsCancel="True" />
+			<Button Command="{Binding OkCommand}" Content="_OK" IsDefault="True" IsCancel="True" />
 		</sdvc:ButtonsBox>
 		<TextBlock Text="{Binding Message}" TextWrapping="Wrap" MinHeight="50" Margin="10" />
 	</DockPanel>
