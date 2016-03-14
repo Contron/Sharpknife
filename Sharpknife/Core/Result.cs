@@ -11,7 +11,7 @@ namespace Sharpknife.Core
 	/// Offers a cleaner, more elegant solution to a method that can either succeed or fail.
 	/// </summary>
 	/// <typeparam name="T">the type</typeparam>
-	public class Result<T> where T : class
+	public class Result<T>
 	{
 		/// <summary>
 		/// Creates a new successful result with the specified instance.
@@ -39,7 +39,7 @@ namespace Sharpknife.Core
 				throw new ArgumentNullException(nameof(exception));
 			}
 
-			this.Instance = null;
+			this.Instance = default(T);
 			this.Exception = exception;
 		}
 
@@ -48,7 +48,7 @@ namespace Sharpknife.Core
 		/// </summary>
 		public Result()
 		{
-			this.Instance = null;
+			this.Instance = default(T);
 			this.Exception = null;
 		}
 
