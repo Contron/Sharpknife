@@ -12,8 +12,7 @@
 		<StackPanel Margin="10">
 			<TextBlock Text="{Binding Description}" TextWrapping="Wrap" FontStyle="Italic" />
 			<TextBlock Text="{Binding Version}" TextWrapping="Wrap" Margin="0, 10, 0, 0" />
-			<TextBlock Text="{Binding Built}" TextWrapping="Wrap" />
-			<TextBlock Text="{Binding Copyright}" TextWrapping="Wrap" Margin="0, 10, 0, 0" />
+			<TextBlock Text="{Binding Copyright}" TextWrapping="Wrap" />
 		</StackPanel>
 	</DockPanel>
 </Window>
