@@ -13,7 +13,7 @@ namespace Sharpknife.Desktop.Services
 	/// <summary>
 	/// Represents a print service to print basic documents.
 	/// </summary>
-	public class PrintService
+	public sealed class PrintService
 	{
 		private PrintService()
 		{

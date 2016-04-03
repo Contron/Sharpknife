@@ -9,7 +9,7 @@ namespace Sharpknife.Desktop.Services
 	/// <summary>
 	/// Represents a notification service to send and receive events.
 	/// </summary>
-	public class NotificationService
+	public sealed class NotificationService
 	{
 		private NotificationService()
 		{

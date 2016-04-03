@@ -31,12 +31,13 @@ namespace Sharpknife.Utilities
 			var result = path;
 			var count = 0;
 
-			while (File.Exists(result) || count <= 0)
+			do
 			{
 				count++;
 
 				result = Path.Combine(directory, $"{name}{count}{extension}");
 			}
+			while (File.Exists(result));
 
 			return result;
 		}

@@ -1,4 +1,5 @@
-﻿using Sharpknife.Desktop.ViewModels;
+﻿using Sharpknife.Desktop.Services;
+using Sharpknife.Desktop.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,7 +32,7 @@ namespace Sharpknife.Desktop.Views
 
 		private void WindowLoaded(object sender, RoutedEventArgs args)
 		{
-			SystemSounds.Beep.Play();
+			SoundService.Instance.PlaySystem(SystemSounds.Beep);
 		}
 	}
 }

@@ -8,7 +8,6 @@ namespace Sharpknife.Core
 {
 	/// <summary>
 	/// Represents the result of a particular action that contains either the resulting object instance, or an <see cref="System.Exception" />.
-	/// Offers a cleaner, more elegant solution to a method that can either succeed or fail.
 	/// </summary>
 	/// <typeparam name="T">the type</typeparam>
 	public class Result<T>

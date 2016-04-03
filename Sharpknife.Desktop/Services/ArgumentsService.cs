@@ -9,7 +9,7 @@ namespace Sharpknife.Desktop.Services
 	/// <summary>
 	/// Represents an arguments service to retrieve application command-line arguments.
 	/// </summary>
-	public class ArgumentsService
+	public sealed class ArgumentsService
 	{
 		private ArgumentsService()
 		{

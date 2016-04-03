@@ -11,7 +11,7 @@ namespace Sharpknife.Desktop.Services
 	/// <summary>
 	/// Represents a window service to display <see cref="Window" />s.
 	/// </summary>
-	public class WindowService
+	public sealed class WindowService
 	{
 		private WindowService()
 		{

@@ -11,7 +11,7 @@ namespace Sharpknife.Desktop.Services
 	/// <summary>
 	/// Represents a sound service to play sounds.
 	/// </summary>
-	public class SoundService
+	public sealed class SoundService
 	{
 		private SoundService()
 		{
@@ -31,6 +31,15 @@ namespace Sharpknife.Desktop.Services
 				player.Stream = stream;
 				player.Play();
 			}
+		}
+
+		/// <summary>
+		/// Plays the specified system sound.
+		/// </summary>
+		/// <param name="sound">the sound</param>
+		public void PlaySystem(SystemSound sound)
+		{
+			sound.Play();
 		}
 
 		/// <summary>

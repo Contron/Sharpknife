@@ -13,7 +13,7 @@ namespace Sharpknife.Desktop.Services
 	/// <summary>
 	/// Represents a dialog service to display common dialogs.
 	/// </summary>
-	public class DialogService
+	public sealed class DialogService
 	{
 		private DialogService()
 		{

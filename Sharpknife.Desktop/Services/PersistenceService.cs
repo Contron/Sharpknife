@@ -14,7 +14,7 @@ namespace Sharpknife.Desktop.Services
 	/// <summary>
 	/// Represents a service to manage persistence and serialization of objects.
 	/// </summary>
-	public class PersistenceService
+	public sealed class PersistenceService
 	{
 		private PersistenceService()
 		{
@@ -104,7 +104,7 @@ namespace Sharpknife.Desktop.Services
 
 				if (result == null)
 				{
-					throw new InvalidOperationException("Failed to deserialize data.");
+					throw new InvalidOperationException("Failed to deserialize instance.");
 				}
 
 				return result;

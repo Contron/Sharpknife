@@ -25,11 +25,11 @@ namespace Sharpknife.Desktop.ViewModels
 
 		private void Populate()
 		{
-			this.Name = Assemblies.GetAttribute<AssemblyProductAttribute>().Product;
-			this.Description = Assemblies.GetAttribute<AssemblyDescriptionAttribute>().Description;
+			this.Name = Assemblies.GetAttribute<AssemblyProductAttribute>()?.Product;
+			this.Description = Assemblies.GetAttribute<AssemblyDescriptionAttribute>()?.Description;
 
-			this.Version = $"Version {Assemblies.GetAttribute<AssemblyFileVersionAttribute>().Version}";
-			this.Copyright = $"Copyright {Assemblies.GetAttribute<AssemblyCopyrightAttribute>().Copyright}";
+			this.Version = $"Version {Assemblies.GetAttribute<AssemblyFileVersionAttribute>()?.Version ?? "Unknown"}";
+			this.Copyright = $"Copyright {Assemblies.GetAttribute<AssemblyCopyrightAttribute>()?.Copyright ?? "Unavailable"}";
 
 			if (string.IsNullOrEmpty(this.Description))
 			{
