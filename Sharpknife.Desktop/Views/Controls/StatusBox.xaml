@@ -1,6 +1,6 @@
-﻿<UserControl x:Name="Control" x:Class="Sharpknife.Desktop.Views.Controls.StatusBox" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:sdc="clr-namespace:Sharpknife.Desktop.Converters" Background="{x:Static SystemColors.ControlBrush}">
+﻿<UserControl x:Name="Control" x:Class="Sharpknife.Desktop.Views.Controls.StatusBox" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:converters="clr-namespace:Sharpknife.Desktop.Converters" Background="{x:Static SystemColors.ControlBrush}">
 	<UserControl.Resources>
-		<sdc:BoolVisibilityConverter x:Key="BoolVisibilityConverter" />
+		<converters:BoolVisibilityConverter x:Key="BoolVisibilityConverter" />
 	</UserControl.Resources>
 	<StatusBar Background="{Binding Background, ElementName=Control}">
 		<StatusBar.ItemsPanel>
