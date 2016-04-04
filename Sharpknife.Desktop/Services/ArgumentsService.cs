@@ -17,22 +17,6 @@ namespace Sharpknife.Desktop.Services
 		}
 
 		/// <summary>
-		/// Returns the arguments supplied to the application, minus the name.
-		/// </summary>
-		/// <returns></returns>
-		public List<string> Get()
-		{
-			var arguments = Environment.GetCommandLineArgs().ToList();
-
-			if (arguments.Count > 0)
-			{
-				arguments.RemoveAt(0);
-			}
-
-			return arguments;
-		}
-
-		/// <summary>
 		/// Gets the instance of the arguments service.
 		/// </summary>
 		public static ArgumentsService Instance
@@ -42,6 +26,21 @@ namespace Sharpknife.Desktop.Services
 				return ArgumentsService.instance;
 			}
 		}
+
+		/// <summary>
+		/// Gets the supplied arguments, without the executable's name.
+		/// </summary>
+		public List<string> Arguments
+		{
+			get
+			{
+				return Environment.GetCommandLineArgs()
+					.Skip(1)
+					.ToList();
+			}
+		}
+
+		private List<string> arguments;
 
 		private static readonly ArgumentsService instance = new ArgumentsService();
 	}
