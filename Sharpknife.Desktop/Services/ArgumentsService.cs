@@ -40,8 +40,6 @@ namespace Sharpknife.Desktop.Services
 			}
 		}
 
-		private List<string> arguments;
-
 		private static readonly ArgumentsService instance = new ArgumentsService();
 	}
 }
