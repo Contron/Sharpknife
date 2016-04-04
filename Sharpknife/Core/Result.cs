@@ -10,7 +10,7 @@ namespace Sharpknife.Core
 	/// Represents the result of a particular action that contains either the resulting object instance, or an <see cref="System.Exception" />.
 	/// </summary>
 	/// <typeparam name="T">the type</typeparam>
-	public class Result<T>
+	public class Result<T> where T : class
 	{
 		/// <summary>
 		/// Creates a new successful result with the specified instance.
@@ -38,7 +38,7 @@ namespace Sharpknife.Core
 				throw new ArgumentNullException(nameof(exception));
 			}
 
-			this.Instance = default(T);
+			this.Instance = null;
 			this.Exception = exception;
 		}
 
@@ -47,7 +47,7 @@ namespace Sharpknife.Core
 		/// </summary>
 		public Result()
 		{
-			this.Instance = default(T);
+			this.Instance = null;
 			this.Exception = null;
 		}
 
