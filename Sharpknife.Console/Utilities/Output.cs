@@ -15,53 +15,39 @@ namespace Sharpknife.Console.Utilities
 	public static class Output
 	{
 		/// <summary>
-		/// Prints a message to the <see cref="System.Console" />.
+		/// Writes the specified message to the <see cref="System.Console" /> .
 		/// </summary>
 		/// <param name="message">the message</param>
-		public static void Message(string message)
+		public static void WriteMessage(string message)
 		{
 			Output.WriteLine(ConsoleColor.Gray, message);
 		}
 
 		/// <summary>
-		/// Prints a warning message to the <see cref="System.Console" />.
+		/// Writes the specified warning message to the <see cref="System.Console" />.
 		/// </summary>
 		/// <param name="message">the message</param>
-		public static void Warning(string message)
+		public static void WriteWarning(string message)
 		{
 			Output.WriteLine(ConsoleColor.Yellow, message);
 		}
 
 		/// <summary>
-		/// Prints an error message to the <see cref="System.Console" />.
+		/// Writes the specified error message to the <see cref="System.Console" />.
 		/// </summary>
 		/// <param name="message">the message</param>
-		public static void Error(string message)
+		public static void WriteError(string message)
 		{
 			Output.WriteLine(ConsoleColor.Red, message);
 		}
 
 		/// <summary>
-		/// Prints a standard application header to the <see cref="System.Console" />.
+		/// Writes an application header <see cref="System.Console" />, containing the application's name, version, and copyright notice.
 		/// </summary>
-		/// <remarks>
-		/// Contains the application's full name, along with its current version and copyright notice.
-		/// </remarks>
-		public static void Header()
+		public static void WriteHeader()
 		{
-			Output.Warning(Assemblies.GetAttribute<AssemblyProductAttribute>().Product);
-			Output.Warning($"Version {Assemblies.GetAttribute<AssemblyFileVersionAttribute>().Version}, Copyright {Assemblies.GetAttribute<AssemblyCopyrightAttribute>().Copyright}");
-		}
-
-		/// <summary>
-		/// Prints a separator line to the <see cref="System.Console" />.
-		/// The line will be the value of <see cref="System.Console.BufferWidth" />.
-		/// </summary>
-		public static void Separator()
-		{
-			var width = System.Console.BufferWidth - 12;
-
-			Output.Message(string.Concat(Enumerable.Repeat("=", width)));
+			Output.WriteWarning(Assemblies.GetAttribute<AssemblyProductAttribute>().Product);
+			Output.WriteWarning($"Version {Assemblies.GetAttribute<AssemblyFileVersionAttribute>().Version}, Copyright {Assemblies.GetAttribute<AssemblyCopyrightAttribute>().Copyright}");
 		}
 
 		/// <summary>

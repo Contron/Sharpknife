@@ -17,7 +17,7 @@ namespace Sharpknife.Console.Utilities
 		/// </summary>
 		/// <param name="message">the message</param>
 		/// <returns>the result</returns>
-		public static string Message(string message)
+		public static string ReadMessage(string message)
 		{
 			var result = string.Empty;
 
@@ -39,7 +39,7 @@ namespace Sharpknife.Console.Utilities
 		/// </summary>
 		/// <param name="message">the message</param>
 		/// <returns>the result</returns>
-		public static int Number(string message)
+		public static int ReadNumber(string message)
 		{
 			var result = 0;
 
@@ -62,7 +62,7 @@ namespace Sharpknife.Console.Utilities
 		/// </summary>
 		/// <param name="message">the message</param>
 		/// <returns>the result</returns>
-		public static bool Question(string message)
+		public static bool ReadQuestion(string message)
 		{
 			var result = false;
 
@@ -87,9 +87,9 @@ namespace Sharpknife.Console.Utilities
 		/// <summary>
 		/// Prompts the <see cref="System.Console" /> to press any key before continuing.
 		/// </summary>
-		public static void Wait()
+		public static void WaitForAnyKey()
 		{
-			Output.Warning("Press any key to continue.");
+			Output.WriteWarning("Press any key to continue.");
 
 			System.Console.ReadKey(true);
 		}
