@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace Sharpknife.Utilities
 {
 	/// <summary>
-	/// A collection of methods to read and write process' memory.
+	/// Provides a collection of methods to read and write process' memory.
 	/// </summary>
 	public static class Memory
 	{

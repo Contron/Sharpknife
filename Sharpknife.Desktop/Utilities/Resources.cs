@@ -9,7 +9,7 @@ using System.Windows;
 namespace Sharpknife.Desktop.Utilities
 {
 	/// <summary>
-	/// A collection of methods to load resources.
+	/// Provides a collection of methods to load resources.
 	/// </summary>
 	public static class Resources
 	{

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Sharpknife.Utilities
 {
 	/// <summary>
-	/// A collection of common file methods.
+	/// Provides a collection of common file methods.
 	/// </summary>
 	public static class Files
 	{

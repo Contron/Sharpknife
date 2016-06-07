@@ -9,7 +9,7 @@ using System.Windows.Media;
 namespace Sharpknife.Desktop.Utilities
 {
 	/// <summary>
-	/// A collection of common control methods.
+	/// Provides a collection of common control methods.
 	/// </summary>
 	public static class Controls
 	{
