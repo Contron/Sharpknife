@@ -51,6 +51,16 @@ namespace Sharpknife.Console.Utilities
 		}
 
 		/// <summary>
+		/// Prints a separator line to the <see cref="System.Console" />.
+		/// </summary>
+		public static void WriteSeparator()
+		{
+			var width = System.Console.BufferWidth - 12;
+
+			Output.WriteMessage(string.Concat(Enumerable.Repeat("=", width)));
+		}
+
+		/// <summary>
 		/// Writes the specified line (with a new line) to the <see cref="System.Console" /> with the specified <see cref="ConsoleColor" />.
 		/// </summary>
 		/// <param name="colour">the colour</param>
