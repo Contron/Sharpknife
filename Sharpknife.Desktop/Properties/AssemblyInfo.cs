@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Sharpknife.Desktop")]
-[assembly: AssemblyDescription("Sharpknife additional desktop components")]
+[assembly: AssemblyDescription("Sharpknife desktop components")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Sharpknife Desktop")]
-[assembly: AssemblyCopyright("Connor Haigh 2015")]
+[assembly: AssemblyCopyright("Connor Haigh 2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
