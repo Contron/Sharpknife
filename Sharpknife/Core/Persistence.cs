@@ -16,9 +16,9 @@ namespace Sharpknife.Core
 	public class Persistence<T> where T : class, new()
 	{
 		/// <summary>
-		/// Creates a new persistence container with the specified name.
+		/// Creates a new persistence container with the specified file name.
 		/// </summary>
-		/// <param name="path">the path</param>
+		/// <param name="name">the file name</param>
 		public Persistence(string name)
 		{
 			if (name == null)
