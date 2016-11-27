@@ -87,7 +87,7 @@ namespace Sharpknife.Console.Utilities
 		/// <summary>
 		/// Prompts the <see cref="System.Console" /> to press any key before continuing.
 		/// </summary>
-		public static void WaitForAnyKey()
+		public static void Wait()
 		{
 			Output.WriteWarning("Press any key to continue.");
 
