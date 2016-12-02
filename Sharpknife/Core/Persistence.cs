@@ -16,9 +16,9 @@ namespace Sharpknife.Core
 	public class Persistence<T> where T : class, new()
 	{
 		/// <summary>
-		/// Creates a new persistence container with the specified file name.
+		/// Creates a new persistence container with the specified name.
 		/// </summary>
-		/// <param name="name">the file name</param>
+		/// <param name="name">the name</param>
 		public Persistence(string name)
 		{
 			if (name == null)
@@ -38,7 +38,7 @@ namespace Sharpknife.Core
 		}
 
 		/// <summary>
-		/// Creates a new persistence container using the default path and name.
+		/// Creates a new persistence container.
 		/// </summary>
 		public Persistence() : this(typeof(T).Name)
 		{
@@ -46,7 +46,17 @@ namespace Sharpknife.Core
 		}
 
 		/// <summary>
-		/// Loads the instance from storage.
+		/// Returns a string representation.
+		/// </summary>
+		/// <returns>the representation</returns>
+		public override string ToString()
+		{
+			return $"Persistence (Name: {this.name})";
+		}
+
+		/// <summary>
+		/// Loads the instance.
+		/// Returns a new instance if it does not exist.
 		/// </summary>
 		public void Load()
 		{
@@ -68,7 +78,7 @@ namespace Sharpknife.Core
 		}
 
 		/// <summary>
-		/// Saves the instance to storage.
+		/// Saves the instance.
 		/// </summary>
 		public void Save()
 		{
@@ -88,12 +98,20 @@ namespace Sharpknife.Core
 			}
 		}
 
-		private string GetDirectory()
+		/// <summary>
+		/// Returns the directory of the persistence file.
+		/// </summary>
+		/// <returns></returns>
+		protected virtual string GetDirectory()
 		{
 			return "Configuration";
 		}
 
-		private string GetPath()
+		/// <summary>
+		/// Returns the full path to the persistence file.
+		/// </summary>
+		/// <returns></returns>
+		protected virtual string GetPath()
 		{
 			return Path.Combine(this.GetDirectory(), $"{this.name}.xml");
 		}

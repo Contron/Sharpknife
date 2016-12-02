@@ -35,6 +35,15 @@ namespace Sharpknife.Desktop.Models
 		}
 
 		/// <summary>
+		/// Returns a string representation.
+		/// </summary>
+		/// <returns>the representation</returns>
+		public override string ToString()
+		{
+			return $"Status (Message: {this.Message}, Busy: {this.Busy})";
+		}
+
+		/// <summary>
 		/// Resets the status.
 		/// </summary>
 		public void Reset()

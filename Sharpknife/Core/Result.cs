@@ -52,9 +52,9 @@ namespace Sharpknife.Core
 		}
 
 		/// <summary>
-		/// Returns a string representation of the result.
+		/// Returns a string representation.
 		/// </summary>
-		/// <returns>the result</returns>
+		/// <returns>the representation</returns>
 		public override string ToString()
 		{
 			return $"Result (Instance: {this.Instance}, Exception: {this.Exception})";

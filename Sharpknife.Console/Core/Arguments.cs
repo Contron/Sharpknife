@@ -31,6 +31,15 @@ namespace Sharpknife.Console.Core
 		}
 
 		/// <summary>
+		/// Returns a string representation.
+		/// </summary>
+		/// <returns>the representation</returns>
+		public override string ToString()
+		{
+			return $"Arguments (Arguments: {this.arguments}, Flags: {this.flags})";
+		}
+
+		/// <summary>
 		/// Returns the value of the specified option, or <c>null</c> if it does not exist.
 		/// </summary>
 		/// <param name="name">the name</param>
