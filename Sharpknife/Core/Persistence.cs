@@ -16,19 +16,27 @@ namespace Sharpknife.Core
 	public class Persistence<T> where T : class, new()
 	{
 		/// <summary>
-		/// Creates a new persistence container with the specified name.
+		/// Creates a new persistence container with the specified name and directory.
 		/// </summary>
 		/// <param name="name">the name</param>
-		public Persistence(string name)
+		/// <param name="directory">the directory</param>
+		public Persistence(string name, string directory)
 		{
 			if (name == null)
 			{
 				throw new ArgumentNullException(nameof(name));
 			}
 
+			if (directory == null)
+			{
+				throw new ArgumentNullException(nameof(directory));
+			}
+
 			this.Instance = null;
 
 			this.name = name;
+			this.directory = directory;
+
 			this.settings = new XmlWriterSettings()
 			{
 				Indent = true,
@@ -40,7 +48,7 @@ namespace Sharpknife.Core
 		/// <summary>
 		/// Creates a new persistence container.
 		/// </summary>
-		public Persistence() : this(typeof(T).Name)
+		public Persistence() : this(typeof(T).Name, "Configuration")
 		{
 
 		}
@@ -51,7 +59,7 @@ namespace Sharpknife.Core
 		/// <returns>the representation</returns>
 		public override string ToString()
 		{
-			return $"Persistence (Name: {this.name})";
+			return $"Persistence (Name: {this.name}, Directory: {this.directory})";
 		}
 
 		/// <summary>
@@ -82,11 +90,9 @@ namespace Sharpknife.Core
 		/// </summary>
 		public void Save()
 		{
-			var directory = this.GetDirectory();
-
-			if (!Directory.Exists(directory))
+			if (!Directory.Exists(this.directory))
 			{
-				Directory.CreateDirectory(directory);
+				Directory.CreateDirectory(this.directory);
 			}
 
 			var serializer = new XmlSerializer(typeof(T));
@@ -98,22 +104,9 @@ namespace Sharpknife.Core
 			}
 		}
 
-		/// <summary>
-		/// Returns the directory of the persistence file.
-		/// </summary>
-		/// <returns></returns>
-		protected virtual string GetDirectory()
+		private string GetPath()
 		{
-			return "Configuration";
-		}
-
-		/// <summary>
-		/// Returns the full path to the persistence file.
-		/// </summary>
-		/// <returns></returns>
-		protected virtual string GetPath()
-		{
-			return Path.Combine(this.GetDirectory(), $"{this.name}.xml");
+			return Path.Combine(this.directory, $"{this.name}.xml");
 		}
 
 		/// <summary>
@@ -126,6 +119,8 @@ namespace Sharpknife.Core
 		}
 
 		private string name;
+		private string directory;
+
 		private XmlWriterSettings settings;
 	}
 }
