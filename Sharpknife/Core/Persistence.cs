@@ -46,9 +46,18 @@ namespace Sharpknife.Core
 		}
 
 		/// <summary>
+		/// Creates a new persistence container with the specified name.
+		/// </summary>
+		/// <param name="name">the name</param>
+		public Persistence(string name) : this(name, "Configuration")
+		{
+
+		}
+
+		/// <summary>
 		/// Creates a new persistence container.
 		/// </summary>
-		public Persistence() : this(typeof(T).Name, "Configuration")
+		public Persistence() : this(typeof(T).Name)
 		{
 
 		}
