@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace Sharpknife.Utilities
 {
 	/// <summary>
-	/// Provides a collection of common assembly methods.
+	/// Provides a collection of methods to work with <see cref="Assembly" /> instances.
 	/// </summary>
 	public static class Assemblies
 	{

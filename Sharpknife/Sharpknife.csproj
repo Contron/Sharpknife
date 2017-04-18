@@ -51,6 +51,7 @@
     <Compile Include="Core\Result.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities\Assemblies.cs" />
+    <Compile Include="Utilities\Dates.cs" />
     <Compile Include="Utilities\Files.cs" />
     <Compile Include="Utilities\Memory.cs" />
     <Compile Include="Utilities\Numbers.cs" />
