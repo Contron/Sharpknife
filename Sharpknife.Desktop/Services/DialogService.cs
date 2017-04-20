@@ -1,12 +1,7 @@
-﻿using Sharpknife.Desktop.Views;
-using Sharpknife.Desktop.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System;
 using Microsoft.Win32;
+using Sharpknife.Desktop.ViewModels;
+using Sharpknife.Desktop.Views;
 
 namespace Sharpknife.Desktop.Services
 {

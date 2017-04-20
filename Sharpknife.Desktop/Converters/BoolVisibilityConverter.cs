@@ -1,10 +1,6 @@
-﻿using Sharpknife.Desktop.Core;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 using System.Windows;
+using Sharpknife.Desktop.Core;
 
 namespace Sharpknife.Desktop.Converters
 {

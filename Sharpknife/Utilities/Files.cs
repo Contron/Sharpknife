@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Sharpknife.Utilities
 {
@@ -49,19 +45,27 @@ namespace Sharpknife.Utilities
 		/// <returns>the result</returns>
 		public static string GetSize(long size)
 		{
-			var sizes = new string[] { "B", "KB", "MB", "GB", "TB", "PB", "EB" };
-			var order = 0;
-
-			while (size >= 1024 && order + 1 < sizes.Length)
+			if (size < 1024)
 			{
-				order++;
-				size /= 1024;
+				return $"{size:N0} bytes";
 			}
 
-			var suffix = sizes[order];
-			var result = $"{size:0} {suffix}";
+			if (size < 1048576)
+			{
+				return $"{size / 1024:N0} KB";
+			}
 
-			return result;
+			if (size < 1073741824)
+			{
+				return $"{size / 1048576:N0} MB";
+			}
+
+			if (size < 1099511627776)
+			{
+				return $"{size / 1073741824:N0} GB";
+			}
+
+			return $"{size / 1099511627776:N0} PB";
 		}
 	}
 }

@@ -1,11 +1,7 @@
-﻿using Sharpknife.Utilities;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
+﻿using System;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
+using Sharpknife.Utilities;
 
 namespace Sharpknife.Console.Utilities
 {

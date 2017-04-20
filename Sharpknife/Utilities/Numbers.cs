@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Sharpknife.Utilities
+﻿namespace Sharpknife.Utilities
 {
 	/// <summary>
 	/// Provides a collection of methods to work with numbers.
