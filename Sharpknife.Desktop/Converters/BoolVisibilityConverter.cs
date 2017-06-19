@@ -24,16 +24,16 @@ namespace Sharpknife.Desktop.Converters
 		/// <returns>the visibility</returns>
 		public override object Convert(object value)
 		{
-			var boolValue = value as bool?;
+			var next = value as bool?;
 
-			if (boolValue != null)
+			if (next != null)
 			{
 				if (this.Invert)
 				{
-					boolValue = !boolValue.Value;
+					next = !next.Value;
 				}
 
-				return boolValue.Value ? Visibility.Visible : Visibility.Collapsed;
+				return next.Value ? Visibility.Visible : Visibility.Collapsed;
 			}
 
 			throw new ArgumentException(nameof(value));

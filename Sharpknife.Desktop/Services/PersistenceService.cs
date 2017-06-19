@@ -35,8 +35,7 @@ namespace Sharpknife.Desktop.Services
 
 			if (this.IsDesigner())
 			{
-				// Don't do any caching in designer mode.
-				// Return a new instance each time.
+				// Return a new object every time in designer mode.
 
 				return new T();
 			}
@@ -101,7 +100,7 @@ namespace Sharpknife.Desktop.Services
 
 				if (result == null)
 				{
-					throw new InvalidOperationException("Failed to deserialize instance.");
+					throw new InvalidOperationException("Failed to cast instance.");
 				}
 
 				return result;
@@ -146,34 +145,25 @@ namespace Sharpknife.Desktop.Services
 			return false;
 		}
 
-		private void TrySync()
-		{
-			try
-			{
-				this.Sync();
-			}
-			catch
-			{
-				// Failed to save one or more files.
-				// Perhaps throw the exception here?
-			}
-		}
-
 		private void Hook()
 		{
-			Application.Current.Exit += (sender, args) => this.TrySync();
+			Application.Current.Exit += (sender, args) =>
+			{
+				try
+				{
+					this.Sync();
+				}
+				catch
+				{
+
+				}
+			};
 		}
 
 		/// <summary>
 		/// Gets the instance of the persistence service.
 		/// </summary>
-		public static PersistenceService Instance
-		{
-			get
-			{
-				return PersistenceService.instance;
-			}
-		}
+		public static PersistenceService Instance => PersistenceService.instance;
 
 		private static readonly PersistenceService instance = new PersistenceService();
 

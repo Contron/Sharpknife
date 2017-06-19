@@ -108,13 +108,7 @@ namespace Sharpknife.Desktop.Services
 		/// <summary>
 		/// Gets the instance of the dialog service.
 		/// </summary>
-		public static DialogService Instance
-		{
-			get
-			{
-				return DialogService.instance;
-			}
-		}
+		public static DialogService Instance => DialogService.instance;
 
 		private static readonly DialogService instance = new DialogService();
 	}

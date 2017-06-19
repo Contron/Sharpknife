@@ -18,11 +18,7 @@ namespace Sharpknife.Utilities
 		public static string GetApplicationPath()
 		{
 			var folder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-
-			var assembly = Assembly
-				.GetEntryAssembly()
-				.GetName()
-				.Name;
+			var assembly = Assembly.GetEntryAssembly().GetName().Name;
 
 			return Path.Combine(folder, assembly);
 		}
@@ -34,9 +30,7 @@ namespace Sharpknife.Utilities
 		/// <returns>the attribute</returns>
 		public static T GetAttribute<T>() where T : Attribute
 		{
-			return Assembly
-				.GetEntryAssembly()
-				.GetCustomAttribute<T>();
+			return Assembly.GetEntryAssembly().GetCustomAttribute<T>();
 		}
 
 		/// <summary>
@@ -51,8 +45,7 @@ namespace Sharpknife.Utilities
 				throw new ArgumentNullException(nameof(type));
 			}
 
-			var types = Assembly.GetAssembly(type)
-				.GetTypes()
+			var types = Assembly.GetAssembly(type).GetTypes()
 				.Where(current => current.IsSubclassOf(type))
 				.ToList();
 

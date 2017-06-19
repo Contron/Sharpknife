@@ -51,14 +51,8 @@ namespace Sharpknife.Desktop.Models
 		/// </summary>
 		public string Message
 		{
-			get
-			{
-				return (string) this.Get();
-			}
-			set
-			{
-				this.Set(value);
-			}
+			get => (string) this.Get();
+			set => this.Set(value);
 		}
 
 		/// <summary>
@@ -66,14 +60,8 @@ namespace Sharpknife.Desktop.Models
 		/// </summary>
 		public bool Busy
 		{
-			get
-			{
-				return (bool) this.Get();
-			}
-			set
-			{
-				this.Set(value);
-			}
+			get => (bool) this.Get();
+			set => this.Set(value);
 		}
 	}
 }

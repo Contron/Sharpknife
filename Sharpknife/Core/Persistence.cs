@@ -32,13 +32,6 @@ namespace Sharpknife.Core
 
 			this.name = name;
 			this.directory = directory;
-
-			this.settings = new XmlWriterSettings()
-			{
-				Indent = true,
-				IndentChars = "\t",
-				OmitXmlDeclaration = true
-			};
 		}
 
 		/// <summary>
@@ -103,7 +96,7 @@ namespace Sharpknife.Core
 			var serializer = new XmlSerializer(typeof(T));
 
 			using (var stream = File.Open(this.GetPath(), FileMode.Create))
-			using (var writer = XmlWriter.Create(stream, this.settings))
+			using (var writer = XmlWriter.Create(stream, Persistence<T>.settings))
 			{
 				serializer.Serialize(writer, this.Instance);
 			}
@@ -123,9 +116,14 @@ namespace Sharpknife.Core
 			set;
 		}
 
+		private static XmlWriterSettings settings = new XmlWriterSettings()
+		{
+			Indent = true,
+			IndentChars = "\t",
+			OmitXmlDeclaration = true
+		};
+
 		private string name;
 		private string directory;
-
-		private XmlWriterSettings settings;
 	}
 }

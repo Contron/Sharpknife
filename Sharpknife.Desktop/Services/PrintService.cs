@@ -88,13 +88,7 @@ namespace Sharpknife.Desktop.Services
 		/// <summary>
 		/// Gets the instance of the print service.
 		/// </summary>
-		public static PrintService Instance
-		{
-			get
-			{
-				return PrintService.instance;
-			}
-		}
+		public static PrintService Instance => PrintService.instance;
 
 		private static readonly PrintService instance = new PrintService();
 	}

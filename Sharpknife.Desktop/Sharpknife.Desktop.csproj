@@ -56,7 +56,6 @@
     <Compile Include="Models\Status.cs" />
     <Compile Include="Services\ArgumentsService.cs" />
     <Compile Include="Services\DialogService.cs" />
-    <Compile Include="Services\NotificationService.cs" />
     <Compile Include="Core\Observable.cs" />
     <Compile Include="Services\PersistenceService.cs" />
     <Compile Include="Services\PrintService.cs" />

@@ -55,14 +55,8 @@ namespace Sharpknife.Desktop.Views.Controls
 		/// </summary>
 		public ContextMenu DisplayMenu
 		{
-			get
-			{
-				return (ContextMenu) this.GetValue(MenuButton.DisplayMenuProperty);
-			}
-			set
-			{
-				this.SetValue(MenuButton.DisplayMenuProperty, value);
-			}
+			get => (ContextMenu) this.GetValue(MenuButton.DisplayMenuProperty);
+			set => this.SetValue(MenuButton.DisplayMenuProperty, value);
 		}
 	}
 }

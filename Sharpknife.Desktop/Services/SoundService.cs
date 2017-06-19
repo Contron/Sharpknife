@@ -40,13 +40,7 @@ namespace Sharpknife.Desktop.Services
 		/// <summary>
 		/// Gets the instance of the sound service.
 		/// </summary>
-		public static SoundService Instance
-		{
-			get
-			{
-				return SoundService.instance;
-			}
-		}
+		public static SoundService Instance => SoundService.instance;
 
 		private static readonly SoundService instance = new SoundService();
 	}

@@ -12,34 +12,19 @@ namespace Sharpknife.Desktop.ViewModels
 
 		public string Title
 		{
-			get
-			{
-				return (string) this.Get();
-			}
-			set
-			{
-				this.Set(value);
-			}
+			get => (string) this.Get();
+			set => this.Set(value);
 		}
 
 		public string Message
 		{
-			get
-			{
-				return (string) this.Get();
-			}
-			set
-			{
-				this.Set(value);
-			}
+			get => (string) this.Get();
+			set => this.Set(value);
 		}
 
 		public Command OkCommand
 		{
-			get
-			{
-				return Command.Close;
-			}
+			get => Command.Close;
 		}
 	}
 }

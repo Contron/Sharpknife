@@ -77,23 +77,11 @@ namespace Sharpknife.Core
 		/// <summary>
 		/// Gets if the result was successful.
 		/// </summary>
-		public bool Successful
-		{
-			get
-			{
-				return this.Instance != null && this.Exception == null;
-			}
-		}
+		public bool Successful => this.Instance != null && this.Exception == null;
 
 		/// <summary>
 		/// Gets if the result threw an exception.
 		/// </summary>
-		public bool Errored
-		{
-			get
-			{
-				return this.Exception != null;
-			}
-		}
+		public bool Errored => this.Exception != null;
 	}
 }

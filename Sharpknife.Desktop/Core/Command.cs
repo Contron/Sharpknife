@@ -63,38 +63,20 @@ namespace Sharpknife.Desktop.Core
 		/// <summary>
 		/// Gets the command to close the active <see cref="System.Windows.Window" />.
 		/// </summary>
-		public static Command Close
-		{
-			get
-			{
-				return new Command(() => WindowService.Instance.CloseActive());
-			}
-		}
+		public static Command Close => new Command(() => WindowService.Instance.CloseActive());
 
 		/// <summary>
 		/// Gets the command to display the <see cref="Sharpknife.Desktop.Views.AboutView" />.
 		/// </summary>
-		public static Command About
-		{
-			get
-			{
-				return new Command(() => DialogService.Instance.ShowAbout());
-			}
-		}
+		public static Command About => new Command(() => DialogService.Instance.ShowAbout());
 
 		/// <summary>
 		/// Occurs when the can execute state changes.
 		/// </summary>
 		public event EventHandler CanExecuteChanged
 		{
-			add
-			{
-				CommandManager.RequerySuggested += value;
-			}
-			remove
-			{
-				CommandManager.RequerySuggested -= value;
-			}
+			add => CommandManager.RequerySuggested += value;
+			remove => CommandManager.RequerySuggested -= value;
 		}
 
 		private Action action;

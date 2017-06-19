@@ -41,14 +41,8 @@ namespace Sharpknife.Desktop.Views.Controls
 		/// </summary>
 		public Status Status
 		{
-			get
-			{
-				return (Status) this.GetValue(StatusBox.StatusProperty);
-			}
-			set
-			{
-				this.SetValue(StatusBox.StatusProperty, value);
-			}
+			get => (Status) this.GetValue(StatusBox.StatusProperty);
+			set => this.SetValue(StatusBox.StatusProperty, value);
 		}
 	}
 }

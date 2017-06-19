@@ -44,14 +44,8 @@ namespace Sharpknife.Desktop.Views.Controls
 		/// </summary>
 		public ObservableCollection<Button> Buttons
 		{
-			get
-			{
-				return (ObservableCollection<Button>) this.GetValue(ButtonsBox.ButtonsProperty);
-			}
-			set
-			{
-				this.SetValue(ButtonsBox.ButtonsProperty, value);
-			}
+			get => (ObservableCollection<Button>) this.GetValue(ButtonsBox.ButtonsProperty);
+			set => this.SetValue(ButtonsBox.ButtonsProperty, value);
 		}
 	}
 }

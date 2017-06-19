@@ -19,7 +19,7 @@ namespace Sharpknife.Desktop.ViewModels
 
 		private void Populate()
 		{
-			this.Name = Assemblies.GetAttribute<AssemblyProductAttribute>()?.Product;
+			this.Name = Assemblies.GetAttribute<AssemblyProductAttribute>()?.Product ?? "Application";
 			this.Description = Assemblies.GetAttribute<AssemblyDescriptionAttribute>()?.Description;
 
 			this.Version = $"Version {Assemblies.GetAttribute<AssemblyFileVersionAttribute>()?.Version ?? "Unknown"}";
@@ -33,58 +33,31 @@ namespace Sharpknife.Desktop.ViewModels
 
 		public string Name
 		{
-			get
-			{
-				return (string) this.Get();
-			}
-			set
-			{
-				this.Set(value);
-			}
+			get => (string) this.Get();
+			set => this.Set(value);
 		}
 
 		public string Description
 		{
-			get
-			{
-				return (string) this.Get();
-			}
-			set
-			{
-				this.Set(value);
-			}
+			get => (string) this.Get();
+			set => this.Set(value);
 		}
 
 		public string Version
 		{
-			get
-			{
-				return (string) this.Get();
-			}
-			set
-			{
-				this.Set(value);
-			}
+			get => (string) this.Get();
+			set => this.Set(value);
 		}
 
 		public string Copyright
 		{
-			get
-			{
-				return (string) this.Get();
-			}
-			set
-			{
-				this.Set(value);
-			}
+			get => (string) this.Get();
+			set => this.Set(value);
 		}
 
 		public Command CloseCommand
 		{
-			get
-			{
-				return Command.Close;
-			}
+			get => Command.Close;
 		}
 	}
 }

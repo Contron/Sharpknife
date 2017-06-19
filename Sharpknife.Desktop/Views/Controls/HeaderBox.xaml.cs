@@ -43,14 +43,8 @@ namespace Sharpknife.Desktop.Views.Controls
 		/// </summary>
 		public ObservableCollection<TextBlock> TextBlocks
 		{
-			get
-			{
-				return (ObservableCollection<TextBlock>) this.GetValue(HeaderBox.TextBlocksProperty);
-			}
-			set
-			{
-				this.SetValue(HeaderBox.TextBlocksProperty, value);
-			}
+			get => (ObservableCollection<TextBlock>) this.GetValue(HeaderBox.TextBlocksProperty);
+			set => this.SetValue(HeaderBox.TextBlocksProperty, value);
 		}
 	}
 }
