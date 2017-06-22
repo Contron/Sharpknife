@@ -25,13 +25,12 @@ namespace Sharpknife.Utilities
 			var extension = Path.GetExtension(path);
 
 			var result = path;
-			var count = 0;
+			var count = 1;
 
 			do
 			{
-				count++;
-
 				result = Path.Combine(directory, $"{name}{count}{extension}");
+				count++;
 			}
 			while (File.Exists(result));
 

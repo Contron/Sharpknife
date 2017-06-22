@@ -10,18 +10,38 @@ namespace Sharpknife.Desktop.Core
 	public class Command : ICommand
 	{
 		/// <summary>
-		/// Creates a new command.
+		/// Creates a new command from the specified <see cref="Action{T}" /> and the specified <see cref="Func{T, TResult}" />.
 		/// </summary>
 		/// <param name="action">the action</param>
 		/// <param name="predicate">the predicate</param>
-		public Command(Action action, Func<bool> predicate)
+		public Command(Action<object> action, Func<object, bool> predicate)
 		{
 			this.action = action;
 			this.predicate = predicate;
 		}
 
 		/// <summary>
-		/// Creates a new command.
+		/// Creates a new command from the specified <see cref="Action{T}" />.
+		/// </summary>
+		/// <param name="action">the action</param>
+		public Command(Action<object> action) : this(action, null)
+		{
+
+		}
+
+		/// <summary>
+		/// Creates a new command from the specified <see cref="Action" /> and the specified <see cref="Func{T}" />.
+		/// </summary>
+		/// <param name="action">the action</param>
+		/// <param name="predicate">the predicate</param>
+		public Command(Action action, Func<bool> predicate)
+		{
+			this.action = action != null ? new Action<object>((parameter) => action.Invoke()) : null;
+			this.predicate = predicate != null ? new Func<object, bool>((parameter) => predicate.Invoke()) : null;
+		}
+
+		/// <summary>
+		/// Creates a new command from the specified <see cref="Action" />.
 		/// </summary>
 		/// <param name="action">the action</param>
 		public Command(Action action) : this(action, null)
@@ -35,7 +55,7 @@ namespace Sharpknife.Desktop.Core
 		/// </summary>
 		public void Execute(object parameter = null)
 		{
-			this.action?.Invoke();
+			this.action?.Invoke(parameter);
 		}
 
 		/// <summary>
@@ -45,7 +65,7 @@ namespace Sharpknife.Desktop.Core
 		/// <returns>if the command can execute</returns>
 		public bool CanExecute(object parameter = null)
 		{
-			return this.predicate?.Invoke() ?? true;
+			return this.predicate?.Invoke(parameter) ?? true;
 		}
 
 		/// <summary>
@@ -79,7 +99,7 @@ namespace Sharpknife.Desktop.Core
 			remove => CommandManager.RequerySuggested -= value;
 		}
 
-		private Action action;
-		private Func<bool> predicate;
+		private Action<object> action;
+		private Func<object, bool> predicate;
 	}
 }

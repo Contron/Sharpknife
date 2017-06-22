@@ -28,7 +28,7 @@ namespace Sharpknife.Core
 				throw new ArgumentNullException(nameof(directory));
 			}
 
-			this.Instance = null;
+			this.Instance = new T();
 
 			this.name = name;
 			this.directory = directory;
@@ -68,18 +68,18 @@ namespace Sharpknife.Core
 		{
 			var path = this.GetPath();
 
-			if (!File.Exists(path))
+			if (File.Exists(path))
+			{
+				var serializer = new XmlSerializer(typeof(T));
+
+				using (var stream = File.Open(path, FileMode.Open))
+				{
+					this.Instance = serializer.Deserialize(stream) as T;
+				}
+			}
+			else
 			{
 				this.Instance = new T();
-
-				return;
-			}
-
-			var serializer = new XmlSerializer(typeof(T));
-
-			using (var stream = File.Open(path, FileMode.Open))
-			{
-				this.Instance = serializer.Deserialize(stream) as T;
 			}
 		}
 
@@ -116,7 +116,7 @@ namespace Sharpknife.Core
 			set;
 		}
 
-		private static XmlWriterSettings settings = new XmlWriterSettings()
+		private static readonly XmlWriterSettings settings = new XmlWriterSettings()
 		{
 			Indent = true,
 			IndentChars = "\t",

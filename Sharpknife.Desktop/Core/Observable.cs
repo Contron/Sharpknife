@@ -52,15 +52,6 @@ namespace Sharpknife.Desktop.Core
 
 			this.properties[property] = value;
 
-			this.Notify(property);
-		}
-
-		/// <summary>
-		/// Notifies that the specified property has changed.
-		/// </summary>
-		/// <param name="property">the property</param>
-		protected void Notify(string property)
-		{
 			this.OnPropertyChanged(new PropertyChangedEventArgs(property));
 		}
 

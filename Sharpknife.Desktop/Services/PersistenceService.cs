@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Windows;
+using System.Xml;
 using System.Xml.Serialization;
 using Sharpknife.Utilities;
 
@@ -87,23 +88,25 @@ namespace Sharpknife.Desktop.Services
 		{
 			var path = this.GetPath(name);
 
-			if (!File.Exists(path))
+			if (File.Exists(path))
+			{
+				var serializer = new XmlSerializer(typeof(T));
+
+				using (var stream = File.Open(path, FileMode.Open))
+				{
+					var result = serializer.Deserialize(stream) as T;
+
+					if (result == null)
+					{
+						throw new InvalidOperationException("Failed to load instance.");
+					}
+
+					return result;
+				}
+			}
+			else
 			{
 				return new T();
-			}
-
-			var serializer = new XmlSerializer(typeof(T));
-
-			using (var stream = File.Open(path, FileMode.Open))
-			{
-				var result = serializer.Deserialize(stream) as T;
-
-				if (result == null)
-				{
-					throw new InvalidOperationException("Failed to cast instance.");
-				}
-
-				return result;
 			}
 		}
 
@@ -120,8 +123,9 @@ namespace Sharpknife.Desktop.Services
 			var serializer = new XmlSerializer(instance.GetType());
 
 			using (var stream = File.Open(path, FileMode.Create))
+			using (var writer = XmlWriter.Create(stream, PersistenceService.settings))
 			{
-				serializer.Serialize(stream, instance);
+				serializer.Serialize(writer, instance);
 			}
 		}
 
@@ -166,6 +170,13 @@ namespace Sharpknife.Desktop.Services
 		public static PersistenceService Instance => PersistenceService.instance;
 
 		private static readonly PersistenceService instance = new PersistenceService();
+
+		private static readonly XmlWriterSettings settings = new XmlWriterSettings()
+		{
+			Indent = true,
+			IndentChars = "\t",
+			OmitXmlDeclaration = true
+		};
 
 		private Dictionary<string, object> instances;
 	}
