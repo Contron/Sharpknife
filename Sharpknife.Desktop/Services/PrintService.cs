@@ -46,7 +46,7 @@ namespace Sharpknife.Desktop.Services
 				ColumnGap = 0,
 				PageWidth = dialog.PrintableAreaWidth,
 				PageHeight = dialog.PrintableAreaHeight,
-				PagePadding = new Thickness(25),
+				PagePadding = new Thickness(16),
 				Blocks =
 				{
 					new Paragraph()

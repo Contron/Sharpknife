@@ -15,11 +15,11 @@ namespace Sharpknife.Desktop.Converters
 		/// <returns>the visibility</returns>
 		public override object Convert(object value)
 		{
-			var next = value as bool?;
+			var target = value as bool?;
 
-			if (next != null)
+			if (target != null)
 			{
-				return !next.Value;
+				return !target.Value;
 			}
 
 			throw new ArgumentException(nameof(value));

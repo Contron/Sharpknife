@@ -14,19 +14,15 @@ namespace Sharpknife.Console.Utilities
 		/// <returns>the result</returns>
 		public static string ReadMessage(string message)
 		{
-			var result = string.Empty;
-
 			while (true)
 			{
-				result = Input.ReadLine(message);
+				var result = Input.ReadLine(message);
 
 				if (!string.IsNullOrWhiteSpace(result))
 				{
-					break;
+					return result;
 				}
 			}
-
-			return result;
 		}
 
 		/// <summary>
@@ -36,20 +32,15 @@ namespace Sharpknife.Console.Utilities
 		/// <returns>the result</returns>
 		public static int ReadNumber(string message)
 		{
-			var result = 0;
-
 			while (true)
 			{
 				var line = Input.ReadLine(message);
-				var parsed = int.TryParse(line, out result);
 
-				if (parsed)
+				if (int.TryParse(line, out var result))
 				{
-					break;
+					return result;
 				}
 			}
-
-			return result;
 		}
 
 		/// <summary>
@@ -59,24 +50,18 @@ namespace Sharpknife.Console.Utilities
 		/// <returns>the result</returns>
 		public static bool ReadQuestion(string message)
 		{
-			var result = false;
-
 			while (true)
 			{
 				var line = Input.ReadLine(message).ToLower();
 
-				var yes = line == "y";
-				var no = line == "n";
-				
-				if (yes || no)
-				{
-					result = yes;
+				var accept = line == "y" || line == "yes";
+				var reject = line == "n" || line == "no";
 
-					break;
+				if (accept || reject)
+				{
+					return accept;
 				}
 			}
-
-			return result;
 		}
 
 		/// <summary>
