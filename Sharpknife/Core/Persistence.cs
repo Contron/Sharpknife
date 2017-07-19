@@ -28,7 +28,7 @@ namespace Sharpknife.Core
 				throw new ArgumentNullException(nameof(directory));
 			}
 
-			this.Instance = new T();
+			this.Instance = null;
 
 			this.name = name;
 			this.directory = directory;
@@ -74,7 +74,12 @@ namespace Sharpknife.Core
 
 				using (var stream = File.Open(path, FileMode.Open))
 				{
-					this.Instance = serializer.Deserialize(stream) as T;
+					var instance = serializer.Deserialize(stream) as T;
+
+					if (instance != null)
+					{
+						this.Instance = instance;
+					}
 				}
 			}
 			else

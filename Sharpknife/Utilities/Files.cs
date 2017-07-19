@@ -24,17 +24,19 @@ namespace Sharpknife.Utilities
 			var name = Path.GetFileNameWithoutExtension(path);
 			var extension = Path.GetExtension(path);
 
-			var result = path;
 			var count = 1;
 
-			do
+			while (true)
 			{
-				result = Path.Combine(directory, $"{name}{count}{extension}");
+				var result = Path.Combine(directory, "${name}{count}{extension}");
+
+				if (!File.Exists(result))
+				{
+					return result;
+				}
+
 				count++;
 			}
-			while (File.Exists(result));
-
-			return result;
 		}
 
 		/// <summary>

@@ -23,16 +23,14 @@ namespace Sharpknife.Desktop.Services
 		/// <returns>the path</returns>
 		public string ShowOpenDialog(string filter = null, int index = 0)
 		{
-			var dialog = new OpenFileDialog()
+			return this.ShowDialog(new OpenFileDialog()
 			{
 				Title = "Open",
 				Filter = filter,
 				FilterIndex = index,
 				CheckPathExists = true,
 				CheckFileExists = true
-			};
-
-			return this.ShowDialog(dialog);
+			});
 		}
 
 		/// <summary>
@@ -43,16 +41,14 @@ namespace Sharpknife.Desktop.Services
 		/// <returns>the path</returns>
 		public string ShowSaveDialog(string filter = null, int index = 0)
 		{
-			var dialog = new SaveFileDialog()
+			return this.ShowDialog(new SaveFileDialog()
 			{
 				Title = "Save",
 				Filter = filter,
 				FilterIndex = index,
 				CreatePrompt = true,
 				OverwritePrompt = true
-			};
-
-			return this.ShowDialog(dialog);
+			});
 		}
 
 		/// <summary>

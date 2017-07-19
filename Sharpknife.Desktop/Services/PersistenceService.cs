@@ -36,8 +36,6 @@ namespace Sharpknife.Desktop.Services
 
 			if (this.IsDesigner())
 			{
-				// Return a new object every time in designer mode.
-
 				return new T();
 			}
 
@@ -73,8 +71,6 @@ namespace Sharpknife.Desktop.Services
 		{
 			if (this.IsDesigner())
 			{
-				// Don't save in designer mode.
-
 				return;
 			}
 
