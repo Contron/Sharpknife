@@ -66,13 +66,11 @@ namespace Sharpknife.Core
 		/// </summary>
 		public void Load()
 		{
-			var path = this.GetPath();
-
-			if (File.Exists(path))
+			if (File.Exists(this.path))
 			{
 				var serializer = new XmlSerializer(typeof(T));
 
-				using (var stream = File.Open(path, FileMode.Open))
+				using (var stream = File.Open(this.path, FileMode.Open))
 				{
 					var instance = serializer.Deserialize(stream) as T;
 
@@ -100,26 +98,17 @@ namespace Sharpknife.Core
 
 			var serializer = new XmlSerializer(typeof(T));
 
-			using (var stream = File.Open(this.GetPath(), FileMode.Create))
+			using (var stream = File.Open(this.path, FileMode.Create))
 			using (var writer = XmlWriter.Create(stream, Persistence<T>.settings))
 			{
 				serializer.Serialize(writer, this.Instance);
 			}
 		}
 
-		private string GetPath()
-		{
-			return Path.Combine(this.directory, $"{this.name}.xml");
-		}
-
 		/// <summary>
 		/// Gets or sets the instance.
 		/// </summary>
-		public T Instance
-		{
-			get;
-			set;
-		}
+		public T Instance { get; set; }
 
 		private static readonly XmlWriterSettings settings = new XmlWriterSettings()
 		{
@@ -130,5 +119,7 @@ namespace Sharpknife.Core
 
 		private string name;
 		private string directory;
+
+		private string path => Path.Combine(this.directory, $"{this.name}.xml");
 	}
 }

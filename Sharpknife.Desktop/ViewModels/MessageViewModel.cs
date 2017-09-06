@@ -22,9 +22,6 @@ namespace Sharpknife.Desktop.ViewModels
 			set => this.Set(value);
 		}
 
-		public Command OkCommand
-		{
-			get => Command.Close;
-		}
+		public Command CloseCommand => Command.Close;
 	}
 }

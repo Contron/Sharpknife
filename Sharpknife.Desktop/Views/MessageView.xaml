@@ -7,7 +7,7 @@
 			<TextBlock Text="{Binding Title}" />
 		</controls:HeaderBox>
 		<controls:ButtonsBox DockPanel.Dock="Bottom">
-			<Button Command="{Binding OkCommand}" Content="_OK" IsDefault="True" IsCancel="True" />
+			<Button Command="{Binding CloseCommand}" Content="_OK" IsDefault="True" IsCancel="True" />
 		</controls:ButtonsBox>
 		<TextBlock Text="{Binding Message}" TextWrapping="Wrap" MinHeight="50" Margin="10" />
 	</DockPanel>

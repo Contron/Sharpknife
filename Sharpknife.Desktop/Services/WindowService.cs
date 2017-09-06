@@ -26,7 +26,7 @@ namespace Sharpknife.Desktop.Services
 				throw new ArgumentNullException(nameof(window));
 			}
 
-			this.DoShow(window, false);
+			this.InternalShow(window, false);
 		}
 
 		/// <summary>
@@ -56,7 +56,7 @@ namespace Sharpknife.Desktop.Services
 			}
 			else
 			{
-				this.DoShow(window, false);
+				this.InternalShow(window, false);
 			}
 		}
 
@@ -71,7 +71,7 @@ namespace Sharpknife.Desktop.Services
 				throw new ArgumentNullException(nameof(window));
 			}
 
-			this.DoShow(window, true);
+			this.InternalShow(window, true);
 		}
 
 		/// <summary>
@@ -85,7 +85,7 @@ namespace Sharpknife.Desktop.Services
 				throw new ArgumentNullException(nameof(window));
 			}
 
-			this.DoClose(window);
+			this.InternalClose(window);
 		}
 
 		/// <summary>
@@ -97,7 +97,7 @@ namespace Sharpknife.Desktop.Services
 
 			if (window != null)
 			{
-				this.DoClose(window);
+				this.InternalClose(window);
 			}
 		}
 
@@ -112,7 +112,7 @@ namespace Sharpknife.Desktop.Services
 				.FirstOrDefault(window => window.IsActive);
 		}
 
-		private void DoShow(Window window, bool modal)
+		private void InternalShow(Window window, bool modal)
 		{
 			this.windows.Add(window);
 
@@ -131,7 +131,7 @@ namespace Sharpknife.Desktop.Services
 			});
 		}
 
-		private void DoClose(Window window)
+		private void InternalClose(Window window)
 		{
 			this.windows.Remove(window);
 

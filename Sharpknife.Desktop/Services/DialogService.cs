@@ -23,7 +23,7 @@ namespace Sharpknife.Desktop.Services
 		/// <returns>the path</returns>
 		public string ShowOpenDialog(string filter = null, int index = 0)
 		{
-			return this.ShowDialog(new OpenFileDialog()
+			return this.InternalShow(new OpenFileDialog()
 			{
 				Title = "Open",
 				Filter = filter,
@@ -41,7 +41,7 @@ namespace Sharpknife.Desktop.Services
 		/// <returns>the path</returns>
 		public string ShowSaveDialog(string filter = null, int index = 0)
 		{
-			return this.ShowDialog(new SaveFileDialog()
+			return this.InternalShow(new SaveFileDialog()
 			{
 				Title = "Save",
 				Filter = filter,
@@ -86,7 +86,7 @@ namespace Sharpknife.Desktop.Services
 			WindowService.Instance.ShowModally(new AboutView());
 		}
 
-		private string ShowDialog(FileDialog dialog)
+		private string InternalShow(FileDialog dialog)
 		{
 			var result = dialog.ShowDialog(WindowService.Instance.GetActive());
 

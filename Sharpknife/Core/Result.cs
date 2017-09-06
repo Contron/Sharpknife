@@ -59,20 +59,12 @@ namespace Sharpknife.Core
 		/// <summary>
 		/// Gets the instance.
 		/// </summary>
-		public T Instance
-		{
-			get;
-			private set;
-		}
+		public T Instance { get; private set; }
 
 		/// <summary>
 		/// Gets the exception.
 		/// </summary>
-		public Exception Exception
-		{
-			get;
-			private set;
-		}
+		public Exception Exception { get; private set; }
 
 		/// <summary>
 		/// Gets if the result was successful.

@@ -55,9 +55,6 @@ namespace Sharpknife.Desktop.ViewModels
 			set => this.Set(value);
 		}
 
-		public Command CloseCommand
-		{
-			get => Command.Close;
-		}
+		public Command CloseCommand => Command.Close;
 	}
 }
