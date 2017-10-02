@@ -11,11 +11,18 @@ namespace Sharpknife.Core
 	/// <typeparam name="T"></typeparam>
 	public class Persistence<T> where T : class, new()
 	{
+		/// <summary>
+		/// Creates a new persistence container for the specified file.
+		/// </summary>
+		/// <param name="location">the file</param>
 		public Persistence(string location)
 		{
 			this.Location = location ?? throw new ArgumentNullException(nameof(location));
 		}
 
+		/// <summary>
+		/// Loads (or creates) the instance from disk.
+		/// </summary>
 		public void Load()
 		{
 			if (File.Exists(this.Location))
@@ -34,6 +41,9 @@ namespace Sharpknife.Core
 			}
 		}
 
+		/// <summary>
+		/// Saves the instance to disk.
+		/// </summary>
 		public void Save()
 		{
 			var directory = Path.GetDirectoryName(this.Location);
