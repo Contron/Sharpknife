@@ -29,14 +29,12 @@ namespace Sharpknife.Desktop.Services
 				SelectedPagesEnabled = false,
 				UserPageRangeEnabled = false
 			};
+
 			var result = dialog.ShowDialog();
 
-			if (result != null)
+			if (result != null && !result.Value)
 			{
-				if (!result.Value)
-				{
-					return;
-				}
+				return;
 			}
 
 			var date = DateTime.Now.ToString("dddd d MMMM yyy, h:mm:ss tt");

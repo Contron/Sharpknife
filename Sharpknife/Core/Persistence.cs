@@ -11,73 +11,21 @@ namespace Sharpknife.Core
 	/// <typeparam name="T"></typeparam>
 	public class Persistence<T> where T : class, new()
 	{
-		/// <summary>
-		/// Creates a new persistence container with the specified name and directory.
-		/// </summary>
-		/// <param name="name">the name</param>
-		/// <param name="directory">the directory</param>
-		public Persistence(string name, string directory)
+		public Persistence(string location)
 		{
-			if (name == null)
-			{
-				throw new ArgumentNullException(nameof(name));
-			}
-
-			if (directory == null)
-			{
-				throw new ArgumentNullException(nameof(directory));
-			}
-
-			this.Instance = null;
-
-			this.name = name;
-			this.directory = directory;
+			this.Location = location ?? throw new ArgumentNullException(nameof(location));
 		}
 
-		/// <summary>
-		/// Creates a new persistence container with the specified name.
-		/// </summary>
-		/// <param name="name">the name</param>
-		public Persistence(string name) : this(name, "Configuration")
-		{
-
-		}
-
-		/// <summary>
-		/// Creates a new persistence container.
-		/// </summary>
-		public Persistence() : this(typeof(T).Name)
-		{
-
-		}
-
-		/// <summary>
-		/// Returns a string representation.
-		/// </summary>
-		/// <returns>the representation</returns>
-		public override string ToString()
-		{
-			return $"Persistence (Name: {this.name}, Directory: {this.directory})";
-		}
-
-		/// <summary>
-		/// Loads the instance.
-		/// Returns a new instance if it does not exist.
-		/// </summary>
 		public void Load()
 		{
-			if (File.Exists(this.path))
+			if (File.Exists(this.Location))
 			{
 				var serializer = new XmlSerializer(typeof(T));
 
-				using (var stream = File.Open(this.path, FileMode.Open))
+				using (var stream = File.OpenRead(this.Location))
+				using (var reader = XmlReader.Create(stream))
 				{
-					var instance = serializer.Deserialize(stream) as T;
-
-					if (instance != null)
-					{
-						this.Instance = instance;
-					}
+					this.Instance = serializer.Deserialize(stream) as T ?? new T();
 				}
 			}
 			else
@@ -86,24 +34,28 @@ namespace Sharpknife.Core
 			}
 		}
 
-		/// <summary>
-		/// Saves the instance.
-		/// </summary>
 		public void Save()
 		{
-			if (!Directory.Exists(this.directory))
+			var directory = Path.GetDirectoryName(this.Location);
+
+			if (!Directory.Exists(directory))
 			{
-				Directory.CreateDirectory(this.directory);
+				Directory.CreateDirectory(directory);
 			}
 
 			var serializer = new XmlSerializer(typeof(T));
 
-			using (var stream = File.Open(this.path, FileMode.Create))
+			using (var stream = File.OpenWrite(this.Location))
 			using (var writer = XmlWriter.Create(stream, Persistence<T>.settings))
 			{
-				serializer.Serialize(writer, this.Instance);
+				serializer.Serialize(stream, this.Instance);
 			}
 		}
+
+		/// <summary>
+		/// Gets the file.
+		/// </summary>
+		public string Location { get; private set; }
 
 		/// <summary>
 		/// Gets or sets the instance.
@@ -116,10 +68,5 @@ namespace Sharpknife.Core
 			IndentChars = "\t",
 			OmitXmlDeclaration = true
 		};
-
-		private string name;
-		private string directory;
-
-		private string path => Path.Combine(this.directory, $"{this.name}.xml");
 	}
 }

@@ -14,12 +14,7 @@ namespace Sharpknife.Console.Core
 		/// <param name="arguments">the arguments</param>
 		public Arguments(string[] arguments)
 		{
-			if (arguments == null)
-			{
-				throw new ArgumentNullException(nameof(arguments));
-			}
-
-			this.source = arguments;
+			this.source = arguments ?? throw new ArgumentNullException(nameof(arguments));
 
 			this.arguments = new Dictionary<string, string>();
 			this.flags = new List<string>();
@@ -40,9 +35,8 @@ namespace Sharpknife.Console.Core
 		/// Returns the value of the specified option, or <c>null</c> if it does not exist.
 		/// </summary>
 		/// <param name="name">the name</param>
-		/// <param name="placeholder">the default value</param>
 		/// <returns>the value</returns>
-		public string GetOption(string name, string placeholder = null)
+		public string GetOption(string name)
 		{
 			if (name == null)
 			{
@@ -54,7 +48,7 @@ namespace Sharpknife.Console.Core
 				return this.arguments[name];
 			}
 
-			return placeholder;
+			return null;
 		}
 
 		/// <summary>

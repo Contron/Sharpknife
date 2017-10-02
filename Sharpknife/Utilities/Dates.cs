@@ -19,7 +19,7 @@ namespace Sharpknife.Utilities
 
 			if (delta < 60)
 			{
-				return span.Seconds == 1 ? "one second ago" : $"{span.Seconds} seconds ago";
+				return span.Seconds == 1 ? "One second ago" : $"{span.Seconds} seconds ago";
 			}
 
 			if (delta < 3600)

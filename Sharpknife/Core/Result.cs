@@ -14,12 +14,7 @@ namespace Sharpknife.Core
 		/// <param name="instance">the instance</param>
 		public Result(T instance)
 		{
-			if (instance == null)
-			{
-				throw new ArgumentNullException(nameof(instance));
-			}
-
-			this.Instance = instance;
+			this.Instance = instance ?? throw new ArgumentNullException(nameof(instance));
 			this.Exception = null;
 		}
 

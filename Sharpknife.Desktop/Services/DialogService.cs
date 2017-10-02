@@ -90,12 +90,9 @@ namespace Sharpknife.Desktop.Services
 		{
 			var result = dialog.ShowDialog(WindowService.Instance.GetActive());
 
-			if (result != null)
+			if (result != null && result.Value)
 			{
-				if (result.Value)
-				{
-					return dialog.FileName;
-				}
+				return dialog.FileName;
 			}
 
 			return null;

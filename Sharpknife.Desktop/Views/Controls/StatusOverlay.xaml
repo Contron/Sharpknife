@@ -6,7 +6,7 @@
 		<Binding Path="Status.Busy" ElementName="Control" Converter="{StaticResource BoolVisibilityConverter}" />
 	</UserControl.Visibility>
 	<UserControl.Background>
-		<SolidColorBrush Color="LightGray" Opacity="0.2" />
+		<SolidColorBrush Color="LightGray" Opacity="0.25" />
 	</UserControl.Background>
 	<StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10">
 		<TextBlock Text="{Binding Status.Message, ElementName=Control}" HorizontalAlignment="Center" />
