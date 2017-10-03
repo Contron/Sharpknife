@@ -49,7 +49,7 @@ namespace Sharpknife.Core
 				using (var stream = File.OpenRead(this.Location))
 				using (var reader = XmlReader.Create(stream))
 				{
-					this.Instance = serializer.Deserialize(stream) as T ?? new T();
+					this.Instance = serializer.Deserialize(reader) as T ?? new T();
 				}
 			}
 			else
@@ -75,7 +75,7 @@ namespace Sharpknife.Core
 			using (var stream = File.OpenWrite(this.Location))
 			using (var writer = XmlWriter.Create(stream, Persistence<T>.settings))
 			{
-				serializer.Serialize(stream, this.Instance);
+				serializer.Serialize(writer, this.Instance);
 			}
 		}
 
@@ -89,11 +89,11 @@ namespace Sharpknife.Core
 		/// </summary>
 		public T Instance { get; set; }
 
-		private static readonly XmlWriterSettings settings = new XmlWriterSettings()
+		private static XmlWriterSettings settings = new XmlWriterSettings()
 		{
+			OmitXmlDeclaration = true,
 			Indent = true,
-			IndentChars = "\t",
-			OmitXmlDeclaration = true
+			IndentChars = "\t"
 		};
 	}
 }
