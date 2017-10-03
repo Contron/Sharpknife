@@ -28,6 +28,10 @@ namespace Sharpknife.Core
 
 		}
 
+		/// <summary>
+		/// Returns a string representation.
+		/// </summary>
+		/// <returns>the representation</returns>
 		public override string ToString()
 		{
 			return $"Persistence (Location: {this.Location})";
