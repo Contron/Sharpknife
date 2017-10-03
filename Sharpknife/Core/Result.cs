@@ -24,13 +24,8 @@ namespace Sharpknife.Core
 		/// <param name="exception">the exception</param>
 		public Result(Exception exception)
 		{
-			if (exception == null)
-			{
-				throw new ArgumentNullException(nameof(exception));
-			}
-
 			this.Instance = null;
-			this.Exception = exception;
+			this.Exception = exception ?? throw new ArgumentNullException(nameof(exception));
 		}
 
 		/// <summary>

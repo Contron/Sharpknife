@@ -17,7 +17,7 @@ namespace Sharpknife.Core
 		/// <param name="location">the file</param>
 		public Persistence(string location)
 		{
-			this.Location = location != null && !string.IsNullOrWhiteSpace(location) ? Path.GetFullPath(location) : throw new ArgumentNullException(nameof(location));
+			this.Location = Path.ChangeExtension(Path.GetFullPath(location ?? throw new ArgumentNullException(nameof(location))), "xml");
 		}
 
 		/// <summary>
@@ -25,7 +25,12 @@ namespace Sharpknife.Core
 		/// </summary>
 		public Persistence() : this(typeof(T).Name)
 		{
-			
+
+		}
+
+		public override string ToString()
+		{
+			return $"Persistence (Location: {this.Location})";
 		}
 
 		/// <summary>
