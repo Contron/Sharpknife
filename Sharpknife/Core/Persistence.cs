@@ -17,7 +17,7 @@ namespace Sharpknife.Core
 		/// <param name="location">the file</param>
 		public Persistence(string location)
 		{
-			this.Location = location ?? throw new ArgumentNullException(nameof(location));
+			this.Location = location != null && !string.IsNullOrWhiteSpace(location) ? location : throw new ArgumentNullException(nameof(location));
 		}
 
 		/// <summary>
