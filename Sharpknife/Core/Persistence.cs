@@ -8,7 +8,7 @@ namespace Sharpknife.Core
 	/// <summary>
 	/// Represents a container around a <see cref="object" /> to manage persistence.
 	/// </summary>
-	/// <typeparam name="T"></typeparam>
+	/// <typeparam name="T">the type to contain</typeparam>
 	public class Persistence<T> where T : class, new()
 	{
 		/// <summary>
@@ -18,6 +18,14 @@ namespace Sharpknife.Core
 		public Persistence(string location)
 		{
 			this.Location = location ?? throw new ArgumentNullException(nameof(location));
+		}
+
+		/// <summary>
+		/// Creates a new persistence container using the name of the type.
+		/// </summary>
+		public Persistence() : this(typeof(T).Name)
+		{
+			
 		}
 
 		/// <summary>

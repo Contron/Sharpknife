@@ -5,7 +5,7 @@ namespace Sharpknife.Core
 	/// <summary>
 	/// Represents the result of a particular action that contains either the resulting object instance, or an <see cref="System.Exception" />.
 	/// </summary>
-	/// <typeparam name="T">the type</typeparam>
+	/// <typeparam name="T">the type of result</typeparam>
 	public class Result<T> where T : class
 	{
 		/// <summary>
