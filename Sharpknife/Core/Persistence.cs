@@ -17,7 +17,7 @@ namespace Sharpknife.Core
 		/// <param name="location">the file</param>
 		public Persistence(string location)
 		{
-			this.Location = location != null && !string.IsNullOrWhiteSpace(location) ? location : throw new ArgumentNullException(nameof(location));
+			this.Location = location != null && !string.IsNullOrWhiteSpace(location) ? Path.GetFullPath(location) : throw new ArgumentNullException(nameof(location));
 		}
 
 		/// <summary>
@@ -56,7 +56,7 @@ namespace Sharpknife.Core
 		{
 			var directory = Path.GetDirectoryName(this.Location);
 
-			if (!Directory.Exists(directory))
+			if (directory != null && !string.IsNullOrWhiteSpace(directory) && !Directory.Exists(directory))
 			{
 				Directory.CreateDirectory(directory);
 			}
