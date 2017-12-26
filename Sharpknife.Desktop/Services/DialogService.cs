@@ -88,7 +88,7 @@ namespace Sharpknife.Desktop.Services
 
 		private string InternalShow(FileDialog dialog)
 		{
-			var result = dialog.ShowDialog(WindowService.Instance.GetActive());
+			var result = dialog.ShowDialog(WindowService.Instance.Active);
 
 			if (result != null && result.Value)
 			{
