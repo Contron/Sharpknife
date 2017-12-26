@@ -12,7 +12,7 @@ namespace Sharpknife.Desktop.Services
 	{
 		private WindowService()
 		{
-			this.windows = new List<Window>();
+			
 		}
 
 		/// <summary>
@@ -40,7 +40,9 @@ namespace Sharpknife.Desktop.Services
 				throw new ArgumentNullException(nameof(window));
 			}
 
-			var duplicate = this.windows.FirstOrDefault(child => child.GetType() == window.GetType());
+			var duplicate = Application.Current.Windows
+				.OfType<Window>()
+				.FirstOrDefault(child => child.GetType() == window.GetType());
 
 			if (duplicate != null)
 			{
@@ -93,7 +95,7 @@ namespace Sharpknife.Desktop.Services
 		/// </summary>
 		public void CloseActive()
 		{
-			var window = this.GetActive();
+			var window = this.Active;
 
 			if (window != null)
 			{
@@ -101,24 +103,11 @@ namespace Sharpknife.Desktop.Services
 			}
 		}
 
-		/// <summary>
-		/// Returns the currently active window.
-		/// </summary>
-		/// <returns>the window</returns>
-		public Window GetActive()
-		{
-			return Application.Current.Windows
-				.OfType<Window>()
-				.FirstOrDefault(window => window.IsActive);
-		}
-
 		private void InternalShow(Window window, bool modal)
 		{
-			this.windows.Add(window);
-
 			window.Dispatcher.Invoke(() =>
 			{
-				window.Owner = this.GetActive();
+				window.Owner = this.Active;
 
 				if (modal)
 				{
@@ -133,8 +122,6 @@ namespace Sharpknife.Desktop.Services
 
 		private void InternalClose(Window window)
 		{
-			this.windows.Remove(window);
-
 			window.Dispatcher.Invoke(() =>
 			{
 				window.Close();
@@ -146,8 +133,13 @@ namespace Sharpknife.Desktop.Services
 		/// </summary>
 		public static WindowService Instance => WindowService.instance;
 
-		private static readonly WindowService instance = new WindowService();
+		/// <summary>
+		/// Gets the currently active window.
+		/// </summary>
+		public Window Active => Application.Current.Windows
+			.OfType<Window>()
+			.FirstOrDefault(window => window.IsActive);
 
-		private List<Window> windows;
+		private static readonly WindowService instance = new WindowService();
 	}
 }
