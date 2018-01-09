@@ -56,6 +56,20 @@ namespace Sharpknife.Desktop.Core
 		}
 
 		/// <summary>
+		/// Explicitly notifies that the specified property has changed.
+		/// </summary>
+		/// <param name="property">the property</param>
+		protected void Notify(string property)
+		{
+			if (property == null)
+			{
+				throw new ArgumentNullException(nameof(property));
+			}
+
+			this.OnPropertyChanged(new PropertyChangedEventArgs(property));
+		}
+
+		/// <summary>
 		/// Triggers the property changed event.
 		/// </summary>
 		/// <param name="args">the event args</param>
