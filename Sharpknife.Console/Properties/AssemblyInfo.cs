@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Sharpknife Console")]
-[assembly: AssemblyCopyright("Connor Haigh 2016")]
+[assembly: AssemblyCopyright("Connor Haigh 2016-2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
