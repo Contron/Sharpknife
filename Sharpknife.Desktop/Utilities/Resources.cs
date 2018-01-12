@@ -31,7 +31,7 @@ namespace Sharpknife.Desktop.Utilities
 		/// </summary>
 		/// <param name="name">the name</param>
 		/// <returns>the resource</returns>
-		public static object Get(string name)
+		public static object Load(string name)
 		{
 			if (name == null)
 			{

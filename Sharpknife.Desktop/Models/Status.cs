@@ -12,7 +12,7 @@ namespace Sharpknife.Desktop.Models
 		/// </summary>
 		public Status()
 		{
-			this.Message = null;
+			this.Message = "Status";
 			this.Busy = false;
 
 			this.Reset();
@@ -30,6 +30,14 @@ namespace Sharpknife.Desktop.Models
 		}
 
 		/// <summary>
+		/// Resets the status.
+		/// </summary>
+		public void Reset()
+		{
+			this.Update("Ready");
+		}
+
+		/// <summary>
 		/// Returns a string representation.
 		/// </summary>
 		/// <returns>the representation</returns>
@@ -39,29 +47,24 @@ namespace Sharpknife.Desktop.Models
 		}
 
 		/// <summary>
-		/// Resets the status.
-		/// </summary>
-		public void Reset()
-		{
-			this.Update("Ready");
-		}
-
-		/// <summary>
-		/// Gets or sets the message.
+		/// Gets the message.
 		/// </summary>
 		public string Message
 		{
-			get => (string) this.Get();
-			set => this.Set(value);
+			get => this.message;
+			set => this.Set(ref this.message, value);
 		}
 
 		/// <summary>
-		/// Gets or sets if the status is busy.
+		/// Gets the busy status.
 		/// </summary>
 		public bool Busy
 		{
-			get => (bool) this.Get();
-			set => this.Set(value);
+			get => this.busy;
+			set => this.Set(ref this.busy, value);
 		}
+
+		private string message;
+		private bool busy;
 	}
 }

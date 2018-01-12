@@ -9,7 +9,6 @@ namespace Sharpknife.Desktop.ViewModels
 		public AboutViewModel()
 		{
 			this.Name = null;
-			this.Description = null;
 
 			this.Version = null;
 			this.Copyright = null;
@@ -20,41 +19,34 @@ namespace Sharpknife.Desktop.ViewModels
 		private void Populate()
 		{
 			this.Name = Assemblies.GetAttribute<AssemblyProductAttribute>()?.Product ?? "Application";
-			this.Description = Assemblies.GetAttribute<AssemblyDescriptionAttribute>()?.Description;
 
 			this.Version = $"Version {Assemblies.GetAttribute<AssemblyFileVersionAttribute>()?.Version ?? "Unknown"}";
 			this.Copyright = $"Copyright {Assemblies.GetAttribute<AssemblyCopyrightAttribute>()?.Copyright ?? "Unavailable"}";
-
-			if (string.IsNullOrEmpty(this.Description))
-			{
-				this.Description = $"{this.Name} desktop application";
-			}
 		}
 
 		public string Name
 		{
-			get => (string) this.Get();
-			set => this.Set(value);
-		}
-
-		public string Description
-		{
-			get => (string) this.Get();
-			set => this.Set(value);
+			get => this.name;
+			set => this.Set(ref this.name, value);
 		}
 
 		public string Version
 		{
-			get => (string) this.Get();
-			set => this.Set(value);
+			get => this.version;
+			set => this.Set(ref this.version, value);
 		}
 
 		public string Copyright
 		{
-			get => (string) this.Get();
-			set => this.Set(value);
+			get => this.copyright;
+			set => this.Set(ref this.copyright, value);
 		}
 
 		public Command CloseCommand => Command.Close;
+
+		private string name;
+
+		private string version;
+		private string copyright;
 	}
 }

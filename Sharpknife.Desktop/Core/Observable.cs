@@ -15,44 +15,26 @@ namespace Sharpknife.Desktop.Core
 		/// </summary>
 		public Observable()
 		{
-			this.properties = new Dictionary<string, object>();
+			
 		}
 
 		/// <summary>
-		/// Returns the value of the specified property.
+		/// Sets the specified field to the specified value, notifying that the specified property has changed.
 		/// </summary>
-		/// <param name="property">the property</param>
-		/// <returns>the value</returns>
-		protected object Get([CallerMemberName] string property = null)
-		{
-			if (property == null)
-			{
-				throw new ArgumentNullException(nameof(property));
-			}
-
-			if (this.properties.ContainsKey(property))
-			{
-				return this.properties[property];
-			}
-
-			return null;
-		}
-
-		/// <summary>
-		/// Sets the value of the specified property.
-		/// </summary>
+		/// <typeparam name="T">the type of the field</typeparam>
+		/// <param name="field">the field</param>
 		/// <param name="value">the value</param>
 		/// <param name="property">the property</param>
-		protected void Set(object value, [CallerMemberName] string property = null)
+		protected void Set<T>(ref T field, T value, [CallerMemberName] string property = null)
 		{
 			if (property == null)
 			{
 				throw new ArgumentNullException(nameof(property));
 			}
 
-			this.properties[property] = value;
+			field = value;
 
-			this.OnPropertyChanged(new PropertyChangedEventArgs(property));
+			this.OnPropertyChanged(new PropertyChangedEventArgs(nameof(property)));
 		}
 
 		/// <summary>
@@ -82,7 +64,5 @@ namespace Sharpknife.Desktop.Core
 		/// Occurs when a property has changed.
 		/// </summary>
 		public event PropertyChangedEventHandler PropertyChanged;
-
-		private Dictionary<string, object> properties;
 	}
 }

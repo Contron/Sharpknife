@@ -1,4 +1,4 @@
-﻿<UserControl x:Name="Control" x:Class="Sharpknife.Desktop.Views.Controls.HeaderBox" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" BorderThickness="0, 0, 0, 1">
+﻿<UserControl x:Name="Control" x:Class="Sharpknife.Desktop.Controls.HeaderBox" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" BorderThickness="0, 0, 0, 1">
 	<ItemsControl ItemsSource="{Binding TextBlocks, ElementName=Control}" Margin="10">
 		<ItemsControl.Resources>
 			<Style TargetType="{x:Type TextBlock}">

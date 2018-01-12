@@ -1,22 +1,10 @@
-﻿using Sharpknife.Desktop.Models;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Markup;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using Sharpknife.Desktop.Models;
 
-namespace Sharpknife.Desktop.Views.Controls
+namespace Sharpknife.Desktop.Controls
 {
 	/// <summary>
 	/// Represents a status box with a message and progress bar to display the current <see cref="Status" />.

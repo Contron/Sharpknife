@@ -1,4 +1,4 @@
-﻿<Window x:Class="Sharpknife.Desktop.Views.AboutView" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:viewModels="clr-namespace:Sharpknife.Desktop.ViewModels" xmlns:controls="clr-namespace:Sharpknife.Desktop.Views.Controls" Title="About" ResizeMode="NoResize" SizeToContent="Height" WindowStartupLocation="CenterOwner" Width="350">
+﻿<Window x:Class="Sharpknife.Desktop.Views.AboutView" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:viewModels="clr-namespace:Sharpknife.Desktop.ViewModels" xmlns:controls="clr-namespace:Sharpknife.Desktop.Controls" Title="About" ResizeMode="NoResize" SizeToContent="Height" WindowStartupLocation="CenterOwner" Width="350">
 	<Window.DataContext>
 		<viewModels:AboutViewModel />
 	</Window.DataContext>
@@ -10,8 +10,7 @@
 			<Button Command="{Binding CloseCommand}" Content="_Close" IsDefault="True" IsCancel="True" />
 		</controls:ButtonsBox>
 		<StackPanel Margin="10">
-			<TextBlock Text="{Binding Description}" TextWrapping="Wrap" FontStyle="Italic" />
-			<TextBlock Text="{Binding Version}" TextWrapping="Wrap" Margin="0, 10, 0, 0" />
+			<TextBlock Text="{Binding Version}" TextWrapping="Wrap" />
 			<TextBlock Text="{Binding Copyright}" TextWrapping="Wrap" />
 		</StackPanel>
 	</DockPanel>

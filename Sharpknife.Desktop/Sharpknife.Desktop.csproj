@@ -64,17 +64,17 @@
     <Compile Include="Views\AboutView.xaml.cs">
       <DependentUpon>AboutView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Controls\ButtonsBox.xaml.cs">
+    <Compile Include="Controls\ButtonsBox.xaml.cs">
       <DependentUpon>ButtonsBox.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Controls\HeaderBox.xaml.cs">
+    <Compile Include="Controls\HeaderBox.xaml.cs">
       <DependentUpon>HeaderBox.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Controls\MenuButton.cs" />
-    <Compile Include="Views\Controls\StatusBox.xaml.cs">
+    <Compile Include="Controls\MenuButton.cs" />
+    <Compile Include="Controls\StatusBox.xaml.cs">
       <DependentUpon>StatusBox.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Controls\StatusOverlay.xaml.cs">
+    <Compile Include="Controls\StatusOverlay.xaml.cs">
       <DependentUpon>StatusOverlay.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MessageView.xaml.cs">
@@ -88,19 +88,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\Controls\ButtonsBox.xaml">
+    <Page Include="Controls\ButtonsBox.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\Controls\HeaderBox.xaml">
+    <Page Include="Controls\HeaderBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Controls\StatusBox.xaml">
+    <Page Include="Controls\StatusBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Controls\StatusOverlay.xaml">
+    <Page Include="Controls\StatusOverlay.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

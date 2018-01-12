@@ -50,46 +50,30 @@ namespace Sharpknife.Desktop.Helpers
 
 		private static void AttachedChanged(DependencyObject instance, DependencyPropertyChangedEventArgs args)
 		{
-			var password = instance as PasswordBox;
-
-			if (password != null)
+			if (instance is PasswordBox password && args.NewValue is bool value)
 			{
-				var value = args.NewValue as bool?;
-
-				if (value != null)
+				if (value)
 				{
-					if (value.Value)
-					{
-						password.PasswordChanged += PasswordBoxHelper.PasswordBoxPasswordChanged;
-					}
-					else
-					{
-						password.PasswordChanged -= PasswordBoxHelper.PasswordBoxPasswordChanged;
-					}
+					password.PasswordChanged += PasswordBoxHelper.PasswordBoxPasswordChanged;
+				}
+				else
+				{
+					password.PasswordChanged -= PasswordBoxHelper.PasswordBoxPasswordChanged;
 				}
 			}
 		}
 
 		private static void PasswordChanged(DependencyObject instance, DependencyPropertyChangedEventArgs args)
 		{
-			var password = instance as PasswordBox;
-
-			if (password != null)
+			if (instance is PasswordBox password && args.NewValue is string value)
 			{
-				var value = args.NewValue as string;
-
-				if (value != null)
-				{
-					password.Password = value;
-				}
+				password.Password = value;
 			}
 		}
 
 		private static void PasswordBoxPasswordChanged(object sender, RoutedEventArgs args)
 		{
-			var password = sender as PasswordBox;
-
-			if (password != null)
+			if (sender is PasswordBox password)
 			{
 				PasswordBoxHelper.SetPassword(password, password.Password);
 			}
