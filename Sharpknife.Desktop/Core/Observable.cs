@@ -34,7 +34,7 @@ namespace Sharpknife.Desktop.Core
 
 			field = value;
 
-			this.OnPropertyChanged(new PropertyChangedEventArgs(nameof(property)));
+			this.OnPropertyChanged(new PropertyChangedEventArgs(property));
 		}
 
 		/// <summary>
