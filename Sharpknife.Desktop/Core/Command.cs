@@ -10,34 +10,14 @@ namespace Sharpknife.Desktop.Core
 	public class Command : ICommand
 	{
 		/// <summary>
-		/// Creates a new command from the specified <see cref="Action{T}" /> and the specified <see cref="Func{T, TResult}" />.
-		/// </summary>
-		/// <param name="action">the action</param>
-		/// <param name="predicate">the predicate</param>
-		public Command(Action<object> action, Func<object, bool> predicate)
-		{
-			this.action = action;
-			this.predicate = predicate;
-		}
-
-		/// <summary>
-		/// Creates a new command from the specified <see cref="Action{T}" />.
-		/// </summary>
-		/// <param name="action">the action</param>
-		public Command(Action<object> action) : this(action, null)
-		{
-
-		}
-
-		/// <summary>
 		/// Creates a new command from the specified <see cref="Action" /> and the specified <see cref="Func{T}" />.
 		/// </summary>
 		/// <param name="action">the action</param>
 		/// <param name="predicate">the predicate</param>
 		public Command(Action action, Func<bool> predicate)
 		{
-			this.action = action != null ? new Action<object>((parameter) => action.Invoke()) : null;
-			this.predicate = predicate != null ? new Func<object, bool>((parameter) => predicate.Invoke()) : null;
+			this.action = action;
+			this.predicate = predicate;
 		}
 
 		/// <summary>
@@ -55,7 +35,12 @@ namespace Sharpknife.Desktop.Core
 		/// </summary>
 		public void Execute(object parameter = null)
 		{
-			this.action?.Invoke(parameter);
+			if (this.predicate?.Invoke() == false)
+			{
+				return;
+			}
+
+			this.action?.Invoke();
 		}
 
 		/// <summary>
@@ -65,19 +50,7 @@ namespace Sharpknife.Desktop.Core
 		/// <returns>if the command can execute</returns>
 		public bool CanExecute(object parameter = null)
 		{
-			return this.predicate?.Invoke(parameter) ?? true;
-		}
-
-		/// <summary>
-		/// Attempts to execute the command, only if <see cref="CanExecute(object)" /> returns <c>true</c>.
-		/// <param name="parameter">the parameter</param>
-		/// </summary>
-		public void TryExecute(object parameter = null)
-		{
-			if (this.CanExecute(parameter))
-			{
-				this.Execute(parameter);
-			}
+			return this.predicate?.Invoke() ?? true;
 		}
 
 		/// <summary>
@@ -99,7 +72,7 @@ namespace Sharpknife.Desktop.Core
 			remove => CommandManager.RequerySuggested -= value;
 		}
 
-		private Action<object> action;
-		private Func<object, bool> predicate;
+		private Action action;
+		private Func<bool> predicate;
 	}
 }

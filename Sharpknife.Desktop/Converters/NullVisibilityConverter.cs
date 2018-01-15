@@ -24,7 +24,7 @@ namespace Sharpknife.Desktop.Converters
 		}
 
 		/// <summary>
-		/// Converts back, this is not supported.
+		/// Converts back, this is unsupported and will always throw a <see cref="NotImplementedException" />.
 		/// </summary>
 		public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
 		{
