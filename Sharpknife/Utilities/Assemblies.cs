@@ -38,7 +38,7 @@ namespace Sharpknife.Utilities
 		/// </summary>
 		/// <param name="type">the type</param>
 		/// <returns>the sub types</returns>
-		public static List<Type> GetSubTypes(Type type)
+		public static List<Type> GetInheritingTypes(Type type)
 		{
 			if (type == null)
 			{

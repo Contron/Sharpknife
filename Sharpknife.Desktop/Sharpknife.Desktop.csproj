@@ -56,6 +56,7 @@
     <Compile Include="Services\DialogService.cs" />
     <Compile Include="Core\Observable.cs" />
     <Compile Include="Services\PrintService.cs" />
+    <Compile Include="Services\ProcessService.cs" />
     <Compile Include="Services\SoundService.cs" />
     <Compile Include="Services\WindowService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

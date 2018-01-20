@@ -14,10 +14,10 @@ namespace Sharpknife.Core
 		/// <summary>
 		/// Creates a new persistence container for the specified file.
 		/// </summary>
-		/// <param name="location">the file</param>
-		public Persistence(string location)
+		/// <param name="path">the file</param>
+		public Persistence(string path)
 		{
-			this.Location = Path.ChangeExtension(Path.GetFullPath(location ?? throw new ArgumentNullException(nameof(location))), "xml");
+			this.Path = System.IO.Path.ChangeExtension(System.IO.Path.GetFullPath(path ?? throw new ArgumentNullException(nameof(path))), "xml");
 		}
 
 		/// <summary>
@@ -34,19 +34,19 @@ namespace Sharpknife.Core
 		/// <returns>the representation</returns>
 		public override string ToString()
 		{
-			return $"Persistence (Location: {this.Location})";
+			return $"Persistence (Location: {this.Path})";
 		}
 
 		/// <summary>
-		/// Loads (or creates) the instance from disk.
+		/// Loads the instance from file, or creates a new instance.
 		/// </summary>
 		public void Load()
 		{
-			if (File.Exists(this.Location))
+			if (File.Exists(this.Path))
 			{
 				var serializer = new XmlSerializer(typeof(T));
 
-				using (var stream = File.OpenRead(this.Location))
+				using (var stream = File.OpenRead(this.Path))
 				using (var reader = XmlReader.Create(stream))
 				{
 					this.Instance = serializer.Deserialize(reader) as T ?? new T();
@@ -59,20 +59,20 @@ namespace Sharpknife.Core
 		}
 
 		/// <summary>
-		/// Saves the instance to disk.
+		/// Saves the instance to file.
 		/// </summary>
 		public void Save()
 		{
-			var directory = Path.GetDirectoryName(this.Location);
+			var directory = System.IO.Path.GetDirectoryName(this.Path);
 
-			if (directory != null && !string.IsNullOrWhiteSpace(directory) && !Directory.Exists(directory))
+			if (!Directory.Exists(directory))
 			{
 				Directory.CreateDirectory(directory);
 			}
 
 			var serializer = new XmlSerializer(typeof(T));
 
-			using (var stream = File.OpenWrite(this.Location))
+			using (var stream = File.OpenWrite(this.Path))
 			using (var writer = XmlWriter.Create(stream, Persistence<T>.settings))
 			{
 				serializer.Serialize(writer, this.Instance);
@@ -80,9 +80,9 @@ namespace Sharpknife.Core
 		}
 
 		/// <summary>
-		/// Gets the file.
+		/// Gets the path to the file.
 		/// </summary>
-		public string Location { get; private set; }
+		public string Path { get; }
 
 		/// <summary>
 		/// Gets or sets the instance.
