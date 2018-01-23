@@ -1,34 +1,37 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
-using System.Windows;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Data;
 
 namespace Sharpknife.Desktop.Converters
 {
 	/// <summary>
-	/// Represents a converter between a null value to a <see cref="Visibility" />.
+	/// Represents a converter between a null value and a <see cref="bool" />.
 	/// </summary>
-	public class NullVisibilityConverter : IValueConverter
+	public class NullBoolConverter : IValueConverter
 	{
 		/// <summary>
 		/// Creates a new converter.
 		/// </summary>
-		public NullVisibilityConverter()
+		public NullBoolConverter()
 		{
 			this.Invert = false;
 		}
 
 		/// <summary>
-		/// Converts a null value to a <see cref="Visibility" />.
+		/// Converts a null or non-null value to a <see cref="bool" />>.
 		/// </summary>
-		/// <param name="value">the bool</param>
+		/// <param name="value">the value</param>
 		/// <param name="targetType">the target type</param>
 		/// <param name="parameter">the parameter</param>
 		/// <param name="culture">the culture</param>
 		/// <returns>the visibility</returns>
 		public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
 		{
-			return (this.Invert ? value == null : value != null) ? Visibility.Visible : Visibility.Collapsed;
+			return this.Invert ? value == null : value != null;
 		}
 
 		/// <summary>
