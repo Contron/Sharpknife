@@ -8,7 +8,7 @@ using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Markup;
 
-namespace Sharpknife.Desktop.Views.Controls
+namespace Sharpknife.Desktop.Controls
 {
 	/// <summary>
 	/// Represents a button that can have a <see cref="ContextMenu" /> attached to it when clicked.
