@@ -24,7 +24,7 @@ namespace Sharpknife.Desktop.ViewModels
 
 		public Command CloseCommand => Command.Close;
 
-		private string title;
-		private string message;
+		private string title = null;
+		private string message = null;
 	}
 }

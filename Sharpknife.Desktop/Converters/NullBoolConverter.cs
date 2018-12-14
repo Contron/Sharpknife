@@ -18,7 +18,7 @@ namespace Sharpknife.Desktop.Converters
 		/// </summary>
 		public NullBoolConverter()
 		{
-			this.Invert = false;
+			
 		}
 
 		/// <summary>
@@ -45,10 +45,6 @@ namespace Sharpknife.Desktop.Converters
 		/// <summary>
 		/// Gets or sets if the converter is inverted.
 		/// </summary>
-		public bool Invert
-		{
-			get;
-			set;
-		}
+		public bool Invert { get; set; } = false;
 	}
 }

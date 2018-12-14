@@ -12,7 +12,6 @@
 					<Grid.ColumnDefinitions>
 						<ColumnDefinition Width="*" />
 						<ColumnDefinition Width="Auto" />
-						<ColumnDefinition Width="Auto" />
 					</Grid.ColumnDefinitions>
 				</Grid>
 			</ItemsPanelTemplate>
@@ -20,16 +19,7 @@
 		<StatusBarItem Grid.Row="0" Grid.Column="0">
 			<TextBlock Text="{Binding Status.Message, ElementName=Control}" />
 		</StatusBarItem>
-		<StatusBarItem Grid.Row="0" Grid.Column="1">
-			<ItemsControl ItemsSource="{Binding Children, ElementName=Control}">
-				<ItemsControl.ItemsPanel>
-					<ItemsPanelTemplate>
-						<StackPanel Orientation="Horizontal" />
-					</ItemsPanelTemplate>
-				</ItemsControl.ItemsPanel>
-			</ItemsControl>
-		</StatusBarItem>
-		<StatusBarItem Visibility="{Binding Status.Busy, ElementName=Control, Converter={StaticResource BoolVisibilityConverter}}" Grid.Row="0" Grid.Column="2">
+		<StatusBarItem Visibility="{Binding Status.Busy, ElementName=Control, Converter={StaticResource BoolVisibilityConverter}}" Grid.Row="0" Grid.Column="1">
 			<ProgressBar IsIndeterminate="True" Width="100" Height="10" />
 		</StatusBarItem>
 	</StatusBar>

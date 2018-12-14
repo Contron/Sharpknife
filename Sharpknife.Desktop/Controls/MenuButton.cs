@@ -21,7 +21,7 @@ namespace Sharpknife.Desktop.Controls
 		/// </summary>
 		public MenuButton()
 		{
-			this.DisplayMenu = null;
+			
 		}
 
 		/// <summary>

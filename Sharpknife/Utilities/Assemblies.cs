@@ -38,18 +38,29 @@ namespace Sharpknife.Utilities
 		/// </summary>
 		/// <param name="type">the type</param>
 		/// <returns>the sub types</returns>
-		public static List<Type> GetInheritingTypes(Type type)
+		public static IEnumerable<Type> GetInheritingTypes(Type type)
 		{
 			if (type == null)
 			{
 				throw new ArgumentNullException(nameof(type));
 			}
 
-			var types = Assembly.GetAssembly(type).GetTypes()
-				.Where(current => current.IsSubclassOf(type))
-				.ToList();
+			return Assembly.GetAssembly(type).GetTypes().Where(current => current.IsSubclassOf(type));
+		}
 
-			return types;
+		/// <summary>
+		/// Returns all the types that implement the specified type.
+		/// </summary>
+		/// <param name="type">the type</param>
+		/// <returns>the sub types</returns>
+		public static IEnumerable<Type> GetImplementingTypes(Type type)
+		{
+			if (type == null)
+			{
+				throw new ArgumentNullException(nameof(type));
+			}
+
+			return Assembly.GetAssembly(type).GetTypes().Where(current => current.IsAssignableFrom(type));
 		}
 	}
 }

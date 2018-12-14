@@ -16,15 +16,13 @@ namespace Sharpknife.Desktop.Controls
 		/// </summary>
 		public ButtonsBox()
 		{
-			this.Buttons = new ObservableCollection<Button>();
-
 			this.InitializeComponent();
 		}
 
 		/// <summary>
 		/// Gets the buttons property.
 		/// </summary>
-		public static readonly DependencyProperty ButtonsProperty = DependencyProperty.Register(nameof(ButtonsBox.Buttons), typeof(ObservableCollection<Button>), typeof(ButtonsBox));
+		public static readonly DependencyProperty ButtonsProperty = DependencyProperty.Register(nameof(ButtonsBox.Buttons), typeof(ObservableCollection<Button>), typeof(ButtonsBox), new PropertyMetadata(new ObservableCollection<Button>()));
 
 		/// <summary>
 		/// Gets or sets the buttons.

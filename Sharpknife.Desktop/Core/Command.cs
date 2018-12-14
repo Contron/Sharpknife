@@ -5,7 +5,7 @@ using Sharpknife.Desktop.Services;
 namespace Sharpknife.Desktop.Core
 {
 	/// <summary>
-	/// Represents an implementation of <see cref="ICommand" /> which can wrap a <see cref="Action" /> to act as a command.
+	/// Represents an implementation of <see cref="ICommand" /> which can wrap a <see cref="Action" /> and an optional <see cref="Func{T}"/> to act as a command.
 	/// </summary>
 	public class Command : ICommand
 	{
@@ -72,7 +72,7 @@ namespace Sharpknife.Desktop.Core
 			remove => CommandManager.RequerySuggested -= value;
 		}
 
-		private Action action;
-		private Func<bool> predicate;
+		private Action action = null;
+		private Func<bool> predicate = null;
 	}
 }

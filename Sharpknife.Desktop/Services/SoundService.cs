@@ -32,7 +32,7 @@ namespace Sharpknife.Desktop.Services
 		/// Plays the specified system sound.
 		/// </summary>
 		/// <param name="sound">the sound</param>
-		public void PlaySystem(SystemSound sound)
+		public void Play(SystemSound sound)
 		{
 			sound.Play();
 		}

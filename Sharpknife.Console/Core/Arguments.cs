@@ -16,9 +16,6 @@ namespace Sharpknife.Console.Core
 		{
 			this.source = arguments ?? throw new ArgumentNullException(nameof(arguments));
 
-			this.arguments = new Dictionary<string, string>();
-			this.flags = new List<string>();
-
 			this.Parse();
 		}
 
@@ -100,9 +97,9 @@ namespace Sharpknife.Console.Core
 			}
 		}
 
-		private string[] source;
+		private string[] source = null;
 
-		private Dictionary<string, string> arguments;
-		private List<string> flags;
+		private Dictionary<string, string> arguments = new Dictionary<string, string>();
+		private List<string> flags = new List<string>();
 	}
 }

@@ -63,6 +63,6 @@ namespace Sharpknife.Desktop.Core
 		/// <summary>
 		/// Occurs when a property has changed.
 		/// </summary>
-		public event PropertyChangedEventHandler PropertyChanged;
+		public event PropertyChangedEventHandler PropertyChanged = null;
 	}
 }

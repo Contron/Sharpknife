@@ -16,15 +16,13 @@ namespace Sharpknife.Desktop.Controls
 		/// </summary>
 		public HeaderBox()
 		{
-			this.TextBlocks = new ObservableCollection<TextBlock>();
-
 			this.InitializeComponent();
 		}
 
 		/// <summary>
 		/// Gets the text blocks property.
 		/// </summary>
-		public static readonly DependencyProperty TextBlocksProperty = DependencyProperty.Register(nameof(HeaderBox.TextBlocks), typeof(ObservableCollection<TextBlock>), typeof(HeaderBox));
+		public static readonly DependencyProperty TextBlocksProperty = DependencyProperty.Register(nameof(HeaderBox.TextBlocks), typeof(ObservableCollection<TextBlock>), typeof(HeaderBox), new PropertyMetadata(new ObservableCollection<TextBlock>()));
 
 		/// <summary>
 		/// Gets or sets the text blocks.

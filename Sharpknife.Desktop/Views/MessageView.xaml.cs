@@ -19,7 +19,7 @@ namespace Sharpknife.Desktop.Views
 
 		private void WindowLoaded(object sender, RoutedEventArgs args)
 		{
-			SoundService.Instance.PlaySystem(SystemSounds.Beep);
+			SoundService.Instance.Play(SystemSounds.Beep);
 		}
 	}
 }

@@ -12,9 +12,6 @@ namespace Sharpknife.Desktop.Models
 		/// </summary>
 		public Status()
 		{
-			this.Message = "Status";
-			this.Busy = false;
-
 			this.Reset();
 		}
 
@@ -64,7 +61,7 @@ namespace Sharpknife.Desktop.Models
 			set => this.Set(ref this.busy, value);
 		}
 
-		private string message;
-		private bool busy;
+		private string message = null;
+		private bool busy = false;
 	}
 }

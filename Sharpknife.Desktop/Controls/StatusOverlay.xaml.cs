@@ -14,15 +14,13 @@ namespace Sharpknife.Desktop.Controls
 		/// </summary>
 		public StatusOverlay()
 		{
-			this.Status = new Status();
-
 			this.InitializeComponent();
 		}
 
 		/// <summary>
 		/// Gets the status property.
 		/// </summary>
-		public static readonly DependencyProperty StatusProperty = DependencyProperty.Register(nameof(StatusBox.Status), typeof(Status), typeof(StatusOverlay));
+		public static readonly DependencyProperty StatusProperty = DependencyProperty.Register(nameof(StatusBox.Status), typeof(Status), typeof(StatusOverlay), new PropertyMetadata(new Status()));
 
 		/// <summary>
 		/// Gets or sets the status.

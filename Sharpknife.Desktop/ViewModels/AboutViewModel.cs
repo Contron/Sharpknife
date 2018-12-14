@@ -8,16 +8,6 @@ namespace Sharpknife.Desktop.ViewModels
 	{
 		public AboutViewModel()
 		{
-			this.Name = null;
-
-			this.Version = null;
-			this.Copyright = null;
-
-			this.Populate();
-		}
-
-		private void Populate()
-		{
 			this.Name = Assemblies.GetAttribute<AssemblyProductAttribute>()?.Product ?? "Application";
 
 			this.Version = $"Version {Assemblies.GetAttribute<AssemblyFileVersionAttribute>()?.Version ?? "Unknown"}";
@@ -44,9 +34,9 @@ namespace Sharpknife.Desktop.ViewModels
 
 		public Command CloseCommand => Command.Close;
 
-		private string name;
+		private string name = null;
 
-		private string version;
-		private string copyright;
+		private string version = null;
+		private string copyright = null;
 	}
 }

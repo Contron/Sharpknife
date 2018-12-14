@@ -82,12 +82,12 @@ namespace Sharpknife.Core
 		/// <summary>
 		/// Gets the path to the file.
 		/// </summary>
-		public string Path { get; }
+		public string Path { get; } = null;
 
 		/// <summary>
 		/// Gets or sets the instance.
 		/// </summary>
-		public T Instance { get; set; }
+		public T Instance { get; set; } = null;
 
 		private static XmlWriterSettings settings = new XmlWriterSettings()
 		{

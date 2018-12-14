@@ -19,41 +19,35 @@ namespace Sharpknife.Utilities
 
 			if (delta < 60)
 			{
-				return span.Seconds == 1 ? "one second ago" : $"{span.Seconds} seconds ago";
+				return $"{span.Seconds} seconds ago";
 			}
 
 			if (delta < 3600)
 			{
-				return span.Minutes == 1 ? "one minute ago" : $"{span.Minutes} minutes ago";
+				return $"{span.Minutes} minutes ago";
 			}
 
 			if (delta < 86400)
 			{
-				return span.Hours == 1 ? "one hour ago" : $"{span.Hours} hours ago";
+				return $"{span.Hours} hours ago";
 			}
 
 			if (delta < 604800)
 			{
-				return span.Days == 1 ? "yesterday" : $"{span.Days} days ago";
+				return $"{span.Days} days ago";
 			}
 
 			if (delta < 2592000)
 			{
-				var weeks = Math.Max(span.Days / 7, 1);
-
-				return weeks == 1 ? "one week ago" : $"{weeks} weeks ago";
+				return $"{Math.Max(span.Days / 7, 1)} weeks ago";
 			}
 
 			if (delta < 31622400)
 			{
-				var months = Math.Max(span.Days / 30, 1);
-
-				return months == 1 ? "one month ago" : $"{months} months ago";
+				return $"{Math.Max(span.Days / 30, 1)} months ago";
 			}
 
-			var years = Math.Max(span.Days / 365, 1);
-
-			return years == 1 ? "one year ago" : $"{years} years ago";
+			return  $"{Math.Max(span.Days / 365, 1)} years ago";
 		}
 	}
 }
