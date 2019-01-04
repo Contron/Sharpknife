@@ -2,7 +2,7 @@
 
 namespace Sharpknife.Desktop.ViewModels
 {
-	class MessageViewModel : Observable
+	sealed class MessageViewModel : Observable
 	{
 		public MessageViewModel()
 		{

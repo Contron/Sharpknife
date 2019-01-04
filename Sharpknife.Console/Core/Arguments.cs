@@ -6,7 +6,7 @@ namespace Sharpknife.Console.Core
 	/// <summary>
 	/// Represents a parser for command-line arguments.
 	/// </summary>
-	public class Arguments
+	public sealed class Arguments
 	{
 		/// <summary>
 		/// Creates a new arguments parser with the specified arguments.

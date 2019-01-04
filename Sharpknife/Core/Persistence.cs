@@ -9,7 +9,7 @@ namespace Sharpknife.Core
 	/// Represents a container around a <see cref="object" /> to manage persistence.
 	/// </summary>
 	/// <typeparam name="T">the type to contain</typeparam>
-	public class Persistence<T> where T : class, new()
+	public sealed class Persistence<T> where T : class, new()
 	{
 		/// <summary>
 		/// Creates a new persistence container for the specified file.

@@ -45,7 +45,7 @@ namespace Sharpknife.Utilities
 				throw new ArgumentNullException(nameof(type));
 			}
 
-			return Assembly.GetAssembly(type).GetTypes().Where(current => current.IsSubclassOf(type));
+			return Assembly.GetAssembly(type).GetTypes().Where(current => current.IsSubclassOf(type) && current.IsClass);
 		}
 
 		/// <summary>
@@ -60,7 +60,7 @@ namespace Sharpknife.Utilities
 				throw new ArgumentNullException(nameof(type));
 			}
 
-			return Assembly.GetAssembly(type).GetTypes().Where(current => current.IsAssignableFrom(type));
+			return Assembly.GetAssembly(type).GetTypes().Where(current => type.IsAssignableFrom(current) && current.IsClass);
 		}
 	}
 }

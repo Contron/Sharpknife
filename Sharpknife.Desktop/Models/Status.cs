@@ -5,7 +5,7 @@ namespace Sharpknife.Desktop.Models
 	/// <summary>
 	/// Represents the status of a window with a message and a busy status.
 	/// </summary>
-	public class Status : Observable
+	public sealed class Status : Observable
 	{
 		/// <summary>
 		/// Creates a new status.

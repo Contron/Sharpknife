@@ -4,7 +4,7 @@ using Sharpknife.Utilities;
 
 namespace Sharpknife.Desktop.ViewModels
 {
-	class AboutViewModel : Observable
+	sealed class AboutViewModel : Observable
 	{
 		public AboutViewModel()
 		{
